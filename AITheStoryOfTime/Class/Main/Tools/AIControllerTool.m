@@ -5,6 +5,7 @@
 //  Created by qianfeng on 15/10/8.
 //  Copyright (c) 2015年 aizexin. All rights reserved.
 // 控制器相关操作
+#warning 第一次进去没有DDM不能侧滑
 
 #import "AIControllerTool.h"
 #import "AITabBarViewController.h"

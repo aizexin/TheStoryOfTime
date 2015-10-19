@@ -21,21 +21,55 @@
 @interface AIBirthViewController ()
 @property(nonatomic,strong)BEMAnalogClockView *nowColck;
 @property(nonatomic,strong)AIBirthBottomView *bottomView;
-/**
- *  侧滑后能显示出来的view
- */
+/**侧滑后能显示出来的view*/
 @property(nonatomic,strong)UIView *bgView;
+/**设置*/
+@property(nonatomic,weak)UIButton *settingBtn;
+/**蒙版 */
+@property(nonatomic,strong)UIButton *core;
+/**日期选择*/
+@property(nonatomic,strong)UIView *dateView;
 @end
 
 @implementation AIBirthViewController
 
+-(UIView *)dateView{
+    if (!_dateView) {
+        _dateView = [[UIView alloc]init];
+        [_dateView setBackgroundColor:[UIColor greenColor]];
+      
+    }
+    return _dateView;
+}
+
+-(UIButton *)core{
+    if (!_core) {
+        _core = [UIButton buttonWithType:(UIButtonTypeCustom)];
+        _core.frame = [UIScreen mainScreen].bounds;
+        _core.alpha = 0.3;
+        _core.backgroundColor = [UIColor blackColor];
+    }
+    return _core;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupbgView];
+    [self setupSetting];
     [self.view setBackgroundColor:AIColor(211, 211, 211)];
     [self setupNowColock];
     [self setupBottonView];
     [self fitScrceen];
+}
+/**
+ *  添加设置按钮
+ */
+-(void)setupSetting{
+    UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    self.settingBtn = btn;
+    [btn setImage:[UIImage imageNamed:@"left_set_ic"] forState:(UIControlStateNormal)];
+    [self.bgView addSubview:btn];
+    [btn addTarget:self action:@selector(onClickSettingBtn:) forControlEvents:(UIControlEventTouchUpInside)];
 }
 /**
  *  添加现在的时钟
@@ -73,7 +107,6 @@
     AIBirthBottomView *bottomView = [[AIBirthBottomView alloc]init];
     [self.bgView addSubview:bottomView];
     self.bottomView = bottomView;
-//    [self.bottomView setBackgroundColor:[UIColor redColor]];
 
 }
 /**
@@ -94,6 +127,15 @@
  *  屏幕适配
  */
 -(void)fitScrceen{
+    //设置按钮
+    [self.settingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.bgView.mas_top).offset = 5;
+        make.right.mas_equalTo(self.bgView.mas_right).offset = -5;
+        make.width.mas_equalTo(@(40));
+        make.height.mas_equalTo(@40);
+        
+    }];
+    
     //时钟
     CGFloat padding = ClockPadding;
     [self.nowColck makeConstraints:^(MASConstraintMaker *make) {
@@ -112,6 +154,30 @@
         make.left.equalTo(@(viewPadding));
         make.bottom.equalTo(@(-viewPadding));
     }];
+    
+}
+#pragma mark -点击事件
+-(void)onClickSettingBtn:(UIButton*)btn{
+    //选择出生年月日
+    
+    [UIView animateWithDuration:1. animations:^{
+        
+        self.nowColck.hours = 0;
+        self.nowColck.minutes = 0;
+        self.nowColck.seconds = 0;
+        [self.nowColck stopRealTime];
+        self.bottomView.alpha = 0;
+        
+    }];
+    [self.bgView insertSubview:self.core belowSubview:self.view];
+    [self.bgView addSubview:self.dateView];
+    [_dateView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(@0);
+        make.right.mas_equalTo(@0);
+        make.left.mas_equalTo(@0);
+        make.height.mas_equalTo(@200);
+    }];
+    
 }
 
 
