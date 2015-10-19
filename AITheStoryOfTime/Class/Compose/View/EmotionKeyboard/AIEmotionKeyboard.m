@@ -10,7 +10,7 @@
 #import "AIEmotionListView.h"
 #import "AIEmotionToolbar.h"
 #import "AIEmotionTool.h"
-#import "UIView+Extension.h"
+//#import "UIView+Extension.h"
 //#import "AIEmotion.h"
 //#import "MJExtension.h"
 @interface AIEmotionKeyboard ()
@@ -49,14 +49,14 @@
 
 -(void)layoutSubviews{
     //工具条位置
-    self.toolbar.width = Mainsize.width;
-    self.toolbar.height = 35;
-    
+//    self.toolbar.width = Mainsize.width;
+//    self.toolbar.height = 35;
     //listView位置
-    self.listView.width = Mainsize.width;
-    self.listView.height = self.height - self.toolbar.height;
-    
-    self.toolbar.y = self.listView.height;
+//    self.listView.width = Mainsize.width;
+//    self.listView.height = self.height - self.toolbar.height;
+    self.listView.frame = CGRectMake(0, 0, Mainsize.width, self.frame.size.height - 35);
+//    self.toolbar.y = self.listView.height;
+    self.toolbar.frame = CGRectMake(0, self.listView.frame.size.height, Mainsize.width, 35);
 
 }
 

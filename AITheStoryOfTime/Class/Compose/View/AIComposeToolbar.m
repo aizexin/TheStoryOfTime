@@ -8,7 +8,13 @@
 
 #import "AIComposeToolbar.h"
 #import "AIDefine.h"
-#import "UIView+Extension.h"
+//#import "UIView+Extension.h"
+//define this constant if you want to use Masonry without the 'mas_' prefix
+//#define MAS_SHORTHAND
+//
+////define this constant if you want to enable auto-boxing for default syntax
+//#define MAS_SHORTHAND_GLOBALS
+//#import "Masonry.h"
 @interface AIComposeToolbar ()
 /**
  *  表情按钮
@@ -29,9 +35,11 @@
         [self addButtonWithNorImage:@"compose_mentionbutton_background" higImage:@"compose_mentionbutton_background_highlighted" andtag:AIComposeToolBarTagTypeMention];
         [self addButtonWithNorImage:@"compose_trendbutton_background" higImage:@"compose_trendbutton_background_highlighted" andtag:AIComposeToolBarTagTypeTrend];
        self.emoticonBtn = [self addButtonWithNorImage:@"compose_emoticonbutton_background" higImage:@"compose_emoticonbutton_background_highlighted" andtag:AIComposeToolBarTagTypeEmotion];
+//        [self fitScreen];
     }
     return self;
 }
+
 
 /**
  *  添加一个按钮
@@ -48,6 +56,7 @@
     [btn setImage:[UIImage imageNamed:higImage] forState:(UIControlStateHighlighted)];
     [btn addTarget:self action:@selector(onClickBtn:) forControlEvents:(UIControlEventTouchUpInside)];
     btn.tag = tag;
+    btn.backgroundColor = AIRandomColor;
     [self addSubview:btn];
     return btn;
 }
@@ -63,13 +72,35 @@
     }
 }
 
+//-(void)fitScreen{
+//    UIButton *lastView = nil;
+//    CGFloat width = self.frame.size.width/self.subviews.count;
+//    for (int i = 0; i < self.subviews.count; i++) {
+//        UIButton *view = self.subviews[i];
+//        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.mas_equalTo(lastView ? lastView.right : @0);
+//            make.top.mas_equalTo(@0);
+//            make.bottom.mas_equalTo(@0);
+//            make.width.mas_equalTo(@(60));
+////            make.height.mas_equalTo(@40);
+//        }];
+//        lastView = view;
+//    }
+//
+//}
+
 -(void)layoutSubviews{
     for (int i = 0; i < self.subviews.count; i++) {
         UIButton *btn = self.subviews[i];
-        btn.y = 0;
-        btn.width = self.width / 5;
-        btn.height = self.height;
-        btn.x = i * btn.width;
+//        btn.y = 0;
+//        btn.width = self.width / 5;
+//        btn.height = self.height;
+//        btn.x = i * btn.width;
+        CGFloat y = 0;
+        CGFloat width = self.frame.size.width/5;
+        CGFloat heigt = self.frame.size.height;
+        CGFloat x = i *width;
+        btn.frame = CGRectMake(x, y, width, heigt);
     }
 }
 

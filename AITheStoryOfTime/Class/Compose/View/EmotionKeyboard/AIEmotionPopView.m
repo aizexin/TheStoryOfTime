@@ -8,7 +8,7 @@
 
 #import "AIEmotionPopView.h"
 #import "AIEmotionView.h"
-#import "UIView+Extension.h"
+//#import "UIView+Extension.h"
 @interface AIEmotionPopView ()
 @property (strong, nonatomic) IBOutlet AIEmotionView *emotionView;
 

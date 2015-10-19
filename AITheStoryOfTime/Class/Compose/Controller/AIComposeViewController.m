@@ -7,7 +7,6 @@
 //
 
 #import "AIComposeViewController.h"
-#import "AIDefine.h"
 #import "AITextView.h"
 #import "AIComposeToolbar.h"
 #import "AIComposePhotosView.h"
@@ -17,8 +16,13 @@
 #import "AIStatusesTool.h"
 #import "AIEmotionKeyboard.h"
 #import "AIEmotion.h"
-#import "UIView+Extension.h"
-//#import "AIHttpTool.h"
+//define this constant if you want to use Masonry without the 'mas_' prefix
+#define MAS_SHORTHAND
+
+//define this constant if you want to enable auto-boxing for default syntax
+#define MAS_SHORTHAND_GLOBALS
+#import "Masonry.h"
+//#import "UIView+Extension.h"
 #define Compose_Path @"https://api.weibo.com/2/statuses/update.json"//没有图片发送微博的接口
 #define Compose_Path_Image @"https://upload.api.weibo.com/2/statuses/upload.json"//发送有图片的微（有且只有一张）
 @interface AIComposeViewController ()<AIComposeToolbarDelegate,UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
@@ -56,8 +60,14 @@
     if (!_emotionKeyboard) {
         _emotionKeyboard = [AIEmotionKeyboard keyboard];
         
-        _emotionKeyboard.width = Mainsize.width;
-        _emotionKeyboard.height = self.keyboardH;
+//        _emotionKeyboard.width = Mainsize.width;
+//        _emotionKeyboard.height = self.keyboardH;
+//        _emotionKeyboard.frame = CGRectMake(0, 0, Mainsize.width, self.keyboardH);
+        [_emotionKeyboard mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(@(Mainsize.width));
+            make.height.mas_equalTo(@(self.keyboardH));
+        }];
+        
     }
     return _emotionKeyboard;
 }
@@ -87,11 +97,19 @@
     AIComposeToolbar *toolBar = [[AIComposeToolbar alloc]init];
     self.composeToolbar = toolBar;
     toolBar.delegate = self;
-    toolBar.width = self.view.width;
-    toolBar.height = 44;
-    toolBar.x = 0;
-    toolBar.y = self.view.height - toolBar.height;
+    
+//    toolBar.width = self.view.width;
+//    toolBar.height = 44;
+//    toolBar.x = 0;
+//    toolBar.y = self.view.height - toolBar.height;
+//    toolBar.frame = CGRectMake(0, Mainsize.height - toolBar.frame.size.height, Mainsize.width, 44);
     [self.view addSubview:toolBar];
+    [toolBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(@0);
+        make.bottom.mas_equalTo(@0);
+        make.width.mas_equalTo(@(Mainsize.width));
+        make.height.mas_equalTo(@(44));
+    }];
 }
 
 /**
@@ -111,9 +129,10 @@
     //相册
     AIComposePhotosView *photosView = [[AIComposePhotosView alloc]init];
     self.photosView = photosView;
-    photosView.width = textView.width;
-    photosView.height = textView.height;
-    photosView.y = 80;
+//    photosView.width = textView.width;
+//    photosView.height = textView.height;
+//    photosView.y = 80;
+    photosView.frame = CGRectMake(0, 80, textView.frame.size.width, textView.frame.size.height);
     [textView addSubview:photosView];
     
 }

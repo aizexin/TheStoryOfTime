@@ -8,7 +8,7 @@
 
 #import "AIEmotionListView.h"
 #import "AIEmotionGridView.h"
-#import "UIView+Extension.h"
+//#import "UIView+Extension.h"
 
 @interface AIEmotionListView ()<UIScrollViewDelegate>
 @property(weak,nonatomic)UIScrollView *scrollView;
@@ -43,21 +43,24 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     //1pageControl的frame
-    self.pageControl.width = Mainsize.width;
-    self.pageControl.height = 30;
-    self.pageControl.y = self.height - self.pageControl.height;
+//    self.pageControl.width = Mainsize.width;
+//    self.pageControl.height = 30;
+//    self.pageControl.y = self.height - self.pageControl.height;
+    self.pageControl.frame = CGRectMake(0, self.frame.size.height - 30, Mainsize.width, 30);
     //2scrollView的frame
-    self.scrollView.width = Mainsize.width;
-    self.scrollView.height = self.height - self.pageControl.height;
-    
-    self.scrollView.contentSize = CGSizeMake(self.pageControl.numberOfPages * self.scrollView.width, self.scrollView.height);
+//    self.scrollView.width = Mainsize.width;
+//    self.scrollView.height = self.height - self.pageControl.height;
+    self.scrollView.frame = CGRectMake(0, 0, Mainsize.width, self.frame.size.height - self.pageControl.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(self.pageControl.numberOfPages * self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     //3设置gridView的frame
     
+    CGFloat gridW = self.scrollView.frame.size.width;
     for (int i = 0; i < self.scrollView.subviews.count; i++) {
         AIEmotionGridView *gridView = (AIEmotionGridView*)self.scrollView.subviews[i];
-        gridView.width = self.scrollView.width;
-        gridView.height = self.scrollView.height;
-        gridView.x = i * gridView.width;
+        gridView.frame = CGRectMake(i * gridW, 0, gridW, self.scrollView.frame.size.height);
+//        gridView.width = self.scrollView.width;
+//        gridView.height = self.scrollView.height;
+//        gridView.x = i * gridView.width;
     }
 
     
@@ -119,7 +122,7 @@
 #pragma mark 代理方法
 #pragma mark -UIScrollViewDelegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    self.pageControl.currentPage = (int)((scrollView.contentOffset.x/scrollView.width)+0.5);
+    self.pageControl.currentPage = (int)((scrollView.contentOffset.x/scrollView.frame.size.width)+0.5);
 }
 
 @end

@@ -11,7 +11,7 @@
 #import "AIEmotionView.h"
 #import "AIEmotionPopView.h"
 #import "AIEmotionTool.h"
-#import "UIView+Extension.h"
+//#import "UIView+Extension.h"
 @interface AIEmotionGridView ()
 @property(nonatomic,strong)NSMutableArray *emotionViewM;
 /**
@@ -153,23 +153,28 @@
     CGFloat leftInset = 15;
     CGFloat topInset = 15;
     int count = (int)self.emotionViewM.count;
-    CGFloat emotionViewW = (self.width - 2 *leftInset) / AIEmotionMaxCols;
-    CGFloat emotionVIewH = (self.height - topInset)/AIEmotionMaxRows;
+    CGFloat emotionViewW = (self.frame.size.width - 2 *leftInset) / AIEmotionMaxCols;
+    CGFloat emotionVIewH = (self.frame.size.height - topInset)/AIEmotionMaxRows;
     
     
     for (int i = 0; i < count; i++) {
         UIButton *emotionView = self.emotionViewM[i];
-        emotionView.x = leftInset + (i%AIEmotionMaxCols) *emotionViewW;
-        emotionView.y = topInset + (i / AIEmotionMaxCols) * emotionVIewH;
-        emotionView.width = emotionViewW;
-        emotionView.height = emotionVIewH;
+//        emotionView.x = leftInset + (i%AIEmotionMaxCols) *emotionViewW;
+//        emotionView.y = topInset + (i / AIEmotionMaxCols) * emotionVIewH;
+//        emotionView.width = emotionViewW;
+//        emotionView.height = emotionVIewH;
+        emotionView.frame = CGRectMake(leftInset + (i%AIEmotionMaxCols) *emotionViewW, topInset + (i / AIEmotionMaxCols) * emotionVIewH, emotionViewW, emotionVIewH);
     }
     //设置delet的frame
-    self.deletBtn.width = emotionViewW;
-    self.deletBtn.height = emotionVIewH;
-    self.deletBtn.x = self.width - self.deletBtn.width - leftInset;
-    self.deletBtn.y = self.height - self.deletBtn.height;
-
+//    self.deletBtn.width = emotionViewW;
+//    self.deletBtn.height = emotionVIewH;
+//    self.deletBtn.x = self.width - self.deletBtn.width - leftInset;
+//    self.deletBtn.y = self.height - self.deletBtn.height;
+    CGFloat deleteW = emotionViewW;
+    CGFloat deleteH = emotionVIewH;
+    CGFloat deleteX = self.frame.size.width - deleteW - leftInset;
+    CGFloat deleteY = self.frame.size.height - deleteH;
+    self.deletBtn.frame = CGRectMake(deleteX, deleteY, deleteW, deleteH);
 }
 
 @end

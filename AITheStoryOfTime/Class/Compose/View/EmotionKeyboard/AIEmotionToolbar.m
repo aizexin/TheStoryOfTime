@@ -7,7 +7,7 @@
 //
 
 #import "AIEmotionToolbar.h"
-#import "UIView+Extension.h"
+//#import "UIView+Extension.h"
 @interface AIEmotionToolbar ()
 @property(nonatomic,weak)UIButton *selBtn;
 @end
@@ -30,11 +30,13 @@
 -(void)layoutSubviews{
     //设置工具条上按钮
     
+    CGFloat width = Mainsize.width/AIEmotionToolbarCount;
     for (int i = 0; i < AIEmotionToolbarCount; i++) {
         UIButton *btn = self.subviews[i];
-        btn.width = Mainsize.width/AIEmotionToolbarCount;
-        btn.height = self.height;
-        btn.x = i * btn.width;
+//        btn.width = Mainsize.width/AIEmotionToolbarCount;
+//        btn.height = self.height;
+//        btn.x = i * btn.width;
+        btn.frame = CGRectMake(i*width, 0, width, self.frame.size.height);
     }
 }
 
