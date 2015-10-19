@@ -8,6 +8,7 @@
 
 #import "AIComposePhotosView.h"
 #import "AIDefine.h"
+#import "UIView+Extension.h"
 #define MaxColsPerRow 4
 #define Margin 10
 @implementation AIComposePhotosView

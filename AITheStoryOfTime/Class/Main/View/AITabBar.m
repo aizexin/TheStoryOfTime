@@ -8,7 +8,7 @@
 
 #import "AITabBar.h"
 #import "AIDefine.h"
-#import "UIView+Extension.h"
+//#import "UIView+Extension.h"
 
 @interface AITabBar ()
 @property(nonatomic,weak)UIButton *plusBtn;
@@ -60,15 +60,19 @@
  *  设置加号的frame
  */
 -(void)setPlusFrame{
-    self.plusBtn.center = CGPointMake(self.width * 0.5, self.height *0.5);
-    self.plusBtn.size = self.plusBtn.currentBackgroundImage.size;
+    CGFloat plusBtnW = self.plusBtn.currentBackgroundImage.size.width;
+    CGFloat plusBtnH = self.plusBtn.currentBackgroundImage.size.height;
+    self.plusBtn.frame = CGRectMake(0, 0, plusBtnW, plusBtnH);
+    self.plusBtn.center = CGPointMake(self.frame.size.width * 0.5, self.frame.size.height *0.5);
+//    self.plusBtn.frame.size.width = 2;
+//    self.plusBtn.frame.size = self.plusBtn.currentBackgroundImage.size;
 }
 /**
  *  设置所有item的Frame
  */
 -(void)setTabBarItemFrame{
-    CGFloat width = self.width / 5;
-    CGFloat hight = self.height;
+    CGFloat width = self.frame.size.width / 5;
+    CGFloat hight = self.frame.size.height;
     int index = 0;
     for (UIView *tabBarItem in self.subviews) {
         if (![tabBarItem isKindOfClass:[NSClassFromString(@"UITabBarButton") class]]) {

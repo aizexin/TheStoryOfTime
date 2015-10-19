@@ -25,7 +25,7 @@
 #import "AIStatusesTool.h"
 #import "AIStatusCell.h"
 #import "AIStatusFrame.h"
-
+#import "UIView+Extension.h"
 
 @interface AiHomeViewController ()<AIPopMenuDelegate>
 @property(nonatomic,strong)AIHomeTitleButton *titleBtn;

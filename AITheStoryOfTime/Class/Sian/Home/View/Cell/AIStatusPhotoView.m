@@ -9,7 +9,7 @@
 #import "AIStatusPhotoView.h"
 #import "UIImageView+AFNetworking.h"
 #import "AIPhoto.h"
-
+#import "UIView+Extension.h"
 @interface AIStatusPhotoView ()
 @property(nonatomic,weak)UIImageView *gifImageView;
 @end

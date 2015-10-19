@@ -9,7 +9,7 @@
 #ifndef AIweichat_AIDefine_h
 #define AIweichat_AIDefine_h
 
-#import "UIView+Extension.h"
+//#import "UIView+Extension.h"
 #import "UIImage+Extension.h"
 #import "NSString+Extension.h"
 #define Mainsize ([[UIScreen mainScreen]bounds].size)
@@ -81,6 +81,12 @@
 
 //通知里面用来取出表情用的key
 #define AISelectedEmotion  @"AISelectedEmotion"
+
+//Birth相关
+#define AIBirthShowScale (280.0/320)
+#define kMenuDisplayedWidth Mainsize.width *(280.0/320)
+////屏幕适配
+
 
 
 

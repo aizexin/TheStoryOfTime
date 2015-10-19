@@ -9,6 +9,7 @@
 #import "AIStatusPhotosView.h"
 #import "AIStatusPhotoView.h"
 #import "MJPhotoBrowser.h"
+#import "UIView+Extension.h"
 #import "MJPhoto.h"
 #import "AIPhoto.h"
 #define AIStatusPhotoW 70

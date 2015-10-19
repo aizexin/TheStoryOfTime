@@ -8,7 +8,7 @@
 
 #import "AIEmotionListView.h"
 #import "AIEmotionGridView.h"
-
+#import "UIView+Extension.h"
 
 @interface AIEmotionListView ()<UIScrollViewDelegate>
 @property(weak,nonatomic)UIScrollView *scrollView;

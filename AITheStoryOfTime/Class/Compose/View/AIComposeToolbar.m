@@ -8,7 +8,7 @@
 
 #import "AIComposeToolbar.h"
 #import "AIDefine.h"
-
+#import "UIView+Extension.h"
 @interface AIComposeToolbar ()
 /**
  *  表情按钮

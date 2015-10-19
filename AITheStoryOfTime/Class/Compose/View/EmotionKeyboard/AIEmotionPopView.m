@@ -8,6 +8,7 @@
 
 #import "AIEmotionPopView.h"
 #import "AIEmotionView.h"
+#import "UIView+Extension.h"
 @interface AIEmotionPopView ()
 @property (strong, nonatomic) IBOutlet AIEmotionView *emotionView;
 
@@ -33,9 +34,10 @@
     [window addSubview:self];
     
     //设置位置
-    CGFloat centerX = fromEmotionView.centerX;
-    CGFloat centerY = fromEmotionView.centerY - self.height*0.5;
-    CGPoint center = CGPointMake(centerX, centerY);
+    CGPoint point = CGPointMake(fromEmotionView.center.x, fromEmotionView.center.y);
+//    CGFloat centerX = fromEmotionView.centerX;
+//    CGFloat centerY = fromEmotionView.centerY - self.height*0.5;
+    CGPoint center = point;//CGPointMake(centerX, centerY);
     self.center = [window convertPoint:center fromView:fromEmotionView.superview];
 }
 

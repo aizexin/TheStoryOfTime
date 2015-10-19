@@ -17,7 +17,7 @@
 #import "AIStatusesTool.h"
 #import "AIEmotionKeyboard.h"
 #import "AIEmotion.h"
-
+#import "UIView+Extension.h"
 //#import "AIHttpTool.h"
 #define Compose_Path @"https://api.weibo.com/2/statuses/update.json"//没有图片发送微博的接口
 #define Compose_Path_Image @"https://upload.api.weibo.com/2/statuses/upload.json"//发送有图片的微（有且只有一张）

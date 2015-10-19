@@ -7,8 +7,8 @@
 //
 
 #import "AINewFeatureViewController.h"
-#import "AIDefine.h"
 #import "AITabBarViewController.h"
+#import "UIView+Extension.h"
 #define ImageCount 4
 @interface AINewFeatureViewController ()<UIScrollViewDelegate>
 @property(nonatomic,weak)UIPageControl *pageControl;
@@ -66,8 +66,10 @@
     [starBtn setBackgroundImage:[UIImage imageNamed:@"new_feature_finish_button"] forState:(UIControlStateNormal)];
     [starBtn setBackgroundImage:[UIImage imageNamed:@"new_feature_finish_button_highlighted"] forState:(UIControlStateHighlighted)];
     starBtn.size = starBtn.currentBackgroundImage.size;
-    starBtn.centerX = self.view.width *0.5;
-    starBtn.centerY = self.view.height * 0.8;
+    CGPoint center= CGPointMake(self.view.frame.size.width *0.5, self.view.frame.size.height * 0.8);
+    starBtn.center = center;
+//    starBtn.centerX = self.view.width *0.5;
+//    starBtn.centerY = self.view.height * 0.8;
     //设置文字
     [starBtn setTitle:@"开始微博" forState:(UIControlStateNormal)];
     //添加点击事件
@@ -79,8 +81,10 @@
 -(void)setupShareButton:(UIImageView*)imageView{
     UIButton *shareBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     shareBtn.size = CGSizeMake(150, 35);
-    shareBtn.centerX = self.view.width *0.5;
-    shareBtn.centerY = self.view.height * 0.7;
+    CGPoint center = CGPointMake(self.view.frame.size.width *0.5, self.view.frame.size.height * 0.7);
+    shareBtn.center = center;
+//    shareBtn.centerX = self.view.width *0.5;
+//    shareBtn.centerY = self.view.height * 0.7;
     [imageView addSubview:shareBtn];
     //设置图片
     [shareBtn setImage:[UIImage imageNamed:@"new_feature_share_false"] forState:(UIControlStateNormal)];
@@ -112,8 +116,9 @@
     pageControl.numberOfPages = ImageCount;
     pageControl.pageIndicatorTintColor = AIColor(189, 189, 189);
     pageControl.currentPageIndicatorTintColor = AIColor(253, 98, 42); // 当前页的小圆点颜色
-    pageControl.centerX = self.view.width * 0.5;
-    pageControl.centerY = self.view.height - 30;
+    CGPoint centerPoint = CGPointMake(self.view.width * 0.5, self.view.height - 30);
+    pageControl.center = centerPoint;
+
     self.pageControl = pageControl;
     [self.view addSubview:pageControl];
 }
