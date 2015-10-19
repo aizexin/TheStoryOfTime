@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E1D29F97-1E0D-42D7-9B4B-796C282C15C7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6B68D44AE9B8A8812C1C754A33D94C08FB837B28</key>
+		<string>https://git.oschina.net/aizexin/AITheStoryOfTime.git</string>
+		<key>ADE105B5E71C88C0ABF755C6B17CA1BD822CE0AB</key>
+		<string>https://github.com/aizexin/MJPhotoBrowser.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AITheStoryOfTime/AITheStoryOfTime.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6B68D44AE9B8A8812C1C754A33D94C08FB837B28</key>
+		<string>../../..</string>
+		<key>ADE105B5E71C88C0ABF755C6B17CA1BD822CE0AB</key>
+		<string>../../..AITheStoryOfTime/AITheStoryOfTime/Class/Libs/MJPhotoBrowser/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://git.oschina.net/aizexin/AITheStoryOfTime.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6B68D44AE9B8A8812C1C754A33D94C08FB837B28</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6B68D44AE9B8A8812C1C754A33D94C08FB837B28</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AITheStoryOfTime</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>ADE105B5E71C88C0ABF755C6B17CA1BD822CE0AB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MJPhotoBrowser</string>
+		</dict>
+	</array>
+</dict>
+</plist>

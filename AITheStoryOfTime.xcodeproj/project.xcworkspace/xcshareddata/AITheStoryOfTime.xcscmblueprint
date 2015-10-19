@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6B68D44AE9B8A8812C1C754A33D94C08FB837B28",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6B68D44AE9B8A8812C1C754A33D94C08FB837B28" : 0,
+    "ADE105B5E71C88C0ABF755C6B17CA1BD822CE0AB" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E1D29F97-1E0D-42D7-9B4B-796C282C15C7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6B68D44AE9B8A8812C1C754A33D94C08FB837B28" : "AITheStoryOfTime",
+    "ADE105B5E71C88C0ABF755C6B17CA1BD822CE0AB" : "AITheStoryOfTimeAITheStoryOfTime\/AITheStoryOfTime\/Class\/Libs\/MJPhotoBrowser"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AITheStoryOfTime",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "AITheStoryOfTime\/AITheStoryOfTime.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.oschina.net\/aizexin\/AITheStoryOfTime.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6B68D44AE9B8A8812C1C754A33D94C08FB837B28"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/aizexin\/MJPhotoBrowser.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ADE105B5E71C88C0ABF755C6B17CA1BD822CE0AB"
+    }
+  ]
+}
