@@ -9,6 +9,9 @@
 #import "AIBirthViewController.h"
 #import "BEMAnalogClockView.h"
 #import "AIBirthBottomView.h"
+#import "UUDatePicker.h"
+#import "UUDatePicker_DateModel.h"
+#import "AIDateTool.h"
 //define this constant if you want to use Masonry without the 'mas_' prefix
 #define MAS_SHORTHAND
 
@@ -18,7 +21,7 @@
 #define ClockPadding 45.0;
 #define BottomViewPadding 10
 
-@interface AIBirthViewController ()
+@interface AIBirthViewController ()<UUDatePickerDelegate>
 @property(nonatomic,strong)BEMAnalogClockView *nowColck;
 @property(nonatomic,strong)AIBirthBottomView *bottomView;
 /**侧滑后能显示出来的view*/
@@ -28,14 +31,28 @@
 /**蒙版 */
 @property(nonatomic,strong)UIButton *core;
 /**日期选择*/
-@property(nonatomic,strong)UIView *dateView;
+@property(nonatomic,strong)UUDatePicker *dateView;
+/**选中的时间模型*/
+@property(nonatomic,strong)UUDatePicker_DateModel *seldate_dateModel;
 @end
 
 @implementation AIBirthViewController
 
+-(UUDatePicker_DateModel *)seldate_dateModel{
+    if (!_seldate_dateModel) {
+        _seldate_dateModel  = [[UUDatePicker_DateModel alloc]init];
+    }
+    return _seldate_dateModel;
+}
+
 -(UIView *)dateView{
     if (!_dateView) {
-        _dateView = [[UIView alloc]init];
+        _dateView = [[UUDatePicker alloc]init];
+        _dateView.delegate = self;
+        [_dateView setDatePickerStyle:(UUDateStyle_YearMonthDayHourMinute)];
+        //设置最大时间为现在
+        _dateView.maxLimitDate = [NSDate date];
+//        _dateView.minLimitDate = nsdate
         [_dateView setBackgroundColor:[UIColor greenColor]];
       
     }
@@ -45,9 +62,11 @@
 -(UIButton *)core{
     if (!_core) {
         _core = [UIButton buttonWithType:(UIButtonTypeCustom)];
-        _core.frame = [UIScreen mainScreen].bounds;
+        _core.frame = self.bgView.bounds;
         _core.alpha = 0.3;
         _core.backgroundColor = [UIColor blackColor];
+        [_core addTarget:self action:@selector(onClickCoreBtn:) forControlEvents:(UIControlEventTouchDown)];
+        [_core setTitle:@"出生日" forState:(UIControlStateNormal)];
     }
     return _core;
 }
@@ -160,11 +179,11 @@
 -(void)onClickSettingBtn:(UIButton*)btn{
     //选择出生年月日
     
-    [UIView animateWithDuration:1. animations:^{
+    [UIView animateWithDuration:.5 animations:^{
         
-        self.nowColck.hours = 0;
-        self.nowColck.minutes = 0;
-        self.nowColck.seconds = 0;
+//        self.nowColck.hours = 0;
+//        self.nowColck.minutes = 0;
+//        self.nowColck.seconds = 0;
         [self.nowColck stopRealTime];
         self.bottomView.alpha = 0;
         
@@ -177,6 +196,33 @@
         make.left.mas_equalTo(@0);
         make.height.mas_equalTo(@200);
     }];
+}
+/**
+ *  点击蒙版
+ */
+-(void)onClickCoreBtn:(UIButton*)core{
+    [self.dateView removeFromSuperview];
+    [core removeFromSuperview];
+    [UIView animateWithDuration:.5 animations:^{
+        self.nowColck.currentTime = YES;
+        [self.nowColck startRealTime];
+        self.bottomView.alpha = 1;
+    }];
+    //这个时候确定时间
+    //存储到沙盒
+    [AIDateTool save:self.seldate_dateModel];
+    
+}
+#pragma mark 代理方法
+#pragma mark -UUDatePickerDelegate
+-(void)uuDatePicker:(UUDatePicker *)datePicker year:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour minute:(NSString *)minute weekDay:(NSString *)weekDay{
+    //得到时间
+    AILog(@"year = %@,month = %@",year,month);
+    self.seldate_dateModel.year = year;
+    self.seldate_dateModel.month = month;
+    self.seldate_dateModel.day = day;
+    self.seldate_dateModel.hour = hour;
+    self.seldate_dateModel.minute = minute;
     
 }
 

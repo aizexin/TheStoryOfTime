@@ -72,8 +72,11 @@
 
 - (NSDateComponents *)deltaWithNow
 {
+//    NSCalendarUnitYear               = kCFCalendarUnitYear,
+//    NSCalendarUnitMonth              = kCFCalendarUnitMonth,
+//    NSCalendarUnitDay
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    int unit = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    int unit = NSCalendarUnitYear| NSCalendarUnitMonth | NSCalendarUnitDay| NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     return [calendar components:unit fromDate:self toDate:[NSDate date] options:0];
 }
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AIBirthBottomView.h"
+#import "AIDateTool.h"
 #define ShareBtnW 30
 #define ShareBtnH 40
 #define TipsH 25
@@ -63,9 +64,18 @@
         self.jumpBtn = jumpBtn;
         [self addSubview:jumpBtn];
         [self fitScreen];
+        [self setupData];
     }
     return self;
 }
+-(void)setupData{
+    NSDateComponents *components = [AIDateTool existToday];
+    if (components) {
+#warning 已经读取出来数据准备设置
+        AILog(@"year = %ld month = %ld",components.year,components.month);
+    }
+}
+
 /**
  *  屏幕适配
  */
@@ -106,6 +116,15 @@
         make.bottom.equalTo(@0);
     }];
     
+}
+-(void)viewDidAppear:(BOOL)animated{
+    //从沙盒中取出数据
+//    UUDatePicker_DateModel *birthModel = [AIDateTool dateBirth];
+//    if (birthModel) {
+//        self.
+//    }
+  
+//    self.nowAgelabel.text = [NSString stringWithFormat:@"你"]
 }
 
 @end
