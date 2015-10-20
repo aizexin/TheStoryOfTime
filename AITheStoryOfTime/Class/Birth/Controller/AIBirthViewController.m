@@ -107,6 +107,8 @@
         _nowColck.hourHandColor = [UIColor blackColor];
         _nowColck.minuteHandColor = [UIColor blackColor];
         _nowColck.secondHandColor = [UIColor redColor];
+        
+        _nowColck.borderWidth = 10;
     }
     return _nowColck;
 }
@@ -217,7 +219,8 @@
         self.nowColck.hours = 0;
         self.nowColck.minutes = 0;
         self.nowColck.seconds = 0;
-        [self.nowColck reloadClock];
+        [self.nowColck updateTimeAnimated:YES];
+//        [self.nowColck reloadClock];
         [self.nowColck stopRealTime];
         self.bottomView.alpha = 0;
     }];

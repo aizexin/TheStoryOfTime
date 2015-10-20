@@ -198,16 +198,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AITheStoryOfTime/Class/Birth/View/AIBirthBottomView.m"
-            timestampString = "466993024.185864"
+            timestampString = "467049874.078412"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "-viewDidAppear:"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "-fitScreen"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

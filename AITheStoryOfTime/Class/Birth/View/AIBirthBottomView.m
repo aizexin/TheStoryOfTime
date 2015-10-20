@@ -55,7 +55,7 @@
         listView.die = YES;
         self.listView = listView;
         [self addSubview:listView];
-        listView.backgroundColor = [UIColor greenColor];
+//        listView.backgroundColor = [UIColor greenColor];
         
         //跳转按钮
         UIButton *jumpBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
@@ -74,7 +74,7 @@
     self.listView.die = die;
     [self changeAge];
     //标签
-    NSString *dieString = @"这是你生命中的";
+    NSString *dieString = @"剩下的日子里,你大约可以";
     NSString *unDieString = @"在这个世界,你已经存在了";
     self.tipsLabel.text = die?dieString:unDieString;
     //按钮
@@ -99,6 +99,10 @@
         AILog(@"%f---%f",[AIDateTool brith2NowAllSeconds],[AIDateTool brith2EndAllSeconds]);
         if([AIDateTool brith2EndAllSeconds] == 0){
             self.nowAgelabel.text =  @"你还没有预测死亡时间";
+            return;
+        }
+        if ([AIDateTool brith2NowAllSeconds] == 0) {
+            self.nowAgelabel.text = @"你还没有填写出生日期";
             return;
         }
         double proportion = [AIDateTool brith2NowAllSeconds]/[AIDateTool brith2EndAllSeconds];

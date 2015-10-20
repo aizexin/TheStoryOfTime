@@ -668,7 +668,6 @@
 				BC26F1311BD0ACA60064D89E /* Birth */,
 				BC26F1221BD0AC310064D89E /* Everyday */,
 				BC26F1241BD0AC310064D89E /* Joke */,
-				BC26F1261BD0AC310064D89E /* Map */,
 				BC26EFB51BD0ABAB0064D89E /* Compose */,
 				BC26EFC01BD0ABAB0064D89E /* Libs */,
 				BC26F0501BD0ABAC0064D89E /* Main */,
@@ -1134,6 +1133,7 @@
 		BC26F1221BD0AC310064D89E /* Everyday */ = {
 			isa = PBXGroup;
 			children = (
+				BC26F1261BD0AC310064D89E /* Map */,
 				BC26F1231BD0AC310064D89E /* Controller */,
 			);
 			path = Everyday;
@@ -1170,7 +1170,8 @@
 			children = (
 				BC26F1271BD0AC310064D89E /* Controller */,
 			);
-			path = Map;
+			name = Map;
+			path = ../Map;
 			sourceTree = "<group>";
 		};
 		BC26F1271BD0AC310064D89E /* Controller */ = {

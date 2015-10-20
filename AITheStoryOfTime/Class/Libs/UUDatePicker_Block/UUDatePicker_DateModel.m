@@ -28,7 +28,9 @@
 }
 
 /**
+
  *  解归档
+
  */
 -(instancetype)initWithCoder:(NSCoder *)aDecoder{
     self.year = [aDecoder decodeObjectForKey:@"year"];
@@ -51,4 +53,5 @@
     [coder encodeObject:self.minute forKey:@"minute"];
     
 }
+
 @end

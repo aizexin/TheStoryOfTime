@@ -19,6 +19,7 @@
  *  @param selDate 选中的生日
  */
 +(void)save:(UUDatePicker_DateModel*)selDate die:(BOOL)die{
+    
     //归档
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:selDate];
     if (die) {
@@ -98,6 +99,12 @@
 +(UUDatePicker_DateModel*)dateDie{
     UUDatePicker_DateModel *die =  [NSKeyedUnarchiver unarchiveObjectWithFile:Die_PATH];
     return die;
+}
+/**
+ *  现在到死一共多少秒
+ */
++(double)now2EndAllSeconds{
+    return [self brith2EndAllSeconds] - [self brith2NowAllSeconds];
 }
 
 @end

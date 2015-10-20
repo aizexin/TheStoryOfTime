@@ -90,6 +90,14 @@
 //Birth模块相关的
 //一年有多少秒
 #define AIAllSecondOfYear 31536000
+//做爱频率
+#define AIMakeLove 864000
+//吃饭频率
+#define AIEAT 28800
+//周末频率
+#define AIWeek 604800
+//长假频率
+#define AILongHoliday 2592000
 
 
 

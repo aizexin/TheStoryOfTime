@@ -34,8 +34,10 @@
     self.col = die?2:3;
     for (int i = 0; i< _col * _row; i++) {
         UILabel *label = [[UILabel alloc]init];
-        label.backgroundColor = AIRandomColor;
+//        label.backgroundColor = AIRandomColor;
         label.numberOfLines = 0;
+        label.font = [UIFont systemFontOfSize:20];
+        
         [self addSubview:label];
     }
     
@@ -62,10 +64,25 @@
  *  填数据
  */
 -(void)setupDate:(BOOL)die{
+    NSMutableArray *messages = [NSMutableArray array];
     if (die) {//死之钟
-        
+        double nowToEndSeconds = [AIDateTool now2EndAllSeconds];
+        NSInteger eatTime = nowToEndSeconds/AIEAT;
+        NSString *eat = [NSString stringWithFormat:@"吃%ld顿饭",eatTime];
+        [messages addObject:eat];
+        //做爱
+        NSInteger makeLoveTime = nowToEndSeconds/AIMakeLove;
+        NSString *makeLove = [NSString stringWithFormat:@"做%ld次爱",makeLoveTime];
+        [messages addObject:makeLove];
+        //周末
+        NSInteger weekTime = nowToEndSeconds/AIWeek;
+        NSString *weeks = [NSString stringWithFormat:@"度过%ld个周末",weekTime];
+        [messages addObject:weeks];
+        //长假
+        NSInteger longHolidayTime = nowToEndSeconds/AILongHoliday;
+        NSString *longHoliday = [NSString stringWithFormat:@"享受%ld个长假",longHolidayTime];
+        [messages addObject:longHoliday];
     }else{//生之时
-        NSMutableArray *messages = [NSMutableArray array];
         NSDateComponents *components = [AIDateTool existToday];
         NSString *year = [NSString stringWithFormat:@"%ld年",components.year];
         [messages addObject:year];
@@ -84,12 +101,13 @@
         NSString *second = [NSString stringWithFormat:@"%ld秒",components.second];
         [messages addObject:second];
         
-        //显示
-        int index = 0;
-        for (UILabel *label in self.subviews) {
-            label.text = messages[index];
-            index++;
-        }
+    
+    }
+    //显示
+    int index = 0;
+    for (UILabel *label in self.subviews) {
+        label.text = messages[index];
+        index++;
     }
 }
 

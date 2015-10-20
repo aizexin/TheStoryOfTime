@@ -39,4 +39,8 @@
 /**
  *  出生到死一共多少秒 */
 +(double)brith2EndAllSeconds;
+/**
+ *  现在到死一共多少秒
+ */
++(double)now2EndAllSeconds;
 @end
