@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface AIBirthViewController : UIViewController
-
+/**
+ *  判断是否是死之钟
+ */
+@property(nonatomic,assign,getter=isDie)BOOL die;
 @end

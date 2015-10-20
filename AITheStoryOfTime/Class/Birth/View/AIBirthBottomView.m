@@ -8,15 +8,10 @@
 
 #import "AIBirthBottomView.h"
 #import "AIDateTool.h"
+#import "AIFixScreen.h"
 #define ShareBtnW 30
 #define ShareBtnH 40
 #define TipsH 25
-//define this constant if you want to use Masonry without the 'mas_' prefix
-#define MAS_SHORTHAND
-
-//define this constant if you want to enable auto-boxing for default syntax
-#define MAS_SHORTHAND_GLOBALS
-#import "Masonry.h"
 @interface AIBirthBottomView ()
 /**现在年龄*/
 @property(nonatomic,weak)UILabel *nowAgelabel;
@@ -69,6 +64,7 @@
     return self;
 }
 -(void)setupData{
+    //只需要告诉listView显示生还是死
     NSDateComponents *components = [AIDateTool existToday];
     if (components) {
 #warning 已经读取出来数据准备设置

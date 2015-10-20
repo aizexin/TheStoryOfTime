@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AITheStoryOfTime/Class/Birth/View/AIBirthBottomView.m"
-            timestampString = "466972874.68355"
+            timestampString = "466993024.185864"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>

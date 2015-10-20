@@ -38,6 +38,7 @@
 
 @implementation AIBirthViewController
 
+#pragma mark 初始化方法
 -(UUDatePicker_DateModel *)seldate_dateModel{
     if (!_seldate_dateModel) {
         _seldate_dateModel  = [[UUDatePicker_DateModel alloc]init];

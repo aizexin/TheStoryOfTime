@@ -10,6 +10,7 @@
 		4517B0CB1BD55D3F0054E051 /* UUDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4517B0C81BD55D3F0054E051 /* UUDatePicker.m */; settings = {ASSET_TAGS = (); }; };
 		4517B0CC1BD55D3F0054E051 /* UUDatePicker_DateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4517B0CA1BD55D3F0054E051 /* UUDatePicker_DateModel.m */; settings = {ASSET_TAGS = (); }; };
 		4517B0D31BD564FD0054E051 /* AIDateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4517B0D21BD564FD0054E051 /* AIDateTool.m */; settings = {ASSET_TAGS = (); }; };
+		4517B0D61BD5B45E0054E051 /* AIBirthListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4517B0D51BD5B45E0054E051 /* AIBirthListView.m */; settings = {ASSET_TAGS = (); }; };
 		456500A61BD22D1F00882753 /* AIEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 456500A51BD22D1F00882753 /* AIEmotionKeyboard.m */; };
 		456500A91BD2302A00882753 /* AIEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 456500A81BD2302A00882753 /* AIEmotionListView.m */; };
 		456500AC1BD23C1300882753 /* AIEmotionToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 456500AB1BD23C1300882753 /* AIEmotionToolbar.m */; };
@@ -179,6 +180,9 @@
 		4517B0CA1BD55D3F0054E051 /* UUDatePicker_DateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUDatePicker_DateModel.m; sourceTree = "<group>"; };
 		4517B0D11BD564FD0054E051 /* AIDateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDateTool.h; sourceTree = "<group>"; };
 		4517B0D21BD564FD0054E051 /* AIDateTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDateTool.m; sourceTree = "<group>"; };
+		4517B0D41BD5B45E0054E051 /* AIBirthListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBirthListView.h; sourceTree = "<group>"; };
+		4517B0D51BD5B45E0054E051 /* AIBirthListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBirthListView.m; sourceTree = "<group>"; };
+		4517B0D71BD5BE130054E051 /* AIFixScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIFixScreen.h; sourceTree = "<group>"; };
 		456500A41BD22D1F00882753 /* AIEmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIEmotionKeyboard.h; sourceTree = "<group>"; };
 		456500A51BD22D1F00882753 /* AIEmotionKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIEmotionKeyboard.m; sourceTree = "<group>"; };
 		456500A71BD2302A00882753 /* AIEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIEmotionListView.h; sourceTree = "<group>"; };
@@ -965,6 +969,7 @@
 			isa = PBXGroup;
 			children = (
 				BC26F0701BD0ABAC0064D89E /* AIDefine.h */,
+				4517B0D71BD5BE130054E051 /* AIFixScreen.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1219,6 +1224,8 @@
 			children = (
 				BC6BA6C71BD5118800FA6490 /* AIBirthBottomView.h */,
 				BC6BA6C81BD5118800FA6490 /* AIBirthBottomView.m */,
+				4517B0D41BD5B45E0054E051 /* AIBirthListView.h */,
+				4517B0D51BD5B45E0054E051 /* AIBirthListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1401,6 +1408,7 @@
 				BC26F14B1BD0BFFF0064D89E /* AINewFeatureViewController.m in Sources */,
 				BC26F11B1BD0ABAC0064D89E /* AIStatusDetailView.m in Sources */,
 				BC26F1401BD0ADF30064D89E /* AITemp1ViewController.m in Sources */,
+				4517B0D61BD5B45E0054E051 /* AIBirthListView.m in Sources */,
 				BC26F1141BD0ABAC0064D89E /* AIStatusOriginalFrame.m in Sources */,
 				BC26F10C1BD0ABAC0064D89E /* AITabBar.m in Sources */,
 				BC26F1011BD0ABAC0064D89E /* AIComposeParamModel.m in Sources */,
