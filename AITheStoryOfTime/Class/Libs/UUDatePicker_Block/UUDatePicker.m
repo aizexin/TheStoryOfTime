@@ -9,8 +9,8 @@
 #import "UUDatePicker.h"
 #import "UUDatePicker_DateModel.h"
 
-#define UUPICKER_MAXDATE 2050
-#define UUPICKER_MINDATE 1970
+#define UUPICKER_MAXDATE 2250
+#define UUPICKER_MINDATE 1900
 
 #define UUPICKER_MONTH 12
 #define UUPICKER_HOUR 24

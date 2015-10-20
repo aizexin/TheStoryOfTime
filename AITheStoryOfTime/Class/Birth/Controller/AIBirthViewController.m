@@ -88,7 +88,7 @@
 //        _nowColck = nowColck;
         //设置时钟里的属性
         _nowColck.enableShadows = YES;
-        _nowColck.realTime = YES;
+        
         _nowColck.currentTime = YES;
         _nowColck.borderColor = AIColor(26, 26, 1);
    
@@ -181,7 +181,8 @@
     _die = die;
     self.bottomView.die = die;
     //根据die设置now的颜色
-    if (self.isDie) {
+    if (self.isDie) {  //死之中
+        _nowColck.realTime = NO;
         _nowColck.hourHandColor = [UIColor greenColor];
         _nowColck.minuteHandColor = [UIColor greenColor];
         _nowColck.secondHandColor = [UIColor greenColor];
@@ -190,6 +191,8 @@
         self.dateView.maxLimitDate = nil;
         self.dateView.minLimitDate = [NSDate date];
     }else{
+        //设置时间
+        _nowColck.realTime = YES;
         _nowColck.hourHandColor = [UIColor redColor];
         _nowColck.minuteHandColor = [UIColor redColor];
         _nowColck.secondHandColor = [UIColor redColor];
@@ -237,6 +240,7 @@
     [core removeFromSuperview];
     [UIView animateWithDuration:.5 animations:^{
         self.nowColck.currentTime = YES;
+        self.nowColck.realTime = YES;
         [self.nowColck startRealTime];
         self.bottomView.alpha = 1;
     }];
