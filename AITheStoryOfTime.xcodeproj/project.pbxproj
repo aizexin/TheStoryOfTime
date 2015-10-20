@@ -149,6 +149,7 @@
 		BC26F1441BD0ADF30064D89E /* AITemp3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26F13E1BD0ADF30064D89E /* AITemp3ViewController.m */; };
 		BC26F1451BD0ADF30064D89E /* AITemp3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC26F13F1BD0ADF30064D89E /* AITemp3ViewController.xib */; };
 		BC26F14B1BD0BFFF0064D89E /* AINewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26F14A1BD0BFFF0064D89E /* AINewFeatureViewController.m */; };
+		BC26FA011BD66C5700C4F7D3 /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26FA001BD66C5700C4F7D3 /* test.m */; };
 		BC6BA6BE1BD5058900FA6490 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6BA6A81BD5058900FA6490 /* MASCompositeConstraint.m */; };
 		BC6BA6BF1BD5058900FA6490 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6BA6AB1BD5058900FA6490 /* MASConstraint.m */; };
 		BC6BA6C01BD5058900FA6490 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6BA6AD1BD5058900FA6490 /* MASConstraintMaker.m */; };
@@ -462,6 +463,8 @@
 		BC26F1461BD0B7A80064D89E /* AIPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPrefixHeader.pch; sourceTree = "<group>"; };
 		BC26F1491BD0BFFF0064D89E /* AINewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AINewFeatureViewController.h; sourceTree = "<group>"; };
 		BC26F14A1BD0BFFF0064D89E /* AINewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AINewFeatureViewController.m; sourceTree = "<group>"; };
+		BC26F9FF1BD66C5700C4F7D3 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
+		BC26FA001BD66C5700C4F7D3 /* test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 		BC6BA6A71BD5058900FA6490 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		BC6BA6A81BD5058900FA6490 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		BC6BA6A91BD5058900FA6490 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -1194,6 +1197,8 @@
 			children = (
 				BC26F1331BD0ACC60064D89E /* AIBirthViewController.h */,
 				BC26F1341BD0ACC60064D89E /* AIBirthViewController.m */,
+				BC26F9FF1BD66C5700C4F7D3 /* test.h */,
+				BC26FA001BD66C5700C4F7D3 /* test.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1430,6 +1435,7 @@
 				BC26F0C91BD0ABAC0064D89E /* KSMHand.m in Sources */,
 				BC26F0CF1BD0ABAC0064D89E /* MJArgument.m in Sources */,
 				458C458A1BD111F5009B057D /* MJPhotoProgressView.m in Sources */,
+				BC26FA011BD66C5700C4F7D3 /* test.m in Sources */,
 				BCAEA90E1BD5DDE300E93119 /* DTTimePeriodChain.m in Sources */,
 				BC26F0FD1BD0ABAC0064D89E /* UIView+Extension.m in Sources */,
 				4565011A1BD35D7F00882753 /* AIEmotionView.m in Sources */,

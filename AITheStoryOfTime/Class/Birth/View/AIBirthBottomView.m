@@ -91,8 +91,21 @@
 -(void)changeAge{
     if (!self.isDie) { //如果是生之时
         //年龄
-        NSString *nowAge = [NSString stringWithFormat:@"%.8f",[AIDateTool allSeconds]/AIAllSecondOfYear];
+       
+        NSString *nowAge = [NSString stringWithFormat:@"%.8f",[AIDateTool brith2NowAllSeconds]/AIAllSecondOfYear];
         self.nowAgelabel.text  = [NSString stringWithFormat:@"你 %@ 岁了",nowAge];
+    }else{  //如果是死之中
+        //比例
+        AILog(@"%f---%f",[AIDateTool brith2NowAllSeconds],[AIDateTool brith2EndAllSeconds]);
+        if([AIDateTool brith2EndAllSeconds] == 0){
+            self.nowAgelabel.text =  @"你还没有预测死亡时间";
+            return;
+        }
+        double proportion = [AIDateTool brith2NowAllSeconds]/[AIDateTool brith2EndAllSeconds];
+        NSInteger hours = (NSInteger)(24 * proportion);
+        NSInteger minutes = (24*proportion - hours) * 60;
+        NSString *dieAge = [NSString stringWithFormat:@"这是你一生中的%ld时%ld分",hours,minutes];
+        self.nowAgelabel.text =  dieAge;
     }
 }
 
@@ -140,13 +153,7 @@
 
 #pragma mark 定时器相关
 -(void)startChange{
-    
-//    if (self.timer) {
-////        self.timer.fireDate = [NSDate distantFuture];
-//    }else{
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(starTimer) userInfo:nil repeats:YES];
-//    }
-    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(starTimer) userInfo:nil repeats:YES];
 }
 -(void)stopChange{
 //    [self.timer animationDidStop:nil finished:YES];
@@ -165,5 +172,6 @@
         [self.delegate birthBottomViewDidChange:self];
     }
 }
+
 
 @end

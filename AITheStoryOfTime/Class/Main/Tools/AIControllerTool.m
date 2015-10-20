@@ -12,6 +12,7 @@
 #import "AINewFeatureViewController.h"
 #import "DDMenuController.h"
 #import "AIBirthViewController.h"
+//#import "AIBirthViewController.h"
 @implementation AIControllerTool
 +(void)chooseRootController{
  

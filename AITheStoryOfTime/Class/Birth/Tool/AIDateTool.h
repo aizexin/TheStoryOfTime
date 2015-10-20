@@ -14,7 +14,7 @@
  *
  *  @param selDate 选中的生日
  */
-+(void)save:(UUDatePicker_DateModel*)selDate;
++(void)save:(UUDatePicker_DateModel*)selDate die:(BOOL)die;
 /**
  *  从沙盒中取出时间
  *
@@ -27,9 +27,16 @@
 /**
  *  出生到现在一共多少秒
  */
-+(double)allSeconds;
++(double)brith2NowAllSeconds;
 /**
  *  获得出生日期
  */
 +(NSDate*)getBrithDate;
+/**
+ *  得到死亡时间
+ */
++(NSDate*)getDieDate;
+/**
+ *  出生到死一共多少秒 */
++(double)brith2EndAllSeconds;
 @end
