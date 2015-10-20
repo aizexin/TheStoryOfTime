@@ -18,7 +18,7 @@
         
         self.userInteractionEnabled = YES;
         self.image = [UIImage imageNamed:@"timeline_card_bottom_background"];
-//        [self setBackgroundColor:[UIColor blueColor]];
+
     }
     return self;
 }

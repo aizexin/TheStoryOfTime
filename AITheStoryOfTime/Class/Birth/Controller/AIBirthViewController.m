@@ -12,22 +12,17 @@
 #import "UUDatePicker.h"
 #import "UUDatePicker_DateModel.h"
 #import "AIDateTool.h"
-//define this constant if you want to use Masonry without the 'mas_' prefix
-#define MAS_SHORTHAND
-
-//define this constant if you want to enable auto-boxing for default syntax
-#define MAS_SHORTHAND_GLOBALS
-#import "Masonry.h"
+#import "AIFixScreen.h"
 #define ClockPadding 45.0;
 #define BottomViewPadding 10
 
-@interface AIBirthViewController ()<UUDatePickerDelegate>
+@interface AIBirthViewController ()<UUDatePickerDelegate,AIBirthBottomViewDelegate>
 @property(nonatomic,strong)BEMAnalogClockView *nowColck;
 @property(nonatomic,strong)AIBirthBottomView *bottomView;
 /**侧滑后能显示出来的view*/
 @property(nonatomic,strong)UIView *bgView;
 /**设置*/
-@property(nonatomic,weak)UIButton *settingBtn;
+@property(nonatomic,strong)UIButton *settingBtn;
 /**蒙版 */
 @property(nonatomic,strong)UIButton *core;
 /**日期选择*/
@@ -38,7 +33,8 @@
 
 @implementation AIBirthViewController
 
-#pragma mark 初始化方法
+
+#pragma mark 懒加载
 -(UUDatePicker_DateModel *)seldate_dateModel{
     if (!_seldate_dateModel) {
         _seldate_dateModel  = [[UUDatePicker_DateModel alloc]init];
@@ -53,8 +49,6 @@
         [_dateView setDatePickerStyle:(UUDateStyle_YearMonthDayHourMinute)];
         //设置最大时间为现在
         _dateView.maxLimitDate = [NSDate date];
-//        _dateView.minLimitDate = nsdate
-        [_dateView setBackgroundColor:[UIColor greenColor]];
       
     }
     return _dateView;
@@ -63,7 +57,7 @@
 -(UIButton *)core{
     if (!_core) {
         _core = [UIButton buttonWithType:(UIButtonTypeCustom)];
-        _core.frame = self.bgView.bounds;
+        _core.frame = [UIScreen mainScreen].bounds;
         _core.alpha = 0.3;
         _core.backgroundColor = [UIColor blackColor];
         [_core addTarget:self action:@selector(onClickCoreBtn:) forControlEvents:(UIControlEventTouchDown)];
@@ -72,8 +66,24 @@
     return _core;
 }
 
+-(UIView *)bgView{
+    if (!_bgView) {
+        _bgView = [[UIView alloc]init];
+    }
+    return _bgView;
+}
+
+-(UIButton *)settingBtn{
+    if (!_settingBtn) {
+        _settingBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    }
+    return _settingBtn;
+}
+
+#pragma mark 初始化方法
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.die = YES;
     [self setupbgView];
     [self setupSetting];
     [self.view setBackgroundColor:AIColor(211, 211, 211)];
@@ -85,11 +95,10 @@
  *  添加设置按钮
  */
 -(void)setupSetting{
-    UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    self.settingBtn = btn;
-    [btn setImage:[UIImage imageNamed:@"left_set_ic"] forState:(UIControlStateNormal)];
-    [self.bgView addSubview:btn];
-    [btn addTarget:self action:@selector(onClickSettingBtn:) forControlEvents:(UIControlEventTouchUpInside)];
+
+    [self.settingBtn setImage:[UIImage imageNamed:@"left_set_ic"] forState:(UIControlStateNormal)];
+    [self.bgView addSubview:self.settingBtn];
+    [self.settingBtn addTarget:self action:@selector(onClickSettingBtn:) forControlEvents:(UIControlEventTouchUpInside)];
 }
 /**
  *  添加现在的时钟
@@ -125,6 +134,8 @@
 -(void)setupBottonView{
 
     AIBirthBottomView *bottomView = [[AIBirthBottomView alloc]init];
+    //设置代理
+    bottomView.delegate = self;
     [self.bgView addSubview:bottomView];
     self.bottomView = bottomView;
 
@@ -133,10 +144,9 @@
  *  设置能显示出来的view
  */
 -(void)setupbgView{
-    UIView *view = [[UIView alloc]init];
-    self.bgView = view;
-    [self.view addSubview:view];
-    [view makeConstraints:^(MASConstraintMaker *make) {
+    
+    [self.view addSubview:self.bgView];
+    [self.bgView makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@0);
         make.left.equalTo(@0);
         make.bottom.equalTo(@0);
@@ -176,6 +186,17 @@
     }];
     
 }
+
+-(void)setDie:(BOOL)die{
+    _die = die;
+    self.bottomView.die = die;
+    if (!die) {//生
+        [self.bgView setBackgroundColor:[UIColor whiteColor]];
+    }else{//死
+        [self.bgView setBackgroundColor:[UIColor lightGrayColor]];
+    }
+}
+
 #pragma mark -点击事件
 -(void)onClickSettingBtn:(UIButton*)btn{
     //选择出生年月日
@@ -189,13 +210,17 @@
         self.bottomView.alpha = 0;
         
     }];
-    [self.bgView insertSubview:self.core belowSubview:self.view];
-    [self.bgView addSubview:self.dateView];
+
+    UIWindow *lastWindow = [[UIApplication sharedApplication].windows lastObject];
+    [lastWindow addSubview:self.core];
+    [lastWindow addSubview:self.dateView];
+
     [_dateView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(@0);
-        make.right.mas_equalTo(@0);
-        make.left.mas_equalTo(@0);
-        make.height.mas_equalTo(@200);
+//        make.right.mas_equalTo(@0);
+//        make.left.mas_equalTo(@0);
+        make.height.mas_equalTo(@216);
+        make.width.mas_equalTo(@320);
     }];
 }
 /**
@@ -212,8 +237,11 @@
     //这个时候确定时间
     //存储到沙盒
     [AIDateTool save:self.seldate_dateModel];
+    //叫bottom开启定时器
+    [self.bottomView startChange];
     
 }
+
 #pragma mark 代理方法
 #pragma mark -UUDatePickerDelegate
 -(void)uuDatePicker:(UUDatePicker *)datePicker year:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour minute:(NSString *)minute weekDay:(NSString *)weekDay{
@@ -227,5 +255,11 @@
     
 }
 
+#pragma mark -AIBirthBottomViewDelegate
+-(void)birthBottomViewDidChange:(AIBirthBottomView *)BottomView{
+    self.die = !self.isDie;
+    
+    [self.bgView setNeedsLayout];
+}
 
 @end

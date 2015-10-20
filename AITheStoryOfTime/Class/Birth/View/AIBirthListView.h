@@ -13,4 +13,9 @@
  *  判断是否是死之钟
  */
 @property(nonatomic,assign,getter=isDie)BOOL die;
+
+/**
+ *  开始改变
+ */
+-(void)startChange;
 @end

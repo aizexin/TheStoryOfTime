@@ -9,6 +9,7 @@
 #import "AIBirthBottomView.h"
 #import "AIDateTool.h"
 #import "AIFixScreen.h"
+#import "AIBirthListView.h"
 #define ShareBtnW 30
 #define ShareBtnH 40
 #define TipsH 25
@@ -18,11 +19,14 @@
 /**分享按钮*/
 @property(nonatomic,weak)UIButton *shareBtn;
 /**listView*/
-@property(nonatomic,weak)UIView *listView;
+@property(nonatomic,weak)AIBirthListView *listView;
 /**提示*/
 @property(nonatomic,weak)UILabel *tipsLabel;
 /**跳转按钮*/
 @property(nonatomic,weak)UIButton *jumpBtn;
+
+/**定时器*/
+@property(nonatomic,strong)NSTimer *timer;
 @end
 
 @implementation AIBirthBottomView
@@ -44,31 +48,51 @@
         //tips
         UILabel *tipsLabel = [[UILabel alloc]init];
         self.tipsLabel = tipsLabel;
-        tipsLabel.text = @"在这个世界上,你已经存在了";
         [self addSubview:tipsLabel];
         
         //listView
-        UIView *listView = [[UIView alloc]init];
+        AIBirthListView *listView = [[AIBirthListView alloc]init];
+        listView.die = YES;
         self.listView = listView;
         [self addSubview:listView];
         listView.backgroundColor = [UIColor greenColor];
         
         //跳转按钮
         UIButton *jumpBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+        [jumpBtn addTarget:self action:@selector(onClickJump:) forControlEvents:(UIControlEventTouchUpInside)];
         [jumpBtn setBackgroundColor:[UIColor blueColor]];
         self.jumpBtn = jumpBtn;
         [self addSubview:jumpBtn];
         [self fitScreen];
-        [self setupData];
     }
     return self;
 }
--(void)setupData{
-    //只需要告诉listView显示生还是死
-    NSDateComponents *components = [AIDateTool existToday];
-    if (components) {
-#warning 已经读取出来数据准备设置
-        AILog(@"year = %ld month = %ld",components.year,components.month);
+
+-(void)setDie:(BOOL)die{
+    _die = die;
+    [self startChange];
+    self.listView.die = die;
+    [self changeAge];
+    //标签
+    NSString *dieString = @"这是你生命中的";
+    NSString *unDieString = @"在这个世界,你已经存在了";
+    self.tipsLabel.text = die?dieString:unDieString;
+    //按钮
+    if (die) {
+        [self.jumpBtn setTitle:@"死之钟" forState:(UIControlStateNormal)];
+    }else{
+        [self.jumpBtn setTitle:@"生之时" forState:(UIControlStateNormal)];
+    }
+    [self fitScreen];
+}
+/**
+ *  改变年龄
+ */
+-(void)changeAge{
+    if (!self.isDie) { //如果是生之时
+        //年龄
+        NSString *nowAge = [NSString stringWithFormat:@"%.8f",[AIDateTool allSeconds]/AIAllSecondOfYear];
+        self.nowAgelabel.text  = [NSString stringWithFormat:@"你 %@ 岁了",nowAge];
     }
 }
 
@@ -113,14 +137,33 @@
     }];
     
 }
--(void)viewDidAppear:(BOOL)animated{
-    //从沙盒中取出数据
-//    UUDatePicker_DateModel *birthModel = [AIDateTool dateBirth];
-//    if (birthModel) {
-//        self.
+
+#pragma mark 定时器相关
+-(void)startChange{
+    
+//    if (self.timer) {
+////        self.timer.fireDate = [NSDate distantFuture];
+//    }else{
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(starTimer) userInfo:nil repeats:YES];
 //    }
-  
-//    self.nowAgelabel.text = [NSString stringWithFormat:@"你"]
+    
+}
+-(void)stopChange{
+//    [self.timer animationDidStop:nil finished:YES];
+    self.timer.fireDate = [NSDate distantPast];
+}
+-(void)starTimer{
+    [self changeAge];
+    //TODO通知listView也改变值
+    [self.listView startChange];
+}
+
+#pragma mark -点击事件
+-(void)onClickJump:(UIButton*)jump{
+    jump.selected = !jump.isSelected;
+    if ([self.delegate respondsToSelector:@selector(birthBottomViewDidChange:)]) {
+        [self.delegate birthBottomViewDidChange:self];
+    }
 }
 
 @end

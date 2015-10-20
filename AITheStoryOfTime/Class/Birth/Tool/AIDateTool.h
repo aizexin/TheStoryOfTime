@@ -24,4 +24,12 @@
 
 /**存在多久了 */
 +(NSDateComponents*)existToday;
+/**
+ *  出生到现在一共多少秒
+ */
++(double)allSeconds;
+/**
+ *  获得出生日期
+ */
++(NSDate*)getBrithDate;
 @end

@@ -9,6 +9,7 @@
 #import "AIDateTool.h"
 #import "UUDatePicker_DateModel.h"
 #import "NSDate+MJ.h"
+#import "DateTools.h"
 #define Birth_PATH [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject]stringByAppendingPathComponent:@"birth"]
 @implementation AIDateTool
 /**
@@ -34,6 +35,24 @@
 
 /**存在多久了 */
 +(NSDateComponents*)existToday{
+//    UUDatePicker_DateModel *birthModel = [AIDateTool dateBirth];
+//    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
+//    //HH为24小时制
+//    [inputFormatter setDateFormat:@"yyyyMMddHHmm"];
+//    
+//    NSString *birth = [NSString stringWithFormat:@"%@%@%@%@%@",birthModel.year,birthModel.month,birthModel.day,birthModel.hour,birthModel.minute];
+//    NSDate *date = [inputFormatter dateFromString:birth];
+    NSDate *date = [self getBrithDate];
+    NSDateComponents *componets = [date deltaWithNow];
+    return componets;
+}
+
++(double)allSeconds{
+    NSDate *brithDate = [self getBrithDate];
+    NSDate *nowDate = [NSDate date];
+    return  [nowDate secondsFrom:brithDate];
+}
++(NSDate*)getBrithDate{
     UUDatePicker_DateModel *birthModel = [AIDateTool dateBirth];
     NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
     //HH为24小时制
@@ -41,8 +60,7 @@
     
     NSString *birth = [NSString stringWithFormat:@"%@%@%@%@%@",birthModel.year,birthModel.month,birthModel.day,birthModel.hour,birthModel.minute];
     NSDate *date = [inputFormatter dateFromString:birth];
-    NSDateComponents *componets = [date deltaWithNow];
-    return componets;
+    return date;
 }
 
 @end

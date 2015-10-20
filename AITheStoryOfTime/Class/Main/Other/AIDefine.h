@@ -85,7 +85,11 @@
 //Birth相关
 #define AIBirthShowScale (280.0/320)
 #define kMenuDisplayedWidth Mainsize.width *(280.0/320)
-////屏幕适配
+
+
+//Birth模块相关的
+//一年有多少秒
+#define AIAllSecondOfYear 31536000
 
 
 
