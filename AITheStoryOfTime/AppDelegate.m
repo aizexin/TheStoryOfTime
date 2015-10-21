@@ -12,6 +12,9 @@
 #import "AIAccountModel.h"
 #import "AIAccountTool.h"
 #import "UMSocial.h"
+#import "UMSocialSinaSSOHandler.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
 @interface AppDelegate ()
 
 @end
@@ -20,6 +23,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //分享
+    [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:AIAppRediectURI];
+    [UMSocialWechatHandler setWXAppId:AIWeChatAPPID appSecret:AIWeChatAPPSecret url:AIAppRediectURI];
+
+    [UMSocialQQHandler setQQWithAppId:AIQQAPPID appKey:AIQQAPPSecret url:AIAppRediectURI];
+    
+    
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds ;
 
@@ -65,6 +75,18 @@
         //得到分享到的微博平台名
         AILog(@"share to sns name is %@",[[response.data allKeys] objectAtIndex:0]);
     }
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return  [UMSocialSnsService handleOpenURL:url];
+}
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return  [UMSocialSnsService handleOpenURL:url];
 }
 
 @end

@@ -104,7 +104,15 @@
 
 //分享相关
 #import "UMSocial.h"
+//友盟key
 #define AIUMAPPKEY @"5626764f67e58ee7aa0025e9"
+//微信
+#define AIWeChatAPPID @"wx47a6979c287472bb"
+#define AIWeChatAPPSecret @"afcbcebc9a1aa9fdd82855780aafd9c3"
+
+//腾讯
+#define AIQQAPPID @"1104912742"
+#define AIQQAPPSecret @"SlT0CtA8VPxoA1NZ"
 
 
 
