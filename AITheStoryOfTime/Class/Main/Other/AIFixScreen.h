@@ -15,4 +15,5 @@
 //define this constant if you want to enable auto-boxing for default syntax
 #define MAS_SHORTHAND_GLOBALS
 #import "Masonry.h"
+
 #endif /* AIFixScreen_h */

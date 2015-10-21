@@ -12,6 +12,9 @@
 //#import "UIView+Extension.h"
 #import "UIImage+Extension.h"
 #import "NSString+Extension.h"
+//导航栏高度
+#define AINavgationBarH 65
+
 #define Mainsize ([[UIScreen mainScreen]bounds].size)
 // 颜色
 #define AIColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]

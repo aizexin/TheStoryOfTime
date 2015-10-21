@@ -261,7 +261,7 @@
 #pragma mark -UUDatePickerDelegate
 -(void)uuDatePicker:(UUDatePicker *)datePicker year:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour minute:(NSString *)minute weekDay:(NSString *)weekDay{
     //得到时间
-    AILog(@"year = %@,month = %@",year,month);
+//    AILog(@"year = %@,month = %@",year,month);
     self.seldate_dateModel.year = year;
     self.seldate_dateModel.month = month;
     self.seldate_dateModel.day = day;

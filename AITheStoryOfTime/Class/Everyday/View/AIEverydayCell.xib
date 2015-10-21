@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="7oR-eC-haH" customClass="AIEverydayCell">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PMl-8e-oQx">
+                    <rect key="frame" x="3" y="3" width="94" height="94"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="PMl-8e-oQx" firstAttribute="top" secondItem="7oR-eC-haH" secondAttribute="top" constant="3" id="UKL-w0-yBj"/>
+                <constraint firstAttribute="bottom" secondItem="PMl-8e-oQx" secondAttribute="bottom" constant="3" id="nA2-p4-PJc"/>
+                <constraint firstItem="PMl-8e-oQx" firstAttribute="leading" secondItem="7oR-eC-haH" secondAttribute="leading" constant="3" id="sPl-Sm-F3Y"/>
+                <constraint firstAttribute="trailing" secondItem="PMl-8e-oQx" secondAttribute="trailing" constant="3" id="ufm-YX-YV0"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cellImage" destination="PMl-8e-oQx" id="JrC-TH-egK"/>
+            </connections>
+            <point key="canvasLocation" x="492" y="311"/>
+        </view>
+    </objects>
+</document>

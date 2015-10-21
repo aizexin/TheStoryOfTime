@@ -97,7 +97,7 @@
         self.nowAgelabel.text  = [NSString stringWithFormat:@"你 %@ 岁了",nowAge];
     }else{  //如果是死之中
         //比例
-        AILog(@"%f---%f",[AIDateTool brith2NowAllSeconds],[AIDateTool brith2EndAllSeconds]);
+//        AILog(@"%f---%f",[AIDateTool brith2NowAllSeconds],[AIDateTool brith2EndAllSeconds]);
         if([AIDateTool brith2EndAllSeconds] <= 0){
             self.nowAgelabel.text =  @"你还没有预测死亡时间";
             return;

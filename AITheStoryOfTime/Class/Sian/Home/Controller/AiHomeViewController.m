@@ -25,7 +25,11 @@
 #import "AIStatusesTool.h"
 #import "AIStatusCell.h"
 #import "AIStatusFrame.h"
-#import "UIView+Extension.h"
+//#import "UIView+Extension.h"
+#define TipsLabelH 35
+#define TipsLabelW Mainsize.width
+
+#define HomeTitleH 35
 
 @interface AiHomeViewController ()<AIPopMenuDelegate>
 @property(nonatomic,strong)AIHomeTitleButton *titleBtn;
@@ -214,6 +218,7 @@
  */
 -(void)showNewStatuesCount:(NSInteger)count{
     UILabel *label = [[UILabel alloc]init];
+    
     if (count) {
         label.text = [NSString stringWithFormat:@"共有%ld条新数据",count];
     }else{
@@ -224,11 +229,11 @@
     [label setTextAlignment:(NSTextAlignmentCenter)];
     label.textColor = [UIColor whiteColor];
     //设置frame
-    label.width = self.view.width;
-    label.height = 35;
-    label.x = 0;
-    label.y = 64 - label.height;
-    
+//    label.width = self.view.width;
+//    label.height = 35;
+//    label.x = 0;
+//    label.y = 64 - label.height;
+    label.frame = CGRectMake(0, AINavgationBarH - TipsLabelH,Mainsize.width, TipsLabelH );
     //添加到当行控制器的view中
     [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
     //动画
@@ -236,7 +241,7 @@
     label.alpha = 0.;
     //往下移动
     [UIView animateWithDuration:duration animations:^{
-        [label setTransform:(CGAffineTransformMakeTranslation(0, label.height))];
+        [label setTransform:(CGAffineTransformMakeTranslation(0, TipsLabelH))];
         label.alpha = 1.;
     }];
     //往上移动
@@ -261,7 +266,8 @@
     
     AIHomeTitleButton *titleBtn = [[AIHomeTitleButton alloc]init];
     _titleBtn = titleBtn;
-    titleBtn.height = 35;
+//    titleBtn.height = HomeTitleH;
+    titleBtn.frame = CGRectMake(0, 0, 30, HomeTitleH);
     //设置标题昵称
     //1获得用户信息
     AIAccountModel *account = [AIAccountTool account];
