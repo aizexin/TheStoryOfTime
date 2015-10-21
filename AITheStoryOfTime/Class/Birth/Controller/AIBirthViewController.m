@@ -225,7 +225,11 @@
 
     UIWindow *lastWindow = [[UIApplication sharedApplication].windows lastObject];
     [lastWindow addSubview:self.core];
+
+//需要直接回到现在
+    [_dateView scroll2NowDate];
     [lastWindow addSubview:self.dateView];
+    
 
     [_dateView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(@0);
@@ -277,6 +281,6 @@
 }
 
 -(void)birthBottomViewDidShare:(AIBirthBottomView *)BottomView{
-    [UMSocialSnsService presentSnsIconSheetView:self appKey:AIUMAPPKEY shareText:@"xxxx" shareImage:[UIImage imageNamed:@"common_icon_membership"] shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline, nil] delegate:self];
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:AIUMAPPKEY shareText:@"xxxx" shareImage:[UIImage imageNamed:@"AppIcon"] shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline, nil] delegate:self];
 }
 @end

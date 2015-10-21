@@ -98,11 +98,11 @@
     }else{  //如果是死之中
         //比例
         AILog(@"%f---%f",[AIDateTool brith2NowAllSeconds],[AIDateTool brith2EndAllSeconds]);
-        if([AIDateTool brith2EndAllSeconds] == 0){
+        if([AIDateTool brith2EndAllSeconds] <= 0){
             self.nowAgelabel.text =  @"你还没有预测死亡时间";
             return;
         }
-        if ([AIDateTool brith2NowAllSeconds] == 0) {
+        if ([AIDateTool brith2NowAllSeconds] <= 0) {
             self.nowAgelabel.text = @"你还没有填写出生日期";
             return;
         }

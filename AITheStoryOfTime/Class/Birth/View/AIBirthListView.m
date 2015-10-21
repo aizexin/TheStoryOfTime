@@ -66,7 +66,33 @@
 -(void)setupDate:(BOOL)die{
     NSMutableArray *messages = [NSMutableArray array];
     if (die) {//死之钟
-        double nowToEndSeconds = [AIDateTool now2EndAllSeconds];
+        messages = [self setupDieData];
+    }else{//生之时
+        messages = [self setupBirthData];
+    }
+    //显示
+    int index = 0;
+    for (UILabel *label in self.subviews) {
+        label.text = messages[index];
+        index++;
+    }
+}
+
+/**
+ *  开始改变秒钟
+ */
+-(void)startChange{
+    [self setupDate:self.die];
+}
+/**
+ *  设置die页面内容
+ */
+-(NSMutableArray*)setupDieData{
+    NSMutableArray *messages = [NSMutableArray array];
+    double nowToEndSeconds = [AIDateTool now2EndAllSeconds];
+    if (nowToEndSeconds <= 0) {
+        messages = [NSMutableArray arrayWithObjects:@"剩余吃饭次数",@"剩余做爱次数",@"剩余周末个数",@"剩余长假个数", nil];
+    }else{
         NSInteger eatTime = nowToEndSeconds/AIEAT;
         NSString *eat = [NSString stringWithFormat:@"吃%ld顿饭",eatTime];
         [messages addObject:eat];
@@ -82,7 +108,20 @@
         NSInteger longHolidayTime = nowToEndSeconds/AILongHoliday;
         NSString *longHoliday = [NSString stringWithFormat:@"享受%ld个长假",longHolidayTime];
         [messages addObject:longHoliday];
-    }else{//生之时
+    }
+    return messages;
+}
+
+/**
+ *  设置生的数据
+ */
+-(NSMutableArray*)setupBirthData{
+    NSMutableArray *messages = [NSMutableArray array];
+    double brith2Now = [AIDateTool brith2NowAllSeconds];
+    if (brith2Now < 0 ) {
+        messages = [NSMutableArray arrayWithObjects:@"0年",@"0月",@"0天",@"0小时",@"0分",@"0秒", nil];
+    }else{
+        
         NSDateComponents *components = [AIDateTool existToday];
         NSString *year = [NSString stringWithFormat:@"%ld年",components.year];
         [messages addObject:year];
@@ -100,21 +139,7 @@
         //周
         NSString *second = [NSString stringWithFormat:@"%ld秒",components.second];
         [messages addObject:second];
-        
-    
     }
-    //显示
-    int index = 0;
-    for (UILabel *label in self.subviews) {
-        label.text = messages[index];
-        index++;
-    }
-}
-
-/**
- *  开始改变秒钟
- */
--(void)startChange{
-    [self setupDate:self.die];
+    return messages;
 }
 @end

@@ -135,8 +135,7 @@
         minDateModel = [[UUDatePicker_DateModel alloc]initWithDate:self.minLimitDate];
     }
     
-    //获取当前日期，储存当前时间位置
-    NSArray *indexArray = [self getNowDate:self.ScrollToDate];
+    
     
     if (!myPickerView) {
         myPickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
@@ -146,6 +145,12 @@
         myPickerView.dataSource = self;
         [self addSubview:myPickerView];
     }
+    [self scroll2NowDate];
+}
+#pragma mark --自己封装,滚回到现在时间
+-(void)scroll2NowDate{
+    //获取当前日期，储存当前时间位置
+    NSArray *indexArray = [self getNowDate:self.ScrollToDate];
     //调整为现在的时间
     for (int i=0; i<indexArray.count; i++) {
         [myPickerView selectRow:[indexArray[i] integerValue] inComponent:i animated:NO];

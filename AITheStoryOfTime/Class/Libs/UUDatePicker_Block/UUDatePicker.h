@@ -52,5 +52,8 @@ typedef void (^FinishBlock)(NSString * year,
 - (NSDate *)dateFromString:(NSString *)string withFormat:(NSString *)format;
 - (id)initWithframe:(CGRect)frame Delegate:(id<UUDatePickerDelegate>)delegate PickerStyle:(DateStyle)uuDateStyle;
 - (id)initWithframe:(CGRect)frame PickerStyle:(DateStyle)uuDateStyle didSelected:(FinishBlock)finishBlock;
-
+/**
+ *自己封装,滚回到现在时间
+ */
+-(void)scroll2NowDate;
 @end
