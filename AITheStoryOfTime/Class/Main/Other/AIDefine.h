@@ -9,7 +9,6 @@
 #ifndef AIweichat_AIDefine_h
 #define AIweichat_AIDefine_h
 
-//#import "UIView+Extension.h"
 #import "UIImage+Extension.h"
 #import "NSString+Extension.h"
 //导航栏高度

@@ -25,7 +25,6 @@
 #import "AIStatusesTool.h"
 #import "AIStatusCell.h"
 #import "AIStatusFrame.h"
-//#import "UIView+Extension.h"
 #define TipsLabelH 35
 #define TipsLabelW Mainsize.width
 

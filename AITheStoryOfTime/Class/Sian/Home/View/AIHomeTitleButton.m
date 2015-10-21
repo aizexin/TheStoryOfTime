@@ -8,7 +8,7 @@
 
 #import "AIHomeTitleButton.h"
 #import "AIDefine.h"
-#import "UIView+Extension.h"
+//#import "UIView+Extension.h"
 @implementation AIHomeTitleButton
 
 
@@ -42,17 +42,20 @@
 - (CGRect)imageRectForContentRect:(CGRect)contentRect{
    
     CGFloat Y = 0;
-    CGFloat W = self.height;
-    CGFloat H = self.height;
-    CGFloat X = self.width-self.height;
+    CGFloat W = self.frame.size.height;
+    CGFloat H = self.frame.size.height;
+    CGFloat X = self.frame.size.width-self.frame.size.height;
     return CGRectMake(X, Y, W, H);
 }
 
 -(void)setTitle:(NSString *)title forState:(UIControlState)state{
     [super setTitle:title forState:state];
-    CGSize maxSize = CGSizeMake(MAXFLOAT, self.height);
+    CGSize maxSize = CGSizeMake(MAXFLOAT, self.frame.size.height);
     NSMutableDictionary *dictM = [NSMutableDictionary dictionary];
     dictM[NSFontAttributeName] = self.titleLabel.font;
-    self.width = [title boundingRectWithSize:maxSize options:(NSStringDrawingUsesLineFragmentOrigin) attributes:dictM context:nil].size.width + 10 + self.height;
+//    self.width = [title boundingRectWithSize:maxSize options:(NSStringDrawingUsesLineFragmentOrigin) attributes:dictM context:nil].size.width + 10 + self.height;
+    CGFloat heigt =  self.frame.size.height;
+    CGFloat width = [title boundingRectWithSize:maxSize options:(NSStringDrawingUsesLineFragmentOrigin) attributes:dictM context:nil].size.width + 10 + heigt;
+    self.frame = CGRectMake(0, 0, width, heigt);//CGSizeMake(width, heigt);
 }
 @end

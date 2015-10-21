@@ -7,8 +7,6 @@
 //
 
 #import "AIComposePhotosView.h"
-#import "AIDefine.h"
-#import "UIView+Extension.h"
 #define MaxColsPerRow 4
 #define Margin 10
 @implementation AIComposePhotosView
@@ -37,16 +35,21 @@
 
 -(void)layoutSubviews{
     int count = (int)self.subviews.count;
-    CGFloat imageW = (self.width - ((MaxColsPerRow+1) * Margin)) / MaxColsPerRow;
+    CGFloat imageW = (Mainsize.width - ((MaxColsPerRow+1) * Margin)) / MaxColsPerRow;
     CGFloat imageH = imageW;
     for (int i = 0; i < count; i++) {
         int row = i / MaxColsPerRow;
         int col = i % MaxColsPerRow;
         UIImageView *imageV = self.subviews[i];
-        imageV.width = imageW;
-        imageV.height = imageH;
-        imageV.x = col * (imageW + Margin) + Margin;
-        imageV.y = row * (imageH + Margin);
+//        imageV.width = imageW;
+//        imageV.height = imageH;
+//        imageV.x = col * (imageW + Margin) + Margin;
+//        imageV.y = row * (imageH + Margin);
+        CGFloat imageVW = imageW;
+       CGFloat imageVH = imageH;
+       CGFloat imageVX = col * (imageW + Margin) + Margin;
+       CGFloat imageVY = row * (imageH + Margin);
+        imageV.frame = CGRectMake(imageVX, imageVY, imageVW, imageVH);
     }
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AIEverydayViewController : UIViewController
+#import "AIEverydaySCNavigationController.h"
+@interface AIEverydayViewController : UIViewController<EverydaySCNavigationControllerDelegate>
 
 @end

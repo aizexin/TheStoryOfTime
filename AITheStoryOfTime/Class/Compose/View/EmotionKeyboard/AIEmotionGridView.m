@@ -11,7 +11,6 @@
 #import "AIEmotionView.h"
 #import "AIEmotionPopView.h"
 #import "AIEmotionTool.h"
-//#import "UIView+Extension.h"
 @interface AIEmotionGridView ()
 @property(nonatomic,strong)NSMutableArray *emotionViewM;
 /**

@@ -8,6 +8,7 @@
 
 #import "AIEverydayViewController.h"
 #import "AIEverydayCell.h"
+#import "PostViewController.h"
 @interface AIEverydayViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic,strong)UICollectionView *collectionV;
@@ -55,7 +56,6 @@ static NSString *identifier = @"AIEverydayCell";
     for (int i = 0; i < 20; i++) {
         [self.dataSource addObject:[NSString stringWithFormat:@"测试数据%d",i]];
     }
-//    self.collectionV.numberOfSections = 1;
     [self.view addSubview:self.collectionV];
     
 }
@@ -81,13 +81,22 @@ static NSString *identifier = @"AIEverydayCell";
     
     return cell;
 }
+
 #pragma mark --------collection代理
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.item == 0) {//开始照相等功能
-        
+        AIEverydaySCNavigationController *nav = [[AIEverydaySCNavigationController alloc] init];
+        nav.scNaigationDelegate = self;
+        [nav showCameraWithParentController:self];
     }
 }
 
+#pragma mark - AIEverydaySCNavigationController delegate
+- (void)didTakePicture:(AIEverydaySCNavigationController *)navigationController image:(UIImage *)image {
+    PostViewController *con = [[PostViewController alloc] init];
+    con.postImage = image;
+    [navigationController pushViewController:con animated:YES];
+}
 
 
 
