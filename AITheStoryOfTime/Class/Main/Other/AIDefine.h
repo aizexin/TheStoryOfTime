@@ -100,6 +100,11 @@
 #define AILongHoliday 2592000
 
 
+//分享相关
+#import "UMSocial.h"
+#define AIUMAPPKEY @"5626764f67e58ee7aa0025e9"
+
+
 
 
 

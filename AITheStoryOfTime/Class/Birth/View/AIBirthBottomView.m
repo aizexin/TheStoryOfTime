@@ -43,6 +43,7 @@
         //分享按钮
         UIButton *shareBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
         [shareBtn setImage:[UIImage imageNamed:@"share_btn_night"] forState:(UIControlStateNormal)];
+        [shareBtn addTarget:self action:@selector(onClickShareBtn:) forControlEvents:(UIControlEventTouchUpInside)];
         self.shareBtn = shareBtn;
         [self addSubview:shareBtn];
         //tips
@@ -174,6 +175,14 @@
     jump.selected = !jump.isSelected;
     if ([self.delegate respondsToSelector:@selector(birthBottomViewDidChange:)]) {
         [self.delegate birthBottomViewDidChange:self];
+    }
+}
+/**
+ *  点击分享按钮
+ */
+-(void)onClickShareBtn:(UIButton*)shareBtn{
+    if ([self.delegate respondsToSelector:@selector(birthBottomViewDidShare:)]) {
+        [self.delegate birthBottomViewDidShare:self];
     }
 }
 

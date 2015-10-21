@@ -12,8 +12,6 @@
 #import "UUDatePicker_DateModel.h"
 #import "AIDateTool.h"
 #import "AIFixScreen.h"
-#import "test.h"
-//#import "AIBirthEndViewController.h"
 #define ClockPadding 45.0;
 #define BottomViewPadding 10
 
@@ -278,4 +276,7 @@
     }];
 }
 
+-(void)birthBottomViewDidShare:(AIBirthBottomView *)BottomView{
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:AIUMAPPKEY shareText:@"xxxx" shareImage:[UIImage imageNamed:@"common_icon_membership"] shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline, nil] delegate:self];
+}
 @end

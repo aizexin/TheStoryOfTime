@@ -12,6 +12,7 @@
 @protocol AIBirthBottomViewDelegate <NSObject>
 
 -(void)birthBottomViewDidChange:(AIBirthBottomView*)BottomView;
+-(void)birthBottomViewDidShare:(AIBirthBottomView*)BottomView;
 
 @end
 @interface AIBirthBottomView : UIView

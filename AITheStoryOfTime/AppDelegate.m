@@ -11,6 +11,7 @@
 #import "AIControllerTool.h"
 #import "AIAccountModel.h"
 #import "AIAccountTool.h"
+#import "UMSocial.h"
 @interface AppDelegate ()
 
 @end
@@ -22,6 +23,7 @@
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds ;
 
+    [UMSocialData setAppKey:AIUMAPPKEY];
     [self.window makeKeyAndVisible];
     AIAccountModel *account = [AIAccountTool account];
     
