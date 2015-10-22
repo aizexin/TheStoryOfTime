@@ -8,6 +8,7 @@
 
 #import "SCCommon.h"
 #import "SCDefines.h"
+#import "SVProgressHUD.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation SCCommon
@@ -45,6 +46,7 @@
 //保存照片至本机
 + (void)saveImageToPhotoAlbum:(UIImage*)image {
     UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    
 }
 
 + (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
@@ -52,7 +54,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"出错了!" message:@"存不了T_T" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
     } else {
-        SCDLog(@"保存成功");
+        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
     }
 }
 

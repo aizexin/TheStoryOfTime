@@ -7,15 +7,107 @@
 //
 
 #import "AIEverydayToolbar.h"
+#import "AIFixScreen.h"
+@interface AIEverydayToolbar ()
+/**
+ *  返回按钮
+ */
+@property(nonatomic,weak)UIButton *saveBtn;
+/**
+ *  重拍按钮
+ */
+@property(nonatomic,weak)UIButton *resetBtn;
+/**
+ *  取消按钮 --不保存
+ */
+@property(nonatomic,weak)UIButton *cancelBtn;
+@end
 
 @implementation AIEverydayToolbar
+//[SCCommon saveImageToPhotoAlbum:stillImage];//存至本机
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        //取消按钮
+        UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [cancelBtn setTitle:@"取消" forState:(UIControlStateNormal)];
+        cancelBtn.backgroundColor = [UIColor redColor];
+        [cancelBtn addTarget:self action:@selector(onClickCancelBtn:) forControlEvents:(UIControlEventTouchUpInside)];
+        self.cancelBtn = cancelBtn;
+        [self addSubview:cancelBtn];
+        //重拍
+        UIButton *resetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [resetBtn setTitle:@"重拍" forState:(UIControlStateNormal)];
+        [resetBtn addTarget:self action:@selector(onClickResetBtn:) forControlEvents:(UIControlEventTouchUpInside)];
+        resetBtn.backgroundColor = [UIColor greenColor];
+        self.resetBtn = resetBtn;
+        [self addSubview:resetBtn];
+        //保存按钮
+        UIButton *saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [saveBtn setTitle:@"保存" forState:(UIControlStateNormal)];
+        [saveBtn addTarget:self action:@selector(onClickSaveBtn:) forControlEvents:(UIControlEventTouchUpInside)];
+        self.saveBtn = saveBtn;
+        [self addSubview:saveBtn];
+        
+        //屏幕适配
+        [self fitScreen];
+    }
+    return self;
 }
-*/
+
+/**
+ *  屏幕适配
+ */
+-(void)fitScreen{
+    CGFloat btnWith = AIEverydayToolBarHeight;
+    //取消
+    [self.cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(@0);
+        make.top.mas_equalTo(@0);
+        make.bottom.mas_equalTo(@0);
+        make.width.mas_equalTo(@(btnWith));
+    }];
+    //重拍
+    [self.resetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(@0);
+        make.bottom.mas_equalTo(@0);
+        make.width.mas_equalTo(@(btnWith));
+        make.centerX.mas_equalTo(self).multipliedBy(1/2.0);
+    }];
+    //保存
+    [self.saveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(@0);
+        make.top.mas_equalTo(@0);
+        make.bottom.mas_equalTo(@0);
+        make.width.mas_equalTo(@(btnWith));
+    }];
+}
+#pragma mark -------------点击事件--------------------------
+/**
+ *  取消
+ */
+-(void)onClickCancelBtn:(UIButton*)btn{
+    if (self.cancelImage) {
+        self.cancelImage();
+    }
+}
+/**
+ *  重拍
+ */
+-(void)onClickResetBtn:(UIButton*)btn{
+    if (self.resetImage) {
+        self.resetImage();
+    }
+}
+/**
+ *  保存
+ */
+-(void)onClickSaveBtn:(UIButton*)btn{
+    if (self.saveImage) {
+        self.saveImage();
+    }
+}
 
 @end

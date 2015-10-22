@@ -16,6 +16,7 @@
 #define AINavgationBarH 65
 
 #define Mainsize ([[UIScreen mainScreen]bounds].size)
+#define AIViewSize (self.view.frame.size)
 // 颜色
 #define AIColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 // 随机色
@@ -85,7 +86,7 @@
 //通知里面用来取出表情用的key
 #define AISelectedEmotion  @"AISelectedEmotion"
 
-//Birth相关
+//-------------------------------Birth相关--------------------------
 #define AIBirthShowScale (280.0/320)
 #define kMenuDisplayedWidth Mainsize.width *(280.0/320)
 
@@ -103,7 +104,7 @@
 #define AILongHoliday 2592000
 
 
-//分享相关
+//-----------------------------------分享相关--------------------------
 #import "UMSocial.h"
 //友盟key
 #define AIUMAPPKEY @"5626764f67e58ee7aa0025e9"
@@ -115,7 +116,10 @@
 #define AIQQAPPID @"1104912742"
 #define AIQQAPPSecret @"SlT0CtA8VPxoA1NZ"
 
-
+//----------------------Everyday相关---------------
+#define AIEverydayToolBarHeight 44
+//定位先的宽度
+#define AIEverydayBaseLineWith 2
 
 
 

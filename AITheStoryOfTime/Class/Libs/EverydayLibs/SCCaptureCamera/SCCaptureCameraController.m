@@ -10,9 +10,9 @@
 #import "SCSlider.h"
 #import "SCCommon.h"
 #import "SVProgressHUD.h"
-
+#import "AIEverydayViewController.h"
 #import "AIEverydaySCNavigationController.h"
-
+#import "AIEverydayPostViewController.h"
 //static void * CapturingStillImageContext = &CapturingStillImageContext;
 //static void * RecordingContext = &RecordingContext;
 //static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthorizedContext;
@@ -512,7 +512,7 @@ void c_slideAlpha() {
     WEAKSELF_SC
     [_captureManager takePicture:^(UIImage *stillImage) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [SCCommon saveImageToPhotoAlbum:stillImage];//存至本机
+           // [SCCommon saveImageToPhotoAlbum:stillImage];//存至本机
         });
         
         [actiView stopAnimating];
@@ -527,10 +527,15 @@ void c_slideAlpha() {
         });
         
         //your code 0
-        AIEverydaySCNavigationController *nav = (AIEverydaySCNavigationController*)weakSelf_SC.navigationController;
-        if ([nav.scNaigationDelegate respondsToSelector:@selector(didTakePicture:image:)]) {
-            [nav.scNaigationDelegate didTakePicture:nav image:stillImage];
-        }
+#warning 修改
+        AIEverydayPostViewController *con = [[AIEverydayPostViewController alloc] init];
+        con.image = stillImage;
+        [self.navigationController pushViewController:con animated:YES];
+        
+//        AIEverydaySCNavigationController *nav = (AIEverydaySCNavigationController*)weakSelf_SC.navigationController;
+//        if ([nav.scNaigationDelegate respondsToSelector:@selector(didTakePicture:image:)]) {
+//            [nav.scNaigationDelegate didTakePicture:nav image:stillImage];
+//        }
         //or your code 1
 //        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationTakePicture object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:stillImage, kImage, nil]];
         

@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "AIEverydaySCNavigationController.h"
-@interface AIEverydayViewController : UIViewController<EverydaySCNavigationControllerDelegate>
+
+@class AIEverydayViewController;
+//-------
+@protocol AIEverydayViewControllerDelegate <NSObject>
+
+- (void)didTakePicture:(AIEverydayViewController*)navigationController image:(UIImage*)image;
+
+@end
+
+//---------
+
+@interface AIEverydayViewController : UIViewController<AIEverydayViewControllerDelegate>
+
+@property (nonatomic, assign) id <AIEverydayViewControllerDelegate> scNaigationDelegate;
 
 @end

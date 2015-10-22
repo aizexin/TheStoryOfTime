@@ -10,6 +10,8 @@
 #import "AIEverydayCell.h"
 #import "PostViewController.h"
 #import "AINavgationLibs.h"
+#import "SCCaptureCameraController.h"
+#import "AIEverydayPostViewController.h"
 @interface AIEverydayViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic,strong)UICollectionView *collectionV;
@@ -38,6 +40,7 @@ static NSString *identifier = @"AIEverydayCell";
         
         CGRect rect = self.view.bounds;
         rect.origin.y = AINavgationBarH;
+        rect.size.height -= AINavgationBarH;
         flowLayout.itemSize = CGSizeMake(cellW, cellH);
         _collectionV = [[UICollectionView alloc]initWithFrame:rect collectionViewLayout:flowLayout];
         _collectionV.delegate = self;
@@ -53,12 +56,12 @@ static NSString *identifier = @"AIEverydayCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.sc_navigationItem.title = @"Everyday";
     self.automaticallyAdjustsScrollViewInsets = NO;
     for (int i = 0; i < 20; i++) {
         [self.dataSource addObject:[NSString stringWithFormat:@"测试数据%d",i]];
     }
+//    [self setHidesBottomBarWhenPushed:YES];
     [self.view addSubview:self.collectionV];
     
 }
@@ -83,25 +86,31 @@ static NSString *identifier = @"AIEverydayCell";
         //测试颜色
         cell.cellImage.image = [UIImage imageNamed:@"game_center"];
 //        cell.cellImage.backgroundColor = [UIColor redColor];
+        
     }
     
     return cell;
 }
 
-#pragma mark --------collection代理
+#pragma mark --------collection代理------
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.item == 0) {//开始照相等功能
-        AIEverydaySCNavigationController *nav = [[AIEverydaySCNavigationController alloc] init];
-        nav.scNaigationDelegate = self;
-        [nav showCameraWithParentController:self];
+
+        SCCaptureCameraController *cameraVC = [[SCCaptureCameraController alloc]init];
+
+//        [self sc_setNavigationBarHidden:YES animated:YES];
+        [self.navigationController pushViewController:cameraVC animated:YES];
+        
     }
 }
 
-#pragma mark - AIEverydaySCNavigationController delegate
-- (void)didTakePicture:(AIEverydaySCNavigationController *)navigationController image:(UIImage *)image {
-    PostViewController *con = [[PostViewController alloc] init];
-    con.postImage = image;
-    [navigationController.navigationController pushViewController:con animated:YES];
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.tabBarController.tabBar.hidden = YES;
 }
 
 
