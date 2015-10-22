@@ -125,11 +125,11 @@
 -(void)setupUI{
     //设置背景view
     [self.view addSubview:self.bgView];
-    [self.bgView makeConstraints:^(MASConstraintMaker *make) {
+    [self.bgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@0);
         make.left.equalTo(@0);
         make.bottom.equalTo(@0);
-        make.width.equalTo(self.view.width).multipliedBy(AIBirthShowScale);
+        make.width.equalTo(self.view.mas_width).multipliedBy(AIBirthShowScale);
     }];
     //设置按钮
     [self.settingBtn setImage:[UIImage imageNamed:@"left_set_ic"] forState:(UIControlStateNormal)];
@@ -160,16 +160,16 @@
     }];
     //时钟
     CGFloat padding = ClockPadding;
-    [self.nowColck makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.bgView.top).offset = padding;
-        make.right.equalTo(self.bgView.right).offset = -padding;
-        make.left.equalTo(self.bgView.left).offset = padding;
-        make.bottom.equalTo(self.bottomView.top).offset(@0);
-        make.width.mas_equalTo(self.nowColck.height);
+    [self.nowColck mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.bgView.mas_top).offset = padding;
+       make.right.equalTo(self.bgView.mas_right).offset = -padding;
+        make.left.equalTo(self.bgView.mas_left).offset = padding;
+        make.bottom.equalTo(self.bottomView.mas_top).mas_offset(@0);
+        make.width.mas_equalTo(self.nowColck.mas_height);
     }];
 //    bottomView
     CGFloat viewPadding = BottomViewPadding;
-    [self.bottomView makeConstraints:^(MASConstraintMaker *make) {
+    [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
 
         make.right.equalTo(@(-viewPadding));
         make.left.equalTo(@(viewPadding));

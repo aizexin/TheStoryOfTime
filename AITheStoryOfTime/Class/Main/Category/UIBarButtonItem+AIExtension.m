@@ -6,9 +6,9 @@
 //  Copyright © 2015年 aizexin. All rights reserved.
 //
 
-#import "UIBarButtonItem+Extension.h"
-#import "UIView+Extension.h"
-@implementation UIBarButtonItem(Extension)
+#import "UIBarButtonItem+AIExtension.h"
+#import "UIView+AIExtension.h"
+@implementation UIBarButtonItem(AIExtension)
 +(UIBarButtonItem*)itemWithTagert:(id)tagert action:(SEL)sel NorImageName:(NSString*)norImageName andHeiImageName:(NSString*)higImageName{
     UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
   

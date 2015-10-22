@@ -8,7 +8,7 @@
 
 #import "AITextView.h"
 #import "AIDefine.h"
-#import "UIView+Extension.h"
+#import "UIView+AIExtension.h"
 @interface AITextView ()
 @property(nonatomic,weak)UILabel *placeholderLabel;
 @end

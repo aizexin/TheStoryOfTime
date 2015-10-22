@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "SCNavigation.h"
-@interface AIBaseNavController : UINavigationController
+#import "SCNavigation.h"
+@interface AIBaseNavController : SCNavigationController
 
 @end

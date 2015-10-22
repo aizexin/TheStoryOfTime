@@ -16,6 +16,7 @@
 #import "AIStatusesTool.h"
 #import "AIEmotionKeyboard.h"
 #import "AIEmotion.h"
+#import "AINavgationLibs.h"
 //define this constant if you want to use Masonry without the 'mas_' prefix
 #define MAS_SHORTHAND
 
@@ -73,6 +74,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     //设置导航栏
     [self setupNavBar];
     //设置textView
@@ -141,11 +143,20 @@
  */
 -(void)setupNavBar
 {
-    //设置取消
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:(UIBarButtonItemStylePlain) target:self action:@selector(onClickCancel:)];
+//    //设置取消
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:(UIBarButtonItemStylePlain) target:self action:@selector(onClickCancel:)];
+//    //设置发送
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发送" style:(UIBarButtonItemStylePlain) target:self action:@selector(onClickSend:)];
+//    self.navigationItem.rightBarButtonItem.enabled = NO;
+//    self.sc_navigationItem.title = @"发微博";
     //设置发送
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发送" style:(UIBarButtonItemStylePlain) target:self action:@selector(onClickSend:)];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
+    SCBarButtonItem *sendItem = [[SCBarButtonItem alloc]initWithTitle:@"有毒" style:(SCBarButtonItemStylePlain) handler:nil];
+    self.sc_navigationItem.rightBarButtonItem = sendItem;
+    //设置取消
+    self.sc_navigationItem.leftBarButtonItem = [[SCBarButtonItem alloc] initWithTitle:@"取消" style:SCBarButtonItemStylePlain handler:^(id sender) {
+        [self onClickCancel];
+    }];
+
 }
 #pragma mark -键盘处理事件
 //UIKeyboardFrameBeginUserInfoKey = NSRect: {{0, 568}, {320, 253}},
@@ -183,12 +194,12 @@
 }
 
 #pragma mark -按钮点击事件
--(void)onClickCancel:(UIBarButtonItem*)cancel{
+-(void)onClickCancel{
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)onClickSend:(UIBarButtonItem*)send{
+-(void)onClickSend{
     //发微博
     [self composeStatus];
 }
@@ -311,7 +322,8 @@
     [self.view endEditing:YES];
 }
 - (void)textViewDidChange:(UITextView *)textView{
-    self.navigationItem.rightBarButtonItem.enabled = textView.text.length;
+//    self.navigationItem.rightBarButtonItem.enabled = textView.text.length;
+    self.sc_navigationItem.rightBarButtonItem.enabled = textView.text.length;
 }
 
 #pragma mark -UIImagePickerControllerDelegate

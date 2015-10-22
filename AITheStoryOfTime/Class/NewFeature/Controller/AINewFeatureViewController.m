@@ -8,7 +8,7 @@
 
 #import "AINewFeatureViewController.h"
 #import "AITabBarViewController.h"
-#import "UIView+Extension.h"
+#import "UIView+AIExtension.h"
 #define ImageCount 4
 @interface AINewFeatureViewController ()<UIScrollViewDelegate>
 @property(nonatomic,weak)UIPageControl *pageControl;

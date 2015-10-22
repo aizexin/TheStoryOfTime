@@ -7,7 +7,7 @@
 //
 
 #import "AIJokeViewController.h"
-
+#import "AINavgationLibs.h"
 @interface AIJokeViewController ()
 
 @end
@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.sc_navigationItem.title = @"笑话";
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.view setBackgroundColor:[UIColor blueColor]];
     // Do any additional setup after loading the view.
 }
 

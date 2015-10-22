@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AiHomeViewController : UITableViewController
+@interface AiHomeViewController : UIViewController
 
 @end

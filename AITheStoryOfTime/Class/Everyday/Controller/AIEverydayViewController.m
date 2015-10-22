@@ -9,6 +9,7 @@
 #import "AIEverydayViewController.h"
 #import "AIEverydayCell.h"
 #import "PostViewController.h"
+#import "AINavgationLibs.h"
 @interface AIEverydayViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic,strong)UICollectionView *collectionV;
@@ -52,6 +53,8 @@ static NSString *identifier = @"AIEverydayCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.sc_navigationItem.title = @"Everyday";
     self.automaticallyAdjustsScrollViewInsets = NO;
     for (int i = 0; i < 20; i++) {
         [self.dataSource addObject:[NSString stringWithFormat:@"测试数据%d",i]];
@@ -59,9 +62,12 @@ static NSString *identifier = @"AIEverydayCell";
     [self.view addSubview:self.collectionV];
     
 }
+
+
 #pragma mark -----------代理方法--
 #pragma mark --------数据源
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    
     return 1;
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -95,7 +101,7 @@ static NSString *identifier = @"AIEverydayCell";
 - (void)didTakePicture:(AIEverydaySCNavigationController *)navigationController image:(UIImage *)image {
     PostViewController *con = [[PostViewController alloc] init];
     con.postImage = image;
-    [navigationController pushViewController:con animated:YES];
+    [navigationController.navigationController pushViewController:con animated:YES];
 }
 
 

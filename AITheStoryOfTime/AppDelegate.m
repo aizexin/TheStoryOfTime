@@ -23,6 +23,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [UMSocialData setAppKey:AIUMAPPKEY];
     //分享
     [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:AIAppRediectURI];
     [UMSocialWechatHandler setWXAppId:AIWeChatAPPID appSecret:AIWeChatAPPSecret url:AIAppRediectURI];

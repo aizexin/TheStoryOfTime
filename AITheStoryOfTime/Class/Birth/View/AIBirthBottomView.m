@@ -123,7 +123,7 @@
         make.left.equalTo(@0);
         make.top.equalTo(@0);
         make.right.equalTo(self.shareBtn.mas_left).offset = 0;
-        make.height.equalTo(self.shareBtn.height);
+        make.height.equalTo(self.shareBtn.mas_height);
     }];
     //分享按钮
     [self.shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -135,7 +135,7 @@
     //tips
     [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
-        make.top.equalTo(self.nowAgelabel.bottom).offset = 0;
+        make.top.equalTo(self.nowAgelabel.mas_bottom).offset = 0;
         make.height.equalTo(@(TipsH));
         make.width.equalTo(self.mas_width);
     }];

@@ -7,7 +7,7 @@
 //
 
 #import "AISearchBar.h"
-#import "UIView+Extension.h"
+#import "UIView+AIExtension.h"
 #import "UIImage+Extension.h"
 @implementation AISearchBar
 

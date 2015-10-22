@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 heima. All rights reserved.
 //
 
-#import "UIView+Extension.h"
+#import "UIView+AIExtension.h"
 
-@implementation UIView (Extension)
+@implementation UIView (AIExtension)
 
 - (void)setX:(CGFloat)x
 {
@@ -83,12 +83,12 @@
     return self.center.x;
 }
 
-- (void)setCenterY:(CGFloat)centerY
-{
-    CGPoint center = self.center;
-    center.y = centerY;
-    self.center = center;
-}
+//- (void)setCenterY:(CGFloat)centerY
+//{
+//    CGPoint center = self.center;
+//    center.y = centerY;
+//    self.center = center;
+//}
 
 - (CGFloat)centerY
 {

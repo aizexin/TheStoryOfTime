@@ -15,12 +15,12 @@
 //导航栏上button字体颜色
 #define kNavigationBarTintColor [UIColor blackColor]
 //导航栏颜色
-#define kNavigationBarColor     AIColor(211, 211, 211)
+#define kNavigationBarColor     AIColor(230,230,230)
 //导航栏线的
 #define kNavigationBarLineColor [UIColor whiteColor]
 
 //设置导航title字体颜色
-#define kNavigateionBarTitleColor [UIColor blackColor]
+#define kNavigateionBarTitleColor [UIColor whiteColor]
 
 //设导航字体大小
 #define KNavigationBarTitleFont 18

@@ -7,7 +7,7 @@
 //
 
 #import "AIMapViewController.h"
-
+#import "AINavgationLibs.h"
 @interface AIMapViewController ()
 
 @end
@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor greenColor]];
+    self.sc_navigationItem.title = @"我的微博列表";
     // Do any additional setup after loading the view.
 }
 

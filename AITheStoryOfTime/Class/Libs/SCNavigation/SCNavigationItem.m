@@ -4,9 +4,8 @@
 //  Created by Singro on 5/25/14.
 //  Copyright (c) 2014 Singro. All rights reserved.
 //
-#import "SCNavigation.h"
+#import "AINavgationLibs.h"
 #import "SCNavigationItem.h"
-
 #import "SCShared.h"
 
 @interface SCNavigationItem ()
