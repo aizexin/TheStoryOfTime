@@ -18,4 +18,15 @@
  *  读取本地frameModel
  */
 +(AIEverydayLineFrameModel *)frameModel;
+//-----------------------数据库相关-----------------
+/**
+ *  储存照片到本地
+ */
++(void)saveImage:(UIImage*)image;
+/**
+ *  从数据库中取出所有模型
+ */
++(NSMutableArray*)allEverydayCellModel;
+/**从数据库中删除一个EverydayCellModel*/
++(void)deleteEverdayCellModelWithIndex:(NSInteger)index;
 @end

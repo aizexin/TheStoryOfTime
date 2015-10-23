@@ -16,4 +16,10 @@
     CGSize textSize = [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
     return textSize;
 }
+- (NSDate*)changeYMD2date{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd";
+    NSDate *date = [fmt dateFromString:self];
+    return date;
+}
 @end

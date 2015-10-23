@@ -11,6 +11,8 @@
 #import "PostViewController.h"
 #import "SCCaptureCameraController.h"
 #import "AIEverydayPostViewController.h"
+#import "AIEverydayTool.h"
+#import "AIEverydayCellModel.h"
 @interface AIEverydayViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic,strong)UICollectionView *collectionV;
@@ -22,6 +24,8 @@
 
 @implementation AIEverydayViewController
 static NSString *identifier = @"AIEverydayCell";
+
+
 
 #pragma mark -懒加载
 -(NSMutableArray *)dataSource{
@@ -53,14 +57,16 @@ static NSString *identifier = @"AIEverydayCell";
     return _collectionV;
 }
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Everyday";
    
     self.automaticallyAdjustsScrollViewInsets = NO;
-    for (int i = 0; i < 20; i++) {
-        [self.dataSource addObject:[NSString stringWithFormat:@"测试数据%d",i]];
-    }
+//    for (int i = 0; i < 20; i++) {
+//        [self.dataSource addObject:[NSString stringWithFormat:@"测试数据%d",i]];
+//    }
     
 //    [self setHidesBottomBarWhenPushed:YES];
     [self.view addSubview:self.collectionV];
@@ -75,7 +81,7 @@ static NSString *identifier = @"AIEverydayCell";
     return 1;
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.dataSource.count;
+    return self.dataSource.count+1;
 }
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -86,7 +92,16 @@ static NSString *identifier = @"AIEverydayCell";
     if (indexPath.item == 0) {
         //测试颜色
         cell.cellImage.image = [UIImage imageNamed:@"game_center"];
-//        cell.cellImage.backgroundColor = [UIColor redColor];
+        [cell.deleteBtn removeFromSuperview];
+    }else{
+        cell.cellImage.userInteractionEnabled = YES;
+        AIEverydayCellModel *model = self.dataSource[indexPath.item-1];
+        cell.model = model;
+        __weak typeof (self) weakSelf = self;
+        [cell setDeleteBlock:^() {
+            [AIEverydayTool deleteEverdayCellModelWithIndex:indexPath.item];
+            [weakSelf.collectionV reloadData];
+        }];
     }
     
     return cell;
@@ -99,6 +114,7 @@ static NSString *identifier = @"AIEverydayCell";
         SCCaptureCameraController *cameraVC = [[SCCaptureCameraController alloc]init];
 //        self.tabBarController.tabBar.hidden = YES;
         [self.navigationController pushViewController:cameraVC animated:YES];
+    }else{
         
     }
 }
@@ -110,6 +126,8 @@ static NSString *identifier = @"AIEverydayCell";
     if (self.navigationController && self.navigationController.navigationBarHidden) {
         self.navigationController.navigationBarHidden = NO;
     }
+    self.dataSource = [AIEverydayTool allEverydayCellModel];
+    [self.collectionV reloadData];
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];

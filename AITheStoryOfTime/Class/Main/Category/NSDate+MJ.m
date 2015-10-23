@@ -52,6 +52,14 @@
     NSString *selfStr = [fmt stringFromDate:self];
     return [fmt dateFromString:selfStr];
 }
+-(NSString*)dateStringYMD{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd";
+    NSString *selfStr = [fmt stringFromDate:self];
+    return selfStr;
+}
+
+
 
 /**
  *  是否为今年

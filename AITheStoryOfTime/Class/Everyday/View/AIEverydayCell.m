@@ -7,7 +7,21 @@
 //
 
 #import "AIEverydayCell.h"
+#import "AIEverydayCellModel.h"
 
 @implementation AIEverydayCell
+
+
+-(void)setModel:(AIEverydayCellModel *)model{
+    _model = model;
+    self.cellImage.image = model.everydayImage;
+    self.timeLabel.text = model.time;
+}
+- (IBAction)onClickDelete:(UIButton *)sender {
+    AILog(@"onClickDelete");
+    if (self.deleteBlock) {
+        self.deleteBlock();
+    }
+}
 
 @end

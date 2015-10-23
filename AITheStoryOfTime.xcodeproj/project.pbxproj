@@ -254,6 +254,15 @@
 		BCC06EC71BD7D82100A86010 /* AIEverydayToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC06EC61BD7D82100A86010 /* AIEverydayToolbar.m */; };
 		BCC06EC91BD7D83000A86010 /* AIEverydayToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC06EC81BD7D83000A86010 /* AIEverydayToolbar.xib */; };
 		BCFD9F991BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFD9F981BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m */; };
+		BCFDA0211BDA4E1400D9AC6C /* AIDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA0201BDA4E1400D9AC6C /* AIDBTool.m */; };
+		BCFDA02E1BDA4E8500D9AC6C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA0241BDA4E8500D9AC6C /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BCFDA02F1BDA4E8500D9AC6C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA0261BDA4E8500D9AC6C /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BCFDA0301BDA4E8500D9AC6C /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA0281BDA4E8500D9AC6C /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BCFDA0311BDA4E8500D9AC6C /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA02A1BDA4E8500D9AC6C /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BCFDA0321BDA4E8500D9AC6C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA02C1BDA4E8500D9AC6C /* FMResultSet.m */; };
+		BCFDA0331BDA4E8500D9AC6C /* readMe.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA02D1BDA4E8500D9AC6C /* readMe.m */; };
+		BCFDA0351BDA4EF100D9AC6C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCFDA0341BDA4EF100D9AC6C /* libsqlite3.0.dylib */; };
+		BCFDA0381BDA4F6200D9AC6C /* AIEverydayCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA0371BDA4F6200D9AC6C /* AIEverydayCellModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -725,6 +734,22 @@
 		BCC06EC81BD7D83000A86010 /* AIEverydayToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIEverydayToolbar.xib; sourceTree = "<group>"; };
 		BCFD9F971BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+AIExtension.h"; sourceTree = "<group>"; };
 		BCFD9F981BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+AIExtension.m"; sourceTree = "<group>"; };
+		BCFDA01F1BDA4E1400D9AC6C /* AIDBTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDBTool.h; sourceTree = "<group>"; };
+		BCFDA0201BDA4E1400D9AC6C /* AIDBTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIDBTool.m; sourceTree = "<group>"; };
+		BCFDA0231BDA4E8500D9AC6C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		BCFDA0241BDA4E8500D9AC6C /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		BCFDA0251BDA4E8500D9AC6C /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		BCFDA0261BDA4E8500D9AC6C /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		BCFDA0271BDA4E8500D9AC6C /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		BCFDA0281BDA4E8500D9AC6C /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		BCFDA0291BDA4E8500D9AC6C /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		BCFDA02A1BDA4E8500D9AC6C /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		BCFDA02B1BDA4E8500D9AC6C /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		BCFDA02C1BDA4E8500D9AC6C /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		BCFDA02D1BDA4E8500D9AC6C /* readMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = readMe.m; sourceTree = "<group>"; };
+		BCFDA0341BDA4EF100D9AC6C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		BCFDA0361BDA4F6200D9AC6C /* AIEverydayCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIEverydayCellModel.h; sourceTree = "<group>"; };
+		BCFDA0371BDA4F6200D9AC6C /* AIEverydayCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIEverydayCellModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -732,6 +757,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCFDA0351BDA4EF100D9AC6C /* libsqlite3.0.dylib in Frameworks */,
 				45DE85D91BD800360058BC6F /* libz.dylib in Frameworks */,
 				45DE85D71BD8002E0058BC6F /* libstdc++.dylib in Frameworks */,
 				45DE85D51BD800230058BC6F /* CoreTelephony.framework in Frameworks */,
@@ -1007,6 +1033,8 @@
 			children = (
 				BC1FF81E1BD9D088007C8327 /* AIEverydayLineFrameModel.h */,
 				BC1FF81F1BD9D088007C8327 /* AIEverydayLineFrameModel.m */,
+				BCFDA0361BDA4F6200D9AC6C /* AIEverydayCellModel.h */,
+				BCFDA0371BDA4F6200D9AC6C /* AIEverydayCellModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1023,6 +1051,7 @@
 		BC26EDA41BD092290064D89E = {
 			isa = PBXGroup;
 			children = (
+				BCFDA0341BDA4EF100D9AC6C /* libsqlite3.0.dylib */,
 				BC26EDAF1BD092290064D89E /* AITheStoryOfTime */,
 				BC26EDC91BD092290064D89E /* AITheStoryOfTimeTests */,
 				BC26EDAE1BD092290064D89E /* Products */,
@@ -1137,6 +1166,7 @@
 		BC26EFC01BD0ABAB0064D89E /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				BCFDA0221BDA4E8500D9AC6C /* FMDB */,
 				BC885AEE1BD894CE00788761 /* Masonry */,
 				45EB28201BD7F28A0002B5F9 /* shareLibs */,
 				BCC06E4A1BD7C9E600A86010 /* EverydayLibs */,
@@ -1417,6 +1447,8 @@
 		BC26F0711BD0ABAC0064D89E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				BCFDA01F1BDA4E1400D9AC6C /* AIDBTool.h */,
+				BCFDA0201BDA4E1400D9AC6C /* AIDBTool.m */,
 				BC26F0721BD0ABAC0064D89E /* AIAccountTool.h */,
 				BC26F0731BD0ABAC0064D89E /* AIAccountTool.m */,
 				BC26F0741BD0ABAC0064D89E /* AIBaseTool.h */,
@@ -1884,6 +1916,24 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		BCFDA0221BDA4E8500D9AC6C /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				BCFDA0231BDA4E8500D9AC6C /* FMDatabase.h */,
+				BCFDA0241BDA4E8500D9AC6C /* FMDatabase.m */,
+				BCFDA0251BDA4E8500D9AC6C /* FMDatabaseAdditions.h */,
+				BCFDA0261BDA4E8500D9AC6C /* FMDatabaseAdditions.m */,
+				BCFDA0271BDA4E8500D9AC6C /* FMDatabasePool.h */,
+				BCFDA0281BDA4E8500D9AC6C /* FMDatabasePool.m */,
+				BCFDA0291BDA4E8500D9AC6C /* FMDatabaseQueue.h */,
+				BCFDA02A1BDA4E8500D9AC6C /* FMDatabaseQueue.m */,
+				BCFDA02B1BDA4E8500D9AC6C /* FMResultSet.h */,
+				BCFDA02C1BDA4E8500D9AC6C /* FMResultSet.m */,
+				BCFDA02D1BDA4E8500D9AC6C /* readMe.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2051,6 +2101,7 @@
 				BC26F1421BD0ADF30064D89E /* AITemp2ViewController.m in Sources */,
 				BC26F0D41BD0ABAC0064D89E /* MJTypeEncoding.m in Sources */,
 				BC26F0F31BD0ABAC0064D89E /* UIImage+WebP.m in Sources */,
+				BCFDA0321BDA4E8500D9AC6C /* FMResultSet.m in Sources */,
 				BC26F10D1BD0ABAC0064D89E /* AiHomeViewController.m in Sources */,
 				BC1FF8241BD9D158007C8327 /* AIEverydayTool.m in Sources */,
 				BC26F0FA1BD0ABAC0064D89E /* NSString+Extension.m in Sources */,
@@ -2079,12 +2130,14 @@
 				BCAEA8FA1BD5C8ED00E93119 /* UUDatePicker_DateModel.m in Sources */,
 				BC26F0C51BD0ABAC0064D89E /* UIProgressView+AFNetworking.m in Sources */,
 				BC885B0D1BD894CF00788761 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				BCFDA0331BDA4E8500D9AC6C /* readMe.m in Sources */,
 				BC26F0E81BD0ABAC0064D89E /* NSData+ImageContentType.m in Sources */,
 				BC26F1351BD0ACC60064D89E /* AIBirthViewController.m in Sources */,
 				BC26F10F1BD0ABAC0064D89E /* AIHomeStatusesResultModel.m in Sources */,
 				BC26EDB91BD092290064D89E /* ViewController.m in Sources */,
 				BC26F1041BD0ABAC0064D89E /* AIUserInfoParamModel.m in Sources */,
 				BC26F0D01BD0ABAC0064D89E /* MJIvar.m in Sources */,
+				BCFDA02F1BDA4E8500D9AC6C /* FMDatabaseAdditions.m in Sources */,
 				BC26F14B1BD0BFFF0064D89E /* AINewFeatureViewController.m in Sources */,
 				BC26F11B1BD0ABAC0064D89E /* AIStatusDetailView.m in Sources */,
 				BCC06E8D1BD7C9E600A86010 /* PostViewController.m in Sources */,
@@ -2168,6 +2221,7 @@
 				BC885B0C1BD894CF00788761 /* NSArray+MASAdditions.m in Sources */,
 				BC26EDB31BD092290064D89E /* main.m in Sources */,
 				456500A91BD2302A00882753 /* AIEmotionListView.m in Sources */,
+				BCFDA0211BDA4E1400D9AC6C /* AIDBTool.m in Sources */,
 				BC26F0B41BD0ABAC0064D89E /* AIComposePhotosView.m in Sources */,
 				45E9E2711BD9520A00E319B0 /* AIEverydayLineView.m in Sources */,
 				458C45861BD111F5009B057D /* MJPhoto.m in Sources */,
@@ -2181,6 +2235,7 @@
 				BC26F0E61BD0ABAC0064D89E /* UIScrollView+MJRefresh.m in Sources */,
 				BC26F1021BD0ABAC0064D89E /* AIComposeResultModel.m in Sources */,
 				BC26F0FF1BD0ABAC0064D89E /* AITabBarViewController.m in Sources */,
+				BCFDA0311BDA4E8500D9AC6C /* FMDatabaseQueue.m in Sources */,
 				BC26F0F21BD0ABAC0064D89E /* UIImage+MultiFormat.m in Sources */,
 				BC26F1091BD0ABAC0064D89E /* AIHttpTool.m in Sources */,
 				BC26F0C71BD0ABAC0064D89E /* UIWebView+AFNetworking.m in Sources */,
@@ -2189,10 +2244,12 @@
 				458C458D1BD111F5009B057D /* SDWebImageManager+MJ.m in Sources */,
 				BC26F0D21BD0ABAC0064D89E /* MJMethod.m in Sources */,
 				BC26F1201BD0ABAC0064D89E /* AIStatusToolbar.m in Sources */,
+				BCFDA02E1BDA4E8500D9AC6C /* FMDatabase.m in Sources */,
 				BC26F0D51BD0ABAC0064D89E /* NSObject+MJCoding.m in Sources */,
 				BC26F0EE1BD0ABAC0064D89E /* SDWebImageManager.m in Sources */,
 				BC26F0EC1BD0ABAC0064D89E /* SDWebImageDownloader.m in Sources */,
 				BC26F12A1BD0AC570064D89E /* AIEverydayViewController.m in Sources */,
+				BCFDA0301BDA4E8500D9AC6C /* FMDatabasePool.m in Sources */,
 				BC26F1301BD0AC700064D89E /* AIMapViewController.m in Sources */,
 				BC26F0BA1BD0ABAC0064D89E /* AFNetworkReachabilityManager.m in Sources */,
 				BC26F0ED1BD0ABAC0064D89E /* SDWebImageDownloaderOperation.m in Sources */,
@@ -2200,6 +2257,7 @@
 				BC26F0E71BD0ABAC0064D89E /* MKAnnotationView+WebCache.m in Sources */,
 				BC26F11A1BD0ABAC0064D89E /* AIStatusCell.m in Sources */,
 				BC26F0C41BD0ABAC0064D89E /* UIImageView+AFNetworking.m in Sources */,
+				BCFDA0381BDA4F6200D9AC6C /* AIEverydayCellModel.m in Sources */,
 				BCC06EAB1BD7C9E600A86010 /* SCCaptureSessionManager.m in Sources */,
 				BC26F0B81BD0ABAC0064D89E /* AFHTTPRequestOperationManager.m in Sources */,
 				BC26F11C1BD0ABAC0064D89E /* AIStatusOriginalView.m in Sources */,

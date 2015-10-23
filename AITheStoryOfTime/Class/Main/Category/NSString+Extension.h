@@ -19,4 +19,9 @@
  *  @return 占用的宽高
  */
 - (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize;
+
+/**
+ *  转换为日期  年-月-日
+ */
+- (NSDate*)changeYMD2date;
 @end

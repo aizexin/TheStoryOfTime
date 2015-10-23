@@ -39,6 +39,9 @@
 @property(nonatomic,assign,getter=isSettingLine)BOOL settingLine;
 /**是否已经设置了基准线*/
 @property(nonatomic,assign,getter=isSetedLine)BOOL setedLine;
+
+
+
 @end
 
 @implementation AIEverydayPostViewController
@@ -107,6 +110,7 @@
 }
 #pragma mark --------------数据 toolbar响应事件---------------------
 -(void)setupData{
+    __weak typeof (self) weakSelf = self;
     self.imageV.image = self.image;
     //点击事件
     [self.toolbarView setCancelImage:^{//取消按钮
@@ -116,12 +120,13 @@
         [self.navigationController popViewControllerAnimated:YES];
     }];
     [self.toolbarView setSaveImage:^{//保存按钮
-       [SCCommon saveImageToPhotoAlbum:self.image];//存至本机
+       [SCCommon saveImageToPhotoAlbum:weakSelf.image];//存至本机
         if (!self.isSetedLine) {//如果是在设置基准线
             [self saveLineFrame];
         }
-#warning 这里保存到本地数据库
-       [self.navigationController popViewControllerAnimated:YES];
+        //存储到数据库
+        [AIEverydayTool saveImage:weakSelf.image];
+    [self.navigationController popViewControllerAnimated:YES];
     }];
 }
 

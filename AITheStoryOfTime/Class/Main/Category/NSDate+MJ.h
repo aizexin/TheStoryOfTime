@@ -31,4 +31,8 @@
  *  获得与当前时间的差距
  */
 - (NSDateComponents *)deltaWithNow;
+/**
+ *  转换为年月日的字符串 yyyy-MM-dd
+ */
+-(NSString*)dateStringYMD;
 @end
