@@ -10,7 +10,9 @@
 #import <ImageIO/ImageIO.h>
 #import "UIImage+Resize.h"
 #import "SCCommon.h"
-
+#import "AIEverydayTool.h"
+#import "AIEverydayLineFrameModel.h"
+#import "SVProgressHUD.h"
 @interface SCCaptureSessionManager ()
 
 
@@ -523,27 +525,43 @@
     if (!toShow) {
         NSArray *layersArr = [NSArray arrayWithArray:_preview.layer.sublayers];
         for (CALayer *layer in layersArr) {
-            if (layer.frame.size.width == 1 || layer.frame.size.height == 1) {
+            if (layer.frame.size.width == AIEverydayBaseLineWith || layer.frame.size.height == AIEverydayBaseLineWith) {
                 [layer removeFromSuperlayer];
             }
         }
         return;
     }
     
-    CGFloat headHeight = _previewLayer.bounds.size.height - SC_APP_SIZE.width;
-    CGFloat squareLength = SC_APP_SIZE.width;
-    CGFloat eachAreaLength = squareLength / 3;
+//    CGFloat headHeight = _previewLayer.bounds.size.height - SC_APP_SIZE.width;
+//    CGFloat squareLength = SC_APP_SIZE.width;
+//    CGFloat eachAreaLength = squareLength / 3;
 #warning 画出网格
-    for (int i = 0; i < 4; i++) {
-        CGRect frame = CGRectZero;
-        if (i == 0 || i == 1) {//画横线
-            frame = CGRectMake(0, headHeight + (i + 1) * eachAreaLength, squareLength, 1);
-        } else {
-            frame = CGRectMake((i + 1 - 2) * eachAreaLength, headHeight, 1, squareLength);
-        }
-        [SCCommon drawALineWithFrame:frame andColor:[UIColor whiteColor] inLayer:_preview.layer];
-    }
+//    for (int i = 0; i < 4; i++) {
+//        CGRect frame = CGRectZero;
+//        if (i == 0 || i == 1) {//画横线
+//            frame = CGRectMake(0, headHeight + (i + 1) * eachAreaLength, squareLength, 1);
+//        } else {
+//            frame = CGRectMake((i + 1 - 2) * eachAreaLength, headHeight, 1, squareLength);
+//        }
+//        [SCCommon drawALineWithFrame:frame andColor:[UIColor whiteColor] inLayer:_preview.layer];
+//    }
+    [self drawBaseLine];
 }
+#warning 自己修改方法
+-(void)drawBaseLine{
+   AIEverydayLineFrameModel *frameModel = [AIEverydayTool frameModel];
+    if (!frameModel) {
+        [SVProgressHUD showErrorWithStatus:@"还没有基准线哦~"];
+        return;
+    }
+    CGRect eyesFrame = CGRectFromString(frameModel.eyesFrameStr);
+    CGRect mouthFrame = CGRectFromString(frameModel.mouthFrameStr);
+    CGRect noseFrame = CGRectFromString(frameModel.noseFrameStr);
+    [SCCommon drawALineWithFrame:eyesFrame andColor:[UIColor whiteColor] inLayer:_preview.layer];
+    [SCCommon drawALineWithFrame:mouthFrame andColor:[UIColor whiteColor] inLayer:_preview.layer];
+    [SCCommon drawALineWithFrame:noseFrame andColor:[UIColor whiteColor] inLayer:_preview.layer];
+}
+
 
 ////画一条线
 //+ (void)drawALineWithFrame:(CGRect)frame andColor:(UIColor*)color inLayer:(CALayer*)parentLayer {
