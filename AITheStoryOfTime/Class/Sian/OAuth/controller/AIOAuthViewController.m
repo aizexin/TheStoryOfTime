@@ -36,6 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     // 1.创建UIWebView
     UIWebView *webView = [[UIWebView alloc] init];
     webView.frame = self.view.bounds;

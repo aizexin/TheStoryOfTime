@@ -15,6 +15,9 @@
 #import "AIBaseNavController.h"
 #import "AITabBar.h"
 #import "AIComposeViewController.h"
+#import "AIAccountTool.h"
+#import "AIAccountModel.h"
+#import "AIOAuthViewController.h"
 @interface AITabBarViewController ()<AITabBarDelegate>
 
 @end
@@ -33,8 +36,19 @@
 }
 
 - (void)addAllChildVcs{
-    AiHomeViewController *homeVC = [[AiHomeViewController alloc]init];
-    [self addOneChildVC:homeVC title:@"首页" imageName:@"tabbar_home" selImageName:@"tabbar_home_selected"];
+    
+    AIAccountModel *account = [AIAccountTool account];
+    
+    
+    if (account.access_token) {
+        AiHomeViewController *homeVC = [[AiHomeViewController alloc]init];
+        [self addOneChildVC:homeVC title:@"首页" imageName:@"tabbar_home" selImageName:@"tabbar_home_selected"];
+    }else{
+        AIOAuthViewController *oauthVC = [[AIOAuthViewController alloc]init];
+        [self addOneChildVC:oauthVC title:@"首页" imageName:@"tabbar_home" selImageName:@"tabbar_home_selected"];
+    }
+    
+    
     
     AIJokeViewController *messageVC = [[AIJokeViewController alloc]init];
     [self addOneChildVC:messageVC title:@"笑话" imageName:@"tabbar_message_center" selImageName:@"tabbar_message_center_selected"];
@@ -72,6 +86,8 @@
     chilidVC.tabBarItem.selectedImage = selImage;
     //添加导航控制器
     AIBaseNavController *navVC = [[AIBaseNavController alloc]initWithRootViewController:chilidVC];
+    
+    
     [self addChildViewController:navVC];
 }
 #pragma mark -AITabBarDelegate

@@ -5,14 +5,13 @@
 //  Created by qianfeng on 15/10/8.
 //  Copyright (c) 2015年 aizexin. All rights reserved.
 // 控制器相关操作
-#warning 第一次进去没有DDM不能侧滑
+#warning 第一次进去没有DDM不能侧滑  准备修改进入页面
 
 #import "AIControllerTool.h"
 #import "AITabBarViewController.h"
 #import "AINewFeatureViewController.h"
 #import "DDMenuController.h"
 #import "AIBirthViewController.h"
-//#import "AIBirthViewController.h"
 @implementation AIControllerTool
 +(void)chooseRootController{
  
@@ -26,9 +25,7 @@
     //获得当前版本号
     NSString *currentVersion = [NSBundle mainBundle].infoDictionary[versionKey];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    if ([lastVersion isEqualToString:currentVersion]) {
-        
-        
+    if ([lastVersion isEqualToString:currentVersion]) { //不是第一次进入
         DDMenuController *ddmVC = [[DDMenuController alloc]initWithRootViewController:tabBarVC];
         //添加左边birth页面
         AIBirthViewController *birthVC = [[AIBirthViewController alloc]init];
@@ -36,7 +33,7 @@
         
         window.rootViewController = ddmVC;
         
-    }else{
+    }else{ //第一次进入
         
         AINewFeatureViewController *newFeature = [[AINewFeatureViewController alloc]init];
         window.rootViewController = newFeature;

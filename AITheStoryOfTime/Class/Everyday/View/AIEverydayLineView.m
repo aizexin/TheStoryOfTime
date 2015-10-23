@@ -67,4 +67,12 @@
     }
 }
 
+/**
+ *  得到showline在俯视图坐标
+ */
+-(NSString*)showLineRectInImageView{
+    CGRect rect =[self.showLineView convertRect:self.showLineView.frame toView:self.superview];
+    return NSStringFromCGRect(rect);
+}
+
 @end

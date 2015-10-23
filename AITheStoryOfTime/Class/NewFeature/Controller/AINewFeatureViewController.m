@@ -9,6 +9,8 @@
 #import "AINewFeatureViewController.h"
 #import "AITabBarViewController.h"
 #import "UIView+AIExtension.h"
+#import "DDMenuController.h"
+#import "AIBirthViewController.h"
 #define ImageCount 4
 @interface AINewFeatureViewController ()<UIScrollViewDelegate>
 @property(nonatomic,weak)UIPageControl *pageControl;
@@ -102,9 +104,16 @@
 
 #pragma mark -按钮点击事件
 -(void)onClickStartBtn{
-    AILog(@"onClickStartBtn----");
+    AITabBarViewController *tabBarVC = [[AITabBarViewController alloc]init];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    window.rootViewController = [[AITabBarViewController alloc]init];
+    DDMenuController *ddmVC = [[DDMenuController alloc]initWithRootViewController:tabBarVC];
+    //添加左边birth页面
+    AIBirthViewController *birthVC = [[AIBirthViewController alloc]init];
+    ddmVC.leftViewController = birthVC;
+    
+    window.rootViewController = ddmVC;
+    
+//    window.rootViewController = [[AITabBarViewController alloc]init];
 }
 -(void)onClickShareBtn:(UIButton*)btn{
     btn.selected = !btn.isSelected;

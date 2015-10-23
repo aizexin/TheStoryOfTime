@@ -36,14 +36,16 @@
 
     [UMSocialData setAppKey:AIUMAPPKEY];
     [self.window makeKeyAndVisible];
-    AIAccountModel *account = [AIAccountTool account];
+    [AIControllerTool chooseRootController];
     
-    if (account.access_token) {
-        [AIControllerTool chooseRootController];
-    }else{
-        AIOAuthViewController *oauthVC = [[AIOAuthViewController alloc]init];
-        self.window.rootViewController = oauthVC;
-    }
+//    AIAccountModel *account = [AIAccountTool account];
+//    
+//    if (account.access_token) {
+////        [AIControllerTool chooseRootController];
+//    }else{
+//        AIOAuthViewController *oauthVC = [[AIOAuthViewController alloc]init];
+//        self.window.rootViewController = oauthVC;
+//    }
     return YES;
 }
 

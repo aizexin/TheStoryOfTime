@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor greenColor]];
-    self.sc_navigationItem.title = @"我的微博列表";
+    self.sc_navigationItem.title = @"地图";
     // Do any additional setup after loading the view.
 }
 

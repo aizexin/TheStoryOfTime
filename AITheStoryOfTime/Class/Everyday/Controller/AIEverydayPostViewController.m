@@ -11,6 +11,8 @@
 #import "AIFixScreen.h"
 #import "SCCommon.h"
 #import "AIEverydayLineView.h"
+#import "AIEverydayLineFrameModel.h"
+#import "AIEverydayTool.h"
 
 #define SC_APP_SIZE         [[UIScreen mainScreen] applicationFrame].size
 #define CAMERA_TOPVIEW_HEIGHT   44  //title
@@ -24,26 +26,20 @@
 
 
 @interface AIEverydayPostViewController ()
-/**
- *  拍照得到的image
- */
+/**拍照得到的image*/
 @property(nonatomic,weak)UIImageView *imageV;
-/**
- *  工具栏
- */
+/**工具栏*/
 @property(nonatomic,weak)AIEverydayToolbar *toolbarView;
-/**
- *  眼睛位线
- */
+/**眼睛位线*/
 @property(nonatomic,strong)AIEverydayLineView *eyesLineView;
-/**
- *  嘴位线
- */
+/**嘴位线*/
 @property(nonatomic,strong)AIEverydayLineView *mouthLineView;
-/**
- *  鼻子线
- */
+/**鼻子线*/
 @property(nonatomic,strong)AIEverydayLineView *noseLineView;
+/**是否在设置基准线*/
+@property(nonatomic,assign,getter=isSettingLine)BOOL settingLine;
+/**是否需要设置基准线（第一次）*/
+@property(nonatomic,assign,getter=isNeedSettLine)BOOL needSettLine;
 @end
 
 @implementation AIEverydayPostViewController
@@ -75,11 +71,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    AILog(@"%d",self.isNeedSettLine);
     [self setupUI];
     [self setupData];
-    //设置基准线
-    [self setupBaseLine];
+    if (self.isNeedSettLine) {
+        //设置基准线
+        [self setupBaseLine];
+    }
 }
 #pragma mark ----------------UI----------------------
 -(void)setupUI{
@@ -109,7 +107,7 @@
     self.imageV.frame = AIEverydayPhotoRect;
     
 }
-#pragma mark --------------数据 ---------------------
+#pragma mark --------------数据 toolbar响应事件---------------------
 -(void)setupData{
     self.imageV.image = self.image;
     //点击事件
@@ -121,6 +119,9 @@
     }];
     [self.toolbarView setSaveImage:^{//保存按钮
        [SCCommon saveImageToPhotoAlbum:self.image];//存至本机
+        if (self.isSettingLine) {//如果是在设置基准线
+            [self saveLineFrame];
+        }
        [self.navigationController popViewControllerAnimated:YES];
     }];
 }
@@ -147,8 +148,8 @@
 //    [panMouth requireGestureRecognizerToFail:panMouth];
 }
 -(void)panHorizontalLine:(UIPanGestureRecognizer*)pan{
-    AIEverydayLineView * line = (AIEverydayLineView*)pan.view;
-    AILog(@"---------%d",line.type);
+//    AIEverydayLineView * line = (AIEverydayLineView*)pan.view;
+//    AILog(@"---------%d,%@",line.type,NSStringFromCGRect([line showLineRectInImageView]));
     if (pan.view.frame.size.height == (SC_APP_SIZE.width + CAMERA_TOPVIEW_HEIGHT)) {
         //移动的坐标值
         CGPoint translation = [pan translationInView:self.view];
@@ -177,6 +178,23 @@
     }
 }
 
+#pragma mark--------------数据存储------------------
+-(void)saveLineFrame{
+    AIEverydayLineFrameModel *lineModel = [[AIEverydayLineFrameModel alloc]init];
+    lineModel.eyesFrameStr = [self.eyesLineView showLineRectInImageView];
+    lineModel.mouthFrameStr = [self.mouthLineView showLineRectInImageView];
+    lineModel.noseFrameStr = [self.noseLineView showLineRectInImageView];
+    //保存到本地
+    [AIEverydayTool saveLineFrameModel:lineModel];
+    //保存是否需要设置基准线
+    self.needSettLine = NO;
+    [[NSUserDefaults standardUserDefaults]setBool:self.needSettLine forKey:@"needSettLine"];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.needSettLine = [[NSUserDefaults standardUserDefaults]boolForKey:@"needSettLine"];
+}
 @end
 
 

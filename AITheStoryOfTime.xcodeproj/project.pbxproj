@@ -64,6 +64,8 @@
 		45EB28811BD7F28B0002B5F9 /* libUMSocial_Sdk_Shake_1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EB28611BD7F28A0002B5F9 /* libUMSocial_Sdk_Shake_1.0.a */; };
 		45EB28821BD7F28B0002B5F9 /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EB28641BD7F28A0002B5F9 /* libSocialWechat.a */; };
 		45EB28831BD7F28B0002B5F9 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EB28651BD7F28A0002B5F9 /* libWeChatSDK.a */; };
+		BC1FF8201BD9D088007C8327 /* AIEverydayLineFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1FF81F1BD9D088007C8327 /* AIEverydayLineFrameModel.m */; };
+		BC1FF8241BD9D158007C8327 /* AIEverydayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1FF8231BD9D158007C8327 /* AIEverydayTool.m */; };
 		BC26EDB31BD092290064D89E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26EDB21BD092290064D89E /* main.m */; };
 		BC26EDB61BD092290064D89E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26EDB51BD092290064D89E /* AppDelegate.m */; };
 		BC26EDB91BD092290064D89E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26EDB81BD092290064D89E /* ViewController.m */; };
@@ -385,6 +387,10 @@
 		45EB28661BD7F28A0002B5F9 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
 		45EB28671BD7F28A0002B5F9 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		45EB28681BD7F28A0002B5F9 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		BC1FF81E1BD9D088007C8327 /* AIEverydayLineFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIEverydayLineFrameModel.h; sourceTree = "<group>"; };
+		BC1FF81F1BD9D088007C8327 /* AIEverydayLineFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIEverydayLineFrameModel.m; sourceTree = "<group>"; };
+		BC1FF8221BD9D158007C8327 /* AIEverydayTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIEverydayTool.h; sourceTree = "<group>"; };
+		BC1FF8231BD9D158007C8327 /* AIEverydayTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIEverydayTool.m; sourceTree = "<group>"; };
 		BC26EDAD1BD092290064D89E /* AITheStoryOfTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AITheStoryOfTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC26EDB11BD092290064D89E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC26EDB21BD092290064D89E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1028,6 +1034,24 @@
 			path = Wechat;
 			sourceTree = "<group>";
 		};
+		BC1FF81D1BD9D05F007C8327 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC1FF81E1BD9D088007C8327 /* AIEverydayLineFrameModel.h */,
+				BC1FF81F1BD9D088007C8327 /* AIEverydayLineFrameModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BC1FF8211BD9D12A007C8327 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				BC1FF8221BD9D158007C8327 /* AIEverydayTool.h */,
+				BC1FF8231BD9D158007C8327 /* AIEverydayTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		BC26EDA41BD092290064D89E = {
 			isa = PBXGroup;
 			children = (
@@ -1567,6 +1591,8 @@
 		BC26F1221BD0AC310064D89E /* Everyday */ = {
 			isa = PBXGroup;
 			children = (
+				BC1FF8211BD9D12A007C8327 /* Tool */,
+				BC1FF81D1BD9D05F007C8327 /* Model */,
 				BCC06DD21BD7A78000A86010 /* View */,
 				BC26F1231BD0AC310064D89E /* Controller */,
 			);
@@ -2115,9 +2141,11 @@
 				BC26F0D41BD0ABAC0064D89E /* MJTypeEncoding.m in Sources */,
 				BC26F0F31BD0ABAC0064D89E /* UIImage+WebP.m in Sources */,
 				BC26F10D1BD0ABAC0064D89E /* AiHomeViewController.m in Sources */,
+				BC1FF8241BD9D158007C8327 /* AIEverydayTool.m in Sources */,
 				BC26F0FA1BD0ABAC0064D89E /* NSString+Extension.m in Sources */,
 				456500B61BD288D800882753 /* NSString+Emoji.m in Sources */,
 				BC26F0C91BD0ABAC0064D89E /* KSMHand.m in Sources */,
+				BC1FF8201BD9D088007C8327 /* AIEverydayLineFrameModel.m in Sources */,
 				BC26F0CF1BD0ABAC0064D89E /* MJArgument.m in Sources */,
 				458C458A1BD111F5009B057D /* MJPhotoProgressView.m in Sources */,
 				BCAEA90E1BD5DDE300E93119 /* DTTimePeriodChain.m in Sources */,

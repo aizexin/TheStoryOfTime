@@ -97,7 +97,7 @@ static NSString *identifier = @"AIEverydayCell";
     if (indexPath.item == 0) {//开始照相等功能
 
         SCCaptureCameraController *cameraVC = [[SCCaptureCameraController alloc]init];
-
+        self.tabBarController.tabBar.hidden = YES;
 //        [self sc_setNavigationBarHidden:YES animated:YES];
         [self.navigationController pushViewController:cameraVC animated:YES];
         
@@ -106,13 +106,11 @@ static NSString *identifier = @"AIEverydayCell";
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+//    [self setHidesBottomBarWhenPushed:NO];
     self.tabBarController.tabBar.hidden = NO;
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    self.tabBarController.tabBar.hidden = YES;
 }
-
-
 
 @end

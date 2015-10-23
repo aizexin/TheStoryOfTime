@@ -23,4 +23,5 @@ typedef enum {
 /**
  *  得到showline在俯视图
  */
+-(NSString*)showLineRectInImageView;
 @end
