@@ -126,7 +126,7 @@
     [self addPinchGesture];
     
     [_captureManager.session startRunning];
-    
+
 #if SWITCH_SHOW_DEFAULT_IMAGE_FOR_NONE_CAMERA
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [SVProgressHUD showErrorWithStatus:@"设备不支持拍照功能，给个妹纸给你喵喵T_T"];
@@ -138,6 +138,8 @@
         [self.view addSubview:imgView];
     }
 #endif
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -691,7 +693,7 @@ void c_slideAlpha() {
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
 {
-    //    return [UIApplication sharedApplication].statusBarOrientation;
+//        return [UIApplication sharedApplication].statusBarOrientation;
 	return UIInterfaceOrientationPortrait;
 }
 #endif

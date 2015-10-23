@@ -12,16 +12,16 @@
 
 @class AIEverydayViewController;
 //-------
-@protocol AIEverydayViewControllerDelegate <NSObject>
-
-- (void)didTakePicture:(AIEverydayViewController*)navigationController image:(UIImage*)image;
-
-@end
+//@protocol AIEverydayViewControllerDelegate <NSObject>
+//
+//- (void)didTakePicture:(AIEverydayViewController*)navigationController image:(UIImage*)image;
+//
+//@end
 
 //---------
 
-@interface AIEverydayViewController : UIViewController<AIEverydayViewControllerDelegate>
+@interface AIEverydayViewController : UIViewController//<AIEverydayViewControllerDelegate>
 
-@property (nonatomic, assign) id <AIEverydayViewControllerDelegate> scNaigationDelegate;
+//@property (nonatomic, assign) id <AIEverydayViewControllerDelegate> scNaigationDelegate;
 
 @end

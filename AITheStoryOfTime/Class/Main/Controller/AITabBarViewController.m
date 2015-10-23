@@ -94,8 +94,8 @@
 -(void)tabBarDidClickedPlusButton:(AITabBar *)tabBar{
     AIComposeViewController *composeVC = [[AIComposeViewController alloc]init];
     composeVC.title = @"发微博";
-//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composeVC];
-    SCNavigationController *nav = [[SCNavigationController alloc]initWithRootViewController:composeVC];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composeVC];
+//    SCNavigationController *nav = [[SCNavigationController alloc]initWithRootViewController:composeVC];
     [self presentViewController:nav animated:YES completion:nil];
 }
 

@@ -210,17 +210,6 @@
 		BCC06D6D1BD77CB900A86010 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC06D611BD77C0000A86010 /* CoreMedia.framework */; };
 		BCC06DD51BD7A7A900A86010 /* AIEverydayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC06DD41BD7A7A900A86010 /* AIEverydayCell.m */; };
 		BCC06DD71BD7A7E000A86010 /* AIEverydayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC06DD61BD7A7E000A86010 /* AIEverydayCell.xib */; };
-		BCC06E3F1BD7C45600A86010 /* ScrollViewFrameAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC06E291BD7C45600A86010 /* ScrollViewFrameAccessor.m */; };
-		BCC06E401BD7C45600A86010 /* ViewFrameAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC06E2B1BD7C45600A86010 /* ViewFrameAccessor.m */; };
-		BCC06E411BD7C45600A86010 /* navi_mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCC06E2D1BD7C45600A86010 /* navi_mask@2x.png */; };
-		BCC06E421BD7C45600A86010 /* navi_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCC06E2E1BD7C45600A86010 /* navi_shadow@2x.png */; };
-		BCC06E431BD7C45600A86010 /* SCBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC06E301BD7C45600A86010 /* SCBarButtonItem.m */; };
-		BCC06E441BD7C45600A86010 /* SCNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC06E331BD7C45600A86010 /* SCNavigationBar.m */; };
-		BCC06E451BD7C45600A86010 /* SCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC06E351BD7C45600A86010 /* SCNavigationController.m */; };
-		BCC06E461BD7C45600A86010 /* SCNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC06E371BD7C45600A86010 /* SCNavigationItem.m */; };
-		BCC06E471BD7C45600A86010 /* SCNavigationPopAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC06E391BD7C45600A86010 /* SCNavigationPopAnimation.m */; };
-		BCC06E481BD7C45600A86010 /* SCNavigationPushAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC06E3B1BD7C45600A86010 /* SCNavigationPushAnimation.m */; };
-		BCC06E491BD7C45600A86010 /* UIViewController+SCNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC06E3E1BD7C45600A86010 /* UIViewController+SCNavigation.m */; };
 		BCC06E8D1BD7C9E600A86010 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC06E4D1BD7C9E600A86010 /* PostViewController.m */; };
 		BCC06E8E1BD7C9E600A86010 /* AIEverydaySCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC06E501BD7C9E600A86010 /* AIEverydaySCNavigationController.m */; };
 		BCC06E8F1BD7C9E600A86010 /* meizi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BCC06E521BD7C9E600A86010 /* meizi.jpg */; };
@@ -264,6 +253,7 @@
 		BCC06EC41BD7D6CC00A86010 /* AIEverydayPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC06EC21BD7D6CC00A86010 /* AIEverydayPostViewController.xib */; };
 		BCC06EC71BD7D82100A86010 /* AIEverydayToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC06EC61BD7D82100A86010 /* AIEverydayToolbar.m */; };
 		BCC06EC91BD7D83000A86010 /* AIEverydayToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC06EC81BD7D83000A86010 /* AIEverydayToolbar.xib */; };
+		BCFD9F991BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFD9F981BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -653,7 +643,6 @@
 		BC885B031BD894CE00788761 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
 		BC885B041BD894CE00788761 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
 		BC885B051BD894CE00788761 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		BC885B0F1BD8967100788761 /* AINavgationLibs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AINavgationLibs.h; sourceTree = "<group>"; };
 		BCAEA8F51BD5C8ED00E93119 /* UUDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUDatePicker.h; sourceTree = "<group>"; };
 		BCAEA8F61BD5C8ED00E93119 /* UUDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUDatePicker.m; sourceTree = "<group>"; };
 		BCAEA8F71BD5C8ED00E93119 /* UUDatePicker_DateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUDatePicker_DateModel.h; sourceTree = "<group>"; };
@@ -680,29 +669,6 @@
 		BCC06DD31BD7A7A900A86010 /* AIEverydayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIEverydayCell.h; sourceTree = "<group>"; };
 		BCC06DD41BD7A7A900A86010 /* AIEverydayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIEverydayCell.m; sourceTree = "<group>"; };
 		BCC06DD61BD7A7E000A86010 /* AIEverydayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIEverydayCell.xib; sourceTree = "<group>"; };
-		BCC06E271BD7C45600A86010 /* FrameAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameAccessor.h; sourceTree = "<group>"; };
-		BCC06E281BD7C45600A86010 /* ScrollViewFrameAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewFrameAccessor.h; sourceTree = "<group>"; };
-		BCC06E291BD7C45600A86010 /* ScrollViewFrameAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewFrameAccessor.m; sourceTree = "<group>"; };
-		BCC06E2A1BD7C45600A86010 /* ViewFrameAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFrameAccessor.h; sourceTree = "<group>"; };
-		BCC06E2B1BD7C45600A86010 /* ViewFrameAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFrameAccessor.m; sourceTree = "<group>"; };
-		BCC06E2D1BD7C45600A86010 /* navi_mask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_mask@2x.png"; sourceTree = "<group>"; };
-		BCC06E2E1BD7C45600A86010 /* navi_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_shadow@2x.png"; sourceTree = "<group>"; };
-		BCC06E2F1BD7C45600A86010 /* SCBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBarButtonItem.h; sourceTree = "<group>"; };
-		BCC06E301BD7C45600A86010 /* SCBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBarButtonItem.m; sourceTree = "<group>"; };
-		BCC06E311BD7C45600A86010 /* SCNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNavigation.h; sourceTree = "<group>"; };
-		BCC06E321BD7C45600A86010 /* SCNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNavigationBar.h; sourceTree = "<group>"; };
-		BCC06E331BD7C45600A86010 /* SCNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNavigationBar.m; sourceTree = "<group>"; };
-		BCC06E341BD7C45600A86010 /* SCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNavigationController.h; sourceTree = "<group>"; };
-		BCC06E351BD7C45600A86010 /* SCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNavigationController.m; sourceTree = "<group>"; };
-		BCC06E361BD7C45600A86010 /* SCNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNavigationItem.h; sourceTree = "<group>"; };
-		BCC06E371BD7C45600A86010 /* SCNavigationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNavigationItem.m; sourceTree = "<group>"; };
-		BCC06E381BD7C45600A86010 /* SCNavigationPopAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNavigationPopAnimation.h; sourceTree = "<group>"; };
-		BCC06E391BD7C45600A86010 /* SCNavigationPopAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNavigationPopAnimation.m; sourceTree = "<group>"; };
-		BCC06E3A1BD7C45600A86010 /* SCNavigationPushAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNavigationPushAnimation.h; sourceTree = "<group>"; };
-		BCC06E3B1BD7C45600A86010 /* SCNavigationPushAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNavigationPushAnimation.m; sourceTree = "<group>"; };
-		BCC06E3C1BD7C45600A86010 /* SCShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShared.h; sourceTree = "<group>"; };
-		BCC06E3D1BD7C45600A86010 /* UIViewController+SCNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SCNavigation.h"; sourceTree = "<group>"; };
-		BCC06E3E1BD7C45600A86010 /* UIViewController+SCNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SCNavigation.m"; sourceTree = "<group>"; };
 		BCC06E4C1BD7C9E600A86010 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		BCC06E4D1BD7C9E600A86010 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		BCC06E4F1BD7C9E600A86010 /* AIEverydaySCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIEverydaySCNavigationController.h; sourceTree = "<group>"; };
@@ -757,6 +723,8 @@
 		BCC06EC51BD7D82100A86010 /* AIEverydayToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIEverydayToolbar.h; sourceTree = "<group>"; };
 		BCC06EC61BD7D82100A86010 /* AIEverydayToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIEverydayToolbar.m; sourceTree = "<group>"; };
 		BCC06EC81BD7D83000A86010 /* AIEverydayToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIEverydayToolbar.xib; sourceTree = "<group>"; };
+		BCFD9F971BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+AIExtension.h"; sourceTree = "<group>"; };
+		BCFD9F981BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+AIExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1172,7 +1140,6 @@
 				BC885AEE1BD894CE00788761 /* Masonry */,
 				45EB28201BD7F28A0002B5F9 /* shareLibs */,
 				BCC06E4A1BD7C9E600A86010 /* EverydayLibs */,
-				BCC06E241BD7C45600A86010 /* SCNavigation */,
 				BCAEA8FB1BD5DDE300E93119 /* DateTools */,
 				BCAEA8F41BD5C8ED00E93119 /* UUDatePicker_Block */,
 				458C45761BD111F5009B057D /* MJPhotoBrowser */,
@@ -1393,6 +1360,8 @@
 		BC26F0511BD0ABAC0064D89E /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				BCFD9F971BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.h */,
+				BCFD9F981BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m */,
 				456500B41BD288D800882753 /* NSString+Emoji.h */,
 				456500B51BD288D800882753 /* NSString+Emoji.m */,
 				BC26F0521BD0ABAC0064D89E /* Foundation+Log.m */,
@@ -1441,7 +1410,6 @@
 			children = (
 				BC26F0701BD0ABAC0064D89E /* AIDefine.h */,
 				4517B0D71BD5BE130054E051 /* AIFixScreen.h */,
-				BC885B0F1BD8967100788761 /* AINavgationLibs.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1808,60 +1776,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		BCC06E241BD7C45600A86010 /* SCNavigation */ = {
-			isa = PBXGroup;
-			children = (
-				BCC06E251BD7C45600A86010 /* Additions */,
-				BCC06E2C1BD7C45600A86010 /* Resources */,
-				BCC06E2F1BD7C45600A86010 /* SCBarButtonItem.h */,
-				BCC06E301BD7C45600A86010 /* SCBarButtonItem.m */,
-				BCC06E311BD7C45600A86010 /* SCNavigation.h */,
-				BCC06E321BD7C45600A86010 /* SCNavigationBar.h */,
-				BCC06E331BD7C45600A86010 /* SCNavigationBar.m */,
-				BCC06E341BD7C45600A86010 /* SCNavigationController.h */,
-				BCC06E351BD7C45600A86010 /* SCNavigationController.m */,
-				BCC06E361BD7C45600A86010 /* SCNavigationItem.h */,
-				BCC06E371BD7C45600A86010 /* SCNavigationItem.m */,
-				BCC06E381BD7C45600A86010 /* SCNavigationPopAnimation.h */,
-				BCC06E391BD7C45600A86010 /* SCNavigationPopAnimation.m */,
-				BCC06E3A1BD7C45600A86010 /* SCNavigationPushAnimation.h */,
-				BCC06E3B1BD7C45600A86010 /* SCNavigationPushAnimation.m */,
-				BCC06E3C1BD7C45600A86010 /* SCShared.h */,
-				BCC06E3D1BD7C45600A86010 /* UIViewController+SCNavigation.h */,
-				BCC06E3E1BD7C45600A86010 /* UIViewController+SCNavigation.m */,
-			);
-			path = SCNavigation;
-			sourceTree = "<group>";
-		};
-		BCC06E251BD7C45600A86010 /* Additions */ = {
-			isa = PBXGroup;
-			children = (
-				BCC06E261BD7C45600A86010 /* FrameAccessor */,
-			);
-			path = Additions;
-			sourceTree = "<group>";
-		};
-		BCC06E261BD7C45600A86010 /* FrameAccessor */ = {
-			isa = PBXGroup;
-			children = (
-				BCC06E271BD7C45600A86010 /* FrameAccessor.h */,
-				BCC06E281BD7C45600A86010 /* ScrollViewFrameAccessor.h */,
-				BCC06E291BD7C45600A86010 /* ScrollViewFrameAccessor.m */,
-				BCC06E2A1BD7C45600A86010 /* ViewFrameAccessor.h */,
-				BCC06E2B1BD7C45600A86010 /* ViewFrameAccessor.m */,
-			);
-			path = FrameAccessor;
-			sourceTree = "<group>";
-		};
-		BCC06E2C1BD7C45600A86010 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				BCC06E2D1BD7C45600A86010 /* navi_mask@2x.png */,
-				BCC06E2E1BD7C45600A86010 /* navi_shadow@2x.png */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		BCC06E4A1BD7C9E600A86010 /* EverydayLibs */ = {
 			isa = PBXGroup;
 			children = (
@@ -2059,7 +1973,6 @@
 				45EB28731BD7F28A0002B5F9 /* UMSShareListController.xib in Resources */,
 				BCAEA90B1BD5DDE300E93119 /* DateTools.bundle in Resources */,
 				BCC06E991BD7C9E600A86010 /* flashing_auto@2x.png in Resources */,
-				BCC06E421BD7C45600A86010 /* navi_shadow@2x.png in Resources */,
 				BC26F1451BD0ADF30064D89E /* AITemp3ViewController.xib in Resources */,
 				BCC06EB51BD7C9E600A86010 /* SVProgressHUD.bundle in Resources */,
 				45EB28701BD7F28A0002B5F9 /* UMShareEditViewControlleriPad.xib in Resources */,
@@ -2084,7 +1997,6 @@
 				BC26F0CD1BD0ABAC0064D89E /* MBProgressHUD.bundle in Resources */,
 				4565011F1BD3AB1900882753 /* AIEmotionPopView.xib in Resources */,
 				45EB28801BD7F28B0002B5F9 /* ios-social-sdk-shake.html in Resources */,
-				BCC06E411BD7C45600A86010 /* navi_mask@2x.png in Resources */,
 				45EB286E1BD7F28A0002B5F9 /* UMSCommentInputControlleriPad.xib in Resources */,
 				BCC06E951BD7C9E600A86010 /* close_cha@2x.png in Resources */,
 				45EB28791BD7F28A0002B5F9 /* WeiboSDK.bundle in Resources */,
@@ -2131,7 +2043,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCC06E431BD7C45600A86010 /* SCBarButtonItem.m in Sources */,
 				458C458C1BD111F5009B057D /* MJPhotoView.m in Sources */,
 				458C45881BD111F5009B057D /* MJPhotoBrowser.m in Sources */,
 				BC26F0E31BD0ABAC0064D89E /* MJRefreshFooterView.m in Sources */,
@@ -2154,7 +2065,6 @@
 				BC26F0BC1BD0ABAC0064D89E /* AFURLConnectionOperation.m in Sources */,
 				4565011D1BD3AB0000882753 /* AIEmotionPopView.m in Sources */,
 				BC26F0E21BD0ABAC0064D89E /* MJRefreshConst.m in Sources */,
-				BCC06E471BD7C45600A86010 /* SCNavigationPopAnimation.m in Sources */,
 				BC26F0B51BD0ABAC0064D89E /* AIComposeToolbar.m in Sources */,
 				BCC06E8E1BD7C9E600A86010 /* AIEverydaySCNavigationController.m in Sources */,
 				BC26F11F1BD0ABAC0064D89E /* AIStatusRetweetedView.m in Sources */,
@@ -2169,7 +2079,6 @@
 				BCAEA8FA1BD5C8ED00E93119 /* UUDatePicker_DateModel.m in Sources */,
 				BC26F0C51BD0ABAC0064D89E /* UIProgressView+AFNetworking.m in Sources */,
 				BC885B0D1BD894CF00788761 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
-				BCC06E461BD7C45600A86010 /* SCNavigationItem.m in Sources */,
 				BC26F0E81BD0ABAC0064D89E /* NSData+ImageContentType.m in Sources */,
 				BC26F1351BD0ACC60064D89E /* AIBirthViewController.m in Sources */,
 				BC26F10F1BD0ABAC0064D89E /* AIHomeStatusesResultModel.m in Sources */,
@@ -2206,6 +2115,7 @@
 				BC26F1171BD0ABAC0064D89E /* AILoadMoreFooter.m in Sources */,
 				BC885B081BD894CF00788761 /* MASConstraintMaker.m in Sources */,
 				BC26F0BE1BD0ABAC0064D89E /* AFURLResponseSerialization.m in Sources */,
+				BCFD9F991BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m in Sources */,
 				BC26F0EB1BD0ABAC0064D89E /* SDWebImageDecoder.m in Sources */,
 				BCC06EAA1BD7C9E600A86010 /* SCCaptureCameraController.m in Sources */,
 				BC26F11E1BD0ABAC0064D89E /* AIStatusPhotoView.m in Sources */,
@@ -2227,7 +2137,6 @@
 				BC26F1001BD0ABAC0064D89E /* AIAccountModel.m in Sources */,
 				BC26F0D11BD0ABAC0064D89E /* MJMember.m in Sources */,
 				BCAEA90C1BD5DDE300E93119 /* DTError.m in Sources */,
-				BCC06E481BD7C45600A86010 /* SCNavigationPushAnimation.m in Sources */,
 				BC26F11D1BD0ABAC0064D89E /* AIStatusPhotosView.m in Sources */,
 				BC26F1191BD0ABAC0064D89E /* AIPopMenu.m in Sources */,
 				BC885B071BD894CE00788761 /* MASConstraint.m in Sources */,
@@ -2238,15 +2147,11 @@
 				BC26F1081BD0ABAC0064D89E /* AIControllerTool.m in Sources */,
 				BC26F0F81BD0ABAC0064D89E /* Foundation+Log.m in Sources */,
 				456501231BD3DC6300882753 /* AIEmotionTool.m in Sources */,
-				BCC06E491BD7C45600A86010 /* UIViewController+SCNavigation.m in Sources */,
 				BC26F1101BD0ABAC0064D89E /* AIStatusesModel.m in Sources */,
 				BC26F0B71BD0ABAC0064D89E /* AFHTTPRequestOperation.m in Sources */,
 				456500A61BD22D1F00882753 /* AIEmotionKeyboard.m in Sources */,
 				BC26F0E91BD0ABAC0064D89E /* SDImageCache.m in Sources */,
-				BCC06E451BD7C45600A86010 /* SCNavigationController.m in Sources */,
-				BCC06E3F1BD7C45600A86010 /* ScrollViewFrameAccessor.m in Sources */,
 				BC26F0F51BD0ABAC0064D89E /* UIImageView+WebCache.m in Sources */,
-				BCC06E441BD7C45600A86010 /* SCNavigationBar.m in Sources */,
 				BC26F1111BD0ABAC0064D89E /* AIUserModel.m in Sources */,
 				BC26F0F91BD0ABAC0064D89E /* NSDate+MJ.m in Sources */,
 				BC26F1131BD0ABAC0064D89E /* AIStatusFrame.m in Sources */,
@@ -2267,7 +2172,6 @@
 				45E9E2711BD9520A00E319B0 /* AIEverydayLineView.m in Sources */,
 				458C45861BD111F5009B057D /* MJPhoto.m in Sources */,
 				456500AF1BD2561100882753 /* AIEmotionGridView.m in Sources */,
-				BCC06E401BD7C45600A86010 /* ViewFrameAccessor.m in Sources */,
 				BC26F0B91BD0ABAC0064D89E /* AFHTTPSessionManager.m in Sources */,
 				BC26F1071BD0ABAC0064D89E /* AIBaseTool.m in Sources */,
 				BC26F0CA1BD0ABAC0064D89E /* DDMenuController.m in Sources */,

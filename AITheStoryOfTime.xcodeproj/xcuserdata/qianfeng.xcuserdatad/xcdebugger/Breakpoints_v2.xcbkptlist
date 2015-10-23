@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AITheStoryOfTime/Class/Libs/EverydayLibs/SCCaptureCamera/SCCaptureCameraController.m"
-            timestampString = "467214643.07577"
+            timestampString = "467286434.258125"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "557"
-            endingLineNumber = "557"
+            startingLineNumber = "559"
+            endingLineNumber = "559"
             landmarkName = "-dismissBtnPressed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AITheStoryOfTime/Class/Libs/EverydayLibs/SCCaptureCamera/SCCaptureCameraController.m"
-            timestampString = "467214645.395931"
+            timestampString = "467286434.258125"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "562"
-            endingLineNumber = "562"
+            startingLineNumber = "564"
+            endingLineNumber = "564"
             landmarkName = "-dismissBtnPressed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AITheStoryOfTime/Class/Libs/EverydayLibs/SCCaptureCamera/SCCaptureCameraController.m"
-            timestampString = "467214647.371918"
+            timestampString = "467286434.258125"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "559"
-            endingLineNumber = "559"
+            startingLineNumber = "561"
+            endingLineNumber = "561"
             landmarkName = "-dismissBtnPressed:"
             landmarkType = "5">
          </BreakpointContent>

@@ -132,7 +132,7 @@
     
     NSError *error = nil;
     
-    if (front) {
+    if (!front) {
         AVCaptureDeviceInput *frontFacingCameraDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:frontCamera error:&error];
         if (!error) {
             if ([_session canAddInput:frontFacingCameraDeviceInput]) {

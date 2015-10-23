@@ -5,7 +5,6 @@
 //  Created by qianfeng on 15/10/21.
 //  Copyright (c) 2015年 aizexin. All rights reserved.
 //  拍照完成页面
-#import "SCNavigation.h"
 #import "AIEverydayPostViewController.h"
 #import "AIEverydayToolbar.h"
 #import "AIFixScreen.h"

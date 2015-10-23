@@ -25,7 +25,6 @@
 #import "AIStatusesTool.h"
 #import "AIStatusCell.h"
 #import "AIStatusFrame.h"
-#import "AINavgationLibs.h"
 #define TipsLabelH 35
 #define TipsLabelW Mainsize.width
 
@@ -84,7 +83,7 @@
     
     [self.view addSubview:self.tableView];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.sc_navigationItem.title = @"首页";
+    self.title = @"首页";
     self.tableView.backgroundColor = AIColor(211, 211, 211);
     //去掉分割线
     [self.tableView setSeparatorStyle:(UITableViewCellSeparatorStyleNone)];
@@ -108,8 +107,8 @@
     param.uid = [AIAccountTool account].uid;
     [AIStatusesTool userInfoStatusesWithParams:param success:^(AIUserInfoResultModel *resultModel) {
         
-//        [self.titleBtn setTitle:resultModel.name forState:(UIControlStateNormal)];
-        self.sc_navigationItem.title = resultModel.name;
+        [self.titleBtn setTitle:resultModel.name forState:(UIControlStateNormal)];
+//        self.sc_navigationItem.title = resultModel.name;
         //存储账号信息
         
         AIAccountModel *account = [AIAccountTool account];
@@ -254,8 +253,8 @@
 //    label.y = 64 - label.height;
     label.frame = CGRectMake(0, AINavgationBarH - TipsLabelH,Mainsize.width, TipsLabelH );
     //添加到当行控制器的view中
-//    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
-    [self.view insertSubview:label belowSubview:self.sc_navigationBar];
+    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
+//    [self.view insertSubview:label belowSubview:self.sc_navigationBar];
     
     //动画
     CGFloat duration = 0.75;

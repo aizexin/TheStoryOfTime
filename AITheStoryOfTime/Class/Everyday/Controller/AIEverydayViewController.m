@@ -9,7 +9,6 @@
 #import "AIEverydayViewController.h"
 #import "AIEverydayCell.h"
 #import "PostViewController.h"
-#import "AINavgationLibs.h"
 #import "SCCaptureCameraController.h"
 #import "AIEverydayPostViewController.h"
 @interface AIEverydayViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
@@ -56,11 +55,13 @@ static NSString *identifier = @"AIEverydayCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.sc_navigationItem.title = @"Everyday";
+    self.title = @"Everyday";
+   
     self.automaticallyAdjustsScrollViewInsets = NO;
     for (int i = 0; i < 20; i++) {
         [self.dataSource addObject:[NSString stringWithFormat:@"测试数据%d",i]];
     }
+    
 //    [self setHidesBottomBarWhenPushed:YES];
     [self.view addSubview:self.collectionV];
     
@@ -86,7 +87,6 @@ static NSString *identifier = @"AIEverydayCell";
         //测试颜色
         cell.cellImage.image = [UIImage imageNamed:@"game_center"];
 //        cell.cellImage.backgroundColor = [UIColor redColor];
-        
     }
     
     return cell;
@@ -97,8 +97,7 @@ static NSString *identifier = @"AIEverydayCell";
     if (indexPath.item == 0) {//开始照相等功能
 
         SCCaptureCameraController *cameraVC = [[SCCaptureCameraController alloc]init];
-        self.tabBarController.tabBar.hidden = YES;
-//        [self sc_setNavigationBarHidden:YES animated:YES];
+//        self.tabBarController.tabBar.hidden = YES;
         [self.navigationController pushViewController:cameraVC animated:YES];
         
     }
@@ -108,6 +107,9 @@ static NSString *identifier = @"AIEverydayCell";
     [super viewWillAppear:animated];
 //    [self setHidesBottomBarWhenPushed:NO];
     self.tabBarController.tabBar.hidden = NO;
+    if (self.navigationController && self.navigationController.navigationBarHidden) {
+        self.navigationController.navigationBarHidden = NO;
+    }
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
