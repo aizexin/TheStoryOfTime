@@ -5,7 +5,7 @@
 //  Created by qianfeng on 15/10/16.
 //  Copyright (c) 2015年 aizexin. All rights reserved.
 //
-
+#warning 删除图片没实现
 #import "AIEverydayViewController.h"
 #import "AIEverydayCell.h"
 #import "PostViewController.h"
@@ -112,7 +112,6 @@ static NSString *identifier = @"AIEverydayCell";
     if (indexPath.item == 0) {//开始照相等功能
 
         SCCaptureCameraController *cameraVC = [[SCCaptureCameraController alloc]init];
-//        self.tabBarController.tabBar.hidden = YES;
         [self.navigationController pushViewController:cameraVC animated:YES];
     }else{
         

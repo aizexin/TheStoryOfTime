@@ -27,5 +27,6 @@
  */
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 
+
 @property(nonatomic ,copy)void (^deleteBlock)();
 @end
