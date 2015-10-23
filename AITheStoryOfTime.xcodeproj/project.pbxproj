@@ -36,6 +36,7 @@
 		45DE85D51BD800230058BC6F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DE85D41BD800230058BC6F /* CoreTelephony.framework */; };
 		45DE85D71BD8002E0058BC6F /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DE85D61BD8002E0058BC6F /* libstdc++.dylib */; };
 		45DE85D91BD800360058BC6F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DE85D81BD800360058BC6F /* libz.dylib */; };
+		45E9E2711BD9520A00E319B0 /* AIEverydayLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E9E2701BD9520A00E319B0 /* AIEverydayLineView.m */; };
 		45EB28691BD7F28A0002B5F9 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45EB28221BD7F28A0002B5F9 /* UMSocialLocalizable.strings */; };
 		45EB286A1BD7F28A0002B5F9 /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EB28301BD7F28A0002B5F9 /* libUMSocial_Sdk_4.2.5.a */; };
 		45EB286B1BD7F28A0002B5F9 /* libUMSocial_Sdk_Comment_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EB28311BD7F28A0002B5F9 /* libUMSocial_Sdk_Comment_4.2.5.a */; };
@@ -323,6 +324,8 @@
 		45DE85D41BD800230058BC6F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		45DE85D61BD8002E0058BC6F /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		45DE85D81BD800360058BC6F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		45E9E26F1BD9520A00E319B0 /* AIEverydayLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIEverydayLineView.h; sourceTree = "<group>"; };
+		45E9E2701BD9520A00E319B0 /* AIEverydayLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIEverydayLineView.m; sourceTree = "<group>"; };
 		45EB28231BD7F28A0002B5F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		45EB28251BD7F28A0002B5F9 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		45EB28261BD7F28A0002B5F9 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -1773,6 +1776,8 @@
 				BCC06EC51BD7D82100A86010 /* AIEverydayToolbar.h */,
 				BCC06EC61BD7D82100A86010 /* AIEverydayToolbar.m */,
 				BCC06EC81BD7D83000A86010 /* AIEverydayToolbar.xib */,
+				45E9E26F1BD9520A00E319B0 /* AIEverydayLineView.h */,
+				45E9E2701BD9520A00E319B0 /* AIEverydayLineView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2231,6 +2236,7 @@
 				BC26EDB31BD092290064D89E /* main.m in Sources */,
 				456500A91BD2302A00882753 /* AIEmotionListView.m in Sources */,
 				BC26F0B41BD0ABAC0064D89E /* AIComposePhotosView.m in Sources */,
+				45E9E2711BD9520A00E319B0 /* AIEverydayLineView.m in Sources */,
 				458C45861BD111F5009B057D /* MJPhoto.m in Sources */,
 				456500AF1BD2561100882753 /* AIEmotionGridView.m in Sources */,
 				BCC06E401BD7C45600A86010 /* ViewFrameAccessor.m in Sources */,
@@ -2332,8 +2338,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: zexin ai (Y56852HD87)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: zexin ai (Y56852HD87)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: zexin ai (58988ATJQN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2377,8 +2383,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: zexin ai (Y56852HD87)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: zexin ai (Y56852HD87)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: zexin ai (58988ATJQN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
