@@ -13,6 +13,9 @@
 #import "AIEverydayPostViewController.h"
 #import "AIEverydayTool.h"
 #import "AIEverydayCellModel.h"
+#import "UIBarButtonItem+AIExtension.h"
+#import "AIEverydayDefine.h"
+#import "AIEverydayVideoImageView.h"
 @interface AIEverydayViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic,strong)UICollectionView *collectionV;
@@ -20,6 +23,12 @@
  *  资源
  */
 @property(nonatomic,strong)NSMutableArray *dataSource;
+/**蒙版 */
+@property(nonatomic,strong)UIButton *core;
+/**用来播放图片的imageview*/
+@property(nonatomic,strong)AIEverydayVideoImageView *videoImage;
+
+
 @end
 
 @implementation AIEverydayViewController
@@ -57,22 +66,58 @@ static NSString *identifier = @"AIEverydayCell";
     return _collectionV;
 }
 
+-(UIButton *)core{
+    if (!_core) {
+        _core = [UIButton buttonWithType:(UIButtonTypeCustom)];
+        _core.frame = [UIScreen mainScreen].bounds;
+        _core.alpha = 0.7;
+        _core.backgroundColor = [UIColor blackColor];
+        [_core addTarget:self action:@selector(onClickCoreBtn:) forControlEvents:(UIControlEventTouchDown)];
+    }
+    return _core;
+}
+
+-(UIImageView *)videoImage{
+    if (!_videoImage) {
+        _videoImage = [[AIEverydayVideoImageView alloc]init];
+    }
+    return _videoImage;
+}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Everyday";
-   
     self.automaticallyAdjustsScrollViewInsets = NO;
-//    for (int i = 0; i < 20; i++) {
-//        [self.dataSource addObject:[NSString stringWithFormat:@"测试数据%d",i]];
-//    }
-    
-//    [self setHidesBottomBarWhenPushed:YES];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTagert:self action:@selector(onClickRightItem:) NorImageName:@"video" andHeiImageName:@"video"];
     [self.view addSubview:self.collectionV];
+}
+#pragma mark------------点击事件------------------
+-(void)onClickRightItem:(UIBarButtonItem*)item{
+    //弹出视图框可以播放，
+    
+    //添加videoImage
+    CGRect rect =AIEverydayPhotoRect;
+    rect.origin.y = (Mainsize.height - rect.size.height) *0.5;
+    self.videoImage.frame = rect;
+    UIWindow *lastWindow = [[UIApplication sharedApplication].windows lastObject];
+    //添加蒙版
+    [lastWindow addSubview:self.core];
+    [lastWindow addSubview:self.videoImage];
+}
+/**
+ *  点击蒙版
+ */
+-(void)onClickCoreBtn:(UIButton*)core{
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.videoImage removeFromSuperview];
+        [self.core removeFromSuperview];
+    } completion:^(BOOL finished) {
+     
+    }];
+    
     
 }
-
 
 #pragma mark -----------代理方法--
 #pragma mark --------数据源

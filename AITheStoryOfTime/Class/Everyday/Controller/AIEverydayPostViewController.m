@@ -12,10 +12,8 @@
 #import "AIEverydayLineView.h"
 #import "AIEverydayLineFrameModel.h"
 #import "AIEverydayTool.h"
+#import "AIEverydayDefine.h"
 
-#define SC_APP_SIZE         [[UIScreen mainScreen] applicationFrame].size
-#define CAMERA_TOPVIEW_HEIGHT   44  //title
-#define AIEverydayPhotoRect CGRectMake(0, 0, SC_APP_SIZE.width, SC_APP_SIZE.width + CAMERA_TOPVIEW_HEIGHT)
 //基准线最小x值
 #define AILineMinX 50
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4517B0D31BD564FD0054E051 /* AIDateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4517B0D21BD564FD0054E051 /* AIDateTool.m */; };
 		4517B0D61BD5B45E0054E051 /* AIBirthListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4517B0D51BD5B45E0054E051 /* AIBirthListView.m */; };
+		454CA55F1BDA92FA00CCADCD /* AIEverydayVideoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 454CA55E1BDA92FA00CCADCD /* AIEverydayVideoImageView.m */; };
 		456500A61BD22D1F00882753 /* AIEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 456500A51BD22D1F00882753 /* AIEmotionKeyboard.m */; };
 		456500A91BD2302A00882753 /* AIEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 456500A81BD2302A00882753 /* AIEmotionListView.m */; };
 		456500AC1BD23C1300882753 /* AIEmotionToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 456500AB1BD23C1300882753 /* AIEmotionToolbar.m */; };
@@ -281,6 +282,9 @@
 		4517B0D41BD5B45E0054E051 /* AIBirthListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBirthListView.h; sourceTree = "<group>"; };
 		4517B0D51BD5B45E0054E051 /* AIBirthListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBirthListView.m; sourceTree = "<group>"; };
 		4517B0D71BD5BE130054E051 /* AIFixScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIFixScreen.h; sourceTree = "<group>"; };
+		454CA55C1BDA91A100CCADCD /* AIEverydayDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIEverydayDefine.h; sourceTree = "<group>"; };
+		454CA55D1BDA92FA00CCADCD /* AIEverydayVideoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIEverydayVideoImageView.h; sourceTree = "<group>"; };
+		454CA55E1BDA92FA00CCADCD /* AIEverydayVideoImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIEverydayVideoImageView.m; sourceTree = "<group>"; };
 		456500A41BD22D1F00882753 /* AIEmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIEmotionKeyboard.h; sourceTree = "<group>"; };
 		456500A51BD22D1F00882753 /* AIEmotionKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIEmotionKeyboard.m; sourceTree = "<group>"; };
 		456500A71BD2302A00882753 /* AIEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIEmotionListView.h; sourceTree = "<group>"; };
@@ -1440,6 +1444,7 @@
 			children = (
 				BC26F0701BD0ABAC0064D89E /* AIDefine.h */,
 				4517B0D71BD5BE130054E051 /* AIFixScreen.h */,
+				454CA55C1BDA91A100CCADCD /* AIEverydayDefine.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1804,6 +1809,8 @@
 				BCC06EC81BD7D83000A86010 /* AIEverydayToolbar.xib */,
 				45E9E26F1BD9520A00E319B0 /* AIEverydayLineView.h */,
 				45E9E2701BD9520A00E319B0 /* AIEverydayLineView.m */,
+				454CA55D1BDA92FA00CCADCD /* AIEverydayVideoImageView.h */,
+				454CA55E1BDA92FA00CCADCD /* AIEverydayVideoImageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2246,6 +2253,7 @@
 				BC26F1201BD0ABAC0064D89E /* AIStatusToolbar.m in Sources */,
 				BCFDA02E1BDA4E8500D9AC6C /* FMDatabase.m in Sources */,
 				BC26F0D51BD0ABAC0064D89E /* NSObject+MJCoding.m in Sources */,
+				454CA55F1BDA92FA00CCADCD /* AIEverydayVideoImageView.m in Sources */,
 				BC26F0EE1BD0ABAC0064D89E /* SDWebImageManager.m in Sources */,
 				BC26F0EC1BD0ABAC0064D89E /* SDWebImageDownloader.m in Sources */,
 				BC26F12A1BD0AC570064D89E /* AIEverydayViewController.m in Sources */,
