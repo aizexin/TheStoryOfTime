@@ -5,13 +5,13 @@
 //  Created by qianfeng on 15/10/21.
 //  Copyright (c) 2015年 aizexin. All rights reserved.
 //  拍照完成页面
-
+#import "SCNavigation.h"
 #import "AIEverydayPostViewController.h"
 #import "AIEverydayToolbar.h"
 #import "AIFixScreen.h"
 #import "SCCommon.h"
 #import "AIEverydayLineView.h"
-#define SC_APP_SIZE         [[UIScreen mainScreen] applicationFrame].size
+
 #define SC_APP_SIZE         [[UIScreen mainScreen] applicationFrame].size
 #define CAMERA_TOPVIEW_HEIGHT   44  //title
 #define AIEverydayPhotoRect CGRectMake(0, 0, SC_APP_SIZE.width, SC_APP_SIZE.width + CAMERA_TOPVIEW_HEIGHT)
@@ -21,6 +21,8 @@
 #define AILineMinY 50
 //基准线活动范围
 #define AILineMAXContentRect CGRectMake(AILineMinX, AILineMinY, Mainsize.width - 2*AILineMinX, Mainsize.height - 2 *AILineMinY)
+
+
 @interface AIEverydayPostViewController ()
 /**
  *  拍照得到的image
@@ -73,6 +75,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
     [self setupUI];
     [self setupData];
     //设置基准线
@@ -124,27 +127,29 @@
 
 #pragma mark --------------确定基准线的位置----------------------
 -(void)setupBaseLine{
+    self.imageV.userInteractionEnabled = YES;
     //眼睛
-    [self.view addSubview:self.eyesLineView];
+    [self.imageV addSubview:self.eyesLineView];
     UIPanGestureRecognizer *panEyes = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panHorizontalLine:)];
     [self.eyesLineView addGestureRecognizer:panEyes];
     //嘴巴
-    [self.view addSubview:self.mouthLineView];
+    [self.imageV addSubview:self.mouthLineView];
     UIPanGestureRecognizer *panMouth = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panHorizontalLine:)];
     [self.mouthLineView addGestureRecognizer:panMouth];
     
     //鼻子
-    [self.view addSubview:self.noseLineView];
+    [self.imageV addSubview:self.noseLineView];
     UIPanGestureRecognizer *panNose = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panHorizontalLine:)];
-    [self.mouthLineView addGestureRecognizer:panNose];
+    [self.noseLineView addGestureRecognizer:panNose];
     //手势冲突顺序
     //当tap2 和 tap3同时出现在视图上，取消tap2
 //    [panEyes requireGestureRecognizerToFail:panMouth];
 //    [panMouth requireGestureRecognizerToFail:panMouth];
 }
 -(void)panHorizontalLine:(UIPanGestureRecognizer*)pan{
-    AILog(@"%@",pan.view);
-    if (pan.view.frame.size.height == Mainsize.height) {
+    AIEverydayLineView * line = (AIEverydayLineView*)pan.view;
+    AILog(@"---------%d",line.type);
+    if (pan.view.frame.size.height == (SC_APP_SIZE.width + CAMERA_TOPVIEW_HEIGHT)) {
         //移动的坐标值
         CGPoint translation = [pan translationInView:self.view];
         //移动后的坐标  只能左右移动
@@ -154,7 +159,7 @@
             
             pan.view.center = CGPointMake(pan.view.center.x + translation.x, pan.view.center.y);
             //设置坐标和速度
-            [pan setTranslation:CGPointZero inView:self.view];
+            [pan setTranslation:CGPointZero inView:self.imageV];
         }
 
     }else{
@@ -167,24 +172,11 @@
             
             pan.view.center = CGPointMake(pan.view.center.x, pan.view.center.y + translation.y);
             //设置坐标和速度
-            [pan setTranslation:CGPointZero inView:self.view];
+            [pan setTranslation:CGPointZero inView:self.imageV];
         }
     }
 }
 
-//-(void)panVerticalLine:(UIPanGestureRecognizer*)pan{
-//    //移动的坐标值
-//    CGPoint translation = [pan translationInView:self.view];
-//    //移动后的坐标  只能左右移动
-//    //手移到的地方
-//    CGPoint movePoint = CGPointMake(pan.view.center.x + translation.x, pan.view.center.y + translation.y);
-//    if (CGRectContainsPoint(AILineMAXContentRect, movePoint)) {
-//        
-//        pan.view.center = CGPointMake(pan.view.center.x + translation.x, pan.view.center.y);
-//        //设置坐标和速度
-//        [pan setTranslation:CGPointZero inView:self.view];
-//    }
-//}
 @end
 
 

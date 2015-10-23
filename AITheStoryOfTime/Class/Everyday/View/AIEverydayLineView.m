@@ -7,7 +7,12 @@
 //
 
 #import "AIEverydayLineView.h"
-#define AILineBgWith 11
+#define AILineBgWith 21
+#define AIShowLineX (AILineBgWith+1)*0.5
+#define SC_APP_SIZE         [[UIScreen mainScreen] applicationFrame].size
+#define CAMERA_TOPVIEW_HEIGHT   44  //title
+#define AIEverydayPhotoRect CGRectMake(0, 0, SC_APP_SIZE.width, SC_APP_SIZE.width + CAMERA_TOPVIEW_HEIGHT)
+
 @interface AIEverydayLineView ()
 @property(nonatomic,weak)UIView *showLineView;
 @end
@@ -16,6 +21,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
+    
     self = [super initWithFrame:frame];
     if (self) {
         UIView *showLineView = [[UIView alloc]init];
@@ -35,28 +41,25 @@
 
 -(void)setType:(AILineType)type{
     _type = type;
-//    if (type == AILineTypeHorizontal) {//水平
-//        self.frame = CGRectMake(0, 5, Mainsize.width, 11);
-//    }else{
-//        self.frame = CGRectMake(0, 5, Mainsize.width, 11);
-//    }
+    CGRect rect =(CGRect)AIEverydayPhotoRect;
+    CGSize superViewSize = rect.size;
     switch (type) {
         case AILineTypeEyes:{
             //眼睛
-            self.frame = CGRectMake(0, 100, Mainsize.width, AILineBgWith);
-            self.showLineView.frame = CGRectMake(0, 5, Mainsize.width, AIEverydayBaseLineWith);
+            self.frame = CGRectMake(0, 100, superViewSize.width, AILineBgWith);
+            self.showLineView.frame = CGRectMake(0, AIShowLineX, superViewSize.width, AIEverydayBaseLineWith);
             break;
         }
         case AILineTypeMouth:{
             //嘴巴
-            self.frame = CGRectMake(0, 200, Mainsize.width, AILineBgWith);
-            self.showLineView.frame = CGRectMake(0, 5, Mainsize.width, AIEverydayBaseLineWith);
+            self.frame = CGRectMake(0, 200, superViewSize.width, AILineBgWith);
+            self.showLineView.frame = CGRectMake(0, AIShowLineX, superViewSize.width, AIEverydayBaseLineWith);
             break;
         }
         case AILineTypeNose:{
             //鼻子
-            self.frame = CGRectMake(Mainsize.width * 0.5, 0, AILineBgWith, Mainsize.height);
-            self.showLineView.frame = CGRectMake(5, 0, AIEverydayBaseLineWith, Mainsize.height);
+            self.frame = CGRectMake(superViewSize.width * 0.5, 0, AILineBgWith, superViewSize.height);
+            self.showLineView.frame = CGRectMake(AIShowLineX, 0, AIEverydayBaseLineWith, superViewSize.height);
             break;
         }
         default:

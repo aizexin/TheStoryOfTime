@@ -19,4 +19,8 @@ typedef enum {
 @property(nonatomic,assign)AILineType type;
 
 -(instancetype)initWithType:(AILineType)type;
+
+/**
+ *  得到showline在俯视图
+ */
 @end
