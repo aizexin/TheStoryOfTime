@@ -5,7 +5,6 @@
 //  Created by qianfeng on 15/10/8.
 //  Copyright (c) 2015年 aizexin. All rights reserved.
 // 控制器相关操作
-#warning 第一次进去没有DDM不能侧滑  准备修改进入页面
 
 #import "AIControllerTool.h"
 #import "AITabBarViewController.h"
@@ -34,7 +33,6 @@
         window.rootViewController = ddmVC;
         
     }else{ //第一次进入
-        
         AINewFeatureViewController *newFeature = [[AINewFeatureViewController alloc]init];
         window.rootViewController = newFeature;
         [defalut setValue:currentVersion forKey:versionKey];

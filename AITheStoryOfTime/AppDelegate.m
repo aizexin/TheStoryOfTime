@@ -5,7 +5,6 @@
 //  Created by qianfeng on 15/10/16.
 //  Copyright (c) 2015年 aizexin. All rights reserved.
 //
-#warning 还没有让登陆页面在一个navVC中
 #import "AppDelegate.h"
 #import "AIOAuthViewController.h"
 #import "AIControllerTool.h"

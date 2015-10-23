@@ -38,8 +38,8 @@
 @property(nonatomic,strong)AIEverydayLineView *noseLineView;
 /**是否在设置基准线*/
 @property(nonatomic,assign,getter=isSettingLine)BOOL settingLine;
-/**是否需要设置基准线（第一次）*/
-@property(nonatomic,assign,getter=isNeedSettLine)BOOL needSettLine;
+/**是否已经设置了基准线*/
+@property(nonatomic,assign,getter=isSetedLine)BOOL setedLine;
 @end
 
 @implementation AIEverydayPostViewController
@@ -71,13 +71,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    AILog(@"%d",self.isNeedSettLine);
+    
+    AILog(@"isSetedLine%d",self.isSetedLine);
+    
     [self setupUI];
     [self setupData];
-    if (self.isNeedSettLine) {
-        //设置基准线
-        [self setupBaseLine];
-    }
+    
 }
 #pragma mark ----------------UI----------------------
 -(void)setupUI{
@@ -119,7 +118,7 @@
     }];
     [self.toolbarView setSaveImage:^{//保存按钮
        [SCCommon saveImageToPhotoAlbum:self.image];//存至本机
-        if (self.isSettingLine) {//如果是在设置基准线
+        if (!self.isSetedLine) {//如果是在设置基准线
             [self saveLineFrame];
         }
        [self.navigationController popViewControllerAnimated:YES];
@@ -186,14 +185,21 @@
     lineModel.noseFrameStr = [self.noseLineView showLineRectInImageView];
     //保存到本地
     [AIEverydayTool saveLineFrameModel:lineModel];
-    //保存是否需要设置基准线
-    self.needSettLine = NO;
-    [[NSUserDefaults standardUserDefaults]setBool:self.needSettLine forKey:@"needSettLine"];
+    //保存是否已经设置
+//    self.setedLine = ;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:YES forKey:@"setedLine"];
+    [defaults synchronize];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.needSettLine = [[NSUserDefaults standardUserDefaults]boolForKey:@"needSettLine"];
+   self.setedLine = [[NSUserDefaults standardUserDefaults]boolForKey:@"setedLine"];
+//    AILog(@"viewWillAppear----------isSetedLine%d",self.isSetedLine);
+    if (!self.isSetedLine) {//如果没有设置基准线
+        //设置基准线
+        [self setupBaseLine];
+    }
 }
 @end
 
