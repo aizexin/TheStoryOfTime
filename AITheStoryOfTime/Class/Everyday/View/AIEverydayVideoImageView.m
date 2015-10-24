@@ -9,6 +9,8 @@
 #import "AIEverydayVideoImageView.h"
 #import "AIEverydayTool.h"
 #import "AIEverydayCellModel.h"
+#import "SVProgressHUD.h"
+#define AIEverydayEveryImageTime 0.2
 @interface AIEverydayVideoImageView ()
 @property(nonatomic,strong)NSMutableArray *allImageM;
 @end
@@ -20,6 +22,11 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        NSArray *array = [AIEverydayTool allEverydayCellModel];
+        _allImageM = [NSMutableArray arrayWithCapacity:array.count];
+        for (AIEverydayCellModel *model in array) {
+            [_allImageM addObject:model.everydayImage];
+        }
         self.image = [self.allImageM firstObject];
         //添加手势
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(SignleTap:)];
@@ -29,29 +36,28 @@
     return self;
 }
 
-#pragma mark ------懒加载
--(NSMutableArray *)allImageM{
-    if (!_allImageM) {
-        NSArray *array = [AIEverydayTool allEverydayCellModel];
-        _allImageM = [NSMutableArray arrayWithCapacity:array.count];
-        for (AIEverydayCellModel *model in array) {
-            [_allImageM addObject:model.everydayImage];
-        }
-    }
-    return _allImageM;
-}
+
+//#pragma mark ------懒加载
+//-(NSMutableArray *)allImageM{
+//    
+//    return _allImageM;
+//}
 -(void)SignleTap:(UITapGestureRecognizer*)tap{
     // 0. 如果正在动画，直接返回
     if ([self isAnimating]) {
         [self stopAnimating];
         return;
     };
-    self.animationImages = self.allImageM;
-    self.animationDuration = 1;
-    [self setAnimationRepeatCount:1];
-    
-    //开始动画
-    [self startAnimating];
+    if (self.allImageM.count!=0) {
+        self.animationImages = self.allImageM;
+        self.animationDuration = self.allImageM.count*AIEverydayEveryImageTime;
+        [self setAnimationRepeatCount:1];
+        
+        //开始动画
+        [self startAnimating];
+    }else{
+        [SVProgressHUD showErrorWithStatus:@"还没有照片可以播放哦~"];
+    }
 }
 
 @end

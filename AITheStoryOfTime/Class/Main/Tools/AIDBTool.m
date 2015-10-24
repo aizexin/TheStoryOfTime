@@ -95,7 +95,7 @@
         model.everydayImage = [UIImage imageWithData:imageData];
         model.time = [reult stringForColumn:@"imageTime"];
         model.cellId = @([reult intForColumn:@"ID"]);
-        [arrayM addObject:model];
+        [arrayM insertObject:model atIndex:0];
     }
     return arrayM;
 }

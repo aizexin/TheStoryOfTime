@@ -77,12 +77,12 @@ static NSString *identifier = @"AIEverydayCell";
     return _core;
 }
 
--(UIImageView *)videoImage{
-    if (!_videoImage) {
-        _videoImage = [[AIEverydayVideoImageView alloc]init];
-    }
-    return _videoImage;
-}
+//-(UIImageView *)videoImage{
+//    if (!_videoImage) {
+//        _videoImage = [[AIEverydayVideoImageView alloc]init];
+//    }
+//    return _videoImage;
+//}
 
 
 - (void)viewDidLoad {
@@ -99,7 +99,9 @@ static NSString *identifier = @"AIEverydayCell";
     //添加videoImage
     CGRect rect =AIEverydayPhotoRect;
     rect.origin.y = (Mainsize.height - rect.size.height) *0.5;
-    self.videoImage.frame = rect;
+#warning 这里不能用懒加载 ，每次数据不一样
+    self.videoImage =  [[AIEverydayVideoImageView alloc]initWithFrame:rect];
+    
     UIWindow *lastWindow = [[UIApplication sharedApplication].windows lastObject];
     //添加蒙版
     [lastWindow addSubview:self.core];
@@ -136,9 +138,11 @@ static NSString *identifier = @"AIEverydayCell";
     if (indexPath.item == 0) {
         //测试图片
         cell.cellImage.image = [UIImage imageNamed:@"game_center"];
-        [cell.deleteBtn removeFromSuperview];
+        [cell.deleteBtn setHidden:YES];
+        cell.timeLabel.hidden = YES;
     }else{
-       
+       [cell.deleteBtn setHidden:NO];
+        cell.timeLabel.hidden = NO;
         cell.cellImage.userInteractionEnabled = YES;
         AIEverydayCellModel *model = self.dataSource[indexPath.item-1];
         cell.model = model;
@@ -170,7 +174,6 @@ static NSString *identifier = @"AIEverydayCell";
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    [self setHidesBottomBarWhenPushed:NO];
     self.tabBarController.tabBar.hidden = NO;
     if (self.navigationController && self.navigationController.navigationBarHidden) {
         self.navigationController.navigationBarHidden = NO;
