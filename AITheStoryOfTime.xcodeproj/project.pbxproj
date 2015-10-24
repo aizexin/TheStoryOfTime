@@ -2413,6 +2413,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AITheStoryOfTime/Class/Libs/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/AITheStoryOfTime/Class/Libs/shareLibs/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AITheStoryOfTime/AIPrefixHeader.pch";
 				INFOPLIST_FILE = AITheStoryOfTime/Info.plist;
@@ -2448,6 +2449,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AITheStoryOfTime/Class/Libs/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/AITheStoryOfTime/Class/Libs/shareLibs/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AITheStoryOfTime/AIPrefixHeader.pch";
 				INFOPLIST_FILE = AITheStoryOfTime/Info.plist;
