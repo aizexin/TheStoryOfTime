@@ -8,8 +8,8 @@
 
 #import "AIMapViewController.h"
 #import <MAMapKit/MAMapKit.h>
-#import "AIMapPoint.h"
-
+#import "UIBarButtonItem+AIExtension.h"
+#import "ScreenshotDetailViewController.h"
 #warning  测试时用最小改变大小
 #define AIMapMinChange 0.0001
 enum{
@@ -28,6 +28,7 @@ enum{
 @property (nonatomic, strong) NSMutableArray *overlays;
 @property(nonatomic,assign)CLLocationCoordinate2D lastPoint;
 
+
 @property (nonatomic, retain)UISegmentedControl *showSegment;
 @property (nonatomic, retain)UISegmentedControl *modeSegment;
 @end
@@ -37,29 +38,20 @@ enum{
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initToolBar];
+    
+    
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTagert:self action:@selector(onClickScreenshots) NorImageName:@"album" andHeiImageName:@"album"];
     self.title = @"地图";
     //地图
     self.mapView = [[MAMapView alloc]initWithFrame:CGRectMake(0, 55, Mainsize.width, Mainsize.height-35)];
     self.mapView.delegate =self;
     [self.view addSubview:self.mapView];
-    //图层
-   
-    //添加到数组中
-    self.overlays = [NSMutableArray array];
-    
-//    //多线段
-//    /* Polyline. */
-//    CLLocationCoordinate2D polylineCoords[2];
-//    polylineCoords[0].latitude = 39.781892;
-//    polylineCoords[0].longitude = 116.293413;
-//    _lastPoint.latitude = 39.787600;
-//    _lastPoint.longitude = 116.391842;
-//    polylineCoords[1] = _lastPoint;
-//    
-//    MAPolyline *polyline = [MAPolyline polylineWithCoordinates:polylineCoords count:2];
-//    [self.overlays insertObject:polyline atIndex:0];
-//    //添加到地图上
-//    [self.mapView addOverlays:self.overlays];
+
+}
+#pragma mark ---------------------点击事件------------
+-(void)onClickScreenshots{
+    UIImage *image = [self.mapView takeSnapshotInRect:self.mapView.bounds];//[AIScreenTool screenWithSize:self.view.frame.size inView:self.view];
+    [self transitionToDetailWithImage:image];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -150,7 +142,7 @@ enum{
     self.modeSegment = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"None", @"Follow", @"Head", nil]];
     self.modeSegment.segmentedControlStyle = UISegmentedControlStyleBar;
     [self.modeSegment addTarget:self action:@selector(modeAction:) forControlEvents:UIControlEventValueChanged];
-    self.modeSegment.selectedSegmentIndex = 0;
+    self.modeSegment.selectedSegmentIndex = 1;
     UIBarButtonItem *modeItem = [[UIBarButtonItem alloc] initWithCustomView:self.modeSegment];
     
     self.toolbarItems = [NSArray arrayWithObjects:flexble, showItem, flexble, modeItem, flexble, nil];
@@ -251,6 +243,21 @@ updatingLocation:(BOOL)updatingLocation
 }
 
 #pragma mark --------------------遮盖-------------------------
+
+
+#pragma mark--------------截屏-------------------
+- (void)transitionToDetailWithImage:(UIImage *)image
+{
+    ScreenshotDetailViewController *detailViewController = [[ScreenshotDetailViewController alloc] init];
+    detailViewController.screenshotImage = image;
+    detailViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+    
+    [self presentViewController:navi animated:YES completion:^{
+        
+    }];
+}
 
 
 @end
