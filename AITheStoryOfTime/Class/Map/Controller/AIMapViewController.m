@@ -43,21 +43,23 @@ enum{
     self.mapView.delegate =self;
     [self.view addSubview:self.mapView];
     //图层
+   
     //添加到数组中
     self.overlays = [NSMutableArray array];
     
-    //多线段
-    /* Polyline. */
-    CLLocationCoordinate2D polylineCoords[2];
-    polylineCoords[0].latitude = 39.781892;
-    polylineCoords[0].longitude = 116.293413;
-    _lastPoint.latitude = 39.787600;
-    _lastPoint.longitude = 116.391842;
-    polylineCoords[1] = _lastPoint;
-    MAPolyline *polyline = [MAPolyline polylineWithCoordinates:polylineCoords count:1];
-    [self.overlays insertObject:polyline atIndex:0];
-    //添加到地图上
-    [self.mapView addOverlays:self.overlays];
+//    //多线段
+//    /* Polyline. */
+//    CLLocationCoordinate2D polylineCoords[2];
+//    polylineCoords[0].latitude = 39.781892;
+//    polylineCoords[0].longitude = 116.293413;
+//    _lastPoint.latitude = 39.787600;
+//    _lastPoint.longitude = 116.391842;
+//    polylineCoords[1] = _lastPoint;
+//    
+//    MAPolyline *polyline = [MAPolyline polylineWithCoordinates:polylineCoords count:2];
+//    [self.overlays insertObject:polyline atIndex:0];
+//    //添加到地图上
+//    [self.mapView addOverlays:self.overlays];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +68,7 @@ enum{
 
 #pragma mark---------------------高德demo-------------
 #pragma mark - MAMapViewDelegate
+
 
 - (void)mapView:(MAMapView *)mapView didChangeUserTrackingMode:(MAUserTrackingMode)mode animated:(BOOL)animated
 {
@@ -97,7 +100,7 @@ enum{
         MAPolylineRenderer *polylineRenderer = [[MAPolylineRenderer alloc] initWithPolyline:overlay];
         
         polylineRenderer.lineWidth   = 4.f;
-        polylineRenderer.strokeColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:1];
+        polylineRenderer.strokeColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:1];
         
         return polylineRenderer;
     }
@@ -208,32 +211,41 @@ enum{
 -(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation
 updatingLocation:(BOOL)updatingLocation
 {
+    
     if(updatingLocation)
     {
+         //初始化lastPoint为当前位置
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            _lastPoint = userLocation.coordinate;
+        });
         //取出当前位置的坐标
-        AILog(@"latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
+//        AILog(@"latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
         double latitude = userLocation.coordinate.latitude;
         double longitude = userLocation.coordinate.longitude;
         double changeLatitude = (fabs(1000000*(latitude-_lastPoint.latitude)))/1000000.0;
         double changeLongitude = (fabs(1000000*(longitude-_lastPoint.longitude)))/1000000.0;
         double change = sqrt(changeLatitude *changeLatitude + changeLongitude*changeLongitude);
+        AILog(@"change----------%f",change);
 //        kCLLocationCoordinate2DInvalid
         if (change >=  AIMapMinChange) {
-//            //添加到数组中
-//            self.overlays = [NSMutableArray array];
-//            
-//            //多线段
-//            /* Polyline. */
-//            CLLocationCoordinate2D polylineCoords[2];
-//            polylineCoords[0].latitude = userLocation.coordinate.latitude;
-//            polylineCoords[0].longitude = userLocation.coordinate.longitude;
-//            
-//            polylineCoords[1] = _lastPoint;
-//            MAPolyline *polyline = [MAPolyline polylineWithCoordinates:polylineCoords count:1];
-//            [self.overlays insertObject:polyline atIndex:0];
-//            //添加到地图上
-//            [self.mapView addOverlays:self.overlays];
+            //添加到数组中
+            self.overlays = [NSMutableArray array];
+            
+            //多线段
+            /* Polyline. */
+            CLLocationCoordinate2D polylineCoords[2];
+            polylineCoords[0].latitude = userLocation.coordinate.latitude;
+            polylineCoords[0].longitude = userLocation.coordinate.longitude;
+            
+            polylineCoords[1] = _lastPoint;
+            MAPolyline *polyline = [MAPolyline polylineWithCoordinates:polylineCoords count:2];
+            [self.overlays insertObject:polyline atIndex:0];
+            //添加到地图上
+            [self.mapView addOverlays:self.overlays];
+            
         }
+        _lastPoint = userLocation.coordinate;
         
     }
 }
