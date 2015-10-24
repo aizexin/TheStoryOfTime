@@ -39,7 +39,10 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     // 1.创建UIWebView
     UIWebView *webView = [[UIWebView alloc] init];
-    webView.frame = self.view.bounds;
+    CGRect rect = self.view.bounds;
+    rect.origin.y += AINavgationBarH;
+    rect.size.height = Mainsize.height - AINavgationBarH -44;
+    webView.frame = rect;
     [self.view addSubview:webView];
     // 2.加载登录页面
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&redirect_uri=%@",AIAppKey,AIAppRediectURI]];
