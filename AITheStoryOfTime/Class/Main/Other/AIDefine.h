@@ -23,6 +23,8 @@
 #define AIRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 // 是否为iOS7
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+// 是否为iOS9
+#define iOS9 ([[UIDevice currentDevice].systemVersion doubleValue] >= 9.0)
 // 导航栏标题的字体
 #define AINavigationTitleFont [UIFont boldSystemFontOfSize:20]
 //tabBarItem字体大小
@@ -121,6 +123,9 @@
 //定位先的宽度
 #define AIEverydayBaseLineWith 2
 
+
+//-----------------------地图相关---------------------
+#import "AIMapDefine.h"
 
 
 

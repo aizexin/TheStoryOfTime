@@ -16,6 +16,7 @@
 #import "UIBarButtonItem+AIExtension.h"
 #import "AIEverydayDefine.h"
 #import "AIEverydayVideoImageView.h"
+
 @interface AIEverydayViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic,strong)UICollectionView *collectionV;

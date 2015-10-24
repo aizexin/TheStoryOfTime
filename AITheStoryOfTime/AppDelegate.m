@@ -14,6 +14,7 @@
 #import "UMSocialSinaSSOHandler.h"
 #import "UMSocialWechatHandler.h"
 #import "UMSocialQQHandler.h"
+#import <MAMapKit/MAMapKit.h>
 @interface AppDelegate ()
 
 @end
@@ -22,8 +23,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [UMSocialData setAppKey:AIUMAPPKEY];
+    //高德地图
+    [MAMapServices sharedServices].apiKey = AIMAPKEY;
     //分享
+    [UMSocialData setAppKey:AIUMAPPKEY];
     [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:AIAppRediectURI];
     [UMSocialWechatHandler setWXAppId:AIWeChatAPPID appSecret:AIWeChatAPPSecret url:AIAppRediectURI];
 
