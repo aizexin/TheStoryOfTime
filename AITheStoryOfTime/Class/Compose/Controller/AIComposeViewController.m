@@ -116,7 +116,7 @@
  *  添加AItextView
  */
 -(void)setupTextView{
-    AITextView *textView = [[AITextView alloc]initWithFrame:self.view.bounds];
+    AITextView *textView = [[AITextView alloc]initWithFrame:CGRectMake(0, AINavgationBarH, self.view.frame.size.width, self.view.frame.size.height - AINavgationBarH)];
     textView.delegate = self;
     self.textView = textView;
     textView.placeholder = @"分享新鲜事";

@@ -262,6 +262,8 @@
 		BCC08FB01BDB141400E761FC /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC08FAF1BDB141400E761FC /* libc++.dylib */; };
 		BCC0905C1BDB4BB900E761FC /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCC0905B1BDB4BB900E761FC /* AMap.bundle */; };
 		BCC0905D1BDB4BB900E761FC /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCC0905B1BDB4BB900E761FC /* AMap.bundle */; };
+		BCC090671BDBB54400E761FC /* AIMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC090661BDBB54400E761FC /* AIMapPoint.m */; };
+		BCC090681BDBB54400E761FC /* AIMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC090661BDBB54400E761FC /* AIMapPoint.m */; };
 		BCFD9F991BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFD9F981BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m */; };
 		BCFDA0211BDA4E1400D9AC6C /* AIDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA0201BDA4E1400D9AC6C /* AIDBTool.m */; };
 		BCFDA02E1BDA4E8500D9AC6C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA0241BDA4E8500D9AC6C /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -752,6 +754,8 @@
 		BCC08FAF1BDB141400E761FC /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		BCC08FB11BDB163F00E761FC /* AIMapDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIMapDefine.h; sourceTree = "<group>"; };
 		BCC0905B1BDB4BB900E761FC /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
+		BCC090651BDBB54400E761FC /* AIMapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMapPoint.h; sourceTree = "<group>"; };
+		BCC090661BDBB54400E761FC /* AIMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIMapPoint.m; sourceTree = "<group>"; };
 		BCFD9F971BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+AIExtension.h"; sourceTree = "<group>"; };
 		BCFD9F981BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+AIExtension.m"; sourceTree = "<group>"; };
 		BCFDA01F1BDA4E1400D9AC6C /* AIDBTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDBTool.h; sourceTree = "<group>"; };
@@ -1658,6 +1662,7 @@
 		BC26F1261BD0AC310064D89E /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				BCC090641BDBB52100E761FC /* Model */,
 				BC26F1271BD0AC310064D89E /* Controller */,
 			);
 			path = Map;
@@ -1951,6 +1956,15 @@
 				BCC06E8C1BD7C9E600A86010 /* SVProgressHUD.m */,
 			);
 			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		BCC090641BDBB52100E761FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BCC090651BDBB54400E761FC /* AIMapPoint.h */,
+				BCC090661BDBB54400E761FC /* AIMapPoint.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BCFDA0221BDA4E8500D9AC6C /* FMDB */ = {
@@ -2295,6 +2309,7 @@
 				BC26F0D51BD0ABAC0064D89E /* NSObject+MJCoding.m in Sources */,
 				454CA55F1BDA92FA00CCADCD /* AIEverydayVideoImageView.m in Sources */,
 				BC26F0EE1BD0ABAC0064D89E /* SDWebImageManager.m in Sources */,
+				BCC090671BDBB54400E761FC /* AIMapPoint.m in Sources */,
 				BC26F0EC1BD0ABAC0064D89E /* SDWebImageDownloader.m in Sources */,
 				BC26F12A1BD0AC570064D89E /* AIEverydayViewController.m in Sources */,
 				BCFDA0301BDA4E8500D9AC6C /* FMDatabasePool.m in Sources */,
@@ -2317,6 +2332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC26EDCD1BD092290064D89E /* AITheStoryOfTimeTests.m in Sources */,
+				BCC090681BDBB54400E761FC /* AIMapPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

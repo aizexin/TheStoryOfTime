@@ -15,7 +15,7 @@
 #import "UIBarButtonItem+AIExtension.h"
 #import "AIEverydayDefine.h"
 #import "AIEverydayVideoImageView.h"
-
+#import "SVProgressHUD.h"
 @interface AIEverydayViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic,strong)UICollectionView *collectionV;
@@ -94,6 +94,10 @@ static NSString *identifier = @"AIEverydayCell";
 }
 #pragma mark------------点击事件------------------
 -(void)onClickRightItem:(UIBarButtonItem*)item{
+    if (self.dataSource.count <=0 ) {
+        [SVProgressHUD showErrorWithStatus:@"还没有照片哦~"];
+        return;
+    }
     //弹出视图框可以播放，
     
     //添加videoImage

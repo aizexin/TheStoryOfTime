@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AIMapViewController : UIViewController
+//#import "AIBaseMapViewController.h"
+@interface AIMapViewController : UIViewController;
 
 @end

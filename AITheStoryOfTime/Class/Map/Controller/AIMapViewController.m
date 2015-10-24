@@ -8,6 +8,15 @@
 
 #import "AIMapViewController.h"
 #import <MAMapKit/MAMapKit.h>
+#import "AIMapPoint.h"
+
+#warning  测试时用最小改变大小
+#define AIMapMinChange 0.0001
+enum{
+    OverlayViewControllerOverlayTypeCircle = 0,
+    OverlayViewControllerOverlayTypePolyline,
+    OverlayViewControllerOverlayTypePolygon
+};
 @interface AIMapViewController ()<MAMapViewDelegate>
 /**
  *  高德地图
@@ -16,12 +25,23 @@
 /**
  *  遮盖
  */
-@property (nonatomic, strong) MAGeodesicPolyline *geodesicPolyline;
+@property (nonatomic, strong) NSMutableArray *overlays;
+@property(nonatomic,assign)CLLocationCoordinate2D lastPoint;
+
 @property (nonatomic, retain)UISegmentedControl *showSegment;
 @property (nonatomic, retain)UISegmentedControl *modeSegment;
 @end
 
 @implementation AIMapViewController
+
+//-(NSMutableArray *)overlays{
+//    if (!_overlays) {
+//        _overlays = [NSMutableArray array];
+//    }
+//    return _overlays;
+//}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,10 +55,10 @@
     [self.view addSubview:self.mapView];
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
 #pragma mark---------------------高德demo-------------
 #pragma mark - MAMapViewDelegate
 
@@ -46,6 +66,40 @@
 {
     self.modeSegment.selectedSegmentIndex = mode;
 }
+- (MAOverlayRenderer *)mapView:(MAMapView *)mapView rendererForOverlay:(id <MAOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[MACircle class]])
+    {
+        MACircleRenderer *circleRenderer = [[MACircleRenderer alloc] initWithCircle:overlay];
+        
+        circleRenderer.lineWidth   = 4.f;
+        circleRenderer.strokeColor = [UIColor blueColor];
+        circleRenderer.fillColor   = [UIColor colorWithRed:1 green:0 blue:0 alpha:.3];
+        
+        return circleRenderer;
+    }
+    else if ([overlay isKindOfClass:[MAPolygon class]])
+    {
+        MAPolygonRenderer *polygonRenderer = [[MAPolygonRenderer alloc] initWithPolygon:overlay];
+        polygonRenderer.lineWidth   = 4.f;
+        polygonRenderer.strokeColor = [UIColor colorWithRed:0 green:1 blue:0 alpha:1];
+        polygonRenderer.fillColor   = [UIColor redColor];
+        
+        return polygonRenderer;
+    }
+    else if ([overlay isKindOfClass:[MAPolyline class]])
+    {
+        MAPolylineRenderer *polylineRenderer = [[MAPolylineRenderer alloc] initWithPolyline:overlay];
+        
+        polylineRenderer.lineWidth   = 4.f;
+        polylineRenderer.strokeColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:1];
+        
+        return polylineRenderer;
+    }
+    
+    return nil;
+}
+
 
 #pragma mark - Action Handle
 
@@ -153,8 +207,33 @@ updatingLocation:(BOOL)updatingLocation
     {
         //取出当前位置的坐标
         AILog(@"latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
+        double latitude = userLocation.coordinate.latitude;
+        double longitude = userLocation.coordinate.longitude;
+        double changeLatitude = (fabs(1000000*(latitude-_lastPoint.latitude)))/1000000.0;
+        double changeLongitude = (fabs(1000000*(longitude-_lastPoint.longitude)))/1000000.0;
+        double change = sqrt(changeLatitude *changeLatitude + changeLongitude*changeLongitude);
+//        kCLLocationCoordinate2DInvalid
+        if (change >=  AIMapMinChange) {
+            //添加到数组中
+            self.overlays = [NSMutableArray array];
+            
+            //多线段
+            /* Polyline. */
+            CLLocationCoordinate2D polylineCoords[2];
+            polylineCoords[0].latitude = userLocation.coordinate.latitude;
+            polylineCoords[0].longitude = userLocation.coordinate.longitude;
+            
+            polylineCoords[1] = _lastPoint;
+            MAPolyline *polyline = [MAPolyline polylineWithCoordinates:polylineCoords count:1];
+            [self.overlays insertObject:polyline atIndex:0];
+            //添加到地图上
+            [self.mapView addOverlays:self.overlays];
+        }
+        
     }
 }
+
+#pragma mark --------------------遮盖-------------------------
 
 
 @end
