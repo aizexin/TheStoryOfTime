@@ -5,7 +5,6 @@
 //  Created by qianfeng on 15/10/16.
 //  Copyright (c) 2015年 aizexin. All rights reserved.
 //
-#warning 删除图片没实现
 #import "AIEverydayViewController.h"
 #import "AIEverydayCell.h"
 #import "PostViewController.h"
@@ -134,18 +133,21 @@ static NSString *identifier = @"AIEverydayCell";
     
     AIEverydayCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     cell.cellImage.image = nil;
-    
     if (indexPath.item == 0) {
-        //测试颜色
+        //测试图片
         cell.cellImage.image = [UIImage imageNamed:@"game_center"];
         [cell.deleteBtn removeFromSuperview];
     }else{
+       
         cell.cellImage.userInteractionEnabled = YES;
         AIEverydayCellModel *model = self.dataSource[indexPath.item-1];
         cell.model = model;
+        
         __weak typeof (self) weakSelf = self;
         [cell setDeleteBlock:^() {
-            [AIEverydayTool deleteEverdayCellModelWithIndex:indexPath.item];
+             AILog(@"indexPath-----%@",model.cellId);
+            [AIEverydayTool deleteEverdayCellModelWithIndex:[model.cellId integerValue] ];
+            [weakSelf.dataSource removeObject:model];
             [weakSelf.collectionV reloadData];
         }];
     }
@@ -153,15 +155,17 @@ static NSString *identifier = @"AIEverydayCell";
     return cell;
 }
 
+
+
+
+
 #pragma mark --------collection代理------
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.item == 0) {//开始照相等功能
-
         SCCaptureCameraController *cameraVC = [[SCCaptureCameraController alloc]init];
         [self.navigationController pushViewController:cameraVC animated:YES];
-    }else{
-        
     }
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

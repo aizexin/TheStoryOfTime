@@ -94,6 +94,7 @@
         NSData *imageData = [reult dataForColumn:@"everydayImage"];
         model.everydayImage = [UIImage imageWithData:imageData];
         model.time = [reult stringForColumn:@"imageTime"];
+        model.cellId = @([reult intForColumn:@"ID"]);
         [arrayM addObject:model];
     }
     return arrayM;

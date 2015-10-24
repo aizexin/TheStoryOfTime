@@ -13,8 +13,11 @@
  *  高德地图
  */
 @property(nonatomic,strong)MAMapView *mapView;
+/**
+ *  遮盖
+ */
+@property (nonatomic, strong) MAGeodesicPolyline *geodesicPolyline;
 @property (nonatomic, retain)UISegmentedControl *showSegment;
-
 @property (nonatomic, retain)UISegmentedControl *modeSegment;
 @end
 

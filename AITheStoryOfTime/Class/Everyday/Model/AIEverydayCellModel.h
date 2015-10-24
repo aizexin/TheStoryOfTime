@@ -17,4 +17,8 @@
  *  日期
  */
 @property(nonatomic,copy)NSString *time;
+/**
+ *  数据库中id
+ */
+@property(nonatomic,assign)NSNumber *cellId;
 @end
