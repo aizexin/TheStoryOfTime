@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AITheStoryOfTime/Class/Joke/Controller/AIJokeViewController.m"
-            timestampString = "467443856.375047"
+            timestampString = "467456489.779031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "-loadData"
             landmarkType = "5">
          </BreakpointContent>
@@ -35,13 +35,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AITheStoryOfTime/Class/Joke/View/AIJokeTableViewCell.m"
-            timestampString = "467443679.825124"
+            filePath = "AITheStoryOfTime/Class/Joke/View/AIJokeDetailView.m"
+            timestampString = "467455853.781493"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-setData:"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-setFrameData:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AITheStoryOfTime/Class/Joke/Controller/AIJokeViewController.m"
+            timestampString = "467456489.779031"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-loadData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

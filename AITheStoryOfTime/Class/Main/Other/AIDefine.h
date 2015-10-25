@@ -12,6 +12,8 @@
 #import "UIImage+Extension.h"
 #import "NSString+Extension.h"
 
+
+
 //导航栏高度
 #define AINavgationBarH 65
 
@@ -19,6 +21,8 @@
 #define AIViewSize (self.view.frame.size)
 // 颜色
 #define AIColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define AITabelViewBgColor AIColor(211, 211, 211)
+
 // 随机色
 #define AIRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 // 是否为iOS7

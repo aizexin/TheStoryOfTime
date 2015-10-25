@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AIJokeToolbar : UIView
+@interface AIJokeToolbar : UIImageView
 
 @end

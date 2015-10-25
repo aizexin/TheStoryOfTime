@@ -8,26 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class AIJokeGroupModel,AIJokeToolbar;
+@class AIJokeCellFrameModel,AIJokeDetailView,AIJokeToolbar;
 @interface AIJokeTableViewCell : UITableViewCell
-/**
- *  用户头像
- */
-@property(nonatomic,weak)UIImageView *avatarImageV;
-/**
- *  用户昵称
- */
-@property(nonatomic,weak)UILabel *userNameLabel;
-/**
- *  笑话内容
- */
-@property(nonatomic,weak)UILabel *jokeText;
-/**
- *  工具栏
- */
+
+/**里面装Cell内容*/
+@property(nonatomic,strong)AIJokeDetailView *detailView;
+/**工具栏*/
 @property(nonatomic,strong)AIJokeToolbar *toolbar;
 
-@property(nonatomic,strong)AIJokeGroupModel *data;
+/**joke的frame*/
+@property(nonatomic,strong)AIJokeCellFrameModel *frameData;
 
 +(instancetype)createJokeCell:(UITableView*)tabelView;
 @end

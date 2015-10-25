@@ -14,12 +14,22 @@
 #import "AIJokeDataModel.h"
 #import "AIJokeContentDataModel.h"
 #import "AIJokeGroupModel.h"
+#import "AIJokeCellFrameModel.h"
+#import "AIJokeDefine.h"
 @interface AIJokeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,weak)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataSourceM;
 @end
 
 @implementation AIJokeViewController
+
+#pragma mark -------懒加载-------------
+-(NSMutableArray *)dataSourceM{
+    if (!_dataSourceM) {
+        _dataSourceM = [NSMutableArray array];
+    }
+    return _dataSourceM;
+}
 
 #pragma mark --------------生命周期--------------
 - (void)viewDidLoad {
@@ -28,7 +38,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self initTableView];
     [self loadData];
-//    [self.view setBackgroundColor:[UIColor blueColor]];
 }
 
 #pragma mark ---------------------初始化方法-----------------
@@ -37,7 +46,11 @@
     self.tableView = tableView;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    //去掉分割线
+    [self.tableView setSeparatorStyle:(UITableViewCellSeparatorStyleNone)];
+    self.tableView.backgroundColor = AITabelViewBgColor;
     [self.view addSubview:tableView];
+    //
     
 }
 #pragma mark ----------------数据源---------------
@@ -46,9 +59,20 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AIJokeTableViewCell *cell = [AIJokeTableViewCell createJokeCell:tableView];
-    AIJokeContentDataModel *contentModel = self.dataSourceM[indexPath.row];
-    cell.data = contentModel.group;
+    cell.backgroundColor = [UIColor clearColor];
+    AIJokeCellFrameModel *frameModel = self.dataSourceM[indexPath.row];
+    cell.frameData = frameModel;
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    // 立即取消选中
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    AIJokeCellFrameModel *frameModel = self.dataSourceM[indexPath.row];
+    return frameModel.jokeCellHeight ;
 }
 
 #pragma mark ----------------请求数据----------
@@ -56,7 +80,13 @@
     AIJokeParamModel *params = [[AIJokeParamModel alloc]init];
     [AIJokeTool JokeWithParams:params success:^(AIJokeCellModel *resultModel) {
         AILog(@"%@",resultModel.data.data);
-        self.dataSourceM = [NSMutableArray arrayWithArray:resultModel.data.data];
+        
+        NSMutableArray *arrayM = [NSMutableArray arrayWithArray:resultModel.data.data];
+        for (AIJokeContentDataModel *contentData in arrayM) {
+            AIJokeCellFrameModel *frameModel = [[AIJokeCellFrameModel alloc]init];
+            frameModel.data = contentData.group;
+            [self.dataSourceM addObject:frameModel];
+        }
         //刷新表格
         [self.tableView reloadData];
     } failure:^(NSError *error) {

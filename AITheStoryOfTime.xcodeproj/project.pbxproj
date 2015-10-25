@@ -223,6 +223,9 @@
 		BC9BB9561BDC869B00EA497D /* AIJokeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9BB9551BDC869B00EA497D /* AIJokeDataModel.m */; };
 		BC9BB9591BDC88A500EA497D /* AIJokeContentDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9BB9581BDC88A500EA497D /* AIJokeContentDataModel.m */; };
 		BC9BB95C1BDC952200EA497D /* AIJokeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9BB95B1BDC952200EA497D /* AIJokeToolbar.m */; };
+		BC9BB9691BDCBCF800EA497D /* AIJokeDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9BB9681BDCBCF800EA497D /* AIJokeDetailView.m */; };
+		BC9BB9721BDCBE9700EA497D /* AIJokeCellDetailFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9BB96F1BDCBE9700EA497D /* AIJokeCellDetailFrameModel.m */; };
+		BC9BB9731BDCBE9700EA497D /* AIJokeCellFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9BB9711BDCBE9700EA497D /* AIJokeCellFrameModel.m */; };
 		BCAEA8F91BD5C8ED00E93119 /* UUDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAEA8F61BD5C8ED00E93119 /* UUDatePicker.m */; };
 		BCAEA8FA1BD5C8ED00E93119 /* UUDatePicker_DateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAEA8F81BD5C8ED00E93119 /* UUDatePicker_DateModel.m */; };
 		BCAEA90B1BD5DDE300E93119 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCAEA8FC1BD5DDE300E93119 /* DateTools.bundle */; };
@@ -714,6 +717,13 @@
 		BC9BB9581BDC88A500EA497D /* AIJokeContentDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIJokeContentDataModel.m; sourceTree = "<group>"; };
 		BC9BB95A1BDC952200EA497D /* AIJokeToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIJokeToolbar.h; sourceTree = "<group>"; };
 		BC9BB95B1BDC952200EA497D /* AIJokeToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIJokeToolbar.m; sourceTree = "<group>"; };
+		BC9BB9601BDCB38900EA497D /* AIJokeDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIJokeDefine.h; sourceTree = "<group>"; };
+		BC9BB9671BDCBCF800EA497D /* AIJokeDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIJokeDetailView.h; sourceTree = "<group>"; };
+		BC9BB9681BDCBCF800EA497D /* AIJokeDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIJokeDetailView.m; sourceTree = "<group>"; };
+		BC9BB96E1BDCBE9700EA497D /* AIJokeCellDetailFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIJokeCellDetailFrameModel.h; sourceTree = "<group>"; };
+		BC9BB96F1BDCBE9700EA497D /* AIJokeCellDetailFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIJokeCellDetailFrameModel.m; sourceTree = "<group>"; };
+		BC9BB9701BDCBE9700EA497D /* AIJokeCellFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIJokeCellFrameModel.h; sourceTree = "<group>"; };
+		BC9BB9711BDCBE9700EA497D /* AIJokeCellFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIJokeCellFrameModel.m; sourceTree = "<group>"; };
 		BCAEA8F51BD5C8ED00E93119 /* UUDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUDatePicker.h; sourceTree = "<group>"; };
 		BCAEA8F61BD5C8ED00E93119 /* UUDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUDatePicker.m; sourceTree = "<group>"; };
 		BCAEA8F71BD5C8ED00E93119 /* UUDatePicker_DateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUDatePicker_DateModel.h; sourceTree = "<group>"; };
@@ -1528,6 +1538,7 @@
 				4517B0D71BD5BE130054E051 /* AIFixScreen.h */,
 				454CA55C1BDA91A100CCADCD /* AIEverydayDefine.h */,
 				BCC08FB11BDB163F00E761FC /* AIMapDefine.h */,
+				BC9BB9601BDCB38900EA497D /* AIJokeDefine.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1837,6 +1848,7 @@
 		BC9BB93D1BDC725100EA497D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BC9BB96D1BDCBE9700EA497D /* CellFrame */,
 				BC9BB9441BDC728F00EA497D /* AIJokeCellModel.h */,
 				BC9BB9451BDC728F00EA497D /* AIJokeCellModel.m */,
 				BC9BB9471BDC77ED00EA497D /* AIJokeGroupModel.h */,
@@ -1861,6 +1873,8 @@
 				BC9BB9411BDC727600EA497D /* AIJokeTableViewCell.xib */,
 				BC9BB95A1BDC952200EA497D /* AIJokeToolbar.h */,
 				BC9BB95B1BDC952200EA497D /* AIJokeToolbar.m */,
+				BC9BB9671BDCBCF800EA497D /* AIJokeDetailView.h */,
+				BC9BB9681BDCBCF800EA497D /* AIJokeDetailView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1872,6 +1886,17 @@
 				BC9BB94F1BDC7D4800EA497D /* AIJokeTool.m */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		BC9BB96D1BDCBE9700EA497D /* CellFrame */ = {
+			isa = PBXGroup;
+			children = (
+				BC9BB96E1BDCBE9700EA497D /* AIJokeCellDetailFrameModel.h */,
+				BC9BB96F1BDCBE9700EA497D /* AIJokeCellDetailFrameModel.m */,
+				BC9BB9701BDCBE9700EA497D /* AIJokeCellFrameModel.h */,
+				BC9BB9711BDCBE9700EA497D /* AIJokeCellFrameModel.m */,
+			);
+			path = CellFrame;
 			sourceTree = "<group>";
 		};
 		BCAEA8F41BD5C8ED00E93119 /* UUDatePicker_Block */ = {
@@ -2267,6 +2292,7 @@
 				458C458B1BD111F5009B057D /* MJPhotoToolbar.m in Sources */,
 				BCC06EAD1BD7C9E600A86010 /* UIImage+Resize.m in Sources */,
 				BC26F1421BD0ADF30064D89E /* AITemp2ViewController.m in Sources */,
+				BC9BB9691BDCBCF800EA497D /* AIJokeDetailView.m in Sources */,
 				BC26F0D41BD0ABAC0064D89E /* MJTypeEncoding.m in Sources */,
 				BC26F0F31BD0ABAC0064D89E /* UIImage+WebP.m in Sources */,
 				BCFDA0321BDA4E8500D9AC6C /* FMResultSet.m in Sources */,
@@ -2277,6 +2303,7 @@
 				BC26F0C91BD0ABAC0064D89E /* KSMHand.m in Sources */,
 				BC1FF8201BD9D088007C8327 /* AIEverydayLineFrameModel.m in Sources */,
 				BC26F0CF1BD0ABAC0064D89E /* MJArgument.m in Sources */,
+				BC9BB9731BDCBE9700EA497D /* AIJokeCellFrameModel.m in Sources */,
 				BC9BB9561BDC869B00EA497D /* AIJokeDataModel.m in Sources */,
 				458C458A1BD111F5009B057D /* MJPhotoProgressView.m in Sources */,
 				BCAEA90E1BD5DDE300E93119 /* DTTimePeriodChain.m in Sources */,
@@ -2285,6 +2312,7 @@
 				BC9BB9461BDC728F00EA497D /* AIJokeCellModel.m in Sources */,
 				BC26F0C61BD0ABAC0064D89E /* UIRefreshControl+AFNetworking.m in Sources */,
 				BC26F0BC1BD0ABAC0064D89E /* AFURLConnectionOperation.m in Sources */,
+				BC9BB9721BDCBE9700EA497D /* AIJokeCellDetailFrameModel.m in Sources */,
 				4565011D1BD3AB0000882753 /* AIEmotionPopView.m in Sources */,
 				BC9BB9501BDC7D4800EA497D /* AIJokeTool.m in Sources */,
 				BC26F0E21BD0ABAC0064D89E /* MJRefreshConst.m in Sources */,

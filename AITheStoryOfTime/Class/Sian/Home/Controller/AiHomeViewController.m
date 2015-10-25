@@ -84,7 +84,7 @@
     [self.view addSubview:self.tableView];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"首页";
-    self.tableView.backgroundColor = AIColor(211, 211, 211);
+    self.tableView.backgroundColor = AITabelViewBgColor;
     //去掉分割线
     [self.tableView setSeparatorStyle:(UITableViewCellSeparatorStyleNone)];
     AILog(@"%@",NSHomeDirectory());
