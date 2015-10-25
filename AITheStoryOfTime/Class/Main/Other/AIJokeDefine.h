@@ -17,4 +17,5 @@
 //Joke工具栏高度
 #define AIJokeToolbarH 30
 #define AIJokeContentTextFont [UIFont systemFontOfSize:14]
+#define AIJokeShareEventNotification @"AIJokeShareEventNotification"
 #endif

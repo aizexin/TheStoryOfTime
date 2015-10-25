@@ -281,7 +281,10 @@
 }
 
 -(void)birthBottomViewDidShare:(AIBirthBottomView *)BottomView{
-    [UMSocialSnsService presentSnsIconSheetView:self appKey:AIUMAPPKEY shareText:@"xxxx" shareImage:[UIImage imageNamed:@"AppIcon"] shareToSnsNames:[NSArray arrayWithObjects:
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    
+    
+    [UMSocialSnsService presentSnsIconSheetView:window.rootViewController appKey:AIUMAPPKEY shareText:@"xxxx" shareImage:[UIImage imageNamed:@"AppIcon"] shareToSnsNames:[NSArray arrayWithObjects:
                                                                                                                                                      UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToQQ,
                                                                                                                                                      UMShareToQzone,
                                                                                                                                                      nil] delegate:self];

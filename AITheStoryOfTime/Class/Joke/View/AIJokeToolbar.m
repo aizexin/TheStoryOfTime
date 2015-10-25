@@ -9,6 +9,7 @@
 #import "AIJokeToolbar.h"
 #import "AIFixScreen.h"
 #import "AIJokeGroupModel.h"
+#import "AIJokeDefine.h"
 @interface AIJokeToolbar ()
 
 /**
@@ -31,6 +32,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.userInteractionEnabled = YES;
         //设置背景图片
         self.image = [UIImage resizedImage:@"timeline_card_top_background"];
         //喜欢
@@ -54,6 +56,7 @@
         [shareButton setImage:[UIImage imageNamed:@"repost_btn_night"] forState:(UIControlStateNormal)];
         [shareButton setImage:[UIImage imageNamed:@"repost_btn_press"] forState:(UIControlStateHighlighted)];
         self.shareButton = shareButton;
+        [shareButton addTarget:self action:@selector(onClickShareBtn:) forControlEvents:(UIControlEventTouchUpInside)];
         //屏幕适配
         [self fitScreen];
     }
@@ -78,7 +81,6 @@
     [self.shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(@0);
         make.bottom.mas_equalTo(@0);
-//        make.width.mas_equalTo(@50);
         make.left.mas_equalTo(self.buryButton.mas_right).offset = 0;
         make.right.mas_equalTo(@(-30));
     }];
@@ -95,6 +97,12 @@
     
         [self.buryButton setTitle:[NSString stringWithFormat:@"%ld",[groupModel.bury_count integerValue] ] forState:(UIControlStateNormal)];
 //    }
+}
+
+#pragma mark -------------------点击事件---------
+-(void)onClickShareBtn:(UIButton*)shareBtn{
+    NSDictionary *dict = @{@"jokeContent":self.groupModel.content};
+    [[NSNotificationCenter defaultCenter]postNotificationName:AIJokeShareEventNotification object:nil userInfo:dict];
 }
 
 
