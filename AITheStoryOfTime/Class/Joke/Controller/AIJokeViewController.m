@@ -84,7 +84,7 @@
         NSMutableArray *arrayM = [NSMutableArray arrayWithArray:resultModel.data.data];
         for (AIJokeContentDataModel *contentData in arrayM) {
             AIJokeCellFrameModel *frameModel = [[AIJokeCellFrameModel alloc]init];
-            frameModel.data = contentData.group;
+            frameModel.groupModel = contentData.group;
             [self.dataSourceM addObject:frameModel];
         }
         //刷新表格

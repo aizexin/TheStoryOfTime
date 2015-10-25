@@ -42,6 +42,7 @@
     _frameData = frameData;
     self.detailView.frameData = frameData.detailFrameModel;
     self.toolbar.frame = frameData.toolbarFrame;
+    self.toolbar.groupModel = frameData.groupModel;
 }
 
 

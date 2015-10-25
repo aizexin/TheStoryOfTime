@@ -23,5 +23,5 @@
 /**
  *  装每一个cell的数据
  */
-@property(nonatomic,strong)AIJokeGroupModel *data;
+@property(nonatomic,strong)AIJokeGroupModel *groupModel;
 @end

@@ -13,9 +13,9 @@
 /**内容*/
 @property(nonatomic ,copy)NSString *content;
 /**踩的数*/
-@property(nonatomic ,copy)NSString *bury_count;
+@property(nonatomic ,assign)NSNumber *bury_count;
 /**喜欢的数*/
-@property(nonatomic ,copy)NSString *favorite_count;
+@property(nonatomic ,assign)NSNumber *favorite_count;
 /**id号*/
 @property(nonatomic ,copy)NSNumber *id;
 /**

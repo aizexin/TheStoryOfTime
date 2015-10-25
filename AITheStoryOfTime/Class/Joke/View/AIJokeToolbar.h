@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class AIJokeGroupModel;
 @interface AIJokeToolbar : UIImageView
-
+/**
+ *  段子内容数据
+ */
+@property(nonatomic,strong)AIJokeGroupModel *groupModel;
 @end

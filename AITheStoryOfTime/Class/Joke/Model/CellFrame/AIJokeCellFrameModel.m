@@ -13,8 +13,8 @@
 @implementation AIJokeCellFrameModel
 
 
--(void)setData:(AIJokeGroupModel *)data{
-    _data = data;
+-(void)setGroupModel:(AIJokeGroupModel *)data{
+    _groupModel = data;
     //计算详情的frame
     AIJokeCellDetailFrameModel *detailFrameModel = [[AIJokeCellDetailFrameModel alloc]init];
     detailFrameModel.data = data;
