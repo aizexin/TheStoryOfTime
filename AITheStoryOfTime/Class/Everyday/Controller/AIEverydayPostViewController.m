@@ -197,9 +197,10 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   self.setedLine = [[NSUserDefaults standardUserDefaults]boolForKey:@"setedLine"];
-//    AILog(@"viewWillAppear----------isSetedLine%d",self.isSetedLine);
-    self.setedLine = [[AIEverydayTool allEverydayCellModel]count];
+
+    NSArray *array = [AIEverydayTool allEverydayCellModel];
+//   self.setedLine = [[NSUserDefaults standardUserDefaults]boolForKey:@"setedLine"];
+    self.setedLine = array.count;
     if (!self.isSetedLine) {//如果没有设置基准线
         //设置基准线
         [self setupBaseLine];

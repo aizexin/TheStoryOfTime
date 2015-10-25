@@ -7,11 +7,9 @@
 //
 
 #import "AIEverydayLineView.h"
-#define AILineBgWith 21
-#define AIShowLineX (AILineBgWith+1)*0.5
-#define SC_APP_SIZE         [[UIScreen mainScreen] applicationFrame].size
-#define CAMERA_TOPVIEW_HEIGHT   44  //title
-#define AIEverydayPhotoRect CGRectMake(0, 0, SC_APP_SIZE.width, SC_APP_SIZE.width + CAMERA_TOPVIEW_HEIGHT)
+#import "AIEverydayDefine.h"
+
+
 
 @interface AIEverydayLineView ()
 @property(nonatomic,weak)UIView *showLineView;
@@ -26,9 +24,8 @@
     if (self) {
         UIView *showLineView = [[UIView alloc]init];
         self.showLineView = showLineView;
-        self.showLineView.backgroundColor = [UIColor redColor];
+        self.showLineView.backgroundColor = AIEverydayLineColor;
         [self addSubview:showLineView];
-        self.backgroundColor = [UIColor greenColor];
     }
     return self;
 }

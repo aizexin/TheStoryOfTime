@@ -148,6 +148,7 @@ static NSString *identifier = @"AIEverydayCell";
        [cell.deleteBtn setHidden:NO];
         cell.timeLabel.hidden = NO;
         cell.cellImage.userInteractionEnabled = YES;
+//        AILog(@"count ------ %d", self.dataSource.count);
         AIEverydayCellModel *model = self.dataSource[indexPath.item-1];
         cell.model = model;
         
