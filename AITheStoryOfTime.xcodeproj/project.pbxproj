@@ -222,6 +222,7 @@
 		BC9BB9531BDC7DD000EA497D /* AIJokeParamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9BB9521BDC7DD000EA497D /* AIJokeParamModel.m */; };
 		BC9BB9561BDC869B00EA497D /* AIJokeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9BB9551BDC869B00EA497D /* AIJokeDataModel.m */; };
 		BC9BB9591BDC88A500EA497D /* AIJokeContentDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9BB9581BDC88A500EA497D /* AIJokeContentDataModel.m */; };
+		BC9BB95C1BDC952200EA497D /* AIJokeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9BB95B1BDC952200EA497D /* AIJokeToolbar.m */; };
 		BCAEA8F91BD5C8ED00E93119 /* UUDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAEA8F61BD5C8ED00E93119 /* UUDatePicker.m */; };
 		BCAEA8FA1BD5C8ED00E93119 /* UUDatePicker_DateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAEA8F81BD5C8ED00E93119 /* UUDatePicker_DateModel.m */; };
 		BCAEA90B1BD5DDE300E93119 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCAEA8FC1BD5DDE300E93119 /* DateTools.bundle */; };
@@ -711,6 +712,8 @@
 		BC9BB9551BDC869B00EA497D /* AIJokeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIJokeDataModel.m; sourceTree = "<group>"; };
 		BC9BB9571BDC88A500EA497D /* AIJokeContentDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIJokeContentDataModel.h; sourceTree = "<group>"; };
 		BC9BB9581BDC88A500EA497D /* AIJokeContentDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIJokeContentDataModel.m; sourceTree = "<group>"; };
+		BC9BB95A1BDC952200EA497D /* AIJokeToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIJokeToolbar.h; sourceTree = "<group>"; };
+		BC9BB95B1BDC952200EA497D /* AIJokeToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIJokeToolbar.m; sourceTree = "<group>"; };
 		BCAEA8F51BD5C8ED00E93119 /* UUDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUDatePicker.h; sourceTree = "<group>"; };
 		BCAEA8F61BD5C8ED00E93119 /* UUDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUDatePicker.m; sourceTree = "<group>"; };
 		BCAEA8F71BD5C8ED00E93119 /* UUDatePicker_DateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUDatePicker_DateModel.h; sourceTree = "<group>"; };
@@ -1856,6 +1859,8 @@
 				BC9BB93F1BDC727600EA497D /* AIJokeTableViewCell.h */,
 				BC9BB9401BDC727600EA497D /* AIJokeTableViewCell.m */,
 				BC9BB9411BDC727600EA497D /* AIJokeTableViewCell.xib */,
+				BC9BB95A1BDC952200EA497D /* AIJokeToolbar.h */,
+				BC9BB95B1BDC952200EA497D /* AIJokeToolbar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2300,6 +2305,7 @@
 				BC885B0D1BD894CF00788761 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				BCFDA0331BDA4E8500D9AC6C /* readMe.m in Sources */,
 				BC26F0E81BD0ABAC0064D89E /* NSData+ImageContentType.m in Sources */,
+				BC9BB95C1BDC952200EA497D /* AIJokeToolbar.m in Sources */,
 				BC26F1351BD0ACC60064D89E /* AIBirthViewController.m in Sources */,
 				BC26F10F1BD0ABAC0064D89E /* AIHomeStatusesResultModel.m in Sources */,
 				BC26EDB91BD092290064D89E /* ViewController.m in Sources */,

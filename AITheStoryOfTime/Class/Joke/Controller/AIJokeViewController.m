@@ -13,6 +13,7 @@
 #import "AIJokeCellModel.h"
 #import "AIJokeDataModel.h"
 #import "AIJokeContentDataModel.h"
+#import "AIJokeGroupModel.h"
 @interface AIJokeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,weak)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataSourceM;
@@ -45,8 +46,8 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AIJokeTableViewCell *cell = [AIJokeTableViewCell createJokeCell:tableView];
-    AIJokeCellModel *model = self.dataSourceM[indexPath.row];
-    cell.data = model;
+    AIJokeContentDataModel *contentModel = self.dataSourceM[indexPath.row];
+    cell.data = contentModel.group;
     return cell;
 }
 
@@ -55,7 +56,9 @@
     AIJokeParamModel *params = [[AIJokeParamModel alloc]init];
     [AIJokeTool JokeWithParams:params success:^(AIJokeCellModel *resultModel) {
         AILog(@"%@",resultModel.data.data);
-        self.dataSourceM = resultModel.data.data;
+        self.dataSourceM = [NSMutableArray arrayWithArray:resultModel.data.data];
+        //刷新表格
+        [self.tableView reloadData];
     } failure:^(NSError *error) {
         AILog(@"请求笑话数据失败%@",error.description);
     }];
