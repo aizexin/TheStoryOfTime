@@ -7,7 +7,7 @@
 //
 
 #import "AIComposeViewController.h"
-#import "AITextView.h"
+#import "AIEmotionTextView.h"
 #import "AIComposeToolbar.h"
 #import "AIComposePhotosView.h"
 #import "AFHTTPRequestOperationManager.h"
@@ -25,7 +25,7 @@
 #define Compose_Path @"https://api.weibo.com/2/statuses/update.json"//没有图片发送微博的接口
 #define Compose_Path_Image @"https://upload.api.weibo.com/2/statuses/upload.json"//发送有图片的微（有且只有一张）
 @interface AIComposeViewController ()<AIComposeToolbarDelegate,UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-@property(nonatomic,strong)AITextView *textView;
+@property(nonatomic,strong)AIEmotionTextView *textView;
 
 @property(nonatomic,strong)UIImagePickerController *pickerVC;
 /**
@@ -113,10 +113,10 @@
 }
 
 /**
- *  添加AItextView
+ *  添加AIEmotionTextView
  */
 -(void)setupTextView{
-    AITextView *textView = [[AITextView alloc]initWithFrame:CGRectMake(0, AINavgationBarH, self.view.frame.size.width, self.view.frame.size.height - AINavgationBarH)];
+    AIEmotionTextView *textView = [[AIEmotionTextView alloc]initWithFrame:CGRectMake(0, AINavgationBarH, self.view.frame.size.width, self.view.frame.size.height - AINavgationBarH)];
     textView.delegate = self;
     self.textView = textView;
     textView.placeholder = @"分享新鲜事";
@@ -147,14 +147,29 @@
     //设置发送
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发送" style:(UIBarButtonItemStylePlain) target:self action:@selector(onClickSend:)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    self.title = @"发微博";
-//    //设置发送
-//    SCBarButtonItem *sendItem = [[SCBarButtonItem alloc]initWithTitle:@"有毒" style:(SCBarButtonItemStylePlain) handler:nil];
-//    self.sc_navigationItem.rightBarButtonItem = sendItem;
-//    //设置取消
-//    self.sc_navigationItem.leftBarButtonItem = [[SCBarButtonItem alloc] initWithTitle:@"取消" style:SCBarButtonItemStylePlain handler:^(id sender) {
-//        [self onClickCancel];
-//    }];
+    //title
+    NSString *name = [AIAccountTool account].screen_name;
+    if (name) {
+        // 构建文字
+        NSString *prefix = @"发微博";
+        NSString *text = [NSString stringWithFormat:@"%@\n%@", prefix, name];
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:text];
+        [string addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:15] range:[text rangeOfString:prefix]];
+        [string addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:[text rangeOfString:name]];
+        
+        // 创建label
+        UILabel *titleLabel = [[UILabel alloc] init];
+        titleLabel.attributedText = string;
+        titleLabel.numberOfLines = 0;
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+//        titleLabel.frame.size.width = 100;
+//        titleLabel.height = 44;
+        titleLabel.frame = CGRectMake(0, 0, 100, 44);
+        self.navigationItem.titleView = titleLabel;
+    } else {
+        self.title = @"发微博";
+    }
+
 
 }
 #pragma mark -键盘处理事件
@@ -321,8 +336,7 @@
     [self.view endEditing:YES];
 }
 - (void)textViewDidChange:(UITextView *)textView{
-    self.navigationItem.rightBarButtonItem.enabled = textView.text.length;
-//    self.sc_navigationItem.rightBarButtonItem.enabled = textView.text.length;
+    self.navigationItem.rightBarButtonItem.enabled = textView.hasText;
 }
 
 #pragma mark -UIImagePickerControllerDelegate
@@ -341,10 +355,16 @@
 #pragma mark -通知相关
 -(void)emotionDidSelected:(NSNotification*)notification{
     AIEmotion *emotion = notification.userInfo[AISelectedEmotion];
-    AILog(@"%@,---emoji = %@",emotion.chs,emotion.emoji);
+    // 1.拼接表情
+    [self.textView appendEmotion:emotion];
+    
+    // 2.检测文字长度
+    [self textViewDidChange:self.textView];
+//    AILog(@"%@,---emoji = %@",emotion.chs,emotion.emoji);
 }
 
 -(void)emotionDidDeleted:(NSNotification*)notification{
-    AILog(@"删除按钮");
+    
+    [self.textView deleteBackward];
 }
 @end

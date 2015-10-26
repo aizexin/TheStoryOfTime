@@ -41,7 +41,7 @@
  *  监听文字改变
  */
 -(void)changeText:(NSNotification*)notif{
-    self.placeholderLabel.hidden = self.text.length > 0?YES:NO;
+    self.placeholderLabel.hidden = self.hasText;
 }
 
 -(void)layoutSubviews{
@@ -54,6 +54,19 @@
     self.placeholderLabel.y = 8;
 }
 #pragma mark -共有方法
+- (void)setText:(NSString *)text
+{
+    [super setText:text];
+    
+    [self changeText:nil];
+}
+
+- (void)setAttributedText:(NSAttributedString *)attributedText
+{
+    [super setAttributedText:attributedText];
+    
+    [self changeText:nil];
+}
 -(void)setPlaceholder:(NSString *)placeholder{
     _placeholder = placeholder;
     self.placeholderLabel.text = placeholder;

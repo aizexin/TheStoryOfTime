@@ -42,13 +42,9 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     //1pageControl的frame
-//    self.pageControl.width = Mainsize.width;
-//    self.pageControl.height = 30;
-//    self.pageControl.y = self.height - self.pageControl.height;
+
     self.pageControl.frame = CGRectMake(0, self.frame.size.height - 30, Mainsize.width, 30);
     //2scrollView的frame
-//    self.scrollView.width = Mainsize.width;
-//    self.scrollView.height = self.height - self.pageControl.height;
     self.scrollView.frame = CGRectMake(0, 0, Mainsize.width, self.frame.size.height - self.pageControl.frame.size.height);
     self.scrollView.contentSize = CGSizeMake(self.pageControl.numberOfPages * self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     //3设置gridView的frame

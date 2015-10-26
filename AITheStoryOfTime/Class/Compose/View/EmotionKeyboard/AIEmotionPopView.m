@@ -33,7 +33,7 @@
     [window addSubview:self];
     
     //设置位置
-    CGPoint point = CGPointMake(fromEmotionView.center.x, fromEmotionView.center.y);
+    CGPoint point = CGPointMake(fromEmotionView.center.x, fromEmotionView.center.y-AINavgationBarH);
 //    CGFloat centerX = fromEmotionView.centerX;
 //    CGFloat centerY = fromEmotionView.centerY - self.height*0.5;
     CGPoint center = point;//CGPointMake(centerX, centerY);

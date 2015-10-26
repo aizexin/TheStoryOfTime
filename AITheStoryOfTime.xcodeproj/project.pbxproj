@@ -292,6 +292,10 @@
 		BCC08FB01BDB141400E761FC /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC08FAF1BDB141400E761FC /* libc++.dylib */; };
 		BCC0905C1BDB4BB900E761FC /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCC0905B1BDB4BB900E761FC /* AMap.bundle */; };
 		BCC0905D1BDB4BB900E761FC /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCC0905B1BDB4BB900E761FC /* AMap.bundle */; };
+		BCE1B6691BDE29DB0069DDB5 /* AIEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B6681BDE29DB0069DDB5 /* AIEmotionTextView.m */; };
+		BCE1B66C1BDE2AFB0069DDB5 /* AIEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B66B1BDE2AFB0069DDB5 /* AIEmotionAttachment.m */; };
+		BCE1B6701BDE33F50069DDB5 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B66F1BDE33F50069DDB5 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BCE1B6721BDE3E5D0069DDB5 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE1B6711BDE3E5D0069DDB5 /* libicucore.dylib */; };
 		BCFD9F991BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFD9F981BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m */; };
 		BCFDA0211BDA4E1400D9AC6C /* AIDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA0201BDA4E1400D9AC6C /* AIDBTool.m */; };
 		BCFDA02E1BDA4E8500D9AC6C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA0241BDA4E8500D9AC6C /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -812,6 +816,13 @@
 		BCC08FAF1BDB141400E761FC /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		BCC08FB11BDB163F00E761FC /* AIMapDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIMapDefine.h; sourceTree = "<group>"; };
 		BCC0905B1BDB4BB900E761FC /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
+		BCE1B6671BDE29DB0069DDB5 /* AIEmotionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIEmotionTextView.h; sourceTree = "<group>"; };
+		BCE1B6681BDE29DB0069DDB5 /* AIEmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIEmotionTextView.m; sourceTree = "<group>"; };
+		BCE1B66A1BDE2AFB0069DDB5 /* AIEmotionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIEmotionAttachment.h; sourceTree = "<group>"; };
+		BCE1B66B1BDE2AFB0069DDB5 /* AIEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIEmotionAttachment.m; sourceTree = "<group>"; };
+		BCE1B66E1BDE33F50069DDB5 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		BCE1B66F1BDE33F50069DDB5 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		BCE1B6711BDE3E5D0069DDB5 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		BCFD9F971BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+AIExtension.h"; sourceTree = "<group>"; };
 		BCFD9F981BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+AIExtension.m"; sourceTree = "<group>"; };
 		BCFDA01F1BDA4E1400D9AC6C /* AIDBTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDBTool.h; sourceTree = "<group>"; };
@@ -837,6 +848,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCE1B6721BDE3E5D0069DDB5 /* libicucore.dylib in Frameworks */,
 				BCC08FB01BDB141400E761FC /* libc++.dylib in Frameworks */,
 				45DE85CD1BD7FFDF0058BC6F /* Security.framework in Frameworks */,
 				45FE13FA1BDBE5DE005173E8 /* TencentOpenAPI.framework in Frameworks */,
@@ -920,6 +932,8 @@
 				4565011B1BD3AB0000882753 /* AIEmotionPopView.h */,
 				4565011C1BD3AB0000882753 /* AIEmotionPopView.m */,
 				4565011E1BD3AB1900882753 /* AIEmotionPopView.xib */,
+				BCE1B6671BDE29DB0069DDB5 /* AIEmotionTextView.h */,
+				BCE1B6681BDE29DB0069DDB5 /* AIEmotionTextView.m */,
 			);
 			path = EmotionKeyboard;
 			sourceTree = "<group>";
@@ -929,6 +943,8 @@
 			children = (
 				456500B11BD2883200882753 /* AIEmotion.h */,
 				456500B21BD2883200882753 /* AIEmotion.m */,
+				BCE1B66A1BDE2AFB0069DDB5 /* AIEmotionAttachment.h */,
+				BCE1B66B1BDE2AFB0069DDB5 /* AIEmotionAttachment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1262,6 +1278,7 @@
 		BC26EFC01BD0ABAB0064D89E /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				BCE1B66D1BDE33F50069DDB5 /* RegexKitLite */,
 				BCFDA0221BDA4E8500D9AC6C /* FMDB */,
 				BC885AEE1BD894CE00788761 /* Masonry */,
 				45EB28201BD7F28A0002B5F9 /* shareLibs */,
@@ -1935,6 +1952,7 @@
 		BCC06D691BD77C6800A86010 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				BCE1B6711BDE3E5D0069DDB5 /* libicucore.dylib */,
 				BCC0905B1BDB4BB900E761FC /* AMap.bundle */,
 				BCC08FAF1BDB141400E761FC /* libc++.dylib */,
 				BCC08FAD1BDB13DC00E761FC /* libstdc++.6.0.9.dylib */,
@@ -2092,6 +2110,15 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BCE1B66D1BDE33F50069DDB5 /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				BCE1B66E1BDE33F50069DDB5 /* RegexKitLite.h */,
+				BCE1B66F1BDE33F50069DDB5 /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
 			sourceTree = "<group>";
 		};
 		BCFDA0221BDA4E8500D9AC6C /* FMDB */ = {
@@ -2384,6 +2411,7 @@
 				BC26F0F71BD0ABAC0064D89E /* SlidsSlipViewController.m in Sources */,
 				4517B0D31BD564FD0054E051 /* AIDateTool.m in Sources */,
 				BC885B0E1BD894CF00788761 /* View+MASAdditions.m in Sources */,
+				BCE1B66C1BDE2AFB0069DDB5 /* AIEmotionAttachment.m in Sources */,
 				BC26F0C11BD0ABAC0064D89E /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				BC26F0BD1BD0ABAC0064D89E /* AFURLRequestSerialization.m in Sources */,
 				458C45901BD1553F009B057D /* AIPhoto.m in Sources */,
@@ -2441,6 +2469,7 @@
 				BC26F0B31BD0ABAC0064D89E /* AIComposeViewController.m in Sources */,
 				BC26F0E61BD0ABAC0064D89E /* UIScrollView+MJRefresh.m in Sources */,
 				BC26F1021BD0ABAC0064D89E /* AIComposeResultModel.m in Sources */,
+				BCE1B6701BDE33F50069DDB5 /* RegexKitLite.m in Sources */,
 				BC26F0FF1BD0ABAC0064D89E /* AITabBarViewController.m in Sources */,
 				BCFDA0311BDA4E8500D9AC6C /* FMDatabaseQueue.m in Sources */,
 				BC26F0F21BD0ABAC0064D89E /* UIImage+MultiFormat.m in Sources */,
@@ -2449,6 +2478,7 @@
 				BC26F10A1BD0ABAC0064D89E /* AIStatusesTool.m in Sources */,
 				BC26F10E1BD0ABAC0064D89E /* AIHomeStatusesParamModel.m in Sources */,
 				458C458D1BD111F5009B057D /* SDWebImageManager+MJ.m in Sources */,
+				BCE1B6691BDE29DB0069DDB5 /* AIEmotionTextView.m in Sources */,
 				BC26F0D21BD0ABAC0064D89E /* MJMethod.m in Sources */,
 				BC26F1201BD0ABAC0064D89E /* AIStatusToolbar.m in Sources */,
 				BCFDA02E1BDA4E8500D9AC6C /* FMDatabase.m in Sources */,
