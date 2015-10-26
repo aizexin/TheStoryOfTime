@@ -260,7 +260,7 @@
 
     AIComposeParamModel *param = [[AIComposeParamModel alloc]init];
     param.access_token = [AIAccountTool account].access_token;
-    param.status = self.textView.text;
+    param.status = [self.textView realText];
     [AIStatusesTool composeStatusesWithParams:param success:^(AIComposeResultModel *resultModel) {
         AILog(@"---发送请求成功");
     } failure:^(NSError *error) {
