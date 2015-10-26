@@ -35,6 +35,7 @@
     if (!cell) {
         cell = [[AIJokeTableViewCell alloc]init];
     }
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 

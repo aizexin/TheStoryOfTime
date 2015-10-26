@@ -55,6 +55,9 @@
         
         //开始动画
         [self startAnimating];
+        // 4. 动画完成之后，再清除动画数组内容
+        //    [self performSelector:@selector(clearTom) withObject:nil afterDelay:self.tom.animationDuration];
+        [self performSelector:@selector(setAnimationImages:) withObject:nil afterDelay:self.animationDuration];
     }else{
         [SVProgressHUD showErrorWithStatus:@"还没有照片可以播放哦~"];
     }

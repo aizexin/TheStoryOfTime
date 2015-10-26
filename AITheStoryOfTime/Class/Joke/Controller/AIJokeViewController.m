@@ -81,10 +81,9 @@
     return self.dataSourceM.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     AIJokeTableViewCell *cell = [AIJokeTableViewCell createJokeCell:tableView];
-    cell.backgroundColor = [UIColor clearColor];
-    AIJokeCellFrameModel *frameModel = self.dataSourceM[indexPath.row];
-    cell.frameData = frameModel;
+    cell.frameData =self.dataSourceM[indexPath.row];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

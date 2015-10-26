@@ -18,7 +18,7 @@
     self.timeLabel.text = model.time;
 }
 - (IBAction)onClickDelete:(UIButton *)sender {
-    AILog(@"onClickDelete");
+//    AILog(@"onClickDelete");
     if (self.deleteBlock) {
         self.deleteBlock();
     }
