@@ -24,4 +24,8 @@
 
 /**最近表情*/
 + (NSArray *)recentEmotions;
+/**
+ *  根据表情的文字描述找出对应的表情对象
+ */
++ (AIEmotion *)emotionWithDesc:(NSString *)desc;
 @end

@@ -50,7 +50,7 @@
     [btn setImage:[UIImage imageNamed:higImage] forState:(UIControlStateHighlighted)];
     [btn addTarget:self action:@selector(onClickBtn:) forControlEvents:(UIControlEventTouchUpInside)];
     btn.tag = tag;
-    btn.backgroundColor = AIRandomColor;
+//    btn.backgroundColor = AIRandomColor;
     [self addSubview:btn];
     return btn;
 }

@@ -11,6 +11,8 @@
 @interface AIEmotion : NSObject
 /** 表情的文字描述 */
 @property (nonatomic, copy) NSString *chs;
+/** 表情的繁体文字描述 */
+@property (nonatomic, copy) NSString *cht;
 /** 表情的文png图片名 */
 @property (nonatomic, copy) NSString *png;
 /** 表情的存放文件夹\目录 */

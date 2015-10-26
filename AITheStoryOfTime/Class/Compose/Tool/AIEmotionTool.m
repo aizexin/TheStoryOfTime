@@ -35,6 +35,7 @@ static NSMutableArray *_recentEmotions;
     }
     return _defaultEmotions;
 }
+
 +(NSArray *)emojiEmotions{
     if (!_emojiEmotions) {
         NSString *plist = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info.plist" ofType:nil];
@@ -43,6 +44,7 @@ static NSMutableArray *_recentEmotions;
     }
     return _emojiEmotions;
 }
+
 + (NSArray *)lxhEmotions
 {
     if (!_lxhEmotions) {
@@ -52,6 +54,7 @@ static NSMutableArray *_recentEmotions;
     }
     return _lxhEmotions;
 }
+
 + (NSArray *)recentEmotions
 {
     if (!_recentEmotions) {
@@ -63,6 +66,7 @@ static NSMutableArray *_recentEmotions;
     }
     return _recentEmotions;
 }
+
 +(void)addRecentEmotion:(AIEmotion*)emotion{
     //加载最近的表情数据
     [self recentEmotions];
@@ -72,6 +76,32 @@ static NSMutableArray *_recentEmotions;
     [_recentEmotions insertObject:emotion atIndex:0];
     //存入沙河
     [NSKeyedArchiver archiveRootObject:_recentEmotions toFile:AIRecentFilepath];
+}
+
++ (AIEmotion *)emotionWithDesc:(NSString *)desc
+{
+    if (!desc) return nil;
+    
+    __block AIEmotion *foundEmotion = nil;
+    
+    // 从默认表情中找
+    [[self defaultEmotions] enumerateObjectsUsingBlock:^(AIEmotion *emotion, NSUInteger idx, BOOL *stop) {
+        if ([desc isEqualToString:emotion.chs] || [desc isEqualToString:emotion.cht]) {
+            foundEmotion = emotion;
+            *stop = YES;
+        }
+    }];
+    if (foundEmotion) return foundEmotion;
+    
+    // 从浪小花表情中查找
+    [[self lxhEmotions] enumerateObjectsUsingBlock:^(AIEmotion *emotion, NSUInteger idx, BOOL *stop) {
+        if ([desc isEqualToString:emotion.chs] || [desc isEqualToString:emotion.cht]) {
+            foundEmotion = emotion;
+            *stop = YES;
+        }
+    }];
+    
+    return foundEmotion;
 }
 
 @end

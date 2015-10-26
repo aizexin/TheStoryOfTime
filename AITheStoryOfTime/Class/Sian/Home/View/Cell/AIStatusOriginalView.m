@@ -102,7 +102,9 @@
         self.vipView.frame = CGRectZero;
     }
     //正文内容
-    self.textcontentLabel.text = statuses.text;
+//    self.textcontentLabel.text = statuses.text;
+    AILog(@"statuses.attributedText     %@",statuses.attributedText);
+    self.textcontentLabel.attributedText = statuses.attributedText;
     self.textcontentLabel.frame = originalFrame.textFrame;
     //时间
     self.timeLabel.text = statuses.created_at;

@@ -239,7 +239,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     AIAccountModel *account = [AIAccountTool account];
     params[@"access_token"] = account.access_token;
-    params[@"status"] = self.textView.text;
+    params[@"status"] = self.textView.realText;
     [manager POST:Compose_Path_Image parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         UIImage *image = [self.photosView.photos firstObject];

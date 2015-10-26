@@ -66,7 +66,8 @@
     self.nameLabel.text = [NSString stringWithFormat:@"@%@",retweetedStatus.user.name];
     self.nameLabel.frame = retweetedFrame.nameFrame;
     //设置内容
-    self.textLabel.text = retweetedStatus.text;
+//    self.textLabel.text = retweetedStatus.text;
+    self.textLabel.attributedText = retweetedStatus.attributedText;
     self.textLabel.frame = retweetedFrame.textFrame;
     
     //设置配图

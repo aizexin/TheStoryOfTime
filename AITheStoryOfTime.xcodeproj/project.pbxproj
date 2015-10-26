@@ -296,6 +296,7 @@
 		BCE1B66C1BDE2AFB0069DDB5 /* AIEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B66B1BDE2AFB0069DDB5 /* AIEmotionAttachment.m */; };
 		BCE1B6701BDE33F50069DDB5 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B66F1BDE33F50069DDB5 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BCE1B6721BDE3E5D0069DDB5 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE1B6711BDE3E5D0069DDB5 /* libicucore.dylib */; };
+		BCE1B6751BDE57C90069DDB5 /* AIRegexResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B6741BDE57C90069DDB5 /* AIRegexResult.m */; };
 		BCFD9F991BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFD9F981BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m */; };
 		BCFDA0211BDA4E1400D9AC6C /* AIDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA0201BDA4E1400D9AC6C /* AIDBTool.m */; };
 		BCFDA02E1BDA4E8500D9AC6C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA0241BDA4E8500D9AC6C /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -823,6 +824,8 @@
 		BCE1B66E1BDE33F50069DDB5 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		BCE1B66F1BDE33F50069DDB5 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		BCE1B6711BDE3E5D0069DDB5 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		BCE1B6731BDE57C90069DDB5 /* AIRegexResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRegexResult.h; sourceTree = "<group>"; };
+		BCE1B6741BDE57C90069DDB5 /* AIRegexResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRegexResult.m; sourceTree = "<group>"; };
 		BCFD9F971BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+AIExtension.h"; sourceTree = "<group>"; };
 		BCFD9F981BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+AIExtension.m"; sourceTree = "<group>"; };
 		BCFDA01F1BDA4E1400D9AC6C /* AIDBTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDBTool.h; sourceTree = "<group>"; };
@@ -1633,6 +1636,8 @@
 				BC26F08C1BD0ABAC0064D89E /* AIStatusesModel.m */,
 				BC26F08D1BD0ABAC0064D89E /* AIUserModel.h */,
 				BC26F08E1BD0ABAC0064D89E /* AIUserModel.m */,
+				BCE1B6731BDE57C90069DDB5 /* AIRegexResult.h */,
+				BCE1B6741BDE57C90069DDB5 /* AIRegexResult.m */,
 				BC26F08F1BD0ABAC0064D89E /* Frame */,
 			);
 			path = Model;
@@ -2386,6 +2391,7 @@
 				BC26F1161BD0ABAC0064D89E /* AIHomeTitleButton.m in Sources */,
 				BC26F1441BD0ADF30064D89E /* AITemp3ViewController.m in Sources */,
 				BC26F1121BD0ABAC0064D89E /* AIStatusDetailFrame.m in Sources */,
+				BCE1B6751BDE57C90069DDB5 /* AIRegexResult.m in Sources */,
 				BC26F0CE1BD0ABAC0064D89E /* MBProgressHUD.m in Sources */,
 				BC26F0EF1BD0ABAC0064D89E /* SDWebImagePrefetcher.m in Sources */,
 				BC885B0B1BD894CF00788761 /* MASViewConstraint.m in Sources */,
