@@ -12,11 +12,12 @@
 #import "AIUserModel.h"
 #import "UIImageView+AFNetworking.h"
 #import "AIStatusPhotosView.h"
+#import "AIStatusLabel.h"
 @interface AIStatusOriginalView ()
 /** 昵称 */
 @property (nonatomic, weak) UILabel *nameLabel;
 /** 正文 */
-@property (nonatomic, weak) UILabel *textcontentLabel;
+@property (nonatomic, weak) AIStatusLabel *textcontentLabel;
 /** 来源 */
 @property (nonatomic, weak) UILabel *sourceLabel;
 /** 时间 */
@@ -45,9 +46,9 @@
         self.nameLabel = nameLabel;
         
         // 2.正文（内容）
-        UILabel *textLabel = [[UILabel alloc] init];
-        textLabel.font = AIStatusOrginalTextFont;
-        textLabel.numberOfLines = 0;
+        AIStatusLabel *textLabel = [[AIStatusLabel alloc] init];
+//        textLabel.font = AIStatusOrginalTextFont;
+//        textLabel.numberOfLines = 0;
         [self addSubview:textLabel];
         self.textcontentLabel = textLabel;
         
@@ -106,7 +107,6 @@
         self.vipView.frame = CGRectZero;
     }
     //正文内容
-//    self.textcontentLabel.text = statuses.text;
     self.textcontentLabel.attributedText = statuses.attributedText;
     self.textcontentLabel.frame = originalFrame.textFrame;
     //时间

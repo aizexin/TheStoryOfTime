@@ -203,6 +203,7 @@
 		BC26F1451BD0ADF30064D89E /* AITemp3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC26F13F1BD0ADF30064D89E /* AITemp3ViewController.xib */; };
 		BC26F14B1BD0BFFF0064D89E /* AINewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26F14A1BD0BFFF0064D89E /* AINewFeatureViewController.m */; };
 		BC6BA6C91BD5118800FA6490 /* AIBirthBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6BA6C81BD5118800FA6490 /* AIBirthBottomView.m */; };
+		BC6E3F8B1BDF6A560073BA65 /* AIStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3F8A1BDF6A560073BA65 /* AIStatusLabel.m */; };
 		BC8858E41BD8899D00788761 /* UIView+AIExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8858E31BD8899C00788761 /* UIView+AIExtension.m */; };
 		BC885B061BD894CE00788761 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = BC885AF01BD894CE00788761 /* MASCompositeConstraint.m */; };
 		BC885B071BD894CE00788761 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = BC885AF31BD894CE00788761 /* MASConstraint.m */; };
@@ -678,6 +679,8 @@
 		BC26F14A1BD0BFFF0064D89E /* AINewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AINewFeatureViewController.m; sourceTree = "<group>"; };
 		BC6BA6C71BD5118800FA6490 /* AIBirthBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBirthBottomView.h; sourceTree = "<group>"; };
 		BC6BA6C81BD5118800FA6490 /* AIBirthBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBirthBottomView.m; sourceTree = "<group>"; };
+		BC6E3F891BDF6A560073BA65 /* AIStatusLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIStatusLabel.h; sourceTree = "<group>"; };
+		BC6E3F8A1BDF6A560073BA65 /* AIStatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIStatusLabel.m; sourceTree = "<group>"; };
 		BC8858E21BD8899C00788761 /* UIView+AIExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AIExtension.h"; sourceTree = "<group>"; };
 		BC8858E31BD8899C00788761 /* UIView+AIExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AIExtension.m"; sourceTree = "<group>"; };
 		BC885AEF1BD894CE00788761 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -1690,6 +1693,8 @@
 				BC26F0AC1BD0ABAC0064D89E /* AIStatusRetweetedView.m */,
 				BC26F0AD1BD0ABAC0064D89E /* AIStatusToolbar.h */,
 				BC26F0AE1BD0ABAC0064D89E /* AIStatusToolbar.m */,
+				BC6E3F891BDF6A560073BA65 /* AIStatusLabel.h */,
+				BC6E3F8A1BDF6A560073BA65 /* AIStatusLabel.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2442,6 +2447,7 @@
 				BC26F0B71BD0ABAC0064D89E /* AFHTTPRequestOperation.m in Sources */,
 				456500A61BD22D1F00882753 /* AIEmotionKeyboard.m in Sources */,
 				BC26F0E91BD0ABAC0064D89E /* SDImageCache.m in Sources */,
+				BC6E3F8B1BDF6A560073BA65 /* AIStatusLabel.m in Sources */,
 				BC26F0F51BD0ABAC0064D89E /* UIImageView+WebCache.m in Sources */,
 				BC26F1111BD0ABAC0064D89E /* AIUserModel.m in Sources */,
 				BC26F0F91BD0ABAC0064D89E /* NSDate+MJ.m in Sources */,

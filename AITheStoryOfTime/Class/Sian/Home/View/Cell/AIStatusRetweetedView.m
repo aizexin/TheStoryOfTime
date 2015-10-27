@@ -13,11 +13,12 @@
 #import "AIUserModel.h"
 #import "UIImage+Extension.h"
 #import "AIStatusPhotosView.h"
+#import "AIStatusLabel.h"
 @interface AIStatusRetweetedView ()
 /**  昵称 */
 @property (nonatomic, weak) UILabel *nameLabel;
 /** 正文 */
-@property (nonatomic, weak) UILabel *textLabel;
+@property (nonatomic, weak) AIStatusLabel *textLabel;
 /**
  *  转发微博配图
  */
@@ -42,9 +43,9 @@
         [self addSubview:nameLabel];
         self.nameLabel = nameLabel;
         //设置正文
-        UILabel *textLabel = [[UILabel alloc]init];
-        textLabel.font = AIStatusRetweetedTextFont;
-        textLabel.numberOfLines = 0;
+        AIStatusLabel *textLabel = [[AIStatusLabel alloc]init];
+//        textLabel.font = AIStatusRetweetedTextFont;
+//        textLabel.numberOfLines = 0;
         [self addSubview:textLabel];
         self.textLabel = textLabel;
         //配图
@@ -66,7 +67,6 @@
     self.nameLabel.text = [NSString stringWithFormat:@"@%@",retweetedStatus.user.name];
     self.nameLabel.frame = retweetedFrame.nameFrame;
     //设置内容
-//    self.textLabel.text = retweetedStatus.text;
     self.textLabel.attributedText = retweetedStatus.attributedText;
     self.textLabel.frame = retweetedFrame.textFrame;
     

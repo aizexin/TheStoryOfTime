@@ -64,6 +64,8 @@
 // 富文本字体
 #define AIStatusRichTextFont [UIFont systemFontOfSize:14]
 
+//富文本中出现的链接
+#define AILink @"link"
 
 // 转发微博昵称字体
 #define AIStatusRetweetedNameFont AIStatusOrginalNameFont
