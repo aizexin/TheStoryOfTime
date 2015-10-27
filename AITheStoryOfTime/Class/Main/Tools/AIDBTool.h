@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class AIEverydayCellModel;
+@class AIEverydayCellModel,AIJokeGroupModel;
 @interface AIDBTool : NSObject
 
 /**创建数据库 */
@@ -22,4 +22,12 @@
  *  创建everyday的table
  */
 -(void)createEverdayTable;
+
+//------------------------Joke---------------------
+/**创建Joke表格*/
+-(void)createJokeTable;
+/**向表格中插入数据*/
+-(void)insertJokeCellModel:(AIJokeGroupModel*)AIJokeGroupModel;
+/**查询Joke全部数据*/
+-(NSMutableArray*)selectAllJokeCellModel;
 @end

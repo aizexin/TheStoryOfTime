@@ -13,6 +13,7 @@
  *  头像图片链接
  */
 @property(nonatomic ,copy)NSString *avatar_url;
+@property(nonatomic,strong)UIImage *iconImage;
 /**
  *  用户名
  */

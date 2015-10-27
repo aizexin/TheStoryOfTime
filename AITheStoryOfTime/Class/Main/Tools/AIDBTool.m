@@ -9,6 +9,8 @@
 #import "AIDBTool.h"
 #import "FMDatabase.h"
 #import "AIEverydayCellModel.h"
+#import "AIJokeGroupModel.h"
+#import "AIJokeUserModel.h"
 #define DBPATH [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject]stringByAppendingPathComponent:@"everydayCell.db"]
 @interface AIDBTool ()
 @property(nonatomic,strong)FMDatabase *fmdb;
@@ -100,26 +102,46 @@
     return arrayM;
 }
 
-//判断当前应用在表格中是否存在该样式
-//-(BOOL)isExistsAppModelWithID:(NSString*)appID andType:(NSString*)type{
-//    NSString *sql = @"select * from appTable where appID = ? and appType = ?";
-//    FMResultSet *result = [_fmdb executeQuery:sql,appID,type];
-//    return [result next] ? YES:NO;
-//}
-
-//获取相同type的所有应用
-//-(NSArray *)allAppWithType:(NSString *)type{
-//    NSString *sql = @"select * from appTable where appType = ?";
-//    NSMutableArray *arrayM = [NSMutableArray array];
-//    FMResultSet *reult = [_fmdb executeQuery:sql,type];
-//    while ([reult next]) {
-//        AIAppModel *model = [[AIAppModel alloc]init];
-//        model.appId = [reult stringForColumn:@"appID"];
-//        model.appName = [reult stringForColumn:@"appName"];
-//        model.appImage = [reult stringForColumn:@"appImage"];
-//        [arrayM addObject:model];
-//    }
-//    return arrayM;
-//}
+#pragma mark -----------------------Joke----------------
+/**创建Joke表格*/
+-(void)createJokeTable{
+    //1.打开数据库
+    BOOL isOpen = [_fmdb open];
+    if (isOpen) {
+        //3创建表格
+        NSString *sql = @"create table if not exists jokeTable(jokeID integer primary key autoincrement,jokeIcon blob,jokeUserName varchar(256),jokeContent varchar(256),jokeBury_count varchar(256),jokeDigg_count varchar(256))";
+        BOOL isSuccess = [_fmdb executeUpdate:sql];
+        if (isSuccess) {
+            AILog(@"创建表格成功");
+        }else{
+            AILog(@"创建失败%@",_fmdb.lastErrorMessage);
+        }
+    }else{
+        AILog(@"%@",_fmdb.lastErrorMessage);
+    }
+}
+#warning TODO-------
+/**向表格中插入数据*/
+-(void)insertJokeCellModel:(AIJokeGroupModel*)AIJokeGroupModel{
+    
+}
+/**查询Joke全部数据*/
+-(NSMutableArray*)selectAllJokeCellModel{
+    NSString *sql = @"select * from jokeTable";
+    NSMutableArray *JokeCellModels = [NSMutableArray array];
+    FMResultSet *reult = [_fmdb executeQuery:sql];
+    while ([reult next]) {
+        AIJokeGroupModel *model = [[AIJokeGroupModel alloc]init];
+        NSData *imageData = [reult dataForColumn:@"jokeIcon"];
+        model.user.iconImage = [UIImage imageWithData:imageData];
+        model.user.name = [reult stringForColumn:@"jokeUserName"];
+        model.content = [reult stringForColumn:@"jokeContent"];
+        model.bury_count = @([[reult stringForColumn:@"jokeBury_count"]integerValue]);
+        model.digg_count = @([[reult stringForColumn:@"jokeDigg_count"]integerValue]);
+//        model.cellId = @([reult intForColumn:@"ID"]);
+        [JokeCellModels insertObject:model atIndex:0];
+    }
+    return JokeCellModels;
+}
 
 @end
