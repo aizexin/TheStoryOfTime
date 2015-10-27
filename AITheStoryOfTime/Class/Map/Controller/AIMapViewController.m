@@ -11,7 +11,7 @@
 #import "UIBarButtonItem+AIExtension.h"
 #import "ScreenshotDetailViewController.h"
 #warning  测试时用最小改变大小
-#define AIMapMinChange 0.0001
+#define AIMapMinChange 0.00003
 enum{
     OverlayViewControllerOverlayTypeCircle = 0,
     OverlayViewControllerOverlayTypePolyline,

@@ -45,6 +45,10 @@
     [SVProgressHUD showErrorWithStatus:@"网速不给力哦~"];
     [SVProgressHUD dismiss];
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
+}
 
 
 
