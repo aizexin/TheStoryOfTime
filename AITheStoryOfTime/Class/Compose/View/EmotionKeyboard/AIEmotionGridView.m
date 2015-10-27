@@ -55,11 +55,13 @@
     return self;
 }
 
-
+/**
+ *  根据触摸点返回表情
+ */
 -(AIEmotionView *)emotionViewWithPoint:(CGPoint)point{
    __block AIEmotionView *foundEmotionView = nil;
     [self.emotionViewM enumerateObjectsUsingBlock:^(AIEmotionView  *emotionView, NSUInteger idx, BOOL *  stop) {
-        if (CGRectContainsPoint(emotionView.frame, point)) {
+        if (CGRectContainsPoint(emotionView.frame, point) && emotionView.isHidden == NO) {
             foundEmotionView = emotionView;
             stop = YES;
         }

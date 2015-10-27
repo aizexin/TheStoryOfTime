@@ -55,7 +55,7 @@
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc]init];
-        _tableView.frame = CGRectMake(0, AINavgationBarH, Mainsize.width, Mainsize.height);
+        _tableView.frame = CGRectMake(0, AINavgationBarH, Mainsize.width, Mainsize.height-AINavgationBarH-44);
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }

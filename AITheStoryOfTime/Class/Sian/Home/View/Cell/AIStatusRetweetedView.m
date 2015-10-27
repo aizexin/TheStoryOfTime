@@ -37,7 +37,7 @@
 
         //设置昵称
         UILabel *nameLabel = [[UILabel alloc]init];
-        nameLabel.textColor = AIColor(74, 102, 10);
+        nameLabel.textColor = AIStatusHighTextColor;
         nameLabel.font = AIStatusRetweetedNameFont;
         [self addSubview:nameLabel];
         self.nameLabel = nameLabel;

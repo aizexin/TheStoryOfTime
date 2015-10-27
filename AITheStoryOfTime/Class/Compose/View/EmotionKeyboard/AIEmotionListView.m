@@ -30,6 +30,9 @@
         scrollView.pagingEnabled = YES;
         //pageControl
         UIPageControl *pageControl = [[UIPageControl alloc]init];
+        pageControl.userInteractionEnabled = NO;
+        //单页的时候自动隐藏
+        self.pageControl.hidesForSinglePage = YES;
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_selected"] forKey:@"_currentPageImage"];
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_normal"] forKeyPath:@"_pageImage"];
         self.pageControl = pageControl;
@@ -73,7 +76,7 @@
     NSInteger currentGridViewCount = self.scrollView.subviews.count;
     self.pageControl.numberOfPages = totalPage;
     self.pageControl.currentPage = 0;
-    self.pageControl.hidden = totalPage <= 1;
+    
 
 //    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     

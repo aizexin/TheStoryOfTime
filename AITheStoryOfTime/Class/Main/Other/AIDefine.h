@@ -61,16 +61,20 @@
 #define AIStatusOrginalSourceFont AIStatusOrginalTimeFont
 // 原创微博正文字体
 #define AIStatusOrginalTextFont [UIFont systemFontOfSize:15]
+// 富文本字体
+#define AIStatusRichTextFont [UIFont systemFontOfSize:14]
+
 
 // 转发微博昵称字体
 #define AIStatusRetweetedNameFont AIStatusOrginalNameFont
 // 转发微博正文字体
 #define AIStatusRetweetedTextFont AIStatusOrginalTextFont
 
+
 // 转发微博正文字体
 #define AIStatusHighTextColor AIColor(88, 161, 253)
 // 富文本字体
-#define AIStatusRichTextFont AIStatusOrginalTextFont
+//#define AIStatusRichTextFont AIStatusOrginalTextFont
 
 //微博键盘相关
 /**

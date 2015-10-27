@@ -111,7 +111,6 @@
     self.textcontentLabel.frame = originalFrame.textFrame;
     //时间
     self.timeLabel.text = statuses.created_at;
-    AILog(@"statuses.created_at---%@",statuses.created_at);
     self.timeLabel.textColor = [UIColor orangeColor];
 //    self.timeLabel.frame = originalFrame.timeFrame;
     CGFloat timeX = CGRectGetMinX(self.nameLabel.frame);
