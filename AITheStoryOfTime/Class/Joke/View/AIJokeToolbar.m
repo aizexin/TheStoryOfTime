@@ -91,7 +91,7 @@
 //    AILog(@"favorite_count--%@",groupModel.favorite_count);
 //    if (groupModel.favorite_count.length>0) {
     
-        [self.favoriteButton setTitle:[NSString stringWithFormat:@"%ld",[groupModel.favorite_count integerValue] ] forState:(UIControlStateNormal)];
+        [self.favoriteButton setTitle:[NSString stringWithFormat:@"%ld",[groupModel.digg_count integerValue] ] forState:(UIControlStateNormal)];
 //    }
 //    if (groupModel.bury_count.length>0) {
     

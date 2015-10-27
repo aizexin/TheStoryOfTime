@@ -4,7 +4,9 @@
 //
 //  Created by qianfeng on 15/10/25.
 //  Copyright (c) 2015年 aizexin. All rights reserved.
-//
+/*
+ 
+ */
 
 #import "AIJokeTool.h"
 #import "AIJokeCellModel.h"
@@ -14,7 +16,7 @@
 +(void)JokeWithParams:(AIJokeParamModel *)paramModel success:(void (^)(AIJokeCellModel* resultModel))success failure:(void (^)(NSError *error))failure{
 //    &min_time=1416277057
     //默认一次20条数据
-    [AIJokeTool getWithUrl:@"http://ic.snssdk.com/2/essay/zone/category/data/?category_id=1&level=6&count=20&iid=2452819313&device_id=3040432338&ac=wifi&channel=baidu&aid=7&app_name=joke_essay&version_code=317&device_platform=iOS&device_type=Lan998&os_api=10&os_version=2.3.4&uuid=947214017931502&openudid=c7a885a77527ad01" params:paramModel resultClass:[AIJokeCellModel class] success:success failure:failure];
+    [AIJokeTool getWithUrl:@"http://ic.snssdk.com/neihan/stream/category/data/v2/?tag=joke&iid=3139869339&os_version=9.0.2&os_api=18&app_name=joke_essay_social&channel=App%20Store&device_platform=ipad&idfa=idfa&vid=9900A444-643A-4792-BF53-5925CE7EBC2F&openudid=3beaf94e87d2b03d89c135480b3b36a78871aa27&device_type=iPad%20AIR&version_code=4.4.1&ac=WIFI&screen_width=1536&device_id=4437206054&aid=20&category_id=1&count=30&level=6&message_cursor=0&min_time=1445949969&mpic=1" params:paramModel resultClass:[AIJokeCellModel class] success:success failure:failure];
 }
 
 

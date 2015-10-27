@@ -50,7 +50,7 @@
     fmt.locale=[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
     // 获得微博发布的具体时间
     NSDate *createDate = [fmt dateFromString:_created_at];
-    AILog(@"%@",_created_at);
+//    AILog(@"%@",_created_at);
     // 判断是否为今年
     if (createDate.isThisYear) {
         if (createDate.isToday) { // 今天

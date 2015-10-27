@@ -23,10 +23,17 @@
 @property(nonatomic,strong)NSMutableArray *dataSourceM;
 @property(nonatomic,weak)UIRefreshControl *refresh;
 @property(nonatomic,assign,getter=isLoading)BOOL loading;
+
 /**
- *  第一次进来的时间
+ *  上次请求数据得到的最小时间
  */
-@property(nonatomic,strong)NSDate *fristDate;
+@property(nonatomic,strong)NSNumber *minTime;
+/**
+ *  上次请求数据得到的最大时间
+ */
+@property(nonatomic,strong)NSNumber *maxTime;
+
+
 @end
 
 @implementation AIJokeViewController
@@ -42,10 +49,10 @@
 #pragma mark --------------生命周期--------------
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.fristDate = [NSDate date];
     self.title = @"笑话";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self initTableView];
+
     //加载刷新控件
     [self setupRefresh];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(shareBtnDidSelected:) name:AIJokeShareEventNotification object:nil];
@@ -90,8 +97,6 @@
     // 立即取消选中
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     AIJokeCellFrameModel *frameModel = self.dataSourceM[indexPath.row];
     return frameModel.jokeCellHeight ;
@@ -117,19 +122,22 @@
     [self refreshAndLoad];
 }
 /**
- *  刷新方法
+ *  下拉刷新方法
  */
 -(void)refreshControlStateChange:(UIRefreshControl*)refreshControl{
     
+    if (!self.minTime) {
+        NSTimeInterval time=[[NSDate date] timeIntervalSince1970];
+        NSInteger second=time;      //NSTimeInterval返回的是double类型
+        self.minTime = @(second);
+    }
     AIJokeParamModel *params = [[AIJokeParamModel alloc]init];
-    NSInteger second = (NSInteger)[[NSDate date] secondsFrom:_fristDate];
-//    AILog(@"--------%ld",second);
-    params.min_time = [NSString stringWithFormat:@"%ld",1445776000+second];
+    params.min_time = [self.minTime stringValue];
+    AILog(@" 下拉刷新方法params.min_time --------%@",params.min_time );
+   
     [AIJokeTool JokeWithParams:params success:^(AIJokeCellModel *resultModel) {
-//        AILog(@"%@",resultModel.data.data);
-        if (self.dataSourceM) {
-            [self.dataSourceM removeAllObjects];
-        }
+
+        self.minTime = @([resultModel.data.min_time integerValue]);
         NSMutableArray *arrayM = [NSMutableArray arrayWithArray:resultModel.data.data];
         for (AIJokeContentDataModel *contentData in arrayM) {
             AIJokeCellFrameModel *frameModel = [[AIJokeCellFrameModel alloc]init];
@@ -168,19 +176,22 @@
  */
 -(void)loadMoreData{
     AIJokeParamModel *params = [[AIJokeParamModel alloc]init];
-    NSInteger second = (NSInteger)[[NSDate date] secondsFrom:_fristDate];
-//    AILog(@"--------%ld",second);
-    params.min_time = [NSString stringWithFormat:@"%ld",1445776000-second];
+    if (!self.maxTime) {
+        NSTimeInterval time=[[NSDate date] timeIntervalSince1970];
+        NSInteger second=time;      //NSTimeInterval返回的是double类型
+        self.maxTime = @(second);
+    }
+    params.min_time = [self.maxTime stringValue];
+    AILog(@"加载更多数据params.min_time --------%@",params.min_time );
     [AIJokeTool JokeWithParams:params success:^(AIJokeCellModel *resultModel) {
-        //        AILog(@"%@",resultModel.data.data);
-        if (self.dataSourceM) {
-            [self.dataSourceM removeAllObjects];
-        }
+
+        self.maxTime = @([resultModel.data.max_time integerValue]);
         NSMutableArray *arrayM = [NSMutableArray arrayWithArray:resultModel.data.data];
         for (AIJokeContentDataModel *contentData in arrayM) {
             AIJokeCellFrameModel *frameModel = [[AIJokeCellFrameModel alloc]init];
             frameModel.groupModel = contentData.group;
-            [self.dataSourceM insertObject:frameModel atIndex:0];
+            [self.dataSourceM addObject:frameModel];
+//            [self.dataSourceM insertObject:frameModel atIndex:0];
         }
         //刷新表格
         [self.tableView reloadData];

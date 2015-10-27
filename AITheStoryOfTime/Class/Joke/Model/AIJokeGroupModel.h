@@ -14,8 +14,14 @@
 @property(nonatomic ,copy)NSString *content;
 /**踩的数*/
 @property(nonatomic ,assign)NSNumber *bury_count;
-/**喜欢的数*/
+/**收藏*/
 @property(nonatomic ,assign)NSNumber *favorite_count;
+/**推存*/
+@property(nonatomic ,assign)NSNumber *digg_count;
+/**用户是否已经点踩*/
+@property(nonatomic ,assign)NSNumber *user_bury;
+/**用户是否已经点赞*/
+@property(nonatomic ,assign)NSNumber *user_digg;
 /**id号*/
 @property(nonatomic ,copy)NSNumber *id;
 /**
