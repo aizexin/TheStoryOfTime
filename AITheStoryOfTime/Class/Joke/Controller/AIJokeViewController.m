@@ -123,7 +123,7 @@
     
     AIJokeParamModel *params = [[AIJokeParamModel alloc]init];
     NSInteger second = (NSInteger)[[NSDate date] secondsFrom:_fristDate];
-    AILog(@"--------%ld",second);
+//    AILog(@"--------%ld",second);
     params.min_time = [NSString stringWithFormat:@"%ld",1445776000+second];
     [AIJokeTool JokeWithParams:params success:^(AIJokeCellModel *resultModel) {
 //        AILog(@"%@",resultModel.data.data);
@@ -169,7 +169,7 @@
 -(void)loadMoreData{
     AIJokeParamModel *params = [[AIJokeParamModel alloc]init];
     NSInteger second = (NSInteger)[[NSDate date] secondsFrom:_fristDate];
-    AILog(@"--------%ld",second);
+//    AILog(@"--------%ld",second);
     params.min_time = [NSString stringWithFormat:@"%ld",1445776000-second];
     [AIJokeTool JokeWithParams:params success:^(AIJokeCellModel *resultModel) {
         //        AILog(@"%@",resultModel.data.data);

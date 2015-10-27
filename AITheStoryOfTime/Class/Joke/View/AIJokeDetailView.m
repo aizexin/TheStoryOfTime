@@ -46,7 +46,7 @@
     self.frame = frameData.frame;
     //头像
     AIJokeUserModel *user = frameData.data.user;
-    AILog(@"%@",user);
+//    AILog(@"%@",user);
     NSURL *avatar_url = [NSURL URLWithString:user.avatar_url];
     [self.avatarImageV setImageWithURL:avatar_url placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
     self.avatarImageV.frame = frameData.iconFrame;

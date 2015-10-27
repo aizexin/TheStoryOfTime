@@ -88,6 +88,10 @@
     self.frame = originalFrame.frame;
     AIStatusesModel *statuses = originalFrame.status;
     AIUserModel *user = statuses.user;
+    //头像
+    NSURL *iconUrl = [NSURL URLWithString:user.profile_image_url];
+    [self.iconView setImageWithURL:iconUrl placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    self.iconView.frame = originalFrame.iconFrame;
     //名称
     self.nameLabel.text = user.name;
     self.nameLabel.frame = originalFrame.nameFrame;
@@ -103,11 +107,11 @@
     }
     //正文内容
 //    self.textcontentLabel.text = statuses.text;
-    AILog(@"statuses.attributedText     %@",statuses.attributedText);
     self.textcontentLabel.attributedText = statuses.attributedText;
     self.textcontentLabel.frame = originalFrame.textFrame;
     //时间
     self.timeLabel.text = statuses.created_at;
+    AILog(@"statuses.created_at---%@",statuses.created_at);
     self.timeLabel.textColor = [UIColor orangeColor];
 //    self.timeLabel.frame = originalFrame.timeFrame;
     CGFloat timeX = CGRectGetMinX(self.nameLabel.frame);
@@ -122,10 +126,7 @@
     CGFloat sourceY = timeY;
     CGSize sourceSize = [self.sourceLabel.text sizeWithFont:AIStatusOrginalSourceFont maxSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
     self.sourceLabel.frame = (CGRect){{sourceX,sourceY},sourceSize};
-    //头像
-    NSURL *iconUrl = [NSURL URLWithString:user.profile_image_url];
-    [self.iconView setImageWithURL:iconUrl placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
-    self.iconView.frame = originalFrame.iconFrame;
+    
     
     //相册
     if (statuses.pic_urls) {

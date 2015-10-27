@@ -72,7 +72,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    AILog(@"isSetedLine%d",self.isSetedLine);
+//    AILog(@"isSetedLine%d",self.isSetedLine);
     
     [self setupUI];
     [self setupData];
@@ -92,7 +92,7 @@
     [self.view addSubview:toolbar];
     //屏幕适配
     [self fitScreen];
-    AILog(@"%@",NSStringFromCGRect(toolbar.frame));
+//    AILog(@"%@",NSStringFromCGRect(toolbar.frame));
 }
 -(void)fitScreen{
     //工具栏

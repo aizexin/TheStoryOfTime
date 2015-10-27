@@ -218,7 +218,7 @@ updatingLocation:(BOOL)updatingLocation
         double changeLatitude = (fabs(1000000*(latitude-_lastPoint.latitude)))/1000000.0;
         double changeLongitude = (fabs(1000000*(longitude-_lastPoint.longitude)))/1000000.0;
         double change = sqrt(changeLatitude *changeLatitude + changeLongitude*changeLongitude);
-        AILog(@"change----------%f",change);
+//        AILog(@"change----------%f",change);
 //        kCLLocationCoordinate2DInvalid
         if (change >=  AIMapMinChange) {
             //添加到数组中

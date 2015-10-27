@@ -154,7 +154,7 @@ static NSString *identifier = @"AIEverydayCell";
         
         __weak typeof (self) weakSelf = self;
         [cell setDeleteBlock:^() {
-             AILog(@"indexPath-----%@",model.cellId);
+//             AILog(@"indexPath-----%@",model.cellId);
             [AIEverydayTool deleteEverdayCellModelWithIndex:[model.cellId integerValue] ];
             [weakSelf.dataSource removeObject:model];
             [weakSelf.collectionV reloadData];

@@ -26,7 +26,7 @@
     //内容frame
     UIFont *contentFont = AIJokeContentTextFont;
     CGSize maxSize = CGSizeMake(Mainsize.width - 2*AIJokePadding, MAXFLOAT);
-    AILog(@"content---------%@",data.content);
+//    AILog(@"content---------%@",data.content);
     CGSize textSize = [data.content sizeWithFont:contentFont maxSize:maxSize];
     CGFloat textX =  AIJokePadding;
     CGFloat textY = CGRectGetMaxY(_iconFrame) + AIJokePadding;

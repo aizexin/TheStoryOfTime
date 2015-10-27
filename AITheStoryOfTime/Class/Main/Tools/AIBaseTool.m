@@ -9,6 +9,8 @@
 #import "AIBaseTool.h"
 #import "MJExtension.h"
 #import "AIHttpTool.h"
+#import "SVProgressHUD.h"
+
 @implementation AIBaseTool
 
 +(void)getWithUrl:(NSString *)url params:(id)param resultClass:(Class)resultClass success:(void(^)(id))success failure:(void (^)(NSError* error))failure{
@@ -22,6 +24,7 @@
             }
         } failure:^(NSError *error) {
             if (failure) {
+                [SVProgressHUD showErrorWithStatus:@"网络不给力哦~"];
                 failure(error);
             }
         }];

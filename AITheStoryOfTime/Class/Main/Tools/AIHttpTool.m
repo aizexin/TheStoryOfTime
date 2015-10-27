@@ -14,6 +14,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:path parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
+//            AILog(@"%@",responseObject);
             success(responseObject);
         }
        

@@ -88,7 +88,7 @@
 
 -(void)setGroupModel:(AIJokeGroupModel *)groupModel{
     _groupModel = groupModel;
-    AILog(@"favorite_count--%@",groupModel.favorite_count);
+//    AILog(@"favorite_count--%@",groupModel.favorite_count);
 //    if (groupModel.favorite_count.length>0) {
     
         [self.favoriteButton setTitle:[NSString stringWithFormat:@"%ld",[groupModel.favorite_count integerValue] ] forState:(UIControlStateNormal)];

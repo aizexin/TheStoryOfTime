@@ -38,15 +38,19 @@
  2012-07-24
  */
 // _created_at == Mon Jul 14 15:48:07 +0800 2014
+//                Tue Oct 27 13:07:54 +0800 2015（真机）
+//                Tue Oct 27 13:09:38 +0800 2015(模拟器)
 // Mon Jul 14 15:48:07 +0800 2014 -> NSDate -> 2014-07-14 15:48:07
 //Wed Oct 14 19:50:45 +0800 2015
 -(NSString *)created_at{
 
       NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     fmt.dateFormat = @"EEE MMM dd HH:mm:ss Z yyyy";
+    //真机需要添加
+    fmt.locale=[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
     // 获得微博发布的具体时间
     NSDate *createDate = [fmt dateFromString:_created_at];
-    
+    AILog(@"%@",_created_at);
     // 判断是否为今年
     if (createDate.isThisYear) {
         if (createDate.isToday) { // 今天
@@ -105,7 +109,7 @@
 
 - (void)createAttributedText
 {
-    AILog(@"%@---%@",self.text,self.user);
+//    AILog(@"%@---%@",self.text,self.user);
     if (self.text == nil || self.user == nil) return;
     
     if (self.retweeted_status) {
