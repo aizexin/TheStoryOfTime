@@ -204,6 +204,9 @@
 		BC26F14B1BD0BFFF0064D89E /* AINewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26F14A1BD0BFFF0064D89E /* AINewFeatureViewController.m */; };
 		BC6BA6C91BD5118800FA6490 /* AIBirthBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6BA6C81BD5118800FA6490 /* AIBirthBottomView.m */; };
 		BC6E3F8B1BDF6A560073BA65 /* AIStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3F8A1BDF6A560073BA65 /* AIStatusLabel.m */; };
+		BC6E3F8E1BDF911C0073BA65 /* AILink.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3F8D1BDF911C0073BA65 /* AILink.m */; };
+		BC6E3F921BDF9C280073BA65 /* AIHomeHttpLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3F901BDF9C280073BA65 /* AIHomeHttpLinkViewController.m */; };
+		BC6E3F931BDF9C280073BA65 /* AIHomeHttpLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC6E3F911BDF9C280073BA65 /* AIHomeHttpLinkViewController.xib */; };
 		BC8858E41BD8899D00788761 /* UIView+AIExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8858E31BD8899C00788761 /* UIView+AIExtension.m */; };
 		BC885B061BD894CE00788761 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = BC885AF01BD894CE00788761 /* MASCompositeConstraint.m */; };
 		BC885B071BD894CE00788761 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = BC885AF31BD894CE00788761 /* MASConstraint.m */; };
@@ -681,6 +684,11 @@
 		BC6BA6C81BD5118800FA6490 /* AIBirthBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBirthBottomView.m; sourceTree = "<group>"; };
 		BC6E3F891BDF6A560073BA65 /* AIStatusLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIStatusLabel.h; sourceTree = "<group>"; };
 		BC6E3F8A1BDF6A560073BA65 /* AIStatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIStatusLabel.m; sourceTree = "<group>"; };
+		BC6E3F8C1BDF911C0073BA65 /* AILink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILink.h; sourceTree = "<group>"; };
+		BC6E3F8D1BDF911C0073BA65 /* AILink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILink.m; sourceTree = "<group>"; };
+		BC6E3F8F1BDF9C280073BA65 /* AIHomeHttpLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIHomeHttpLinkViewController.h; sourceTree = "<group>"; };
+		BC6E3F901BDF9C280073BA65 /* AIHomeHttpLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHomeHttpLinkViewController.m; sourceTree = "<group>"; };
+		BC6E3F911BDF9C280073BA65 /* AIHomeHttpLinkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIHomeHttpLinkViewController.xib; sourceTree = "<group>"; };
 		BC8858E21BD8899C00788761 /* UIView+AIExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AIExtension.h"; sourceTree = "<group>"; };
 		BC8858E31BD8899C00788761 /* UIView+AIExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AIExtension.m"; sourceTree = "<group>"; };
 		BC885AEF1BD894CE00788761 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -1622,6 +1630,9 @@
 			children = (
 				BC26F0841BD0ABAC0064D89E /* AiHomeViewController.h */,
 				BC26F0851BD0ABAC0064D89E /* AiHomeViewController.m */,
+				BC6E3F8F1BDF9C280073BA65 /* AIHomeHttpLinkViewController.h */,
+				BC6E3F901BDF9C280073BA65 /* AIHomeHttpLinkViewController.m */,
+				BC6E3F911BDF9C280073BA65 /* AIHomeHttpLinkViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1642,6 +1653,8 @@
 				BCE1B6731BDE57C90069DDB5 /* AIRegexResult.h */,
 				BCE1B6741BDE57C90069DDB5 /* AIRegexResult.m */,
 				BC26F08F1BD0ABAC0064D89E /* Frame */,
+				BC6E3F8C1BDF911C0073BA65 /* AILink.h */,
+				BC6E3F8D1BDF911C0073BA65 /* AILink.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2266,6 +2279,7 @@
 				458C45871BD111F5009B057D /* MJPhotoBrowser.bundle in Resources */,
 				BCC06EC41BD7D6CC00A86010 /* AIEverydayPostViewController.xib in Resources */,
 				BCC06E931BD7C9E600A86010 /* camera_line_h@2x.png in Resources */,
+				BC6E3F931BDF9C280073BA65 /* AIHomeHttpLinkViewController.xib in Resources */,
 				BCC06E901BD7C9E600A86010 /* camera_line.png in Resources */,
 				BC26F0E01BD0ABAC0064D89E /* MJRefresh.bundle in Resources */,
 				BC26EDC11BD092290064D89E /* LaunchScreen.xib in Resources */,
@@ -2391,6 +2405,7 @@
 				BC26F0F01BD0ABAC0064D89E /* UIButton+WebCache.m in Sources */,
 				BC26F1051BD0ABAC0064D89E /* AIUserInfoResultModel.m in Sources */,
 				BC26F1151BD0ABAC0064D89E /* AIStatusRetweetedFrame.m in Sources */,
+				BC6E3F8E1BDF911C0073BA65 /* AILink.m in Sources */,
 				BC26F0E41BD0ABAC0064D89E /* MJRefreshHeaderView.m in Sources */,
 				BC26F0C21BD0ABAC0064D89E /* UIAlertView+AFNetworking.m in Sources */,
 				BC26F1161BD0ABAC0064D89E /* AIHomeTitleButton.m in Sources */,
@@ -2413,6 +2428,7 @@
 				BCC06EAA1BD7C9E600A86010 /* SCCaptureCameraController.m in Sources */,
 				BC26F11E1BD0ABAC0064D89E /* AIStatusPhotoView.m in Sources */,
 				BC26F0C31BD0ABAC0064D89E /* UIButton+AFNetworking.m in Sources */,
+				BC6E3F921BDF9C280073BA65 /* AIHomeHttpLinkViewController.m in Sources */,
 				BCAEA90D1BD5DDE300E93119 /* DTTimePeriod.m in Sources */,
 				BC6BA6C91BD5118800FA6490 /* AIBirthBottomView.m in Sources */,
 				BC9BB9421BDC727600EA497D /* AIJokeTableViewCell.m in Sources */,

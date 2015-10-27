@@ -65,7 +65,7 @@
 #define AIStatusRichTextFont [UIFont systemFontOfSize:14]
 
 //富文本中出现的链接
-#define AILink @"link"
+#define AILinkText @"link"
 
 // 转发微博昵称字体
 #define AIStatusRetweetedNameFont AIStatusOrginalNameFont
@@ -91,7 +91,7 @@
 //每页最多显示多少个表情
 #define AIEmotionMaxCountPerPage (AIEmotionMaxRows * AIEmotionMaxCols -1)
 
-//通知
+//-------------------------------通知----------------
 //表情选中的通知
 #define AIEmotionDidSeletedNotification @"AIEmotionDidSeletedNotification"
 
@@ -100,6 +100,8 @@
 
 //通知里面用来取出表情用的key
 #define AISelectedEmotion  @"AISelectedEmotion"
+
+#define AILinkDidSelectedNotification @"AILinkDidSelectedNotification"
 
 //-------------------------------Birth相关--------------------------
 #define AIBirthShowScale (280.0/320)

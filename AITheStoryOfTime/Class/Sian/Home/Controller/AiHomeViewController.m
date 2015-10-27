@@ -25,6 +25,7 @@
 #import "AIStatusesTool.h"
 #import "AIStatusCell.h"
 #import "AIStatusFrame.h"
+#import "AIHomeHttpLinkViewController.h"
 #define TipsLabelH 35
 #define TipsLabelW Mainsize.width
 
@@ -97,7 +98,25 @@
     [self refreshAndLoad];
     //请求用户信息
     [self setupUserInfo];
+    
+    //监听链接通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(linkDidSelected:) name:AILinkDidSelectedNotification object:nil];
 }
+/**
+ *  链接被点击事件
+ */
+-(void)linkDidSelected:(NSNotification*)note{
+    NSString *linkText = note.userInfo[AILinkText];
+    if ([linkText hasPrefix:@"http"]) {//如果是http链接
+        AIHomeHttpLinkViewController *httpLinkVC = [[AIHomeHttpLinkViewController alloc]initWithNibName:@"AIHomeHttpLinkViewController" bundle:nil];
+        httpLinkVC.httpLink = linkText;
+        [self.navigationController pushViewController:httpLinkVC animated:YES];
+    }
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self ];
+}
+
 /**
  *  加载用户信息
  */
