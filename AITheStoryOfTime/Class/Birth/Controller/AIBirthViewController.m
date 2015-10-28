@@ -36,12 +36,23 @@
 @property(nonatomic,strong)UUDatePicker_DateModel *seldate_dateModel;
 /**最大时间*/
 @property(nonatomic,strong)NSDate *maxDate;
+/**确定时间按钮*/
+@property(nonatomic,strong)UIButton *enterTimeBtn;
 @end
 
 @implementation AIBirthViewController
 
 
 #pragma mark 懒加载
+
+-(UIButton *)enterTimeBtn{
+    if (!_enterTimeBtn) {
+        _enterTimeBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+        [_enterTimeBtn addTarget:self action:@selector(onClickEnterBtn:) forControlEvents:(UIControlEventTouchUpInside)];
+        [_enterTimeBtn setImage:[UIImage imageNamed:@"GCImagePickerControllerCheckGreen"] forState:(UIControlStateNormal)];
+    }
+    return _enterTimeBtn;
+}
 
 -(NSDate *)maxDate{
     if (!_maxDate) {
@@ -250,6 +261,9 @@
 }
 
 #pragma mark -点击事件
+/**
+ *  点击设置按钮
+ */
 -(void)onClickSettingBtn:(UIButton*)btn{
     //暂停定时器
     [self.bottomView stopChange];
@@ -260,7 +274,37 @@
     //选择出生年月日
     //显示日历
     [self showDateView:lastWindow];
+    //显示确定按钮
+    [self showEnterTimeBtnOnLastWindow:lastWindow];
 }
+
+/**
+ *  显示确定按钮
+ */
+-(void)showEnterTimeBtnOnLastWindow:(UIWindow*)lastWindow{
+    [lastWindow addSubview:self.enterTimeBtn];
+    
+    [_enterTimeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(@30);
+        make.height.mas_equalTo(@30);
+        make.bottom.mas_equalTo(self.dateView.mas_top).offset = -10;
+//        make.centerX.mas_equalTo(self.view).centerOffset = ;
+        make.left.mas_equalTo(@(Mainsize.width*0.5-15));
+    }];
+}
+
+/**
+ *  点击确定按钮
+ */
+-(void)onClickEnterBtn:(UIButton*)enterBtn{
+    //这个时候确定时间
+    //存储到沙盒
+    [AIDateTool save:self.seldate_dateModel die:self.isDie];
+    //叫bottom开启定时器
+    [self.bottomView startChange];
+    [self onClickCoreBtn:self.core];
+}
+
 /**
  *  显示指针为0的时钟
  */
@@ -288,7 +332,7 @@
     [self.dateView scroll2NowDate];
     [lastWindow addSubview:self.dateView];
     
-    CGFloat dateViewX = (self.bgView.frame.size.width - 320.0)*0.5;
+    CGFloat dateViewX = (Mainsize.width - 320.0)*0.5;
     [_dateView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(@0);
         make.height.mas_equalTo(@216);
@@ -307,17 +351,16 @@
 
     [UIView animateWithDuration:.5 animations:^{
         weakSelf.bottomView.alpha = 1;
+        
     }];
+    //移除确定按钮
+    [self.enterTimeBtn removeFromSuperview];
     if (self.isDie) { //死之中
         [self setdieColck];
     }else{
         [self.nowColck reloadClock];
     }
-    //这个时候确定时间
-    //存储到沙盒
-    [AIDateTool save:self.seldate_dateModel die:self.isDie];
-    //叫bottom开启定时器
-    [self.bottomView startChange];
+   
  
 }
 

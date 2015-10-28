@@ -35,10 +35,10 @@
     for (int i = 0; i< _col * _row; i++) {
         UILabel *label = [[UILabel alloc]init];
         label.layer.borderWidth = 1;
-        
+        label.adjustsFontSizeToFitWidth = YES;
         label.font = [UIFont systemFontOfSize:15];
 //        label.backgroundColor = AIRandomColor;
-        label.numberOfLines = 0;
+//        label.numberOfLines = 0;
         label.font = [UIFont systemFontOfSize:20];
         
         [self addSubview:label];
