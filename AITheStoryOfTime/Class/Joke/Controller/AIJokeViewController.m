@@ -20,6 +20,9 @@
 #import "MJRefresh.h"
 @interface AIJokeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,weak)UITableView *tableView;
+/**
+ *  笑话数据里面装的是frameJoke模型
+ */
 @property(nonatomic,strong)NSMutableArray *dataSourceM;
 @property(nonatomic,weak)UIRefreshControl *refresh;
 @property(nonatomic,assign,getter=isLoading)BOOL loading;
@@ -57,6 +60,36 @@
     [self setupRefresh];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(shareBtnDidSelected:) name:AIJokeShareEventNotification object:nil];
 }
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    //先清空数据库
+    [AIJokeTool cleanJoke];
+    //存储前20条数据
+    NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:20];
+    if (self.dataSourceM.count >= 20) {
+        for (int i = 0; i < 20; i++) {
+            AIJokeCellFrameModel *cellFrameModel = _dataSourceM[i];
+            [arrayM addObject:cellFrameModel.groupModel];
+        }
+    }
+    [AIJokeTool save20Joke:arrayM];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        NSArray *array =[AIJokeTool readJokeTable];
+        for (AIJokeGroupModel *groupModel in array) {
+            
+            AIJokeCellFrameModel *cellFrameModel = [[AIJokeCellFrameModel alloc]init];
+            cellFrameModel.groupModel = groupModel;
+            [self.dataSourceM addObject:cellFrameModel];
+        }
+    });
+    
+    [super viewWillAppear:animated];
+}
+
 
 #pragma mark -----------通知----------------
 -(void)shareBtnDidSelected:(NSNotification*)notifi{
@@ -99,7 +132,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     AIJokeCellFrameModel *frameModel = self.dataSourceM[indexPath.row];
-    return frameModel.jokeCellHeight ;
+    return frameModel.jokeCellHeight;
 }
 
 #pragma mark ----------------请求数据----------
@@ -116,7 +149,9 @@
     //3.让刷新空间自动进入刷新状态
     [refresh beginRefreshing];
     //4.加载数据
-    [self refreshControlStateChange:refresh];
+    if (self.dataSourceM.count==0) {
+        [self refreshControlStateChange:self.refresh];
+    }
     //5.添加上拉加载更多控件
     //上啦加载
     [self refreshAndLoad];
@@ -182,7 +217,7 @@
         self.maxTime = @(second);
     }
     params.min_time = [self.maxTime stringValue];
-    AILog(@"加载更多数据params.min_time --------%@",params.min_time );
+//    AILog(@"加载更多数据params.min_time --------%@",params.min_time );
     [AIJokeTool JokeWithParams:params success:^(AIJokeCellModel *resultModel) {
 
         self.maxTime = @([resultModel.data.max_time integerValue]);
@@ -201,6 +236,8 @@
     
     [self.tableView reloadData];
 }
+
+#pragma mark --------------------数据库操作---------------
 
 
 

@@ -11,7 +11,7 @@
 #import "AIEverydayCellModel.h"
 #import "AIJokeGroupModel.h"
 #import "AIJokeUserModel.h"
-#define DBPATH [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject]stringByAppendingPathComponent:@"everydayCell.db"]
+#define DBPATH [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject]stringByAppendingPathComponent:@"TheStoryOfTime.db"]
 @interface AIDBTool ()
 @property(nonatomic,strong)FMDatabase *fmdb;
 @end
@@ -88,8 +88,14 @@
 
 //查询全部
 -(NSMutableArray*)selectAllEverdayCellModel{
+    
     NSString *sql = @"select * from everydayTable";
     NSMutableArray *arrayM = [NSMutableArray array];
+    //1.打开数据库
+    BOOL isOpen = [_fmdb open];
+    if (!isOpen) {
+        return arrayM;
+    }
     FMResultSet *reult = [_fmdb executeQuery:sql];
     while ([reult next]) {
         AIEverydayCellModel *model = [[AIEverydayCellModel alloc]init];
@@ -120,10 +126,22 @@
         AILog(@"%@",_fmdb.lastErrorMessage);
     }
 }
-#warning TODO-------
 /**向表格中插入数据*/
--(void)insertJokeCellModel:(AIJokeGroupModel*)AIJokeGroupModel{
-    
+-(void)insertJokeCellModel:(AIJokeGroupModel*)jokeGroupModel{
+    //1.打开数据库
+    BOOL isOpen = [_fmdb open];
+    if (!isOpen) {
+        return;
+    }
+    NSString *sql = @"insert into jokeTable(jokeIcon,jokeUserName,jokeContent,jokeBury_count,jokeDigg_count) values(?,?,?,?,?)";
+    //将图片转换为NSData
+    NSData *imageData = UIImagePNGRepresentation(jokeGroupModel.user.iconImage);
+    BOOL isSuccess = [_fmdb executeUpdate:sql,imageData,jokeGroupModel.user.name,jokeGroupModel.content,jokeGroupModel.bury_count,jokeGroupModel.digg_count];
+    if (isSuccess) {
+        AILog(@"插入成功");
+    }else{
+        AILog(@"插入失败%@",_fmdb.lastErrorMessage);
+    }
 }
 /**查询Joke全部数据*/
 -(NSMutableArray*)selectAllJokeCellModel{
@@ -138,10 +156,25 @@
         model.content = [reult stringForColumn:@"jokeContent"];
         model.bury_count = @([[reult stringForColumn:@"jokeBury_count"]integerValue]);
         model.digg_count = @([[reult stringForColumn:@"jokeDigg_count"]integerValue]);
-//        model.cellId = @([reult intForColumn:@"ID"]);
         [JokeCellModels insertObject:model atIndex:0];
     }
     return JokeCellModels;
+}
+/**删除表格数据Joke表格*/
+-(void)deleteAllJokeTable{
+//    truncate table tb
+    //1.打开数据库
+    BOOL isOpen = [_fmdb open];
+    if (!isOpen) {
+        return;
+    }
+//    NSString *sql = @"truncate table jokeTable";
+//    NSString *sql = @"delete from jokeTable";
+    NSString *sql = @"drop from jokeTable";
+    [_fmdb executeUpdate:sql];
+//    NSString *sql2 = @"alter table jokeTable AUTO_INCREMENT=0";
+//    [_fmdb executeUpdate:sql2];
+  
 }
 
 @end

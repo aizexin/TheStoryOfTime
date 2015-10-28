@@ -12,7 +12,6 @@
 #import "AIJokeUserModel.h"
 #import "AIFixScreen.h"
 #import "AIJokeCellFrameModel.h"
-#import "UIImageView+AFNetworking.h"
 #import "AIJokeDefine.h"
 #import "AIJokeCellDetailFrameModel.h"
 @implementation AIJokeDetailView
@@ -46,9 +45,7 @@
     self.frame = frameData.frame;
     //头像
     AIJokeUserModel *user = frameData.data.user;
-//    AILog(@"%@",user);
-    NSURL *avatar_url = [NSURL URLWithString:user.avatar_url];
-    [self.avatarImageV setImageWithURL:avatar_url placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    self.avatarImageV.image = user.iconImage;
     self.avatarImageV.frame = frameData.iconFrame;
     //名字
     self.userNameLabel.text = user.name;

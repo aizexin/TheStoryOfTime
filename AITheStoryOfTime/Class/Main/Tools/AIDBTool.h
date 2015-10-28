@@ -26,8 +26,10 @@
 //------------------------Joke---------------------
 /**创建Joke表格*/
 -(void)createJokeTable;
-/**向表格中插入数据*/
--(void)insertJokeCellModel:(AIJokeGroupModel*)AIJokeGroupModel;
+/**向表格中插入一条数据*/
+-(void)insertJokeCellModel:(AIJokeGroupModel*)jokeGroupModel;
 /**查询Joke全部数据*/
 -(NSMutableArray*)selectAllJokeCellModel;
+/**删除表格数据Joke表格*/
+-(void)deleteAllJokeTable;
 @end
