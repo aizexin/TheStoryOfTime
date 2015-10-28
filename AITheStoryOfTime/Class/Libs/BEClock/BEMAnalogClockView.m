@@ -429,14 +429,7 @@
     CGContextSetLineWidth(ctx,self.borderWidth);
     CGContextStrokePath(ctx);
 
-    // HUB
-    if (self.enableHub == YES) {
-        CGContextSetFillColorWithColor(ctx, self.hubColor.CGColor);
-        CGContextSetAlpha(ctx, self.hubAlpha);
-        CGPoint center = CGPointMake(self.frame.size.width / 2.0f, self.frame.size.height / 2.0f);
-        CGContextAddArc(ctx, center.x, center.y, self.hubRadius, 0, 2 * M_PI, 0);
-        CGContextFillPath(ctx);
-    }
+ 
 
     // CLOCK'S GRADUATION
     if (self.enableGraduations == YES) {
@@ -490,6 +483,14 @@
             CGFloat labelY = center.y + - 1 * (markingDistanceFromCenter - self.digitFont.lineHeight/2.0f) * sin((M_PI/180)*(i+offset) * 30);
             [hourNumber drawInRect:CGRectMake(labelX - self.digitFont.lineHeight/2.0f,labelY - self.digitFont.lineHeight/2.0f,self.digitFont.lineHeight,self.digitFont.lineHeight) withAttributes:@{NSForegroundColorAttributeName: self.digitColor, NSFontAttributeName: self.digitFont}];
         }
+    }
+    // HUB
+    if (self.enableHub == YES) {
+        CGContextSetFillColorWithColor(ctx, self.hubColor.CGColor);
+        CGContextSetAlpha(ctx, self.hubAlpha);
+        CGPoint center = CGPointMake(self.frame.size.width / 2.0f, self.frame.size.height / 2.0f);
+        CGContextAddArc(ctx, center.x, center.y, self.hubRadius, 0, 2 * M_PI, 0);
+        CGContextFillPath(ctx);
     }
 }
 @end

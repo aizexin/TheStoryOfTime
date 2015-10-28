@@ -34,6 +34,9 @@
     self.col = die?2:3;
     for (int i = 0; i< _col * _row; i++) {
         UILabel *label = [[UILabel alloc]init];
+        label.layer.borderWidth = 1;
+        
+        label.font = [UIFont systemFontOfSize:15];
 //        label.backgroundColor = AIRandomColor;
         label.numberOfLines = 0;
         label.font = [UIFont systemFontOfSize:20];
@@ -67,8 +70,14 @@
     NSMutableArray *messages = [NSMutableArray array];
     if (die) {//死之钟
         messages = [self setupDieData];
+        for (UILabel *label in self.subviews) {
+            label.layer.borderColor = [UIColor whiteColor].CGColor;
+        }
     }else{//生之时
         messages = [self setupBirthData];
+        for (UILabel *label in self.subviews) {
+            label.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        }
     }
     //显示
     int index = 0;

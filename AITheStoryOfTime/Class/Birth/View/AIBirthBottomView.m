@@ -38,6 +38,7 @@
         //现在年龄
         UILabel *ageLabel = [[UILabel alloc]init];
         [ageLabel setTextAlignment:(NSTextAlignmentRight)];
+        ageLabel.font = [UIFont systemFontOfSize:20];
         self.nowAgelabel = ageLabel;
         [self addSubview:ageLabel];
         //分享按钮
@@ -60,8 +61,10 @@
         
         //跳转按钮
         UIButton *jumpBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+        jumpBtn.layer.cornerRadius = 10;
+//        [jumpBtn setImage:[UIImage imageNamed:@"rangeSliderThumb"] forState:(UIControlStateNormal)];
         [jumpBtn addTarget:self action:@selector(onClickJump:) forControlEvents:(UIControlEventTouchUpInside)];
-        [jumpBtn setBackgroundColor:[UIColor blueColor]];
+        
         self.jumpBtn = jumpBtn;
         [self addSubview:jumpBtn];
         [self fitScreen];
@@ -80,9 +83,15 @@
     self.tipsLabel.text = die?dieString:unDieString;
     //按钮
     if (die) {
-        [self.jumpBtn setTitle:@"死之钟" forState:(UIControlStateNormal)];
-    }else{
+        [self.jumpBtn setBackgroundColor:[UIColor whiteColor]];
+        self.tipsLabel.textColor = [UIColor whiteColor];
         [self.jumpBtn setTitle:@"生之时" forState:(UIControlStateNormal)];
+        [self.jumpBtn setTitleColor:[UIColor lightGrayColor] forState:(UIControlStateNormal)];
+    }else{
+        [self.jumpBtn setBackgroundColor:[UIColor lightGrayColor]];
+        self.tipsLabel.textColor = [UIColor blackColor];
+        [self.jumpBtn setTitle:@"死之钟" forState:(UIControlStateNormal)];
+         [self.jumpBtn setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
     }
     [self fitScreen];
 }
@@ -102,7 +111,7 @@
             self.nowAgelabel.text =  @"你还没有预测死亡时间";
             return;
         }
-        if ([AIDateTool brith2NowAllSeconds] <= 0) {
+        if ([AIDateTool brith2NowAllSeconds] <= 10) {
             self.nowAgelabel.text = @"你还没有填写出生日期";
             return;
         }
@@ -142,15 +151,15 @@
     //list
     [self.listView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
-        make.top.equalTo(self.tipsLabel.mas_bottom).offset = 0;
+        make.top.equalTo(self.tipsLabel.mas_bottom).offset = 5;
         make.right.equalTo(@0);
-        make.bottom.equalTo(self.jumpBtn.mas_top).offset = 0;
+//        make.bottom.equalTo(self.jumpBtn.mas_top).offset = 0;
     }];
     //jumpBtn
     [self.jumpBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@20);
-        make.top.equalTo(self.listView.mas_bottom).offset = 0;
-        make.right.equalTo(@(-20));
+        make.left.equalTo(@(Mainsize.width *.2));
+        make.top.equalTo(self.listView.mas_bottom).offset = 8;
+        make.right.equalTo(@(-(Mainsize.width *.2)));
         make.bottom.equalTo(@0);
     }];
     
@@ -166,13 +175,13 @@
 }
 -(void)starTimer{
     [self changeAge];
-    //TODO通知listView也改变值
+    //通知listView也改变值
     [self.listView startChange];
 }
 
 #pragma mark -点击事件
 -(void)onClickJump:(UIButton*)jump{
-    jump.selected = !jump.isSelected;
+//    jump.selected = !jump.isSelected;
     if ([self.delegate respondsToSelector:@selector(birthBottomViewDidChange:)]) {
         [self.delegate birthBottomViewDidChange:self];
     }

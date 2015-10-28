@@ -12,7 +12,8 @@
 #import "UUDatePicker_DateModel.h"
 #import "AIDateTool.h"
 #import "AIFixScreen.h"
-#define ClockPadding 45.0;
+#import "AIScreenTool.h"
+#define ClockPadding 45.0
 #define BottomViewPadding 10
 
 @interface AIBirthViewController ()<UUDatePickerDelegate,AIBirthBottomViewDelegate>
@@ -33,12 +34,25 @@
 @property(nonatomic,strong)UUDatePicker *dateView;
 /**选中的时间模型*/
 @property(nonatomic,strong)UUDatePicker_DateModel *seldate_dateModel;
+/**最大时间*/
+@property(nonatomic,strong)NSDate *maxDate;
 @end
 
 @implementation AIBirthViewController
 
 
 #pragma mark 懒加载
+
+-(NSDate *)maxDate{
+    if (!_maxDate) {
+        _maxDate = [[NSDate alloc]init];
+        NSDateFormatter *datefm = [[NSDateFormatter alloc]init];
+        datefm.dateFormat = @"yyyyMMddHHmmss";
+        _maxDate = [datefm dateFromString:@"21501100000000"];
+    }
+    return _maxDate;
+}
+
 -(UUDatePicker_DateModel *)seldate_dateModel{
     if (!_seldate_dateModel) {
         _seldate_dateModel  = [[UUDatePicker_DateModel alloc]init];
@@ -86,7 +100,6 @@
 //        _nowColck = nowColck;
         //设置时钟里的属性
         _nowColck.enableShadows = YES;
-        
         _nowColck.currentTime = YES;
         _nowColck.borderColor = AIColor(26, 26, 1);
    
@@ -97,16 +110,27 @@
         _nowColck.enableDigit = NO;
         //取消刻度
         _nowColck.enableGraduations = NO;
-        //中心颜色
-        _nowColck.hubColor = [UIColor redColor];
-        _nowColck.hubRadius = 5;
-        _nowColck.enableHub = YES;
+        
         //设置三个指针颜色
         _nowColck.hourHandColor = [UIColor blackColor];
         _nowColck.minuteHandColor = [UIColor blackColor];
         _nowColck.secondHandColor = [UIColor redColor];
+        //设置指针长度
+        _nowColck.secondHandLength = (Mainsize.width - 2 * (ClockPadding+Mainsize.width * 0.11))*0.5;
+        _nowColck.minuteHandLength = (_nowColck.secondHandLength *0.8 );
+        _nowColck.hourHandLength = _nowColck.secondHandLength * 0.5;
         
+        _nowColck.secondHandOffsideLength = 15;
+        _nowColck.minuteHandOffsideLength = 10;
+        _nowColck.hourHandOffsideLength = 5;
         _nowColck.borderWidth = 10;
+        //中心颜色
+        _nowColck.hubColor = [UIColor redColor];
+        _nowColck.hubRadius = 5;
+        _nowColck.enableHub = YES;
+        //让钟动起来
+        _nowColck.realTime = YES;
+        
     }
     return _nowColck;
 }
@@ -162,11 +186,13 @@
     CGFloat padding = ClockPadding;
     [self.nowColck mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.bgView.mas_top).offset = padding;
-       make.right.equalTo(self.bgView.mas_right).offset = -padding;
+        make.right.equalTo(self.bgView.mas_right).offset = -padding;
         make.left.equalTo(self.bgView.mas_left).offset = padding;
-        make.bottom.equalTo(self.bottomView.mas_top).mas_offset(@0);
+        make.bottom.equalTo(self.bottomView.mas_top).mas_offset(@-50);
         make.width.mas_equalTo(self.nowColck.mas_height);
     }];
+    //时钟的指针
+    
 //    bottomView
     CGFloat viewPadding = BottomViewPadding;
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -182,19 +208,22 @@
     self.bottomView.die = die;
     //根据die设置now的颜色
     if (self.isDie) {  //死之中
-        _nowColck.realTime = NO;
-        _nowColck.hourHandColor = [UIColor greenColor];
-        _nowColck.minuteHandColor = [UIColor greenColor];
-        _nowColck.secondHandColor = [UIColor greenColor];
-       _bgView.backgroundColor = AIColor(211, 211, 211);
+        _nowColck.currentTime = NO;
+        _nowColck.hourHandColor = [UIColor whiteColor];
+        _nowColck.minuteHandColor = [UIColor whiteColor];
+        _nowColck.secondHandAlpha = 0;
+        //设置死钟指针
+        [self setdieColck];
+       _bgView.backgroundColor = [UIColor lightGrayColor];
         //设置最小时间时间为现在
-        self.dateView.maxLimitDate = nil;
+        self.dateView.maxLimitDate = self.maxDate;
         self.dateView.minLimitDate = [NSDate date];
     }else{
         //设置时间
-        _nowColck.realTime = YES;
-        _nowColck.hourHandColor = [UIColor redColor];
-        _nowColck.minuteHandColor = [UIColor redColor];
+        _nowColck.currentTime = YES;
+        _nowColck.secondHandAlpha = 1;
+        _nowColck.hourHandColor = [UIColor blackColor];
+        _nowColck.minuteHandColor = [UIColor blackColor];
         _nowColck.secondHandColor = [UIColor redColor];
         _bgView.backgroundColor = [UIColor whiteColor];
         //设置最大时间为现在
@@ -203,58 +232,93 @@
     }
     [self.nowColck reloadClock];
 }
+/**
+ *  设置死钟的指针
+ */
+-(void)setdieColck{
+    [self.nowColck reloadClock];
+    double proportion = [AIDateTool brith2NowAllSeconds]/[AIDateTool brith2EndAllSeconds];
+    NSInteger hours = (NSInteger)(24 * proportion);
+    NSInteger showHour = hours;
+    if (showHour>=12) {
+        showHour -= 12;
+    }
+    NSInteger minutes = (24*proportion - hours) * 60;
+    _nowColck.hours = showHour;
+    _nowColck.minutes = minutes;
+    [self.nowColck updateTimeAnimated:YES];
+}
 
 #pragma mark -点击事件
 -(void)onClickSettingBtn:(UIButton*)btn{
+    //暂停定时器
+    [self.bottomView stopChange];
+    //让时钟归0
+    [self show0Colck];
+    UIWindow *lastWindow = [[UIApplication sharedApplication].windows lastObject];
+    [lastWindow addSubview:self.core];
+    //选择出生年月日
+    //显示日历
+    [self showDateView:lastWindow];
+}
+/**
+ *  显示指针为0的时钟
+ */
+-(void)show0Colck{
     if (self.isDie) {
         [_core setTitle:@"猜测自己能活到什么时候" forState:(UIControlStateNormal)];
     }else{
         [_core setTitle:@"出生日" forState:(UIControlStateNormal)];
     }
-    //选择出生年月日
-    
+    __weak typeof (self) weakSelf = self;
     [UIView animateWithDuration:.5 animations:^{
-        self.nowColck.hours = 0;
-        self.nowColck.minutes = 0;
-        self.nowColck.seconds = 0;
-        [self.nowColck updateTimeAnimated:YES];
-//        [self.nowColck reloadClock];
-        [self.nowColck stopRealTime];
-        self.bottomView.alpha = 0;
+        weakSelf.nowColck.hours = 0;
+        weakSelf.nowColck.minutes = 0;
+        weakSelf.nowColck.seconds = 0;
+        [weakSelf.nowColck updateTimeAnimated:YES];
+        [weakSelf.nowColck stopRealTime];
+        weakSelf.bottomView.alpha = 0;
     }];
-
-    UIWindow *lastWindow = [[UIApplication sharedApplication].windows lastObject];
-    [lastWindow addSubview:self.core];
-
-//需要直接回到现在
-    [_dateView scroll2NowDate];
+}
+/**
+ *  显示日历
+ */
+-(void)showDateView:(UIWindow*)lastWindow{
+    //需要直接回到现在
+    [self.dateView scroll2NowDate];
     [lastWindow addSubview:self.dateView];
     
-
+    CGFloat dateViewX = (self.bgView.frame.size.width - 320.0)*0.5;
     [_dateView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(@0);
         make.height.mas_equalTo(@216);
         make.width.mas_equalTo(@320);
+        make.left.mas_equalTo(@(dateViewX));
     }];
 }
+
 /**
  *  点击蒙版
  */
 -(void)onClickCoreBtn:(UIButton*)core{
     [self.dateView removeFromSuperview];
     [core removeFromSuperview];
+    __weak typeof (self) weakSelf = self;
+
     [UIView animateWithDuration:.5 animations:^{
-        self.nowColck.currentTime = YES;
-        self.nowColck.realTime = YES;
-        [self.nowColck startRealTime];
-        self.bottomView.alpha = 1;
+        weakSelf.bottomView.alpha = 1;
     }];
+    if (self.isDie) { //死之中
+        [self setdieColck];
+    }else{
+        [self.nowColck reloadClock];
+    }
     //这个时候确定时间
     //存储到沙盒
     [AIDateTool save:self.seldate_dateModel die:self.isDie];
     //叫bottom开启定时器
     [self.bottomView startChange];
-    
+ 
 }
 
 #pragma mark 代理方法
@@ -282,18 +346,31 @@
 
 -(void)birthBottomViewDidShare:(AIBirthBottomView *)BottomView{
     UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+   UIImage *shareImage = [AIScreenTool screenWithSize:self.bgView.bounds.size inView:self.bgView];
     
-    
-    [UMSocialSnsService presentSnsIconSheetView:window.rootViewController appKey:AIUMAPPKEY shareText:@"xxxx" shareImage:[UIImage imageNamed:@"AppIcon"] shareToSnsNames:[NSArray arrayWithObjects:
-                                                                                                                                                     UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToQQ,
-                                                                                                                                                     UMShareToQzone,
-                                                                                                                                                     nil] delegate:self];
+    [UMSocialSnsService presentSnsIconSheetView:window.rootViewController appKey:AIUMAPPKEY shareText:@"时间,时间" shareImage:shareImage shareToSnsNames:[NSArray arrayWithObjects:
+                                                                                                                                                     UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToQQ,nil] delegate:self];
 //    //分享微信的时候选择消息类型
 //    //1.纯图片
-//    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
+    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
 //    //2.纯文字，点击不会跳转
 //    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeText;
 //    //3.分享本应用，应用地址是微信开放平台填写的地址
 //    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeApp;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    //因为ddMenu划过来会调用两次这个函数，时钟值刷新一次
+    static NSInteger indexshow = 0;
+    [super viewWillAppear:animated];
+    if (0 == indexshow%2) {
+        if (self.isDie) {//如果是死钟
+            [self setdieColck];
+        }else{
+            [self.nowColck reloadClock];
+        }
+        AILog(@"viewWillAppear0-----------------");
+    }
+    indexshow++;
 }
 @end

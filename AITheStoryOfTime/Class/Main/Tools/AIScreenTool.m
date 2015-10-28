@@ -21,7 +21,7 @@
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
     
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-     [SCCommon saveImageToPhotoAlbum:newImage];//存至本机
+//     [SCCommon saveImageToPhotoAlbum:newImage];//存至本机
     return newImage;
 }
 @end
