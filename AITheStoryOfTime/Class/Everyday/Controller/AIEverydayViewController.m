@@ -89,7 +89,7 @@ static NSString *identifier = @"AIEverydayCell";
     [super viewDidLoad];
     self.title = @"Everyday";
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTagert:self action:@selector(onClickRightItem:) NorImageName:@"video" andHeiImageName:@"video"];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTagert:self action:@selector(onClickRightItem:) NorImageName:@"playbutton_video_textpage" andHeiImageName:@"playbutton_video_textpage_press"];
     [self.view addSubview:self.collectionV];
 }
 #pragma mark------------点击事件------------------
@@ -141,20 +141,18 @@ static NSString *identifier = @"AIEverydayCell";
     cell.cellImage.image = nil;
     if (indexPath.item == 0) {
         //测试图片
-        cell.cellImage.image = [UIImage imageNamed:@"game_center"];
+        cell.cellImage.image = [UIImage imageNamed:@"photo"];
         [cell.deleteBtn setHidden:YES];
         cell.timeLabel.hidden = YES;
     }else{
-       [cell.deleteBtn setHidden:NO];
+        [cell.deleteBtn setHidden:NO];
         cell.timeLabel.hidden = NO;
         cell.cellImage.userInteractionEnabled = YES;
-//        AILog(@"count ------ %d", self.dataSource.count);
         AIEverydayCellModel *model = self.dataSource[indexPath.item-1];
         cell.model = model;
         
         __weak typeof (self) weakSelf = self;
         [cell setDeleteBlock:^() {
-//             AILog(@"indexPath-----%@",model.cellId);
             [AIEverydayTool deleteEverdayCellModelWithIndex:[model.cellId integerValue] ];
             [weakSelf.dataSource removeObject:model];
             [weakSelf.collectionV reloadData];

@@ -186,7 +186,7 @@
         _nowColck.hourHandColor = [UIColor greenColor];
         _nowColck.minuteHandColor = [UIColor greenColor];
         _nowColck.secondHandColor = [UIColor greenColor];
-        _bgView.backgroundColor = AIColor(211, 211, 211);
+       _bgView.backgroundColor = AIColor(211, 211, 211);
         //设置最小时间时间为现在
         self.dateView.maxLimitDate = nil;
         self.dateView.minLimitDate = [NSDate date];
