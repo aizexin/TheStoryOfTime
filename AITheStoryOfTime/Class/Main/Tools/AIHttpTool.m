@@ -8,6 +8,11 @@
 
 #import "AIHttpTool.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "SVProgressHUD.h"
+#import "Reachability.h"
+
+@interface AIHttpTool ()
+@end
 @implementation AIHttpTool
 
 +(void)get:(NSString*)path params:(NSDictionary*)params success:(void(^)(id responseObject))success failure:(void(^)(NSError *error))failure{
@@ -38,6 +43,9 @@
             failure(error);
         }
     }];
+}
++ (BOOL)isReachable{
+    return [[Reachability reachabilityWithHostName:@"www.baidu.com"] isReachable];
 }
 
 @end

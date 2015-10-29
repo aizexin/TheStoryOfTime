@@ -48,6 +48,7 @@
 -(UIButton *)enterTimeBtn{
     if (!_enterTimeBtn) {
         _enterTimeBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+//        _enterTimeBtn setBackgroundColor:[UIColor colorWithRed:<#(CGFloat)#> green:<#(CGFloat)#> blue:<#(CGFloat)#> alpha:<#(CGFloat)#>]
         [_enterTimeBtn addTarget:self action:@selector(onClickEnterBtn:) forControlEvents:(UIControlEventTouchUpInside)];
         [_enterTimeBtn setImage:[UIImage imageNamed:@"GCImagePickerControllerCheckGreen"] forState:(UIControlStateNormal)];
     }
@@ -288,7 +289,7 @@
         make.width.mas_equalTo(@30);
         make.height.mas_equalTo(@30);
         make.bottom.mas_equalTo(self.dateView.mas_top).offset = -10;
-//        make.centerX.mas_equalTo(self.view).centerOffset = ;
+//        make.centerX.mas_equalTo(self.view.mas_width).multipliedBy(0.5);
         make.left.mas_equalTo(@(Mainsize.width*0.5-15));
     }];
 }

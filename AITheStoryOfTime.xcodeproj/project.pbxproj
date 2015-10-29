@@ -301,6 +301,7 @@
 		BCE1B6701BDE33F50069DDB5 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B66F1BDE33F50069DDB5 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BCE1B6721BDE3E5D0069DDB5 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE1B6711BDE3E5D0069DDB5 /* libicucore.dylib */; };
 		BCE1B6751BDE57C90069DDB5 /* AIRegexResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B6741BDE57C90069DDB5 /* AIRegexResult.m */; };
+		BCEB52331BE1CA52004155AA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BCEB52321BE1CA52004155AA /* Reachability.m */; };
 		BCFD9F991BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFD9F981BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m */; };
 		BCFDA0211BDA4E1400D9AC6C /* AIDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA0201BDA4E1400D9AC6C /* AIDBTool.m */; };
 		BCFDA02E1BDA4E8500D9AC6C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFDA0241BDA4E8500D9AC6C /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -837,6 +838,8 @@
 		BCE1B6711BDE3E5D0069DDB5 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		BCE1B6731BDE57C90069DDB5 /* AIRegexResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRegexResult.h; sourceTree = "<group>"; };
 		BCE1B6741BDE57C90069DDB5 /* AIRegexResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRegexResult.m; sourceTree = "<group>"; };
+		BCEB52311BE1CA52004155AA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		BCEB52321BE1CA52004155AA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		BCFD9F971BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+AIExtension.h"; sourceTree = "<group>"; };
 		BCFD9F981BDA1AFE00D9AC6C /* UIBarButtonItem+AIExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+AIExtension.m"; sourceTree = "<group>"; };
 		BCFDA01F1BDA4E1400D9AC6C /* AIDBTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIDBTool.h; sourceTree = "<group>"; };
@@ -1577,6 +1580,8 @@
 		BC26F0711BD0ABAC0064D89E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				BCEB52311BE1CA52004155AA /* Reachability.h */,
+				BCEB52321BE1CA52004155AA /* Reachability.m */,
 				BCFDA01F1BDA4E1400D9AC6C /* AIDBTool.h */,
 				BCFDA0201BDA4E1400D9AC6C /* AIDBTool.m */,
 				BC26F0721BD0ABAC0064D89E /* AIAccountTool.h */,
@@ -2519,6 +2524,7 @@
 				BC26F1301BD0AC700064D89E /* AIMapViewController.m in Sources */,
 				BC26F0BA1BD0ABAC0064D89E /* AFNetworkReachabilityManager.m in Sources */,
 				BC26F0ED1BD0ABAC0064D89E /* SDWebImageDownloaderOperation.m in Sources */,
+				BCEB52331BE1CA52004155AA /* Reachability.m in Sources */,
 				BC26F1211BD0ABAC0064D89E /* AIOAuthViewController.m in Sources */,
 				BC26F0E71BD0ABAC0064D89E /* MKAnnotationView+WebCache.m in Sources */,
 				BC26F11A1BD0ABAC0064D89E /* AIStatusCell.m in Sources */,
@@ -2598,6 +2604,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2610,6 +2617,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
@@ -2617,7 +2625,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "d673be20-2a5f-4525-a984-732d167d9b11";
+				PROVISIONING_PROFILE = "ca829f6f-da4c-4018-a6b2-d5c13d8bfb75";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2644,19 +2652,21 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "d673be20-2a5f-4525-a984-732d167d9b11";
+				PROVISIONING_PROFILE = "ca829f6f-da4c-4018-a6b2-d5c13d8bfb75";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -2667,7 +2677,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Developer: zexin ai (58988ATJQN)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
 				ENABLE_BITCODE = NO;
@@ -2678,8 +2688,10 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AITheStoryOfTime/AIPrefixHeader.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				INFOPLIST_FILE = AITheStoryOfTime/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2697,9 +2709,10 @@
 					"$(PROJECT_DIR)/AITheStoryOfTime/Class/Libs/shareLibs/UMSocial_Sdk_Extra_Frameworks/UMSocial_Shake_Sdk",
 					"$(PROJECT_DIR)/AITheStoryOfTime/Class/Libs/shareLibs/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d673be20-2a5f-4525-a984-732d167d9b11";
+				PROVISIONING_PROFILE = "ca829f6f-da4c-4018-a6b2-d5c13d8bfb75";
 			};
 			name = Debug;
 		};
@@ -2707,7 +2720,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Developer: zexin ai (58988ATJQN)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
 				ENABLE_BITCODE = NO;
@@ -2718,8 +2731,10 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AITheStoryOfTime/AIPrefixHeader.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				INFOPLIST_FILE = AITheStoryOfTime/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2739,7 +2754,7 @@
 				);
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d673be20-2a5f-4525-a984-732d167d9b11";
+				PROVISIONING_PROFILE = "ca829f6f-da4c-4018-a6b2-d5c13d8bfb75";
 			};
 			name = Release;
 		};
@@ -2747,8 +2762,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: zexin ai (58988ATJQN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2758,6 +2774,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				INFOPLIST_FILE = AITheStoryOfTimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2772,7 +2790,7 @@
 					"$(PROJECT_DIR)/AITheStoryOfTime/Class/Libs/shareLibs/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ca829f6f-da4c-4018-a6b2-d5c13d8bfb75";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AITheStoryOfTime.app/AITheStoryOfTime";
 			};
 			name = Debug;
@@ -2781,13 +2799,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: zexin ai (58988ATJQN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/AITheStoryOfTime/Class/Libs/shareLibs/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = NO;
 				INFOPLIST_FILE = AITheStoryOfTimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -2802,7 +2823,7 @@
 					"$(PROJECT_DIR)/AITheStoryOfTime/Class/Libs/shareLibs/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ca829f6f-da4c-4018-a6b2-d5c13d8bfb75";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AITheStoryOfTime.app/AITheStoryOfTime";
 			};
 			name = Release;

@@ -18,6 +18,7 @@
 #import "AIAccountTool.h"
 #import "AIAccountModel.h"
 #import "AIOAuthViewController.h"
+#import "AIHttpTool.h"
 @interface AITabBarViewController ()<AITabBarDelegate>
 
 @end

@@ -5,7 +5,7 @@
 //  Created by qianfeng on 15/10/25.
 //  Copyright (c) 2015年 aizexin. All rights reserved.
 //
-
+#warning 没网到有网
 #import "AIJokeToolbar.h"
 #import "AIFixScreen.h"
 #import "AIJokeGroupModel.h"
@@ -35,7 +35,7 @@
         self.userInteractionEnabled = YES;
         //设置背景图片
         self.image = [UIImage resizedImage:@"timeline_card_top_background"];
-        //喜欢
+        /*//喜欢
         UIButton *favoriteButton = [[UIButton alloc]init];
         [favoriteButton setImage:[UIImage imageNamed:@"digupicon_textpage"] forState:(UIControlStateNormal)];
         [favoriteButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
@@ -47,14 +47,17 @@
         [buryButton setImage:[UIImage imageNamed:@"digdownicon_textpage"] forState:(UIControlStateNormal)];
         [buryButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
         self.buryButton = buryButton;
-        [self addSubview:buryButton];
+        [self addSubview:buryButton];*/
         
         //分享按钮
         UIButton *shareButton = [[UIButton alloc]init];
         self.shareButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
         [self addSubview:shareButton];
-        [shareButton setImage:[UIImage imageNamed:@"repost_btn_night"] forState:(UIControlStateNormal)];
-        [shareButton setImage:[UIImage imageNamed:@"repost_btn_press"] forState:(UIControlStateHighlighted)];
+        [shareButton setTitle:@"分享给好友" forState:(UIControlStateNormal)];
+        [shareButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
+        
+//        [shareButton setImage:[UIImage imageNamed:@"repost_btn_night"] forState:(UIControlStateNormal)];
+//        [shareButton setImage:[UIImage imageNamed:@"repost_btn_press"] forState:(UIControlStateHighlighted)];
         self.shareButton = shareButton;
         [shareButton addTarget:self action:@selector(onClickShareBtn:) forControlEvents:(UIControlEventTouchUpInside)];
         //屏幕适配
@@ -63,7 +66,7 @@
     return self;
 }
 -(void)fitScreen{
-    //喜欢
+    /*//喜欢
     [self.favoriteButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(@30);
         make.top.mas_equalTo(@0);
@@ -76,13 +79,13 @@
         make.top.mas_equalTo(@0);
         make.bottom.mas_equalTo(@0);
         make.width.mas_equalTo(@100);
-    }];
+    }];*/
     //分享
     [self.shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(@0);
         make.bottom.mas_equalTo(@0);
-        make.left.mas_equalTo(self.buryButton.mas_right).offset = 0;
-        make.right.mas_equalTo(@(-30));
+        make.left.mas_equalTo(@0);
+        make.right.mas_equalTo(@(0));
     }];
 }
 
@@ -91,11 +94,11 @@
 //    AILog(@"favorite_count--%@",groupModel.favorite_count);
 //    if (groupModel.favorite_count.length>0) {
     
-        [self.favoriteButton setTitle:[NSString stringWithFormat:@"%ld",[groupModel.digg_count integerValue] ] forState:(UIControlStateNormal)];
+//        [self.favoriteButton setTitle:[NSString stringWithFormat:@"%ld",[groupModel.digg_count integerValue] ] forState:(UIControlStateNormal)];
 //    }
 //    if (groupModel.bury_count.length>0) {
     
-        [self.buryButton setTitle:[NSString stringWithFormat:@"%ld",[groupModel.bury_count integerValue] ] forState:(UIControlStateNormal)];
+//        [self.buryButton setTitle:[NSString stringWithFormat:@"%ld",[groupModel.bury_count integerValue] ] forState:(UIControlStateNormal)];
 //    }
 }
 

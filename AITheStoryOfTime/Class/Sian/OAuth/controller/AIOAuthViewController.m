@@ -29,14 +29,30 @@
 #import "AIAccountModel.h"
 #import "AIHttpTool.h"
 @interface AIOAuthViewController ()<UIWebViewDelegate>
-
 @end
 
 @implementation AIOAuthViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    //判断是否有网
+    if (![AIHttpTool isReachable]) {
+
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"picture_timeout_night"]];
+        imageView.userInteractionEnabled = YES;
+        imageView.center = self.view.center;
+        [self.view addSubview:imageView];
+        //添加手势
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(reloadView)];
+        [imageView addGestureRecognizer:tap];
+        [self.view setBackgroundColor:[UIColor whiteColor]];
+//        [self.view addSubview:reloadBtn];
+        return;
+    }
+    
     // 1.创建UIWebView
     UIWebView *webView = [[UIWebView alloc] init];
     CGRect rect = self.view.bounds;
@@ -50,6 +66,11 @@
     [webView loadRequest:request];
     webView.delegate = self;
     
+}
+
+#pragma mark ----点击事件
+-(void)reloadView{
+    [self viewDidLoad];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
