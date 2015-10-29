@@ -14,6 +14,7 @@
     NSURL *url = [NSURL URLWithString:_avatar_url];
     UIImageView *imageView = [[UIImageView alloc]init];
     [imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"picture_empty"]];
+//    [imageView sd_setImageWithURL:url];
     _iconImage = imageView.image;
 }
 @end

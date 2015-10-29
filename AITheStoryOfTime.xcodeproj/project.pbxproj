@@ -86,10 +86,7 @@
 		BC1FF8241BD9D158007C8327 /* AIEverydayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1FF8231BD9D158007C8327 /* AIEverydayTool.m */; };
 		BC26EDB31BD092290064D89E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26EDB21BD092290064D89E /* main.m */; };
 		BC26EDB61BD092290064D89E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26EDB51BD092290064D89E /* AppDelegate.m */; };
-		BC26EDB91BD092290064D89E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26EDB81BD092290064D89E /* ViewController.m */; };
-		BC26EDBC1BD092290064D89E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC26EDBA1BD092290064D89E /* Main.storyboard */; };
 		BC26EDBE1BD092290064D89E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC26EDBD1BD092290064D89E /* Images.xcassets */; };
-		BC26EDC11BD092290064D89E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC26EDBF1BD092290064D89E /* LaunchScreen.xib */; };
 		BC26EDCD1BD092290064D89E /* AITheStoryOfTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26EDCC1BD092290064D89E /* AITheStoryOfTimeTests.m */; };
 		BC26F0B31BD0ABAC0064D89E /* AIComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26EFB81BD0ABAB0064D89E /* AIComposeViewController.m */; };
 		BC26F0B41BD0ABAC0064D89E /* AIComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC26EFBB1BD0ABAB0064D89E /* AIComposePhotosView.m */; };
@@ -451,11 +448,7 @@
 		BC26EDB21BD092290064D89E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BC26EDB41BD092290064D89E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BC26EDB51BD092290064D89E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BC26EDB71BD092290064D89E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BC26EDB81BD092290064D89E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		BC26EDBB1BD092290064D89E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC26EDBD1BD092290064D89E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BC26EDC01BD092290064D89E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BC26EDC61BD092290064D89E /* AITheStoryOfTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AITheStoryOfTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC26EDCB1BD092290064D89E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC26EDCC1BD092290064D89E /* AITheStoryOfTimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AITheStoryOfTimeTests.m; sourceTree = "<group>"; };
@@ -1203,11 +1196,7 @@
 				BC26EFB41BD0ABAB0064D89E /* Class */,
 				BC26EDB41BD092290064D89E /* AppDelegate.h */,
 				BC26EDB51BD092290064D89E /* AppDelegate.m */,
-				BC26EDB71BD092290064D89E /* ViewController.h */,
-				BC26EDB81BD092290064D89E /* ViewController.m */,
-				BC26EDBA1BD092290064D89E /* Main.storyboard */,
 				BC26EDBD1BD092290064D89E /* Images.xcassets */,
-				BC26EDBF1BD092290064D89E /* LaunchScreen.xib */,
 				BC26EDB01BD092290064D89E /* Supporting Files */,
 			);
 			path = AITheStoryOfTime;
@@ -2270,7 +2259,6 @@
 				BCC06EA41BD7C9E600A86010 /* switch_camera_h.png in Resources */,
 				45EB28721BD7F28A0002B5F9 /* UMSnsAccountViewController.xib in Resources */,
 				BCC06EA71BD7C9E600A86010 /* touch_focus@2x.png in Resources */,
-				BC26EDBC1BD092290064D89E /* Main.storyboard in Resources */,
 				BCC06EA21BD7C9E600A86010 /* switch_camera.png in Resources */,
 				BCC06E9E1BD7C9E600A86010 /* shot.png in Resources */,
 				456500BE1BD28E3A00882753 /* EmotionIcons in Resources */,
@@ -2287,7 +2275,6 @@
 				BC6E3F931BDF9C280073BA65 /* AIHomeHttpLinkViewController.xib in Resources */,
 				BCC06E901BD7C9E600A86010 /* camera_line.png in Resources */,
 				BC26F0E01BD0ABAC0064D89E /* MJRefresh.bundle in Resources */,
-				BC26EDC11BD092290064D89E /* LaunchScreen.xib in Resources */,
 				45EB286F1BD7F28A0002B5F9 /* UMShareEditViewController.xib in Resources */,
 				BC26F0CD1BD0ABAC0064D89E /* MBProgressHUD.bundle in Resources */,
 				4565011F1BD3AB1900882753 /* AIEmotionPopView.xib in Resources */,
@@ -2392,7 +2379,6 @@
 				BC9BB95C1BDC952200EA497D /* AIJokeToolbar.m in Sources */,
 				BC26F1351BD0ACC60064D89E /* AIBirthViewController.m in Sources */,
 				BC26F10F1BD0ABAC0064D89E /* AIHomeStatusesResultModel.m in Sources */,
-				BC26EDB91BD092290064D89E /* ViewController.m in Sources */,
 				BC26F1041BD0ABAC0064D89E /* AIUserInfoParamModel.m in Sources */,
 				BC26F0D01BD0ABAC0064D89E /* MJIvar.m in Sources */,
 				BCFDA02F1BDA4E8500D9AC6C /* FMDatabaseAdditions.m in Sources */,
@@ -2564,22 +2550,6 @@
 			name = UMSocialLocalizable.strings;
 			sourceTree = "<group>";
 		};
-		BC26EDBA1BD092290064D89E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BC26EDBB1BD092290064D89E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BC26EDBF1BD092290064D89E /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BC26EDC01BD092290064D89E /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -2677,7 +2647,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: zexin ai (58988ATJQN)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
 				ENABLE_BITCODE = NO;
@@ -2720,7 +2690,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: zexin ai (58988ATJQN)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
 				ENABLE_BITCODE = NO;

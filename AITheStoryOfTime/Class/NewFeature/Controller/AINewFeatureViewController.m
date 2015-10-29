@@ -56,7 +56,7 @@
     //1.设置开始按钮
     [self setupStartButton:imageView];
     //2.设置分享按钮
-    [self setupShareButton:imageView];
+//    [self setupShareButton:imageView];
 }
 /**
  *  设置开始按钮
@@ -73,7 +73,7 @@
 //    starBtn.centerX = self.view.width *0.5;
 //    starBtn.centerY = self.view.height * 0.8;
     //设置文字
-    [starBtn setTitle:@"开始微博" forState:(UIControlStateNormal)];
+    [starBtn setTitle:@"开启光阴" forState:(UIControlStateNormal)];
     //添加点击事件
     [starBtn addTarget:self action:@selector(onClickStartBtn) forControlEvents:(UIControlEventTouchUpInside)];
 }

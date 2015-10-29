@@ -19,6 +19,7 @@
 #import "AIAccountModel.h"
 #import "AIOAuthViewController.h"
 #import "AIHttpTool.h"
+#import "SVProgressHUD.h"
 @interface AITabBarViewController ()<AITabBarDelegate>
 
 @end
@@ -93,11 +94,15 @@
 }
 #pragma mark -AITabBarDelegate
 -(void)tabBarDidClickedPlusButton:(AITabBar *)tabBar{
-    AIComposeViewController *composeVC = [[AIComposeViewController alloc]init];
-    composeVC.title = @"发微博";
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composeVC];
-//    SCNavigationController *nav = [[SCNavigationController alloc]initWithRootViewController:composeVC];
-    [self presentViewController:nav animated:YES completion:nil];
+    if ([AIAccountTool account]) {
+        AIComposeViewController *composeVC = [[AIComposeViewController alloc]init];
+        composeVC.title = @"发微博";
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composeVC];
+        [self presentViewController:nav animated:YES completion:nil];
+    }else{
+        [SVProgressHUD showImage:[UIImage imageNamed:@"UMS_delete_image_button_normal"] status:@"还没登陆"];
+    }
+    
 }
 
 

@@ -28,6 +28,7 @@
         self.avatarImageV = iconImageV;
         //昵称
         UILabel *nameLabel = [[UILabel alloc]init];
+        nameLabel.font = [UIFont systemFontOfSize:13];
         [self addSubview:nameLabel];
         self.userNameLabel = nameLabel;
         //内容文字

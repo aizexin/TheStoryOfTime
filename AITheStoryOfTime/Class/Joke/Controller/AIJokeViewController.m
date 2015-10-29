@@ -69,7 +69,9 @@
     if (self.dataSourceM.count >= 20) {
         for (int i = 0; i < 20; i++) {
             AIJokeCellFrameModel *cellFrameModel = _dataSourceM[i];
-            [arrayM addObject:cellFrameModel.groupModel];
+            if (cellFrameModel.groupModel) {//防止不是20的倍数条
+                [arrayM addObject:cellFrameModel.groupModel];
+            }
         }
     }
     [AIJokeTool save20Joke:arrayM];
@@ -177,7 +179,9 @@
         for (AIJokeContentDataModel *contentData in arrayM) {
             AIJokeCellFrameModel *frameModel = [[AIJokeCellFrameModel alloc]init];
             frameModel.groupModel = contentData.group;
-            [self.dataSourceM insertObject:frameModel atIndex:0];
+            if (frameModel.groupModel.content.length>0) {//防止空的
+                [self.dataSourceM insertObject:frameModel atIndex:0];
+            }
             // 让刷新控件停止刷新（恢复默认的状态）
             [refreshControl endRefreshing];
         }
@@ -225,7 +229,9 @@
         for (AIJokeContentDataModel *contentData in arrayM) {
             AIJokeCellFrameModel *frameModel = [[AIJokeCellFrameModel alloc]init];
             frameModel.groupModel = contentData.group;
-            [self.dataSourceM addObject:frameModel];
+            if (frameModel.groupModel.content.length>0) {
+                [self.dataSourceM addObject:frameModel];
+            }
 //            [self.dataSourceM insertObject:frameModel atIndex:0];
         }
         //刷新表格

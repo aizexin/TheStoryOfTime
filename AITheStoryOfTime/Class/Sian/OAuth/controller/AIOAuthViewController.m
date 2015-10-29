@@ -49,7 +49,6 @@
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(reloadView)];
         [imageView addGestureRecognizer:tap];
         [self.view setBackgroundColor:[UIColor whiteColor]];
-//        [self.view addSubview:reloadBtn];
         return;
     }
     
