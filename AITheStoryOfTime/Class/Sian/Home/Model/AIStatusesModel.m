@@ -190,14 +190,14 @@
             NSString *trendRegex = @"#[a-zA-Z0-9\\u4e00-\\u9fa5_]+#";
             [result.string enumerateStringsMatchedByRegex:trendRegex usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
                 [substr addAttribute:NSForegroundColorAttributeName value:AIStatusHighTextColor range:*capturedRanges];
-                [substr addAttribute:AILinkText value:*capturedStrings range:*capturedRanges];
+//                [substr addAttribute:AILinkText value:*capturedStrings range:*capturedRanges];
             }];
             
             // 匹配@提到
             NSString *mentionRegex = @"@[a-zA-Z0-9\\u4e00-\\u9fa5\\-_]+ ?";
             [result.string enumerateStringsMatchedByRegex:mentionRegex usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
                 [substr addAttribute:NSForegroundColorAttributeName value:AIStatusHighTextColor range:*capturedRanges];
-                [substr addAttribute:AILinkText value:*capturedStrings range:*capturedRanges];
+//                [substr addAttribute:AILinkText value:*capturedStrings range:*capturedRanges];
             }];
             
             // 匹配超链接

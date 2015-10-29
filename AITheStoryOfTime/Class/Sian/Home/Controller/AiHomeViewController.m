@@ -9,7 +9,7 @@
 
 #import "AiHomeViewController.h"
 #import "AITemp1ViewController.h"
-//#import "UIBarButtonItem+AIExtension.h"
+#import "UIBarButtonItem+AIExtension.h"
 #import "AITemp1ViewController.h"
 #import "AIHomeTitleButton.h"
 #import "AIDefine.h"
@@ -26,6 +26,7 @@
 #import "AIStatusCell.h"
 #import "AIStatusFrame.h"
 #import "AIHomeHttpLinkViewController.h"
+#import "DDMenuController.h"
 #define TipsLabelH 35
 #define TipsLabelW Mainsize.width
 
@@ -132,6 +133,7 @@
         
         AIAccountModel *account = [AIAccountTool account];
         account.screen_name = resultModel.name;
+        account.iconImageView = resultModel.iconImageV;
         [AIAccountTool save:account];
         
     } failure:^(NSError *error) {
@@ -298,9 +300,9 @@
  */
 -(void)setupNavBar{
     //设置导航栏左右按钮
-//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTagert:self action:@selector(onClickLeftItem:) NorImageName:@"navigationbar_friendsearch" andHeiImageName:@"navigationbar_friendsearch_highlighted"];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTagert:self action:@selector(onClickLeftItem:) NorImageName:@"navigationbar_friendsearch" andHeiImageName:@"navigationbar_friendsearch_highlighted"];
 //    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTagert:self action:nil NorImageName:@"navigationbar_pop" andHeiImageName:@"navigationbar_pop_highlighted"];
- 
+    
     //
     
     AIHomeTitleButton *titleBtn = [[AIHomeTitleButton alloc]init];
@@ -312,14 +314,16 @@
     AIAccountModel *account = [AIAccountTool account];
     if (account.screen_name) {//看沙盒中有没有上次数据
         [titleBtn setTitle:account.screen_name forState:(UIControlStateNormal)];
+        
     }else{
         [titleBtn setTitle:@"首页" forState:(UIControlStateNormal)];
     }
+    [titleBtn setImage:account.iconImageView.image forState:(UIControlStateNormal)];
     
-    UIImage *higImage = [UIImage resizedImage:@"navigationbar_filter_background_highlighted"];
-    [titleBtn setBackgroundImage:higImage forState:(UIControlStateHighlighted)];
-    [titleBtn addTarget:self action:@selector(onClickTitleItem:) forControlEvents:(UIControlEventTouchUpInside)];
-    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:(UIControlStateNormal)];
+//    UIImage *higImage = [UIImage resizedImage:@"navigationbar_filter_background_highlighted"];
+//    [titleBtn setBackgroundImage:higImage forState:(UIControlStateHighlighted)];
+//    [titleBtn addTarget:self action:@selector(onClickTitleItem:) forControlEvents:(UIControlEventTouchUpInside)];
+//    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:(UIControlStateNormal)];
     self.navigationItem.titleView = titleBtn;
     
 }
@@ -329,8 +333,10 @@
  *  点击做按钮
  */
 -(void)onClickLeftItem:(UIBarButtonItem*)item{
-    AITemp1ViewController *temp1VC = [[AITemp1ViewController alloc]init];
-    [self.navigationController pushViewController:temp1VC animated:YES];
+    DDMenuController *ddVC = (DDMenuController*)[UIApplication alloc].keyWindow.rootViewController;
+    [ddVC showLeftController:YES];
+//    AITemp1ViewController *temp1VC = [[AITemp1ViewController alloc]init];
+//    [self.navigationController pushViewController:temp1VC animated:YES];
 }
 /**
  *  点击标题
@@ -372,8 +378,8 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AITemp1ViewController *temp1VC = [[AITemp1ViewController alloc]init];
-    [self.navigationController pushViewController:temp1VC animated:YES];
+//    AITemp1ViewController *temp1VC = [[AITemp1ViewController alloc]init];
+//    [self.navigationController pushViewController:temp1VC animated:YES];
 
 }
 

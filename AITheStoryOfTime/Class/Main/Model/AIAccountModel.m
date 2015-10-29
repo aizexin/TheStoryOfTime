@@ -26,6 +26,7 @@
     [coder encodeObject:self.expires_in forKey:@"expires_in"];
     [coder encodeObject:self.uid forKey:@"uid"];
     [coder encodeObject:self.screen_name forKey:@"screen_name"];
+    [coder encodeObject:self.iconImageView forKey:@"iconImageView"];
     
 }
 //解归档的时候调用
@@ -35,6 +36,7 @@
         self.expires_in = [aDecoder decodeObjectForKey:@"expires_in"];
         self.uid = [aDecoder decodeObjectForKey:@"uid"];
         self.screen_name = [aDecoder decodeObjectForKey:@"screen_name"];
+        self.iconImageView = [aDecoder decodeObjectForKey:@"iconImageView"];
     }
     return self;
 }

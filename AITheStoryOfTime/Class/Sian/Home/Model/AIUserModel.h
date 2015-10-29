@@ -19,6 +19,7 @@
  */
 @property(nonatomic ,copy)NSString *profile_image_url;
 
+
 //mbtype = 12,
 //mbrank = 5,
 /**

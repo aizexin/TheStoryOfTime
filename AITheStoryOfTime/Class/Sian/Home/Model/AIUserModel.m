@@ -8,9 +8,11 @@
 
 #import "AIUserModel.h"
 
+//#import "UIImage+WebP.h"
 @implementation AIUserModel
 
 -(BOOL)isVip{
     return self.mbtype > 2;
 }
+
 @end

@@ -29,6 +29,7 @@
  * string	用户昵称
  */
 @property(nonatomic ,copy)NSString *screen_name;
+@property(nonatomic,strong)UIImageView *iconImageView;
 
 +(instancetype)accountWithDict:(NSDictionary*)dict;
 @end

@@ -10,5 +10,5 @@
 #import "AIStatusesModel.h"
 #import "AIUserModel.h"
 @interface AIUserInfoResultModel : AIUserModel
-
+@property(nonatomic,strong)UIImageView *iconImageV;
 @end
