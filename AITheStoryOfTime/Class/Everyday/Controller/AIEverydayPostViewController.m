@@ -134,7 +134,7 @@
         [self.navigationController popViewControllerAnimated:YES];
     }];
     [self.toolbarView setSaveImage:^{//保存按钮
-       [SCCommon saveImageToPhotoAlbum:weakSelf.image];//存至本机
+//       [SCCommon saveImageToPhotoAlbum:weakSelf.image];//存至本机
         if (!self.isSetedLine) {//如果是在设置基准线
             [self saveLineFrame];
         }
