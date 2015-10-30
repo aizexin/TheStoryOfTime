@@ -40,7 +40,7 @@ enum{
     [self initToolBar];
     
     
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTagert:self action:@selector(onClickScreenshots) NorImageName:@"album" andHeiImageName:@"album"];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTagert:self action:@selector(onClickScreenshots) NorImageName:@"pic_icon" andHeiImageName:@"pic_icon"];
     self.title = @"地图";
     //地图
     self.mapView = [[MAMapView alloc]initWithFrame:CGRectMake(0, 55, Mainsize.width, Mainsize.height-35)];

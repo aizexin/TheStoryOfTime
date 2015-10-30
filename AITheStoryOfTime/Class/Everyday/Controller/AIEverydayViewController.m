@@ -89,7 +89,7 @@ static NSString *identifier = @"AIEverydayCell";
     [super viewDidLoad];
     self.title = @"Everyday";
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTagert:self action:@selector(onClickRightItem:) NorImageName:@"playbutton_video_textpage" andHeiImageName:@"playbutton_video_textpage_press"];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTagert:self action:@selector(onClickRightItem:) NorImageName:@"videobutton_night" andHeiImageName:@"videobutton_press"];
     [self.view addSubview:self.collectionV];
 }
 #pragma mark------------点击事件------------------
@@ -141,9 +141,10 @@ static NSString *identifier = @"AIEverydayCell";
     cell.cellImage.image = nil;
     if (indexPath.item == 0) {
         //测试图片
-        cell.cellImage.image = [UIImage imageNamed:@"photo"];
-        [cell.deleteBtn setHidden:YES];
+        cell.cellImage.image = [UIImage imageNamed:@"upload_photos_night"];
+        cell.cellImage.backgroundColor = [UIColor yellowColor];
         cell.timeLabel.hidden = YES;
+        [cell.deleteBtn setHidden:YES];
     }else{
         [cell.deleteBtn setHidden:NO];
         cell.timeLabel.hidden = NO;

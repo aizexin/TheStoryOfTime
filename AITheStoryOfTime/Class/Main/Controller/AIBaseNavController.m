@@ -86,7 +86,7 @@
     if (self.viewControllers.count > 0) { // 如果现在push的不是栈底控制器(最先push进来的那个控制器)
         viewController.hidesBottomBarWhenPushed = YES;
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTagert:self action:@selector(onClickBackBtn:) NorImageName:@"navigationbar_back" andHeiImageName:@"navigationbar_back_highlighted"];
-        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTagert:self action:nil NorImageName:@"navigationbar_more" andHeiImageName:@"navigationbar_more_highlighted"];
+//        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTagert:self action:nil NorImageName:@"navigationbar_more" andHeiImageName:@"navigationbar_more_highlighted"];
     }
     [super pushViewController:viewController animated:animated];
 }

@@ -48,9 +48,10 @@
 -(UIButton *)enterTimeBtn{
     if (!_enterTimeBtn) {
         _enterTimeBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-//        _enterTimeBtn setBackgroundColor:[UIColor colorWithRed:<#(CGFloat)#> green:<#(CGFloat)#> blue:<#(CGFloat)#> alpha:<#(CGFloat)#>]
+        [_enterTimeBtn setBackgroundColor:AIColor(234, 214, 184)];
         [_enterTimeBtn addTarget:self action:@selector(onClickEnterBtn:) forControlEvents:(UIControlEventTouchUpInside)];
-        [_enterTimeBtn setImage:[UIImage imageNamed:@"GCImagePickerControllerCheckGreen"] forState:(UIControlStateNormal)];
+        [_enterTimeBtn setTitle:@"确定" forState:(UIControlStateNormal)];
+        _enterTimeBtn.layer.cornerRadius = 8;
     }
     return _enterTimeBtn;
 }
@@ -286,11 +287,10 @@
     [lastWindow addSubview:self.enterTimeBtn];
     
     [_enterTimeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(@30);
+        make.width.mas_equalTo(@60);
         make.height.mas_equalTo(@30);
         make.bottom.mas_equalTo(self.dateView.mas_top).offset = -10;
-//        make.centerX.mas_equalTo(self.view.mas_width).multipliedBy(0.5);
-        make.left.mas_equalTo(@(Mainsize.width*0.5-15));
+        make.left.mas_equalTo(@(Mainsize.width*0.5-30));
     }];
 }
 

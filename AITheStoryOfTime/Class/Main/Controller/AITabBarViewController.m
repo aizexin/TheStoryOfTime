@@ -44,21 +44,21 @@
     
     if (account.access_token) {
         AiHomeViewController *homeVC = [[AiHomeViewController alloc]init];
-        [self addOneChildVC:homeVC title:@"首页" imageName:@"tabbar_home" selImageName:@"tabbar_home_selected"];
+        [self addOneChildVC:homeVC title:@"首页" imageName:@"home_night" selImageName:@"home_press"];
     }else{
         AIOAuthViewController *oauthVC = [[AIOAuthViewController alloc]init];
-        [self addOneChildVC:oauthVC title:@"首页" imageName:@"tabbar_home" selImageName:@"tabbar_home_selected"];
+        [self addOneChildVC:oauthVC title:@"首页" imageName:@"home_night" selImageName:@"home_press"];
     }
     
     
     
     AIJokeViewController *messageVC = [[AIJokeViewController alloc]init];
-    [self addOneChildVC:messageVC title:@"笑话" imageName:@"tabbar_message_center" selImageName:@"tabbar_message_center_selected"];
+    [self addOneChildVC:messageVC title:@"笑话" imageName:@"funny_night" selImageName:@"funny_press"];
     
     AIMapViewController *discoverVC = [[AIMapViewController alloc]init];
     [self addOneChildVC:discoverVC title:@"地图" imageName:@"tabbar_discover" selImageName:@"tabbar_discover_selected"];
     AIEverydayViewController *profile = [[AIEverydayViewController alloc]init];
-    [self addOneChildVC:profile title:@"Everyday" imageName:@"tabbar_profile" selImageName:@"tabbar_profile_selected"];
+    [self addOneChildVC:profile title:@"Everyday" imageName:@"mine_night" selImageName:@"mine_press_night"];
 }
 /**
  *  添加自控制器

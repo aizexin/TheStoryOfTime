@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ScreenshotDetailViewController : UIViewController
+@interface ScreenshotDetailViewController :UIViewController
 
 @property (nonatomic, strong) UIImage *screenshotImage;
 
