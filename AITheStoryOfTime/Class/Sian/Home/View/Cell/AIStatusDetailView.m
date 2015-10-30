@@ -37,7 +37,6 @@
         [self addSubview:originalView];
         
 //        AILog(@"AIStatusOriginalView%@",NSStringFromCGRect(self.statusRetweetedView.frame));
-       #warning 没有设置frame
         AIStatusRetweetedView *statusRetweetedView = [[AIStatusRetweetedView alloc]init];
         
         self.statusRetweetedView = statusRetweetedView;

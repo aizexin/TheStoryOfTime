@@ -2683,6 +2683,7 @@
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ca829f6f-da4c-4018-a6b2-d5c13d8bfb75";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2725,6 +2726,7 @@
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ca829f6f-da4c-4018-a6b2-d5c13d8bfb75";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

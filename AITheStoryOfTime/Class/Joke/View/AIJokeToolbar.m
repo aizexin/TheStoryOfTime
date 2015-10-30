@@ -5,7 +5,6 @@
 //  Created by qianfeng on 15/10/25.
 //  Copyright (c) 2015年 aizexin. All rights reserved.
 //
-#warning 没网到有网
 #import "AIJokeToolbar.h"
 #import "AIFixScreen.h"
 #import "AIJokeGroupModel.h"
