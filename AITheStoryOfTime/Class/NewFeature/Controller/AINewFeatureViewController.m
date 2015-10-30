@@ -5,12 +5,14 @@
 //  Created by 艾泽鑫 on 15/10/3.
 //  Copyright © 2015年 aizexin. All rights reserved.
 //
+#warning 吃完饭让DDVC懒加载
 
 #import "AINewFeatureViewController.h"
 #import "AITabBarViewController.h"
 #import "UIView+AIExtension.h"
 #import "DDMenuController.h"
 #import "AIBirthViewController.h"
+#import "AppDelegate.h"
 #define ImageCount 4
 @interface AINewFeatureViewController ()<UIScrollViewDelegate>
 @property(nonatomic,weak)UIPageControl *pageControl;
@@ -23,7 +25,7 @@
     //1.添加UIScrollView
     [self setupScrollView];
     //2.添加pageControl
-    [self setupPageControl];
+//    [self setupPageControl];
 }
 #pragma mark -添加ScrollView
 - (void)setupScrollView{
@@ -104,14 +106,14 @@
 
 #pragma mark -按钮点击事件
 -(void)onClickStartBtn{
-    AITabBarViewController *tabBarVC = [[AITabBarViewController alloc]init];
+//    AITabBarViewController *tabBarVC = [[AITabBarViewController alloc]init];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    DDMenuController *ddmVC = [[DDMenuController alloc]initWithRootViewController:tabBarVC];
-    //添加左边birth页面
-    AIBirthViewController *birthVC = [[AIBirthViewController alloc]init];
-    ddmVC.leftViewController = birthVC;
-    
-    window.rootViewController = ddmVC;
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    window.rootViewController = app.ddVC;
+//    app.ddVC = [[DDMenuController alloc]initWithRootViewController:tabBarVC];
+//    //添加左边birth页面
+//    AIBirthViewController *birthVC = [[AIBirthViewController alloc]init];
+//    app.ddVC.leftViewController = birthVC;
     
 //    window.rootViewController = [[AITabBarViewController alloc]init];
 }

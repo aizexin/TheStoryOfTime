@@ -28,6 +28,10 @@
 #import "AIAccountTool.h"
 #import "AIAccountModel.h"
 #import "AIHttpTool.h"
+#import "DDMenuController.h"
+#import "AppDelegate.h"
+#import "DDMenuController.h"
+#import "AIBirthViewController.h"
 @interface AIOAuthViewController ()<UIWebViewDelegate>
 @end
 
@@ -105,7 +109,8 @@
         //得到的accessToken写入沙盒
         [AIAccountTool save:model];
         //选着控制器
-        [AIControllerTool chooseRootController];
+        [self jump2TabbarVC];
+        
     } failure:^(NSError *error) {
         AILog(@"请求失败%@",error.description);
     }];
@@ -119,6 +124,19 @@
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
     [MBProgressHUD hideHUD];
+}
+-(void)jump2TabbarVC{
+    
+    //直接跳转到tabBarVC
+    AITabBarViewController *tabBarVC = [[AITabBarViewController alloc]init];
+    DDMenuController *ddVC = [[DDMenuController alloc]initWithRootViewController:tabBarVC];
+    //添加左边birth页面
+    AIBirthViewController *birthVC = [[AIBirthViewController alloc]init];
+    ddVC.leftViewController = birthVC;
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    app.ddVC = ddVC;
+    window.rootViewController = app.ddVC;
 }
 
 @end

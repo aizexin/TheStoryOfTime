@@ -103,6 +103,9 @@
 
 #define AILinkDidSelectedNotification @"AILinkDidSelectedNotification"
 
+//通知DDMenu
+#define AIChange2LeftVC @"AIChange2LeftVC"
+
 //-------------------------------Birth相关--------------------------
 #define AIBirthShowScale (280.0/320)
 #define kMenuDisplayedWidth Mainsize.width *(280.0/320)

@@ -18,6 +18,7 @@
 #import "AIJokeDefine.h"
 #import "NSDate+DateTools.h"
 #import "MJRefresh.h"
+#import "AIHttpTool.h"
 @interface AIJokeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,weak)UITableView *tableView;
 /**
@@ -54,11 +55,27 @@
     [super viewDidLoad];
     self.title = @"笑话";
     self.automaticallyAdjustsScrollViewInsets = NO;
+    //判断是否有网
+    if (![AIHttpTool isReachable]) {
+        
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"picture_timeout_night"]];
+        imageView.userInteractionEnabled = YES;
+        imageView.center = self.view.center;
+        [self.view addSubview:imageView];
+        //添加手势
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(reloadView)];
+        [imageView addGestureRecognizer:tap];
+        [self.view setBackgroundColor:[UIColor whiteColor]];
+        return;
+    }
     [self initTableView];
 
     //加载刷新控件
     [self setupRefresh];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(shareBtnDidSelected:) name:AIJokeShareEventNotification object:nil];
+}
+-(void)reloadView{
+    [self viewDidLoad];
 }
 //- (void)viewWillDisappear:(BOOL)animated{
 //    [super viewWillDisappear:animated];
@@ -97,8 +114,7 @@
 -(void)shareBtnDidSelected:(NSNotification*)notifi{
     NSString *joke = notifi.userInfo[@"jokeContent"];
     [UMSocialSnsService presentSnsIconSheetView:self appKey:AIUMAPPKEY shareText:joke shareImage:[UIImage imageNamed:@"AppIcon"] shareToSnsNames:[NSArray arrayWithObjects:
-                                                                                                                                                     UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToQQ,
-                                                                                                                                                     UMShareToQzone,
+                                                                                                                                                     UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,
                                                                                                                                                      nil] delegate:self];
     //2.纯文字，点击不会跳转
         [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeText;

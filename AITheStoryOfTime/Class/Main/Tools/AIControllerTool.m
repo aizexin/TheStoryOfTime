@@ -7,15 +7,18 @@
 // 控制器相关操作
 
 #import "AIControllerTool.h"
-#import "AITabBarViewController.h"
+//#import "AITabBarViewController.h"
 #import "AINewFeatureViewController.h"
 #import "DDMenuController.h"
-#import "AIBirthViewController.h"
+#import "AppDelegate.h"
+@interface AIControllerTool ()
+
+@end
 @implementation AIControllerTool
 +(void)chooseRootController{
  
     //切换控制器(tabBar或者是新特性)
-    AITabBarViewController *tabBarVC = [[AITabBarViewController alloc]init];
+//    AITabBarViewController *tabBarVC = [[AITabBarViewController alloc]init];
     //判断版本号
     NSString *versionKey = (__bridge NSString*)kCFBundleVersionKey;
     NSUserDefaults *defalut = [NSUserDefaults standardUserDefaults];
@@ -25,12 +28,16 @@
     NSString *currentVersion = [NSBundle mainBundle].infoDictionary[versionKey];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     if ([lastVersion isEqualToString:currentVersion]) { //不是第一次进入
-        DDMenuController *ddmVC = [[DDMenuController alloc]initWithRootViewController:tabBarVC];
+
+        AppDelegate *app = [UIApplication sharedApplication].delegate;
+//        app.ddVC  = [[DDMenuController alloc]initWithRootViewController:tabBarVC];
         //添加左边birth页面
-        AIBirthViewController *birthVC = [[AIBirthViewController alloc]init];
-        ddmVC.leftViewController = birthVC;
+//        AIBirthViewController *birthVC = [[AIBirthViewController alloc]init];
+//        app.ddVC.leftViewController = birthVC;
         
-        window.rootViewController = ddmVC;
+        window.rootViewController = app.ddVC;
+        //监听通知改变到左视图
+//        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(change2LeftVC) name:AIChange2LeftVC object:nil];
         
     }else{ //第一次进入
         AINewFeatureViewController *newFeature = [[AINewFeatureViewController alloc]init];
@@ -39,4 +46,6 @@
         [defalut synchronize];
     }
 }
+
+
 @end

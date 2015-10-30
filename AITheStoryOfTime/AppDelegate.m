@@ -15,19 +15,27 @@
 #import "UMSocialWechatHandler.h"
 #import "UMSocialQQHandler.h"
 #import <MAMapKit/MAMapKit.h>
+#import "AIBirthViewController.h"
+#import "AITabBarViewController.h"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+-(DDMenuController *)ddVC{
+    if (!_ddVC) {
+        AITabBarViewController *tabBarVC = [[AITabBarViewController alloc]init];
+        _ddVC = [[DDMenuController alloc]initWithRootViewController:tabBarVC];
+        //添加左边birth页面
+        AIBirthViewController *birthVC = [[AIBirthViewController alloc]init];
+        _ddVC.leftViewController = birthVC;
+    }
+    return _ddVC;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //显示状态条
-    if ([UIApplication sharedApplication].statusBarHidden == YES) {
-        //iOS7，需要plist里设置 View controller-based status bar appearance 为NO
-        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
-    }
+    
     //高德地图
     [MAMapServices sharedServices].apiKey = AIMAPKEY;
     //分享
@@ -41,7 +49,7 @@
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds ;
 
-    [UMSocialData setAppKey:AIUMAPPKEY];
+   
     [self.window makeKeyAndVisible];
     [AIControllerTool chooseRootController];
     

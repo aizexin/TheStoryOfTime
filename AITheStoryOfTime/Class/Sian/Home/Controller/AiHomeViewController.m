@@ -27,6 +27,10 @@
 #import "AIStatusFrame.h"
 #import "AIHomeHttpLinkViewController.h"
 #import "DDMenuController.h"
+#import "AIBirthViewController.h"
+#import "AITabBarViewController.h"
+#import "AIOAuthViewController.h"
+#import "AppDelegate.h"
 #define TipsLabelH 35
 #define TipsLabelW Mainsize.width
 
@@ -84,6 +88,7 @@
     [super viewDidLoad];
     
     [self.view addSubview:self.tableView];
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"首页";
     self.tableView.backgroundColor = AITabelViewBgColor;
@@ -91,7 +96,10 @@
     [self.tableView setSeparatorStyle:(UITableViewCellSeparatorStyleNone)];
     AILog(@"%@",NSHomeDirectory());
     //设置导航栏内容
-    [self setupNavBar];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self setupNavBar];
+    });
 
     //集成刷新控件
     [self setupRefresh];
@@ -301,30 +309,41 @@
 -(void)setupNavBar{
     //设置导航栏左右按钮
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTagert:self action:@selector(onClickLeftItem:) NorImageName:@"navigationbar_friendsearch" andHeiImageName:@"navigationbar_friendsearch_highlighted"];
-//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTagert:self action:nil NorImageName:@"navigationbar_pop" andHeiImageName:@"navigationbar_pop_highlighted"];
-    
-    //
-    
-    AIHomeTitleButton *titleBtn = [[AIHomeTitleButton alloc]init];
-    _titleBtn = titleBtn;
-//    titleBtn.height = HomeTitleH;
-    titleBtn.frame = CGRectMake(0, 0, 30, HomeTitleH);
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"退出" style:(UIBarButtonItemStylePlain) target:self action:@selector(onClickRightItem)];
     //设置标题昵称
     //1获得用户信息
     AIAccountModel *account = [AIAccountTool account];
     if (account.screen_name) {//看沙盒中有没有上次数据
-        [titleBtn setTitle:account.screen_name forState:(UIControlStateNormal)];
-        
+//        [self setTitle:account.screen_name forState:(UIControlStateNormal)];
+        self.navigationItem.title =account.screen_name;
     }else{
-        [titleBtn setTitle:@"首页" forState:(UIControlStateNormal)];
+        self.navigationItem.title = @"首页";
+//        [titleBtn setTitle:@"首页" forState:(UIControlStateNormal)];
     }
-    [titleBtn setImage:account.iconImageView.image forState:(UIControlStateNormal)];
+//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTagert:self action:nil NorImageName:@"navigationbar_pop" andHeiImageName:@"navigationbar_pop_highlighted"];
+    
+    //
+    
+//    AIHomeTitleButton *titleBtn = [[AIHomeTitleButton alloc]init];
+//    _titleBtn = titleBtn;
+////    titleBtn.height = HomeTitleH;
+//    titleBtn.frame = CGRectMake(0, 0, 30, HomeTitleH);
+//    //设置标题昵称
+//    //1获得用户信息
+//    AIAccountModel *account = [AIAccountTool account];
+//    if (account.screen_name) {//看沙盒中有没有上次数据
+//        [titleBtn setTitle:account.screen_name forState:(UIControlStateNormal)];
+//        
+//    }else{
+//        [titleBtn setTitle:@"首页" forState:(UIControlStateNormal)];
+//    }
+//    [titleBtn setImage:account.iconImageView.image forState:(UIControlStateNormal)];
     
 //    UIImage *higImage = [UIImage resizedImage:@"navigationbar_filter_background_highlighted"];
 //    [titleBtn setBackgroundImage:higImage forState:(UIControlStateHighlighted)];
 //    [titleBtn addTarget:self action:@selector(onClickTitleItem:) forControlEvents:(UIControlEventTouchUpInside)];
 //    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:(UIControlStateNormal)];
-    self.navigationItem.titleView = titleBtn;
+//    self.navigationItem.titleView = titleBtn;
     
 }
 
@@ -333,10 +352,9 @@
  *  点击做按钮
  */
 -(void)onClickLeftItem:(UIBarButtonItem*)item{
-    DDMenuController *ddVC = (DDMenuController*)[UIApplication alloc].keyWindow.rootViewController;
-    [ddVC showLeftController:YES];
-//    AITemp1ViewController *temp1VC = [[AITemp1ViewController alloc]init];
-//    [self.navigationController pushViewController:temp1VC animated:YES];
+  
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    [app.ddVC showLeftController:YES];
 }
 /**
  *  点击标题
@@ -353,6 +371,8 @@
         [_popMenu dismiss];
     }
 }
+
+
 
 #pragma  mark -AIPopMenuDelegate
 -(void)popMenuDisMiss:(AIPopMenu *)popMenu{

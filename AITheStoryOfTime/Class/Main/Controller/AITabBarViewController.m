@@ -28,6 +28,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //显示状态条
+    if ([UIApplication sharedApplication].statusBarHidden == YES) {
+        //iOS7，需要plist里设置 View controller-based status bar appearance 为NO
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    }
     //添加子视图控制器
     [self addAllChildVcs];
     
