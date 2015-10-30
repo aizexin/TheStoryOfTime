@@ -7,7 +7,7 @@
 //
 
 #import "AISearchBar.h"
-#import "UIView+AIExtension.h"
+//#import "UIView+AIExtension.h"
 #import "UIImage+Extension.h"
 @implementation AISearchBar
 
@@ -22,7 +22,8 @@
         
         //设置左边放大镜
         UIImageView *imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"searchbar_textfield_search_icon"]];
-        imageV.size = CGSizeMake(imageV.height+10, imageV.height);
+//        imageV.size = CGSizeMake(imageV.height+10, imageV.height);
+        imageV.frame = CGRectMake(0, 0, imageV.frame.size.height+10, imageV.frame.size.height);
         imageV.contentMode = UIViewContentModeCenter;
         self.leftView = imageV;
         

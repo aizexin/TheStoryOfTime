@@ -7,7 +7,7 @@
 //
 
 #import "UIBarButtonItem+AIExtension.h"
-#import "UIView+AIExtension.h"
+//#import "UIView+AIExtension.h"
 @implementation UIBarButtonItem(AIExtension)
 +(UIBarButtonItem*)itemWithTagert:(id)tagert action:(SEL)sel NorImageName:(NSString*)norImageName andHeiImageName:(NSString*)higImageName{
     UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
@@ -18,7 +18,8 @@
     [btn setBackgroundImage:higImage forState:(UIControlStateHighlighted)];
     [btn addTarget:tagert action:sel forControlEvents:(UIControlEventTouchUpInside)];
     // 设置按钮的尺寸为背景图片的尺寸
-    btn.size = btn.currentBackgroundImage.size;
+//    btn.size = btn.currentBackgroundImage.size;
+    btn.frame = (CGRect){0,0,btn.currentBackgroundImage.size};
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:btn];
     return item;
 }

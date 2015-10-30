@@ -9,7 +9,7 @@
 #import "AIStatusPhotoView.h"
 #import "UIImageView+AFNetworking.h"
 #import "AIPhoto.h"
-#import "UIView+AIExtension.h"
+//#import "UIView+AIExtension.h"
 @interface AIStatusPhotoView ()
 @property(nonatomic,weak)UIImageView *gifImageView;
 @end
@@ -32,8 +32,12 @@
 }
 
 -(void)layoutSubviews{
-    self.gifImageView.x = self.width - _gifImageView.width;
-    self.gifImageView.y = self.height - _gifImageView.height;
+    CGRect rect = self.gifImageView.frame;
+    rect.origin.x = Mainsize.width - _gifImageView.frame.size.width;
+    rect.origin.y = Mainsize.height - _gifImageView.frame.size.height;
+    self.gifImageView.frame = rect;
+//    self.gifImageView.x = self.width - _gifImageView.width;
+//    self.gifImageView.y = self.height - _gifImageView.height;
 }
 
 -(void)setPhoto:(AIPhoto *)photo{

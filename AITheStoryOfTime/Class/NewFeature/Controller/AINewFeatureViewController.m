@@ -9,7 +9,7 @@
 
 #import "AINewFeatureViewController.h"
 #import "AITabBarViewController.h"
-#import "UIView+AIExtension.h"
+//#import "UIView+AIExtension.h"
 #import "DDMenuController.h"
 #import "AIBirthViewController.h"
 #import "AppDelegate.h"
@@ -39,9 +39,10 @@
 //            imageName = [imageName stringByAppendingString:@"-568h"];
 //        }
         UIImageView *imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:imageName]];
-        imageV.size = Mainsize;
-        imageV.y = 0;
-        imageV.x = Mainsize.width * i;
+//        imageV.size = Mainsize;
+//        imageV.y = 0;
+//        imageV.x = Mainsize.width * i;
+        imageV.frame = (CGRect){Mainsize.width * i,0,Mainsize};
         [scrollV addSubview:imageV];
         if (i == ImageCount - 1) {
             [self setupLastImageView:imageV];
@@ -69,7 +70,8 @@
     //设置背景图片
     [starBtn setBackgroundImage:[UIImage imageNamed:@"new_feature_finish_button"] forState:(UIControlStateNormal)];
     [starBtn setBackgroundImage:[UIImage imageNamed:@"new_feature_finish_button_highlighted"] forState:(UIControlStateHighlighted)];
-    starBtn.size = starBtn.currentBackgroundImage.size;
+//    starBtn.size = starBtn.currentBackgroundImage.size;
+    starBtn.frame = (CGRect){0,0,starBtn.currentBackgroundImage.size};
     CGPoint center= CGPointMake(self.view.frame.size.width *0.5, self.view.frame.size.height * 0.8);
     starBtn.center = center;
 //    starBtn.centerX = self.view.width *0.5;
@@ -84,7 +86,8 @@
  */
 -(void)setupShareButton:(UIImageView*)imageView{
     UIButton *shareBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    shareBtn.size = CGSizeMake(150, 35);
+//    shareBtn.size = CGSizeMake(150, 35);
+    shareBtn.frame = CGRectMake(0, 0, 150, 35);
     CGPoint center = CGPointMake(self.view.frame.size.width *0.5, self.view.frame.size.height * 0.7);
     shareBtn.center = center;
 //    shareBtn.centerX = self.view.width *0.5;
@@ -127,7 +130,7 @@
     pageControl.numberOfPages = ImageCount;
     pageControl.pageIndicatorTintColor = AIColor(189, 189, 189);
     pageControl.currentPageIndicatorTintColor = AIColor(253, 98, 42); // 当前页的小圆点颜色
-    CGPoint centerPoint = CGPointMake(self.view.width * 0.5, self.view.height - 30);
+    CGPoint centerPoint = CGPointMake(self.view.frame.size.width * 0.5, self.view.frame.size.height - 30);
     pageControl.center = centerPoint;
 
     self.pageControl = pageControl;
@@ -136,7 +139,7 @@
 
 #pragma mark -UIScrollViewDelegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    float floatPageNum = scrollView.contentOffset.x / scrollView.width;
+    float floatPageNum = scrollView.contentOffset.x / scrollView.frame.size.width;
     int intPageNum = (int)(floatPageNum + 0.5);
     self.pageControl.currentPage = intPageNum;
 }

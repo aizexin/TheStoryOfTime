@@ -8,7 +8,7 @@
 
 #import "AIPopMenu.h"
 #import "UIImage+Extension.h"
-#import "UIView+AIExtension.h"
+//#import "UIView+AIExtension.h"
 @interface AIPopMenu ()
 /**
  *  内容
@@ -90,10 +90,10 @@
     CGFloat rightMargin = 5;
     CGFloat bottomMargin = 8;
     
-    self.contentView.y = topMargin;
-    self.contentView.x = leftMargin;
-    self.contentView.width = self.container.width - leftMargin - rightMargin;
-    self.contentView.height = self.container.height - topMargin - bottomMargin;
+//    self.contentView.y = topMargin;
+//    self.contentView.x = leftMargin;
+//    self.contentView.width = self.container.width - leftMargin - rightMargin;
+//    self.contentView.height = self.container.height - topMargin - bottomMargin;
 }
 -(void)dismiss{
     if ([self.delegate respondsToSelector:@selector(popMenuDisMiss:)]) {

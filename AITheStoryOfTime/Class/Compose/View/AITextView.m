@@ -8,7 +8,7 @@
 
 #import "AITextView.h"
 #import "AIDefine.h"
-#import "UIView+AIExtension.h"
+//#import "UIView+AIExtension.h"
 @interface AITextView ()
 @property(nonatomic,weak)UILabel *placeholderLabel;
 @end
@@ -49,9 +49,10 @@
     NSMutableDictionary *paramDictM = [NSMutableDictionary dictionary];
     paramDictM[NSFontAttributeName] = self.placeholderLabel.font;
     CGSize size = [self.placeholderLabel.text boundingRectWithSize:maxSize options:(NSStringDrawingUsesLineFragmentOrigin) attributes:paramDictM context:nil].size;
-    self.placeholderLabel.size = size;
-    self.placeholderLabel.x = 5;
-    self.placeholderLabel.y = 8;
+    self.frame = (CGRect){5,8,size};
+//    self.placeholderLabel.size = size;
+//    self.placeholderLabel.x = 5;
+//    self.placeholderLabel.y = 8;
 }
 #pragma mark -共有方法
 - (void)setText:(NSString *)text

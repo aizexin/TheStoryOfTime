@@ -9,7 +9,7 @@
 #import "AIStatusPhotosView.h"
 #import "AIStatusPhotoView.h"
 #import "MJPhotoBrowser.h"
-#import "UIView+AIExtension.h"
+//#import "UIView+AIExtension.h"
 #import "MJPhoto.h"
 #import "AIPhoto.h"
 #define AIStatusPhotoW 70
@@ -73,10 +73,15 @@
     int maxCols = AIStatusPhotosMaxCols(count);
     for (int i = 0; i<count; i++) {
         AIStatusPhotoView *photoView = self.subviews[i];
-        photoView.width = AIStatusPhotoW;
-        photoView.height = AIStatusPhotoH;
-        photoView.x = (i % maxCols) * (AIStatusPhotoW + AIStatusPhotoMargin);
-        photoView.y = (i / maxCols) * (AIStatusPhotoH + AIStatusPhotoMargin);
+        CGFloat photoViewX = (i % maxCols) * (AIStatusPhotoW + AIStatusPhotoMargin);
+        CGFloat photoViewY = (i / maxCols) * (AIStatusPhotoH + AIStatusPhotoMargin);
+        CGFloat photoViewW = AIStatusPhotoW;
+        CGFloat photoViewH = AIStatusPhotoH;
+        photoView.frame = CGRectMake(photoViewX, photoViewY, photoViewW, photoViewH);
+//        photoView.width = AIStatusPhotoW;
+//        photoView.height = AIStatusPhotoH;
+//        photoView.x = (i % maxCols) * (AIStatusPhotoW + AIStatusPhotoMargin);
+//        photoView.y = (i / maxCols) * (AIStatusPhotoH + AIStatusPhotoMargin);
     }
   
 }

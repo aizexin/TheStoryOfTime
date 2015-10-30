@@ -213,8 +213,18 @@
 
 -(void)refreshAndLoad{
  
-    //2.加载
-    [self.tableView addFooterWithCallback:^{
+//    //2.加载
+//    [self.tableView addFooterWithCallback:^{
+//        if (self.isLoading) {
+//            return ;
+//        }
+//        self.loading = YES;
+//        //重新加载数据
+//        _loading = NO;
+//        [self loadMoreData];
+//        [self.tableView footerEndRefreshing];
+//    }];
+    self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         if (self.isLoading) {
             return ;
         }
@@ -222,9 +232,8 @@
         //重新加载数据
         _loading = NO;
         [self loadMoreData];
-        [self.tableView footerEndRefreshing];
+        [self.tableView.footer endRefreshing];
     }];
-    
 }
 /**
  *  加载更多数据

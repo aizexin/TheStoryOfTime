@@ -5,7 +5,6 @@
 //  Created by qianfeng on 15/9/26.
 //  Copyright (c) 2015年 aizexin. All rights reserved.
 //
-#warning 还没判断网络状态
 
 #import "AiHomeViewController.h"
 #import "AITemp1ViewController.h"
@@ -20,7 +19,7 @@
 #import "AIStatusesModel.h"
 #import "UIImageView+AFNetworking.h"
 #import "AIUserModel.h"
-#import "AILoadMoreFooter.h"
+//#import "AILoadMoreFooter.h"
 #import "MJRefresh.h"
 #import "AIStatusesTool.h"
 #import "AIStatusCell.h"
@@ -42,7 +41,7 @@
 @property(nonatomic,strong)AIHomeTitleButton *titleBtn;
 @property(nonatomic,strong)AIPopMenu *popMenu;
 @property(nonatomic,strong)NSMutableArray *statusesFrames;
-@property(nonatomic,strong)AILoadMoreFooter *footer;
+//@property(nonatomic,strong)AILoadMoreFooter *footer;
 
 /**
  *  是否在刷新
@@ -68,12 +67,12 @@
     return _tableView;
 }
 
--(AILoadMoreFooter *)footer{
-    if (!_footer) {
-        _footer = [AILoadMoreFooter footer];
-    }
-    return _footer;
-}
+//-(AILoadMoreFooter *)footer{
+//    if (!_footer) {
+//        _footer = [AILoadMoreFooter footer];
+//    }
+//    return _footer;
+//}
 
 -(NSMutableArray *)statusesFrames{
     if (!_statusesFrames) {
@@ -211,17 +210,26 @@
         [self.tableView headerEndRefreshing];
     }];*/
     //2.加载
-    [self.tableView addFooterWithCallback:^{
+//    [self.tableView addFooterWithCallback:^{
+//        if (self.isLoading) {
+//            return ;
+//        }
+//        self.loading = YES;
+//        //重新加载数据
+//        _loading = NO;
+//        [self loadMoreData];
+//        [self.tableView footerEndRefreshing];
+//    }];
+    self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         if (self.isLoading) {
-            return ;
-        }
-        self.loading = YES;
-        //重新加载数据
-        _loading = NO;
-        [self loadMoreData];
-        [self.tableView footerEndRefreshing];
-    }];
-    
+                return ;
+            }
+            self.loading = YES;
+            //重新加载数据
+            _loading = NO;
+            [self loadMoreData];
+            [self.tableView.footer endRefreshing];
+        }];
 }
 /**
  *  加载更多数据
@@ -267,7 +275,7 @@
     UILabel *label = [[UILabel alloc]init];
     
     if (count) {
-        label.text = [NSString stringWithFormat:@"共有%ld条新数据",count];
+        label.text = [NSString stringWithFormat:@"共有%d条新数据",count];
     }else{
         label.text = @"没有新数据";
     }
@@ -380,11 +388,11 @@
     [popMenu removeFromSuperview];
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (self.statusesFrames > 0) {
-        self.footer.hidden = NO;
-    }
-}
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    if (self.statusesFrames > 0) {
+//        self.footer.hidden = NO;
+//    }
+//}
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
