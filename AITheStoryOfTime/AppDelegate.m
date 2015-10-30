@@ -13,7 +13,7 @@
 #import "UMSocial.h"
 #import "UMSocialSinaSSOHandler.h"
 #import "UMSocialWechatHandler.h"
-#import "UMSocialQQHandler.h"
+//#import "UMSocialQQHandler.h"
 #import <MAMapKit/MAMapKit.h>
 #import "AIBirthViewController.h"
 #import "AITabBarViewController.h"
@@ -43,7 +43,7 @@
     [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:AIAppRediectURI];
     [UMSocialWechatHandler setWXAppId:AIWeChatAPPID appSecret:AIWeChatAPPSecret url:AIAppRediectURI];
 
-    [UMSocialQQHandler setQQWithAppId:AIQQAPPID appKey:AIQQAPPSecret url:AIAppRediectURI];
+//    [UMSocialQQHandler setQQWithAppId:AIQQAPPID appKey:AIQQAPPSecret url:AIAppRediectURI];
     
     
     self.window = [[UIWindow alloc]init];
