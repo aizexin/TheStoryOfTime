@@ -171,6 +171,7 @@ static NSString *identifier = @"AIEverydayCell";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.item == 0) {//开始照相等功能
         SCCaptureCameraController *cameraVC = [[SCCaptureCameraController alloc]init];
+        cameraVC.isStatusBarHiddenBeforeShowCamera = NO;
         [self.navigationController pushViewController:cameraVC animated:YES];
     }
     

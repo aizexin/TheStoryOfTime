@@ -20,9 +20,7 @@
 }
 -(void)onClickShare{
     [UMSocialSnsService presentSnsIconSheetView:self appKey:AIUMAPPKEY shareText:@"xxxx" shareImage:self.screenshotImage shareToSnsNames:[NSArray arrayWithObjects:
-                                                                                                                                                     UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToQQ,
-                                                                                                                                                     UMShareToQzone,
-                                                                                                                                                     nil] delegate:self];
+                                                                                                                                          UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,nil] delegate:self];
         //分享微信的时候选择消息类型
         //1.纯图片
         [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;

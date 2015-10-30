@@ -60,37 +60,37 @@
     [self setupRefresh];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(shareBtnDidSelected:) name:AIJokeShareEventNotification object:nil];
 }
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    //先清空数据库
-    [AIJokeTool cleanJoke];
-    //存储前20条数据
-    NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:20];
-    if (self.dataSourceM.count >= 20) {
-        for (int i = 0; i < 20; i++) {
-            AIJokeCellFrameModel *cellFrameModel = _dataSourceM[i];
-            if (cellFrameModel.groupModel) {//防止不是20的倍数条
-                [arrayM addObject:cellFrameModel.groupModel];
-            }
-        }
-    }
-    [AIJokeTool save20Joke:arrayM];
-}
--(void)viewWillAppear:(BOOL)animated{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        NSArray *array =[AIJokeTool readJokeTable];
-        for (AIJokeGroupModel *groupModel in array) {
-            
-            AIJokeCellFrameModel *cellFrameModel = [[AIJokeCellFrameModel alloc]init];
-            cellFrameModel.groupModel = groupModel;
-            [self.dataSourceM addObject:cellFrameModel];
-        }
-    });
-    
-    [super viewWillAppear:animated];
-}
+//- (void)viewWillDisappear:(BOOL)animated{
+//    [super viewWillDisappear:animated];
+//    //先清空数据库
+//    [AIJokeTool cleanJoke];
+//    //存储前20条数据
+//    NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:20];
+//    if (self.dataSourceM.count >= 20) {
+//        for (int i = 0; i < 20; i++) {
+//            AIJokeCellFrameModel *cellFrameModel = _dataSourceM[i];
+//            if (cellFrameModel.groupModel) {//防止不是20的倍数条
+//                [arrayM addObject:cellFrameModel.groupModel];
+//            }
+//        }
+//    }
+//    [AIJokeTool save20Joke:arrayM];
+//}
+//-(void)viewWillAppear:(BOOL)animated{
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        
+//        NSArray *array =[AIJokeTool readJokeTable];
+//        for (AIJokeGroupModel *groupModel in array) {
+//            
+//            AIJokeCellFrameModel *cellFrameModel = [[AIJokeCellFrameModel alloc]init];
+//            cellFrameModel.groupModel = groupModel;
+//            [self.dataSourceM addObject:cellFrameModel];
+//        }
+//    });
+//    
+//    [super viewWillAppear:animated];
+//}
 
 
 #pragma mark -----------通知----------------

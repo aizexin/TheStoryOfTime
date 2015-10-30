@@ -23,6 +23,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //显示状态条
+    if ([UIApplication sharedApplication].statusBarHidden == YES) {
+        //iOS7，需要plist里设置 View controller-based status bar appearance 为NO
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    }
     //高德地图
     [MAMapServices sharedServices].apiKey = AIMAPKEY;
     //分享

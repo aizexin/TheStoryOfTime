@@ -37,7 +37,8 @@
 @property(nonatomic,assign,getter=isSettingLine)BOOL settingLine;
 /**是否已经设置了基准线*/
 @property(nonatomic,assign,getter=isSetedLine)BOOL setedLine;
-
+/**提示条*/
+@property(nonatomic,strong)UILabel *tipsLabel;
 
 
 @end
@@ -67,34 +68,49 @@
     return _noseLineView;
 }
 
+-(UILabel *)tipsLabel{
+    if (!_tipsLabel) {
+        _tipsLabel = [[UILabel alloc]init];
+        _tipsLabel.numberOfLines = 0;
+        _tipsLabel.text = @"想要重设基准线必须删除全部图片哦~";
+    }
+    return _tipsLabel;
+}
 #pragma mark ----------------初始化----------------------
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    AILog(@"isSetedLine%d",self.isSetedLine);
-    
     [self setupUI];
     [self setupData];
+ 
     
 }
 #pragma mark ----------------UI----------------------
 -(void)setupUI{
     //获得的相片
     UIImageView *imageV = [[UIImageView alloc]init];
-    imageV.backgroundColor = [UIColor redColor];
     self.imageV = imageV;
     [self.view addSubview:imageV];
+    //提示栏
+    [self.view addSubview:self.tipsLabel];
     //工具栏
     AIEverydayToolbar *toolbar = [[AIEverydayToolbar alloc]init];
     self.toolbarView = toolbar;
-    toolbar.backgroundColor = AIRandomColor;
     [self.view addSubview:toolbar];
     //屏幕适配
     [self fitScreen];
-//    AILog(@"%@",NSStringFromCGRect(toolbar.frame));
 }
 -(void)fitScreen{
+    //相片
+    self.imageV.frame = AIEverydayPhotoRect;
+    //tipsLabel
+    [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(@0);
+        make.right.mas_equalTo(@0);
+        make.top.mas_equalTo(self.imageV.mas_bottom).offset = 0;
+        make.bottom.mas_equalTo(self.toolbarView.mas_top).offset = 0;
+//        make.height.mas_equalTo(@(AIEverydayToolBarHeight));
+    }];
     //工具栏
     [self.toolbarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(@0);
@@ -102,8 +118,8 @@
         make.right.mas_equalTo(@0);
         make.height.mas_equalTo(@(AIEverydayToolBarHeight));
     }];
-    //相片
-    self.imageV.frame = AIEverydayPhotoRect;
+    
+    
     
 }
 #pragma mark --------------数据 toolbar响应事件---------------------
@@ -204,6 +220,7 @@
     if (!self.isSetedLine) {//如果没有设置基准线
         //设置基准线
         [self setupBaseLine];
+        self.tipsLabel.text = @"用基准线来固定你的眼睛鼻子嘴,下次使用更方便哦~";
     }
 }
 @end

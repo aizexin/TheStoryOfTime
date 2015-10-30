@@ -393,7 +393,7 @@
    UIImage *shareImage = [AIScreenTool screenWithSize:self.bgView.bounds.size inView:self.bgView];
     
     [UMSocialSnsService presentSnsIconSheetView:window.rootViewController appKey:AIUMAPPKEY shareText:@"时间,时间" shareImage:shareImage shareToSnsNames:[NSArray arrayWithObjects:
-                                                                                                                                                     UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToQQ,nil] delegate:self];
+                                                                                                                                                     UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,nil] delegate:self];
 //    //分享微信的时候选择消息类型
 //    //1.纯图片
     [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
