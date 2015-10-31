@@ -2580,8 +2580,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: zexin ai (58988ATJQN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: zexin ai (Y56852HD87)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: zexin ai (Y56852HD87)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
@@ -2606,7 +2606,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "ca829f6f-da4c-4018-a6b2-d5c13d8bfb75";
+				PROVISIONING_PROFILE = "8197683b-eb32-4151-8750-b8ab807b8ae0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2629,8 +2629,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: zexin ai (58988ATJQN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: zexin ai (Y56852HD87)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: zexin ai (Y56852HD87)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
@@ -2647,7 +2647,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "ca829f6f-da4c-4018-a6b2-d5c13d8bfb75";
+				PROVISIONING_PROFILE = "8197683b-eb32-4151-8750-b8ab807b8ae0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -2659,8 +2659,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
-				CODE_SIGN_IDENTITY = "iPhone Developer: zexin ai (58988ATJQN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: zexin ai (Y56852HD87)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: zexin ai (Y56852HD87)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2694,7 +2694,7 @@
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ca829f6f-da4c-4018-a6b2-d5c13d8bfb75";
+				PROVISIONING_PROFILE = "8197683b-eb32-4151-8750-b8ab807b8ae0";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2704,8 +2704,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
-				CODE_SIGN_IDENTITY = "iPhone Developer: zexin ai (58988ATJQN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: zexin ai (Y56852HD87)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: zexin ai (Y56852HD87)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2738,7 +2738,7 @@
 				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ca829f6f-da4c-4018-a6b2-d5c13d8bfb75";
+				PROVISIONING_PROFILE = "8197683b-eb32-4151-8750-b8ab807b8ae0";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -2747,8 +2747,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: zexin ai (58988ATJQN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: zexin ai (Y56852HD87)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: zexin ai (Y56852HD87)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -2776,7 +2776,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "aizexin.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ca829f6f-da4c-4018-a6b2-d5c13d8bfb75";
+				PROVISIONING_PROFILE = "8197683b-eb32-4151-8750-b8ab807b8ae0";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AITheStoryOfTime.app/AITheStoryOfTime";
 			};
 			name = Debug;
@@ -2785,8 +2785,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: zexin ai (58988ATJQN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zexin ai (58988ATJQN)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: zexin ai (Y56852HD87)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: zexin ai (Y56852HD87)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -2810,7 +2810,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "aizexin.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ca829f6f-da4c-4018-a6b2-d5c13d8bfb75";
+				PROVISIONING_PROFILE = "8197683b-eb32-4151-8750-b8ab807b8ae0";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AITheStoryOfTime.app/AITheStoryOfTime";
 			};
 			name = Release;
