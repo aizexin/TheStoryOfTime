@@ -34,8 +34,9 @@
 #define TipsLabelW Mainsize.width
 
 #define HomeTitleH 35
+#define PATH [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject]stringByAppendingPathComponent:@"account"]
 
-@interface AiHomeViewController ()<AIPopMenuDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface AiHomeViewController ()<AIPopMenuDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
 @property(nonatomic,strong)UITableView *tableView;
 
 @property(nonatomic,strong)AIHomeTitleButton *titleBtn;
@@ -210,16 +211,7 @@
         [self.tableView headerEndRefreshing];
     }];*/
     //2.加载
-//    [self.tableView addFooterWithCallback:^{
-//        if (self.isLoading) {
-//            return ;
-//        }
-//        self.loading = YES;
-//        //重新加载数据
-//        _loading = NO;
-//        [self loadMoreData];
-//        [self.tableView footerEndRefreshing];
-//    }];
+
     self.tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         if (self.isLoading) {
                 return ;
@@ -317,7 +309,7 @@
 -(void)setupNavBar{
     //设置导航栏左右按钮
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTagert:self action:@selector(onClickLeftItem:) NorImageName:@"navigationbar_friendsearch" andHeiImageName:@"navigationbar_friendsearch_highlighted"];
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"退出" style:(UIBarButtonItemStylePlain) target:self action:@selector(onClickRightItem)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"退出" style:(UIBarButtonItemStylePlain) target:self action:@selector(onClickRightItem)];
     //设置标题昵称
     //1获得用户信息
     AIAccountModel *account = [AIAccountTool account];
@@ -330,28 +322,7 @@
     }
 //    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTagert:self action:nil NorImageName:@"navigationbar_pop" andHeiImageName:@"navigationbar_pop_highlighted"];
     
-    //
-    
-//    AIHomeTitleButton *titleBtn = [[AIHomeTitleButton alloc]init];
-//    _titleBtn = titleBtn;
-////    titleBtn.height = HomeTitleH;
-//    titleBtn.frame = CGRectMake(0, 0, 30, HomeTitleH);
-//    //设置标题昵称
-//    //1获得用户信息
-//    AIAccountModel *account = [AIAccountTool account];
-//    if (account.screen_name) {//看沙盒中有没有上次数据
-//        [titleBtn setTitle:account.screen_name forState:(UIControlStateNormal)];
-//        
-//    }else{
-//        [titleBtn setTitle:@"首页" forState:(UIControlStateNormal)];
-//    }
-//    [titleBtn setImage:account.iconImageView.image forState:(UIControlStateNormal)];
-    
-//    UIImage *higImage = [UIImage resizedImage:@"navigationbar_filter_background_highlighted"];
-//    [titleBtn setBackgroundImage:higImage forState:(UIControlStateHighlighted)];
-//    [titleBtn addTarget:self action:@selector(onClickTitleItem:) forControlEvents:(UIControlEventTouchUpInside)];
-//    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:(UIControlStateNormal)];
-//    self.navigationItem.titleView = titleBtn;
+
     
 }
 
@@ -363,6 +334,18 @@
   
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     [app.ddVC showLeftController:YES];
+}
+-(void)onClickRightItem{
+    UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:@"清空登录信息并且退出" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"退出" otherButtonTitles:nil, nil];
+    [sheet showInView:self.view];
+}
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager removeItemAtPath:PATH error:nil];
+        exit(0);
+    }
+    
 }
 /**
  *  点击标题
