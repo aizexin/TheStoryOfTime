@@ -38,7 +38,7 @@
 #endif
 
 #ifdef DEBUG//调试阶段的log
-#define AILog(...) NSLog(__VA_ARGS__)
+#define AILog(...) //NSLog(__VA_ARGS__)
 #else
 #define AILog(...)
 #endif

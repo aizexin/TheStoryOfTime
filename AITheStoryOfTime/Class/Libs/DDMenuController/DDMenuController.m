@@ -672,7 +672,7 @@
     
     if (navController == nil) {
        
-        NSLog(@"root controller is not a navigation controller.");
+        AILog(@"root controller is not a navigation controller.");
         return;
     }
     
