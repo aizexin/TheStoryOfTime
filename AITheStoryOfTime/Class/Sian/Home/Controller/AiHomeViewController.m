@@ -336,7 +336,7 @@
     [app.ddVC showLeftController:YES];
 }
 -(void)onClickRightItem{
-    UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:@"清空登录信息并且退出" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"退出" otherButtonTitles:nil, nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:@"清空登录信息并且退出应用" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"退出" otherButtonTitles:nil, nil];
     [sheet showInView:self.view];
 }
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
