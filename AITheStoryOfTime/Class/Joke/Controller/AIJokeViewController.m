@@ -114,10 +114,10 @@
 -(void)shareBtnDidSelected:(NSNotification*)notifi{
     NSString *joke = notifi.userInfo[@"jokeContent"];
     [UMSocialSnsService presentSnsIconSheetView:self appKey:AIUMAPPKEY shareText:joke shareImage:[UIImage imageNamed:@"AppIcon"] shareToSnsNames:[NSArray arrayWithObjects:
-                                                                                                                                                     UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,
+                                                                                                                                                     UMShareToSina,
                                                                                                                                                      nil] delegate:self];
     //2.纯文字，点击不会跳转
-        [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeText;
+//        [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeText;
   
 }
 

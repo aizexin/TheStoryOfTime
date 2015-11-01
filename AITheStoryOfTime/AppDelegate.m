@@ -12,7 +12,7 @@
 #import "AIAccountTool.h"
 #import "UMSocial.h"
 #import "UMSocialSinaSSOHandler.h"
-#import "UMSocialWechatHandler.h"
+//#import "UMSocialWechatHandler.h"
 //#import "UMSocialQQHandler.h"
 #import <MAMapKit/MAMapKit.h>
 #import "AIBirthViewController.h"
@@ -41,8 +41,7 @@
     //分享
     [UMSocialData setAppKey:AIUMAPPKEY];
     [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:AIAppRediectURI];
-    [UMSocialWechatHandler setWXAppId:AIWeChatAPPID appSecret:AIWeChatAPPSecret url:AIAppRediectURI];
-
+//    [UMSocialWechatHandler setWXAppId:AIWeChatAPPID appSecret:AIWeChatAPPSecret url:AIAppRediectURI];
 //    [UMSocialQQHandler setQQWithAppId:AIQQAPPID appKey:AIQQAPPSecret url:AIAppRediectURI];
     
     
@@ -106,6 +105,8 @@
 {
     return  [UMSocialSnsService handleOpenURL:url];
 }
+
+
 //弹出列表方法presentSnsIconSheetView需要设置delegate为self
 -(BOOL)isDirectShareInIconActionSheet
 {

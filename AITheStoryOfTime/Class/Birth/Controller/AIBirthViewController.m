@@ -400,12 +400,15 @@
 //       _window = [[UIApplication sharedApplication].windows lastObject];
 //    });
    UIImage *shareImage = [AIScreenTool screenWithSize:self.bgView.bounds.size inView:self.bgView];
-    
+
     [UMSocialSnsService presentSnsIconSheetView:self appKey:AIUMAPPKEY shareText:@"时间,时间" shareImage:shareImage shareToSnsNames:[NSArray arrayWithObjects:
-                                                                                                                                                     UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,nil] delegate:self];
+                                                                                                                                                     UMShareToSina,
+                                                  nil] delegate:self];
+    //1.纯图片
+//    [[UMSocialData defaultData].extConfig.qqData setQqMessageType:(UMSocialQQMessageTypeDefault)];
 //    //分享微信的时候选择消息类型
 //    //1.纯图片
-    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
+//    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
 //    //2.纯文字，点击不会跳转
 //    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeText;
 //    //3.分享本应用，应用地址是微信开放平台填写的地址

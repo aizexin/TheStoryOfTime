@@ -19,11 +19,14 @@
     }];
 }
 -(void)onClickShare{
-    [UMSocialSnsService presentSnsIconSheetView:self appKey:AIUMAPPKEY shareText:@"xxxx" shareImage:self.screenshotImage shareToSnsNames:[NSArray arrayWithObjects:
-                                                                                                                                          UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,nil] delegate:self];
+   
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:AIUMAPPKEY shareText:@"我的路径" shareImage:self.screenshotImage shareToSnsNames:[NSArray arrayWithObjects:
+                                                                                                                                          UMShareToSina,nil] delegate:self];
+    //1.纯图片
+    //    [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage;
         //分享微信的时候选择消息类型
-        //1.纯图片
-        [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
+  
+//        [UMSocialData defaultData].extConfig.qqData = UMSocialWXMessageTypeImage;
 //        //2.纯文字，点击不会跳转
 //        [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeText;
 //        //3.分享本应用，应用地址是微信开放平台填写的地址

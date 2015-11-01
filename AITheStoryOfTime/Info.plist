@@ -35,6 +35,8 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wx47a6979c287472bb</string>
@@ -45,7 +47,15 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>tencent0x41DBA166</string>
+				<string>QQ0x41DBA166</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tencent1104912742</string>
 			</array>
 		</dict>
 	</array>
