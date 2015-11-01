@@ -106,5 +106,9 @@
 {
     return  [UMSocialSnsService handleOpenURL:url];
 }
-
+//弹出列表方法presentSnsIconSheetView需要设置delegate为self
+-(BOOL)isDirectShareInIconActionSheet
+{
+    return YES;
+}
 @end

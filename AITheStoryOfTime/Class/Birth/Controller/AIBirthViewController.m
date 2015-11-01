@@ -38,6 +38,7 @@
 @property(nonatomic,strong)NSDate *maxDate;
 /**确定时间按钮*/
 @property(nonatomic,strong)UIButton *enterTimeBtn;
+
 @end
 
 @implementation AIBirthViewController
@@ -393,11 +394,15 @@
 }
 
 -(void)birthBottomViewDidShare:(AIBirthBottomView *)BottomView{
-    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//       _window = [[UIApplication sharedApplication].windows lastObject];
+//    });
    UIImage *shareImage = [AIScreenTool screenWithSize:self.bgView.bounds.size inView:self.bgView];
     
-    [UMSocialSnsService presentSnsIconSheetView:window.rootViewController appKey:AIUMAPPKEY shareText:@"时间,时间" shareImage:shareImage shareToSnsNames:[NSArray arrayWithObjects:
-                                                                                                                                                     UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,nil] delegate:self];
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:AIUMAPPKEY shareText:@"时间,时间" shareImage:shareImage shareToSnsNames:[NSArray arrayWithObjects:
+                                                                                                                                                     UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,nil] delegate:self];
 //    //分享微信的时候选择消息类型
 //    //1.纯图片
     [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
