@@ -298,6 +298,8 @@
  *  点击确定按钮
  */
 -(void)onClickEnterBtn:(UIButton*)enterBtn{
+    //让时钟开始动
+    [self.nowColck startRealTime];
     //这个时候确定时间
     //存储到沙盒
     [AIDateTool save:self.seldate_dateModel die:self.isDie];
@@ -346,6 +348,8 @@
  *  点击蒙版
  */
 -(void)onClickCoreBtn:(UIButton*)core{
+    //让时钟开始动
+    [self.nowColck startRealTime];
     [self.dateView removeFromSuperview];
     [core removeFromSuperview];
     __weak typeof (self) weakSelf = self;
