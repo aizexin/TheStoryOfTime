@@ -150,13 +150,35 @@
 }
 
 
+#pragma mark--------生命周期
 
-#pragma mark 初始化方法
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
     self.die = NO;
+    //监听通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(willEnterForeground:) name:AIWillEnterForegroundNotification object:nil];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    //因为ddMenu划过来会调用两次这个函数，时钟值刷新一次
+    static NSInteger indexshow = 0;
+    [super viewWillAppear:animated];
+    if (0 == indexshow%2) {
+        if (self.isDie) {//如果是死钟
+            [self setdieColck];
+        }else{
+            [self.nowColck reloadClock];
+        }
+        AILog(@"viewWillAppear0-----------------");
+    }
+    indexshow++;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+#pragma mark 初始化方法
 /**
  *  添加设置按钮
  */
@@ -370,6 +392,14 @@
  
 }
 
+/**
+ *  接受到回到前台通知
+ */
+-(void)willEnterForeground:(NSNotification*)notifi{
+    AILog(@"brith------willEnterForeground");
+    [self.nowColck reloadClock];
+}
+
 #pragma mark 代理方法
 #pragma mark -UUDatePickerDelegate
 -(void)uuDatePicker:(UUDatePicker *)datePicker year:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour minute:(NSString *)minute weekDay:(NSString *)weekDay{
@@ -415,18 +445,5 @@
 //    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeApp;
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    //因为ddMenu划过来会调用两次这个函数，时钟值刷新一次
-    static NSInteger indexshow = 0;
-    [super viewWillAppear:animated];
-    if (0 == indexshow%2) {
-        if (self.isDie) {//如果是死钟
-            [self setdieColck];
-        }else{
-            [self.nowColck reloadClock];
-        }
-        AILog(@"viewWillAppear0-----------------");
-    }
-    indexshow++;
-}
+
 @end

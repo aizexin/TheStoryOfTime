@@ -38,7 +38,7 @@
 #endif
 
 #ifdef DEBUG//调试阶段的log
-#define AILog(...) //NSLog(__VA_ARGS__)
+#define AILog(...) NSLog(__VA_ARGS__)
 #else
 #define AILog(...)
 #endif
@@ -105,6 +105,10 @@
 
 //通知DDMenu
 #define AIChange2LeftVC @"AIChange2LeftVC"
+
+//即将返回前台通知
+#define AIWillEnterForegroundNotification @"AIWillEnterForegroundNotification"
+
 
 //-------------------------------Birth相关--------------------------
 #define AIBirthShowScale (280.0/320)
