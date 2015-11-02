@@ -240,7 +240,7 @@ enum{
     //清空以前的 线
     [self.mapView removeOverlays:self.allOverlays];
     //添加到地图上
-    AILog(@"count----------%d",self.allOverlays.count);
+    AILog(@"count----------%ld",self.allOverlays.count);
     [self.mapView addOverlays:self.allOverlays];
     //标记为前台
     self.background = NO;
