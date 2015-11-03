@@ -32,7 +32,9 @@
 #import "AppDelegate.h"
 #import "DDMenuController.h"
 #import "AIBirthViewController.h"
+#import "MJRefresh.h"
 @interface AIOAuthViewController ()<UIWebViewDelegate>
+@property(nonatomic,weak)UIWebView *webView;
 @end
 
 @implementation AIOAuthViewController
@@ -58,6 +60,7 @@
     
     // 1.创建UIWebView
     UIWebView *webView = [[UIWebView alloc] init];
+    self.webView = webView;
     CGRect rect = self.view.bounds;
     rect.origin.y += AINavgationBarH;
     rect.size.height = Mainsize.height - AINavgationBarH -44;
@@ -68,6 +71,17 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
     webView.delegate = self;
+    
+    //添加刷新
+    __weak UIWebView *weakWebView = webView;
+    weakWebView.delegate = self;
+    
+    __weak UIScrollView *scrollView = webView.scrollView;
+    
+    // 添加下拉刷新控件
+    scrollView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakWebView reload];
+    }];
     
 }
 
@@ -121,9 +135,11 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     [MBProgressHUD hideHUD];
+    [self.webView.scrollView.header endRefreshing];
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
     [MBProgressHUD hideHUD];
+    [self.webView.scrollView.header endRefreshing];
 }
 -(void)jump2TabbarVC{
     
