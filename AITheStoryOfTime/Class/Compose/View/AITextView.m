@@ -49,7 +49,8 @@
     NSMutableDictionary *paramDictM = [NSMutableDictionary dictionary];
     paramDictM[NSFontAttributeName] = self.placeholderLabel.font;
     CGSize size = [self.placeholderLabel.text boundingRectWithSize:maxSize options:(NSStringDrawingUsesLineFragmentOrigin) attributes:paramDictM context:nil].size;
-    self.frame = (CGRect){5,8,size};
+    AILog(@"%@",NSStringFromCGSize(size));
+    self.placeholderLabel.frame = (CGRect){5,8,size};
 //    self.placeholderLabel.size = size;
 //    self.placeholderLabel.x = 5;
 //    self.placeholderLabel.y = 8;

@@ -116,7 +116,7 @@
  *  添加AIEmotionTextView
  */
 -(void)setupTextView{
-    AIEmotionTextView *textView = [[AIEmotionTextView alloc]initWithFrame:CGRectMake(0, AINavgationBarH, self.view.frame.size.width, self.view.frame.size.height - AINavgationBarH)];
+    AIEmotionTextView *textView = [[AIEmotionTextView alloc]initWithFrame:CGRectMake(0, AINavgationBarH, Mainsize.width, Mainsize.height - AINavgationBarH)];
     textView.delegate = self;
     self.textView = textView;
     textView.placeholder = @"分享新鲜事";
@@ -299,11 +299,18 @@
         case AIComposeToolBarTagTypeEmotion:{
             AILog(@"点击表情");
             [self openEmotion];
-            
-        }
-            
             break;
-            
+        }
+        case AIComposeToolBarTagTypeMention:{
+            AILog(@"点击@");
+            [ self.textView insertText:@"@"];
+            break;
+        }
+        case AIComposeToolBarTagTypeTrend:{
+            AILog(@"点击话题");
+            [ self.textView insertText:@"#"];
+            break;
+        }
         default:
             break;
     }
