@@ -114,13 +114,16 @@
 /**
  *  链接被点击事件
  */
--(void)linkDidSelected:(NSNotification*)note{
-    NSString *linkText = note.userInfo[AILinkText];
-    if ([linkText hasPrefix:@"http"]) {//如果是http链接
-        AIHomeHttpLinkViewController *httpLinkVC = [[AIHomeHttpLinkViewController alloc]initWithNibName:@"AIHomeHttpLinkViewController" bundle:nil];
-        httpLinkVC.httpLink = linkText;
-        [self.navigationController pushViewController:httpLinkVC animated:YES];
-    }
+- (void)linkDidSelected:(NSNotification *)note {
+  NSString *linkText = note.userInfo[AILinkText];
+  if ([linkText hasPrefix:@"http"]) {  //如果是http链接
+    AIHomeHttpLinkViewController *httpLinkVC =
+        [[AIHomeHttpLinkViewController alloc]
+            initWithNibName:@"AIHomeHttpLinkViewController"
+                     bundle:nil];
+    httpLinkVC.httpLink = linkText;
+    [self.navigationController pushViewController:httpLinkVC animated:YES];
+  }
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self ];
